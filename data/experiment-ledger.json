@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T17:08:17.185363+00:00",
+  "updated_utc": "2026-10-16T17:25:10.083545+00:00",
   "records": [
     {
       "id": "stage3",
@@ -105,6 +105,14 @@
       "result": "Original method-construction references for820000 getter found.",
       "limit": "Actual chip/object binding must be traced, no generic+348 assumption.",
       "interpretation": "docs/firmware.md"
+    },
+    {
+      "id": "stage33-clock",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "CMP40 reached 1296 MHz through its original cold-init input; one 64-MiB random-data roundtrip passed.",
+      "limit": "Tested step, not maximum clock, full-range integrity, long stability, bandwidth or LLM throughput qualification.",
+      "interpretation": "docs/clocks.md"
     }
   ],
   "campaign_result": {

@@ -4,14 +4,24 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 [Deutsch](README.de.md) · [Current findings](docs/findings.md) · [Experiments](docs/experiments.md) · [Open questions](docs/roadmap.md) · [Sources](docs/sources.md)
 
-**Status, 16 October 2026:** this campaign has not demonstrated additional usable memory above the existing 40/64 GiB baselines, or additional working SMs beyond the owner's established 74-SM baseline. It has produced useful negative results, a modest CMP40 memory-clock increase, and more precise maps of the original initialization paths.
+## CMP40 memory overclock: 1215 → 1296 MHz
+
+**Our Samsung 40-GiB CMP 170HX (`10de:2082`) now operates at 1296 MHz, up 6.67% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269 and 1296 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
+
+**Exploration is ongoing: 1296 MHz is a tested step, not an established maximum.** We have not qualified long-term stability, the full HBM address space, bandwidth gain or LLM speed. The setting is volatile. See the [clock method and results](docs/clocks.md) and [curated trial records](data/clock-trials.json).
+
+We do not claim a worldwide first: an [earlier owner's report explicitly describes a 40-GB memory overclock](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/). That external result and its evidence limits are documented separately from our measurements.
+
+## Current status — 16 October 2026
+
+This campaign has not demonstrated additional usable memory above the existing 40/64-GiB baselines, or additional working SMs beyond the owner's established 74-SM baseline. It has produced successful CMP40 clock steps, useful negative results and more precise maps of the original initialization paths.
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Existing reported capacity | Latest clock evidence |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 1269 MHz operating, 16 Oct 15:22 UTC |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 1296 MHz operating, 16 Oct 17:23 UTC |
 | CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 1836 MHz PLL configuration on an unbound card, 16 Oct 16:24 UTC |
 
-The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.
+The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied 64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.
 
 ## What is here
 
@@ -20,7 +30,7 @@ The two variants must not be treated as identical hardware. A reported capacity 
 - Sanitized, machine-readable observations under [data/](data/README.md).
 - [Methodology](docs/methodology.md), [maintenance rules](MAINTENANCE.md), and a small publication validator.
 
-The principal questions are CMP40 toward48 GiB, CMP64 toward80/96 GiB, and further working compute resources. These are research targets, not advertised unlocks. We record successful writes, effective topology changes, reported capacity and demonstrated usable capacity separately.
+The principal questions are CMP40 toward 48 GiB, CMP64 toward 80/96 GiB, and further working compute resources. These are research targets, not advertised unlocks. We record successful writes, effective topology changes, reported capacity and demonstrated usable capacity separately.
 
 ## Validate a contribution
 

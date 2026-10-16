@@ -22,7 +22,7 @@ The owner had already established74 working SMs. New source-vector measurements 
 
 ## Clock
 
-The CMP40 cold-initialization clock input accepted1269 MHz after the original1215 MHz setting; a short64-MiB copy roundtrip passed. CMP64 already had an1836-MHz setting before this campaign; its older BIOS-reported maximum was1728 MHz. No fresh long-term clock qualification is claimed. See[Clock notes](clocks.md).
+The CMP40 cold-initialization clock input reached 1242, 1269 and now **1296 MHz**, versus the original 1215 MHz (+6.67%). Each step passed a short 64-MiB copy roundtrip. An upper clock limit has not been determined; no worldwide-first claim is made. CMP64 already had an1836-MHz setting before this campaign; its older BIOS-reported maximum was1728 MHz. No fresh long-term clock qualification is claimed. See[Clock notes](clocks.md).
 
 ## Hypotheses that remain hypotheses
 

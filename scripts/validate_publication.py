@@ -72,6 +72,27 @@ def check_data():
         if not card['memory_clock'].get('evidence_utc') or not card['memory_clock'].get('kind'):
             error(ROOT / 'data/cards.json', 'clock observation needs time and kind')
 
+    clocks = load('clock-trials.json')
+    for record in clocks['records']:
+        coefficient = int(record['scratch13_coefficient'], 16)
+        clock = record['operating_memory_clock_mhz']
+        if coefficient & ~0xff00 != 0x10001 or ((coefficient >> 8) & 0xff) * 27 != clock:
+            error(ROOT / 'data/clock-trials.json', 'coefficient and observed clock disagree')
+        check = record['short_check']
+        if (not re.fullmatch(r'[0-9a-f]{64}', check['source_sha256'])
+                or check['source_sha256'] != check['returned_sha256']
+                or not check['full_returned_data_hash_matches']):
+            error(ROOT / 'data/clock-trials.json', 'copy verification and published hashes disagree')
+        if any(record[field] for field in ['full_vram_integrity_qualified', 'long_term_stability_proven',
+                                           'bandwidth_gain_measured', 'llm_throughput_gain_measured',
+                                           'maximum_clock_determined']):
+            error(ROOT / 'data/clock-trials.json', 'a short copy does not support broader qualification')
+    latest_clock = max(clocks['records'], key=lambda row: row['evidence_utc'])
+    cmp40 = next(card for card in cards if card['variant'] == 'cmp40')
+    if (cmp40['memory_clock']['mhz'] != latest_clock['operating_memory_clock_mhz']
+            or cmp40['memory_clock']['evidence_utc'] != latest_clock['evidence_utc']):
+        error(ROOT / 'data/cards.json', 'latest clock and curated trial record disagree')
+
     tpc = load('tpc-sources.json')
     for card in tpc['cards']:
         for name, rows in card['vectors'].items():

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-16 — CMP40 clock highlight and next tested step
+
+- Highlighted the documented Samsung CMP40 memory overclock on both home pages.
+- Reached 1296 MHz, up 6.67% from 1215 MHz, with one successful 64-MiB random-data copy check.
+- Published the 1242/1269/1296-MHz observations and matching copy hashes; kept maximum clock, long stability, full-memory integrity and throughput qualification explicitly open.
+- Added an earlier original 40-GB owner report and distinguished 170tune's 64-GB reference measurements. No worldwide-first claim is made.
+
 ## 2026-10-16 — Initial public laboratory notebook
 
 - Published curated CMP40/CMP64 observations, clock evidence and explicit claim levels.

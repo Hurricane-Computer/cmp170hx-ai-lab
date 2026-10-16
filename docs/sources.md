@@ -20,6 +20,9 @@
 
 ## Community work and external evidence
 
+- [Earlier 40-GB overclock owner report](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/): explicitly labels the card 40GB and reports increased bandwidth; no independently verified same-card PCI/memory-ID and PLL dump here. This precludes a supported worldwide-first claim by this lab.
+- [cachenetics/170tune](https://github.com/cachenetics/170tune) and its [reference matrices](https://github.com/cachenetics/170tune/blob/main/docs/reference-matrices.md): the project recognizes both variants, while the published reference measurements concern a 64-GB card.
+
 - [amoghmunikote/cmpunlocker](https://github.com/amoghmunikote/cmpunlocker), including[the70→74SM commit](https://github.com/amoghmunikote/cmpunlocker/commit/6c442eeb6448b97c803e72b61da344a39e0a26ab).
 - [admunch888/cmpunlocker](https://github.com/admunch888/cmpunlocker) and[sekkit/cmpunlocker-latest](https://github.com/sekkit/cmpunlocker-latest).
 - [PixelML/club-170hx understanding](https://github.com/PixelML/club-170hx/blob/main/docs/CMP170HX-UNDERSTANDING.md): the author's BIOS, tuning and workload observations; not our measurements.

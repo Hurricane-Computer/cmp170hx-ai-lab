@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T17:08:17.185363+00:00",
+  "updated_utc": "2026-10-16T17:25:10.083545+00:00",
   "cards": [
     {
       "variant": "cmp40",
@@ -14,7 +14,7 @@
         "identity_evidence_date": "2026-10-15"
       },
       "reported_memory_mib": 40960,
-      "reported_memory_evidence_utc": "2026-10-16T15:22:58.259306+00:00",
+      "reported_memory_evidence_utc": "2026-10-16T17:23:04.104932+00:00",
       "full_capacity_qualified_in_this_campaign": null,
       "established_sm_baseline": {
         "value": 74,
@@ -22,8 +22,8 @@
         "requalified_in_later_stages": false
       },
       "memory_clock": {
-        "mhz": 1269,
-        "evidence_utc": "2026-10-16T15:22:58.259306+00:00",
+        "mhz": 1296,
+        "evidence_utc": "2026-10-16T17:23:04.104932+00:00",
         "kind": "operating_clock",
         "bios_reported_maximum_mhz": 1215
       },
