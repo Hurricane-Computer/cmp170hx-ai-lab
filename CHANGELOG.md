@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-16 — CMP40 1323-MHz step and geometry-input provenance
+
+- Reached 1323 MHz, up 8.89% from1215, and passed one64-MiB random-data copy comparison; maximum and long stability remain unqualified.
+- Connected historical density/height fields to unmodified original DEVICE_ID replies, separately from the ROM profile cache. No new physical-package inventory.
+- Identified the ordinary App01 bank/rank consumer as an RRL histogram and the App45 preformatter helper as MMU range bookkeeping; neither produces new usable capacity.
+- Consolidated the already empty ordinary BIT-I script roots and already examined Devinit data span, without claiming all initialization mechanisms absent.
+
 ## 2026-10-16 — Configured-size reader and reservation accounting
 
 - Connected the exact 615.71.09 GA100 size reader to its six-bit LMR decoder and separated configured size from physical HBM.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T19:26:52.290551+00:00",
+  "updated_utc": "2026-10-16T19:54:33.243047+00:00",
   "evidence_level": "static-analysis",
   "hardware_operations": 0,
   "official_release": {
@@ -66,7 +66,7 @@
       "start": "0x624f",
       "lmr_output_call": "0x62a4",
       "saved_input_argument_pc": "0x60c6",
-      "boundary": "Current r2 after the unexpanded preceding call; ordinary geometry origin not established."
+      "boundary": "Current r2 after the now identified 18-instruction range-packing helper; nested access-helper register contract and ordinary geometry origin remain unresolved."
     },
     {
       "variant": "cmp64",
@@ -74,7 +74,7 @@
       "start": "0x626f",
       "lmr_output_call": "0x62c4",
       "saved_input_argument_pc": "0x60e6",
-      "boundary": "Current r2 after the unexpanded preceding call; ordinary geometry origin not established."
+      "boundary": "Current r2 after the now identified 18-instruction range-packing helper; nested access-helper register contract and ordinary geometry origin remain unresolved."
     }
   ],
   "original_formatter_scope": {

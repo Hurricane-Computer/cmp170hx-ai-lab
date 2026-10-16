@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T19:26:52.290551+00:00",
+  "updated_utc": "2026-10-16T19:54:33.243047+00:00",
   "records": [
     {
       "id": "stage3",
@@ -145,6 +145,30 @@
       "result": "Exact-release GA100 configured-size decoder connected; original formatters identified on both variants; one original region-insertion case evaluated in193 CPU instructions.",
       "limit": "Ordinary geometry input and physical backing remain open; no hardware access or extra usable capacity.",
       "interpretation": "docs/usable-size.md"
+    },
+    {
+      "id": "stage38-clock",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "CMP40 reached 1323 MHz (+8.89% from1215); one64-MiB random H2D/D2D/D2H hash comparison passed.",
+      "limit": "No maximum, full-range integrity, long stability, bandwidth gain or LLM throughput qualification.",
+      "interpretation": "docs/clocks.md"
+    },
+    {
+      "id": "stage38-source-provenance",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Historical raw ID response separated from ROM profile cache; ordinary App01 geometry-dependent calculation resolves to RRL histogram, not capacity.",
+      "limit": "No new identity read, package inventory, extra usable memory or new physical-enable mechanism.",
+      "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage37-38-bit-i",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Ordinary BIT-I main list empty, four direct script roots zero; Devinit data equals already examined source span.",
+      "limit": "No firmware-wide absence claim or new init entry.",
+      "interpretation": "docs/firmware.md"
     }
   ],
   "campaign_result": {

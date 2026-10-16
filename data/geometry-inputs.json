@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T19:54:33.243047+00:00",
+  "evidence_level": "static-analysis",
+  "new_hardware_queries_for_this_source_analysis": 0,
+  "identity_source": {
+    "historical_capture_date": "2026-10-15",
+    "command": "DEVICE_ID 0x0e",
+    "response_bits": 82,
+    "original_app08_call": "0x9280 -> 0x1312",
+    "port_read_and_unchanged_store": [
+      "0x140e",
+      "0x1410"
+    ],
+    "density_height_manufacturer_extraction": [
+      "0x9293",
+      "0x929f",
+      "0x92a2"
+    ],
+    "selected_profile_cache": "D1575; separate ROM-record-derived byte, not the raw reply source",
+    "limits": [
+      "Controller-interface identity, not independent package inventory",
+      "Disabled-port population and extra usable memory not proved",
+      "No complete separate public NVIDIA port-format specification"
+    ]
+  },
+  "app01_rrl": {
+    "normal_schema_index": 8,
+    "direct_call": "0x141f -> 0x3d20",
+    "body_instruction_count": 218,
+    "record_bytes": 20,
+    "packed_field_bits": 4,
+    "fixed_histogram_positions": 1536,
+    "initial_counter": "48 * bank_factor * rank_factor",
+    "result_validity_offset": "0x72",
+    "histogram_u16_offsets": [
+      "0x74",
+      "0x76",
+      "0x78",
+      "0x7a",
+      "0x7c"
+    ],
+    "is_capacity_bytes_or_gib": false,
+    "local_query_descriptors_examined": 21,
+    "query_offset_units": "bytes",
+    "query_overlap_with_histogram": false,
+    "further_histogram_consumer_proved": false
+  },
+  "preformatter_helper": {
+    "cmp40": "0x624b -> 0x5f47",
+    "cmp64": "0x626b -> 0x5f67",
+    "instructions_each": 18,
+    "result": "Packs existing bounds into MMU address words, not a new physical-geometry producer",
+    "nested_access_helpers_expanded": false,
+    "all_register_preservation_proved": false
+  },
+  "ordinary_bit_i": {
+    "version": 1,
+    "record_bytes": 36,
+    "nonzero_documented_pointer_fields": 7,
+    "documented_pointer_fields": 14,
+    "distinct_nonzero_targets": 5,
+    "ordinary_main_script_count": 0,
+    "other_documented_direct_script_roots_all_zero": true,
+    "devinit_data_matches_previously_examined_span": true,
+    "firmware_wide_initialization_absence_claimed": false
+  },
+  "extra_usable_capacity_proved": false,
+  "interpretations": [
+    "docs/memory-geometry.md",
+    "docs/usable-size.md",
+    "docs/firmware.md"
+  ]
+}

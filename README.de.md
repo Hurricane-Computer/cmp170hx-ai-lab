@@ -4,11 +4,11 @@ Unser öffentliches Forschungstagebuch zu Speicher, Recheneinheiten, Firmware un
 
 [English](README.md) · [Erkenntnisse](docs/findings.md) · [Versuche](docs/experiments.md) · [Offene Fragen](docs/roadmap.md)
 
-## CMP40-Speicher übertaktet: 1215 → 1296 MHz
+## CMP40-Speicher übertaktet: 1215 → 1323 MHz
 
-**Unsere 40-GiB-CMP mit Samsung-HBM (`10de:2082`) läuft jetzt mit 1296 statt ursprünglich 1215 MHz: plus 6,67 %.** Den Takteingang haben wir aus dem ursprünglichen Initialisierungscode der Karte nachvollzogen. Die Stufen 1242, 1269 und 1296 MHz haben jeweils einen kurzen Datenvergleich bestanden. Ein BIOS-Flash war dafür nicht nötig.
+**Unsere 40-GiB-CMP mit Samsung-HBM (`10de:2082`) läuft jetzt mit 1323 statt ursprünglich 1215 MHz: plus 8,89 %.** Den Takteingang haben wir aus dem ursprünglichen Initialisierungscode der Karte nachvollzogen. Die Stufen 1242, 1269, 1296 und 1323 MHz haben jeweils einen kurzen Datenvergleich bestanden. Ein BIOS-Flash war dafür nicht nötig.
 
-**Die Forschung läuft weiter: 1296 MHz ist eine getestete Stufe, keine ermittelte Obergrenze.** Langzeitstabilität, vollständiger Speicher, Bandbreitengewinn und LLM-Beschleunigung sind damit noch nicht nachgewiesen. Die Einstellung ist flüchtig. [Methode und Ergebnisse](docs/clocks.md) sowie [bereinigte Versuchsdatensätze](data/clock-trials.json) halten den genauen Umfang fest.
+**Die Forschung läuft weiter: 1323 MHz ist eine getestete Stufe, keine ermittelte Obergrenze.** Langzeitstabilität, vollständiger Speicher, Bandbreitengewinn und LLM-Beschleunigung sind damit noch nicht nachgewiesen. Die Einstellung ist flüchtig. [Methode und Ergebnisse](docs/clocks.md) sowie [bereinigte Versuchsdatensätze](data/clock-trials.json) halten den genauen Umfang fest.
 
 Eine weltweite Erstheit behaupten wir nicht: Es gibt bereits einen [früheren Besitzerbericht, der ausdrücklich eine 40-GB-Übertaktung beschreibt](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/). Fremde Angaben und eigene Messungen bleiben getrennt.
 

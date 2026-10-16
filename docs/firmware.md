@@ -40,4 +40,10 @@ A new RV64C-aware scan filled the earlier aligned-word search gap. Its six liter
 
 An additional exact function-address search located original construction branches that install a getter returning820000 at object+348. Stage32 connects this branch to the original OBJGPU metadata and GA100 ChipHal42 selection. The exact original GA100 getter is4b78dc0. Seven locally verified consumers only read status; their individual active GA100 call bridge remains open. The next step is a genuine topology producer connected to this identified object. Current public header layouts are not blindly substituted for the original binary's layout. See[GSP object map](gsp-object-map.md).
 
+## Ordinary BIT-I pointers: a bounded negative
+
+Both own originals and their mirrors have the same version1, 36-byte BIT-I record. Seven of 14 documented pointer fields are nonzero and alias five targets; that is not a count of independent tables or scripts. The ordinary main-script list starts with a null terminator, so contains zero scripts, as already observed earlier. Four other documented direct script roots are zero. The final two bytes at `+0x22` are zero but unnamed in the cited format, so are not assigned an invented role.
+
+The nonzero Devinit Tables pointer/size identifies exactly the already examined source35 data span, not a new script or geometry input. These findings do not imply firmware-wide absence of initialization code. The source basis is NVIDIA's [BIT_NVINIT_PTRS specification](https://nvidia.github.io/open-gpu-doc/BIOS-Information-Table/BIOS-Information-Table.html#_bit_nvinit_ptrs) and the pinned [envytools list reader](https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/nvbios/nvbios.c#L1282). No loader replay or hardware test follows from the same empty roots.
+
 Hashes and the twelve-image geometry comparison are in[firmware-catalog.json](../data/firmware-catalog.json). Primary references are in[Sources](sources.md).

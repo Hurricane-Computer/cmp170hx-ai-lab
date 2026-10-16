@@ -1,18 +1,19 @@
 # Memory-clock observations
 
-## CMP40: 1215 → 1242 → 1269 → 1296 MHz
+## CMP40: 1215 → 1242 → 1269 → 1296 → 1323 MHz
 
-The lab's Samsung CMP40 (`10de:2082`, 40 GiB reported) has now operated at three higher memory-clock steps through the original cold-initialization input. The latest observed step is **1296 MHz, 6.67% above the original 1215 MHz**. An upper limit has not been determined.
+The lab's Samsung CMP40 (`10de:2082`, 40 GiB reported) has now operated at four higher memory-clock steps through the original cold-initialization input. The latest observed step is **1323 MHz, 8.89% above the original 1215 MHz**. An upper limit has not been determined.
 
 | Stage | Operating memory clock | Change from 1215 MHz | Short copy-check time, UTC | Result |
 |---|---:|---:|---|---|
 | 25 | 1242 MHz | +2.22% | 16 Oct 2026, 14:35:28 | 64-MiB random-data roundtrip passed |
 | 28 | 1269 MHz | +4.44% | 16 Oct 2026, 15:22:58 | Same limited check passed |
 | 33 | 1296 MHz | +6.67% | 16 Oct 2026, 17:23:04 | Same limited check passed |
+| 38 | 1323 MHz | +8.89% | 16 Oct 2026, 19:50:31 | Same limited check passed |
 
 The driver continued to report its original 1215-MHz maximum while the actual memory-clock query showed the higher value. Power limit remained 175 W. Structured observations, matching data hashes and explicit scope are in [clock-trials.json](../data/clock-trials.json).
 
-Each short check used two 64-MiB buffers and a private CUDA context, performed one random H2D → D2D → D2H roundtrip, compared the full returned data by SHA256, then freed the buffers and context. This checks a small transfer at the observed clock. It does **not** establish full-range integrity, long-term stability, measured bandwidth gain or LLM throughput. A 6.67% clock increase is not a measured 6.67% application speedup.
+Each short check used two 64-MiB buffers and a private CUDA context, performed one random H2D → D2D → D2H roundtrip, compared the full returned data by SHA256, then freed the buffers and context. This checks a small transfer at the observed clock. It does **not** establish full-range integrity, long-term stability, measured bandwidth gain or LLM throughput. An 8.89% clock increase is not a measured 8.89% application speedup.
 
 ## Ordinary input established from original code
 
@@ -24,6 +25,7 @@ Original App08 reads PBUS Scratch13 at `0x1434` in the cold path. A nonzero valu
 | `0x00012e01` | 46 | 1242 MHz |
 | `0x00012f01` | 47 | 1269 MHz |
 | `0x00013001` | 48 | 1296 MHz |
+| `0x00013101` | 49 | 1323 MHz |
 
 The successful trials published one original Scratch13 input immediately after an exclusive card reset while the observed entry gates were pending, then allowed normal initialization with the installed driver. No direct PLL broadcast write or BIOS flash was used. The observed clock and successful copy are the outcome evidence; the input and gate readbacks alone do not prove a particular firmware instruction executed. A general divider format is not claimed.
 

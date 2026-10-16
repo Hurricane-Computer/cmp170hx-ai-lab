@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T17:25:10.083545+00:00",
+  "updated_utc": "2026-10-16T19:54:33.243047+00:00",
   "method": "Original cold-init Scratch13 input; coefficient bytes other than N preserved.",
   "setting_is_volatile": true,
   "records": [
@@ -84,6 +84,36 @@
         "route": "H2D -> D2D -> D2H",
         "source_sha256": "9df855dd33c0a55be2b18e344a1e0c49c131d18b4a002acb40cd27bd508e8ff5",
         "returned_sha256": "9df855dd33c0a55be2b18e344a1e0c49c131d18b4a002acb40cd27bd508e8ff5",
+        "full_returned_data_hash_matches": true,
+        "allocations_released": true,
+        "clock_maintained_after_copy": true
+      },
+      "full_vram_integrity_qualified": false,
+      "long_term_stability_proven": false,
+      "bandwidth_gain_measured": false,
+      "llm_throughput_gain_measured": false,
+      "maximum_clock_determined": false
+    },
+    {
+      "id": "stage38",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-16T19:50:31.337449+00:00",
+      "variant": "cmp40",
+      "pci_device_id": "10de:2082",
+      "memory_manufacturer": "Samsung",
+      "operating_memory_clock_mhz": 1323,
+      "original_memory_clock_mhz": 1215,
+      "clock_gain_percent": 8.8889,
+      "scratch13_coefficient": "0x00013101",
+      "reported_memory_mib": 40960,
+      "bios_reported_maximum_mhz": 1215,
+      "power_limit_w": 175.0,
+      "short_check": {
+        "roundtrip_bytes": 67108864,
+        "explicit_cuda_allocations_bytes": 134217728,
+        "route": "H2D -> D2D -> D2H",
+        "source_sha256": "78de882dbd84752b0cefef1bf391b3146c1a37270647cf1b5264db7fc82e767d",
+        "returned_sha256": "78de882dbd84752b0cefef1bf391b3146c1a37270647cf1b5264db7fc82e767d",
         "full_returned_data_hash_matches": true,
         "allocations_released": true,
         "clock_maintained_after_copy": true

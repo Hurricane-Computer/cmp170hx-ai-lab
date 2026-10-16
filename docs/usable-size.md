@@ -32,7 +32,7 @@ The dispatch, reader and included register header are also byte-identical at the
 
 The existing original-ROM disassemblies contain an actual LMR formatter: **CMP40 App45 `0x624f..0x62a4`**, **CMP64 App45 `0x626f..0x62c4`**. Visible operations normalize the current r2 value into a six-bit magnitude and four-bit scale, insert the one-bit ECC mode and preserve other register fields. These operations agree with the public field contract.
 
-This is a formatter of an input value, not a proved physical-geometry discovery routine or the sole initial Devinit producer. The current r2 input and the earlier saved size argument r4 remain the precise source boundary. Unexpanded calls and their register-preservation contract also bound the analysis. Adjacent protection logic and the existing access helpers were not expanded. No new write sequence is derived.
+This is a formatter of an input value, not a proved physical-geometry discovery routine or the sole initial Devinit producer. The current r2 input and the earlier saved size argument r4 remain the precise source boundary. The previously opaque preformatter call is now bounded: CMP40 `624b→5f47`, CMP64 `626b→5f67`, each an 18-instruction helper. It packs the passed range bounds into the already identified MMU address words `0x1fa82c/0x1fa830`, preserving their low four bits. This is address-range bookkeeping, not a geometry producer. Under the existing access-helper contract and without overflow, the caller/consumer arithmetic is consistent with MiB bounds; no actual register values are inferred. Nested access-helper register preservation still bounds the analysis. Adjacent protection logic and the access helpers themselves were not expanded. No new write sequence is derived.
 
 ## Original region accounting
 
