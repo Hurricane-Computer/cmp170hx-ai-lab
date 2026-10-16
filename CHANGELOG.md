@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16 — Configured-size reader and reservation accounting
+
+- Connected the exact 615.71.09 GA100 size reader to its six-bit LMR decoder and separated configured size from physical HBM.
+- Identified original field formatters on both CMP variants while preserving the unproved normal geometry input.
+- Resolved one original region-insertion case in 193 CPU-only instructions; separated total size, usable region and reservation. No hardware or extra-capacity result.
+
 ## 2026-10-16 — Startup metadata candidate
 
 - Matched seven original buffer accesses, including two halfword widths, to the complete legacy WPR-metadata layout; separated V1's reserved fields.

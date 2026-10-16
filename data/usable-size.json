@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T19:26:52.290551+00:00",
+  "evidence_level": "static-analysis",
+  "hardware_operations": 0,
+  "official_release": {
+    "tag": "615.71.09",
+    "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "legacy_header_and_host_constructor_byte_identical_to_previous_pin": true,
+    "dispatch_reader_and_register_header_byte_identical_to_previous_pin": true,
+    "previous_pin": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+    "actual_host_metadata_type": "GspFwWprMetaV1",
+    "actual_host_asserted_metadata_bytes": 256,
+    "original_ecall_record_identity_established": false
+  },
+  "public_reader": {
+    "GA100_dispatch": "kmemsysReadUsableFbSize_GP102",
+    "register": "0x00100ce0",
+    "fields": {
+      "MAG": {
+        "msb": 9,
+        "lsb": 4,
+        "width": 6
+      },
+      "SCALE": {
+        "msb": 3,
+        "lsb": 0,
+        "width": 4
+      },
+      "ECC_MODE": {
+        "bit": 30
+      }
+    },
+    "formula_bytes": "uint64(MAG) << (SCALE+20)",
+    "when_register_ecc_bit_is_enabled": "size_bytes = size_bytes/16*15",
+    "current_ecc_mode_queried": false,
+    "source_attribution": "VBIOS Devinit calculates the lower range values.",
+    "physical_population_or_memory_training_performed_by_reader": false
+  },
+  "offline_decoder_examples": [
+    {
+      "word": "0x208",
+      "GiB_before_ecc_adjustment": 8.0
+    },
+    {
+      "word": "0x20b",
+      "GiB_before_ecc_adjustment": 64.0
+    },
+    {
+      "word": "0x28a",
+      "GiB_before_ecc_adjustment": 40.0
+    },
+    {
+      "word": "0x28b",
+      "GiB_before_ecc_adjustment": 80.0
+    },
+    {
+      "word": "0x50a",
+      "GiB_before_ecc_adjustment": 16.0
+    }
+  ],
+  "original_formatters": [
+    {
+      "variant": "cmp40",
+      "application": "App45",
+      "start": "0x624f",
+      "lmr_output_call": "0x62a4",
+      "saved_input_argument_pc": "0x60c6",
+      "boundary": "Current r2 after the unexpanded preceding call; ordinary geometry origin not established."
+    },
+    {
+      "variant": "cmp64",
+      "application": "App45",
+      "start": "0x626f",
+      "lmr_output_call": "0x62c4",
+      "saved_input_argument_pc": "0x60e6",
+      "boundary": "Current r2 after the unexpanded preceding call; ordinary geometry origin not established."
+    }
+  ],
+  "original_formatter_scope": {
+    "visible_normalization": "Repeated unsigned right shifts until magnitude<=63, separate scale counter; zero input uses magnitude1/scale0.",
+    "visible_fields": "Magnitude&0x3f, scale&0xf, mode_bit&1 shifted30; other LMR fields retained.",
+    "unexpanded_calls_and_register_contracts_remain": true,
+    "ordinary_initial_devinit_producer_established": false,
+    "physical_geometry_input_established": false,
+    "new_register_write_proposed": false
+  },
+  "original_region_accounting": {
+    "firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+    "outer_initializer": "0x4a5d80c",
+    "inserter": "0x4a58e4c",
+    "actual_called_helpers": [
+      "0x5544c84",
+      "0x4a58cb8"
+    ],
+    "synthetic_case_instructions": 193,
+    "synthetic_inputs": {
+      "total_MiB": 16,
+      "reservation_start_MiB": 12,
+      "represents_actual_card_values": false
+    },
+    "initial_region": "[0,T-1]",
+    "inserted_region": "[R,T-1], reserved",
+    "result": [
+      "[0,R-1], only allocatable-priority index",
+      "[R,T-1], reserved"
+    ],
+    "scalar_698_and_6c0_unchanged_by_selected_inserter": true,
+    "subsequent_caller_arithmetic": {
+      "field_698": "old698 + R - T",
+      "field_6c0": "old6c0 + T - R"
+    },
+    "scope": "One selected original insertion case and its two actual normal helpers; not all branches or the entire outer initializer."
+  },
+  "exact_release_public_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h",
+      "sha256": "f3b615a6d87b557ddab986b6ba6a5209901f09edcf0e5b9c983e0d8112538fc5",
+      "bytes": 7696
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c",
+      "sha256": "df312262254d712e8340c2d428bb5869354756f41b7a5758aac2f1825fdf2550",
+      "bytes": 47956
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_kern_mem_sys_nvoc.c",
+      "sha256": "b9f736913243f187c1479d930891c9ee5e31c59992bfd671351287d555af2988",
+      "bytes": 61922
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_sys/arch/pascal/kern_mem_sys_gp102.c",
+      "sha256": "fd86182356036858ffa63d3f37198927f9d184eba9d98b0dc719e8b31cac2d31",
+      "bytes": 2284
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/pascal/gp102/dev_fb.h",
+      "sha256": "8c888f0662f043d8dc2e4fd86aa98cef376dff36e59282e36638eedfa2dcc43b",
+      "bytes": 1849
+    }
+  ],
+  "claims": {
+    "extra_usable_memory_gib_demonstrated": 0,
+    "extra_working_sms_demonstrated": 0,
+    "new_physical_enable_mechanism_established": false
+  },
+  "interpretation": "docs/usable-size.md",
+  "address_note": "Original routine addresses are firmware virtual addresses. The public register address is decoder provenance, not a write procedure."
+}

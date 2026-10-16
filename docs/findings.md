@@ -19,6 +19,8 @@ The original GA100 sizing getter corresponds to NVIDIA's FLA virtual-address-spa
 
 ## Firmware and configuration
 
+The exact 615.71.09 public GA100 reader decodes a VBIOS-configured memory range, with six magnitude bits. An original formatter is present on both CMP variants, but its normal physical-geometry input is not closed. One original CPU-only region-insertion case separately resolves usable-versus-reserved bookkeeping. See [Configured size and region accounting](usable-size.md).
+
 - The ordinary RPR path is now traced from original App01 output to original App45 consumption. Its primary register helper ORs requested bits into the read value; a special mirror has distinct semantics. It is not a discovered general enable script.
 - Original App08 captures the effective FBPA-disable mask and uses it in24 configuration entries, two completion polls and a later constrained table path. The entries for the disabled units already exist in the original data.
 - All twelve examined original CMP/A100/A800 images have the same16-byte Memory Partition Information Table. Their Memory Script List and RAMMAP pointers are zero. The six table records are not proof of six working HBM stacks.

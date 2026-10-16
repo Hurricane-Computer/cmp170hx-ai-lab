@@ -55,6 +55,6 @@ The examined data-initializer bodies have no calls; the MemoryManager body was a
 
 ## What remains open
 
-The next source target is the actual producer/contract of these two buffer fields and the public GA100 usable-size reader, preserving the version and service gaps above. Its relationship to populated, enabled and trained HBM must be established before deriving a geometry experiment. The connected software parameters are not evidence that raising them creates backing storage.
+The public GA100 reader and exact-release metadata counterpart have now been followed: see [Configured size and region accounting](usable-size.md). The original buffer's service/type identity and the ordinary physical-geometry origin remain open. Their relationship to populated, enabled and trained HBM must be established before deriving a geometry experiment. The connected software parameters are not evidence that raising them creates backing storage.
 
 Results on this page are static analysis of the unchanged original firmware and pinned public source counterparts. No hardware access, capacity gain, new working SM, reset or clock change was performed for this stage.

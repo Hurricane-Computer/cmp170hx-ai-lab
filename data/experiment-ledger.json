@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T17:46:52.661565+00:00",
+  "updated_utc": "2026-10-16T19:26:52.290551+00:00",
   "records": [
     {
       "id": "stage3",
@@ -137,6 +137,14 @@
       "result": "Original creator mode enables the guarded writer; two size inputs originate in a buffer also passed to an earlier successful ECALL; early constructor paths bounded separately. Seven original accesses fit a complete legacy metadata-layout candidate; a public host counterpart supplies an ordinary usable-size-reader target.",
       "limit": "Original record identity, buffer contract/content producer, intervening call effects and physical backing remain unresolved; no hardware access.",
       "interpretation": "docs/startup-memory.md"
+    },
+    {
+      "id": "stage37-usable-size",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Exact-release GA100 configured-size decoder connected; original formatters identified on both variants; one original region-insertion case evaluated in193 CPU instructions.",
+      "limit": "Ordinary geometry input and physical backing remain open; no hardware access or extra usable capacity.",
+      "interpretation": "docs/usable-size.md"
     }
   ],
   "campaign_result": {
