@@ -134,8 +134,8 @@
       "id": "stage36-startup-inputs",
       "date": "2026-10-16",
       "evidence_level": "static-analysis",
-      "result": "Original creator mode enables the guarded writer; two size inputs originate in a buffer also passed to an earlier successful ECALL; early constructor paths bounded separately.",
-      "limit": "Buffer contract/content producer, intervening calls and physical backing remain unresolved; no hardware access.",
+      "result": "Original creator mode enables the guarded writer; two size inputs originate in a buffer also passed to an earlier successful ECALL; early constructor paths bounded separately. Seven original accesses fit a complete legacy metadata-layout candidate; a public host counterpart supplies an ordinary usable-size-reader target.",
+      "limit": "Original record identity, buffer contract/content producer, intervening call effects and physical backing remain unresolved; no hardware access.",
       "interpretation": "docs/startup-memory.md"
     }
   ],

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T18:47:59.945938+00:00",
+  "updated_utc": "2026-10-16T19:07:55.004725+00:00",
   "evidence_level": "static-analysis",
   "hardware_operations": 0,
   "original_firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
@@ -124,5 +124,74 @@
     "physical_memory_test_performed": false
   },
   "interpretation": "docs/startup-memory.md",
-  "address_space_note": "Original firmware virtual code/global-data addresses; no PCIe MMIO write procedure."
+  "address_space_note": "Original firmware virtual code/global-data addresses; no PCIe MMIO write procedure.",
+  "official_metadata_candidate": {
+    "classification": "multi-field structural candidate, not established original record identity",
+    "source_revision": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+    "legacy_type": "GspFwWprMeta",
+    "declared_and_modelled_size": "0x100",
+    "legacy_header": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h",
+    "v1_header": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta_v1.h",
+    "original_access_matches": [
+      {
+        "offset": "0x58",
+        "bytes": 8,
+        "pc": "0x5503484",
+        "legacy_member": "gspFwRsvdStart"
+      },
+      {
+        "offset": "0xa0",
+        "bytes": 8,
+        "pc": "0x550344c",
+        "legacy_member": "frtsSize"
+      },
+      {
+        "offset": "0xa8",
+        "bytes": 8,
+        "pc": "0x5503494",
+        "legacy_member": "gspFwWprEnd"
+      },
+      {
+        "offset": "0xb0",
+        "bytes": 8,
+        "pc": "0x5503474",
+        "legacy_member": "fbSize"
+      },
+      {
+        "offset": "0xd0",
+        "bytes": 8,
+        "pc": "0x55034c4",
+        "legacy_member": "partitionRpcAddr"
+      },
+      {
+        "offset": "0xd8",
+        "bytes": 2,
+        "pc": "0x55034cc",
+        "legacy_member": "partitionRpcRequestOffset"
+      },
+      {
+        "offset": "0xda",
+        "bytes": 2,
+        "pc": "0x55034e0",
+        "legacy_member": "partitionRpcReplyOffset"
+      }
+    ],
+    "base_scope": "Same visible source buffer; ordinary callee-saved convention assumed across normal calls.",
+    "v1_difference": "First four listed fields shared; d0/d8/da are within reserved1[16], not named partition fields in V1.",
+    "normal_host_counterpart": {
+      "source": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c#L619",
+      "function": "kgspPopulateWprMeta_TU102",
+      "record_type_at_this_public_pin": "GspFwWprMetaV1",
+      "fbSize_input": "kmemsysGetUsableFbSize_HAL",
+      "reserved_start": "Calculated from nonWprHeapOffset in the normal layout",
+      "ga100_public_dispatch": "kmemsysGetUsableFbSize_KERNEL ->kmemsysReadUsableFbSize_GP102",
+      "generated_dispatch_source": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_kern_mem_sys_nvoc.c#L363",
+      "ordinary_getter_source": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/mem_sys/kern_mem_sys.c#L1235",
+      "limit": "Public source counterpart only; original version/record linkage and physical geometry origin not closed."
+    },
+    "record_identity_established": false,
+    "original_ecall_abi_established": false,
+    "returned_byte_count_established": false,
+    "physical_population_established": false
+  }
 }

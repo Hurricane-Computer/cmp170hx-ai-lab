@@ -27,6 +27,26 @@ The intervening calls are now reduced to twelve specific sites and two helper ta
 
 An aligned pointer in the original ELF `.manifest` at `0x4012748` references this producer. The outer ELF entry is `0x4009000`. Without the complete manifest/dispatcher contract, the pointer is retained as an entry candidate rather than proof that this routine was invoked at a particular startup stage.
 
+## A concrete metadata-layout candidate
+
+The complete official [GspFwWprMeta layout](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h) is exactly `0x100` bytes. Seven visible accesses in the original producer fit that layout, including the two halfword widths:
+
+| Original offset | Width | Member in the legacy public layout |
+|---|---|---|
+| `+0x58` | 8 | `gspFwRsvdStart` |
+| `+0xa0` | 8 | `frtsSize` |
+| `+0xa8` | 8 | `gspFwWprEnd` |
+| `+0xb0` | 8 | `fbSize` |
+| `+0xd0` | 8 | `partitionRpcAddr` |
+| `+0xd8` | 2 | `partitionRpcRequestOffset` |
+| `+0xda` | 2 | `partitionRpcReplyOffset` |
+
+The four first fields are shared by [GspFwWprMetaV1](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta_v1.h). Its `+0xd0..+0xdf` bytes are reserved, so the partition-field names apply to the legacy type only. The original flow tests `+0xd0` before consuming the two halfwords; this also fits their documented relationship. The visible base remains the same buffer under the ordinary callee-saved calling convention.
+
+This is a stronger structural candidate than two isolated offsets. It still does not independently establish the original record type, service ABI, header-version equivalence or actual returned byte count. The metadata header's diagram describes `fbSize` as the framebuffer end and `gspFwRsvdStart` as a reservation boundary below it; they are not two independent physical-density readings.
+
+The pinned public [host metadata constructor](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c#L619) obtains `fbSize` through `kmemsysGetUsableFbSize_HAL` and calculates `gspFwRsvdStart` from the heap layout. That version uses V1. Its generated GA100 dispatch selects `kmemsysReadUsableFbSize_GP102` through the normal kernel getter. These public counterparts provide the next ordinary size-source target; they are not a completed bridge into the original buffer or a new physical-memory-enable mechanism.
+
 ## Earlier constructors were bounded separately
 
 The original early MemoryManager hook creates eight indexed software children of size `0xf0`. They are not eight discovered HBM stacks. The selected early constructor of original class `0x174e21` prepares configuration lists and has four selected return0 callbacks. Neither followed constructor supplied another connected memory-region producer.
@@ -35,6 +55,6 @@ The examined data-initializer bodies have no calls; the MemoryManager body was a
 
 ## What remains open
 
-The next source target is the actual producer/contract of these two buffer fields, including the specific ECALL and intervening initialization. Its relationship to populated, enabled and trained HBM must be established before deriving a geometry experiment. The connected software parameters are not evidence that raising them creates backing storage.
+The next source target is the actual producer/contract of these two buffer fields and the public GA100 usable-size reader, preserving the version and service gaps above. Its relationship to populated, enabled and trained HBM must be established before deriving a geometry experiment. The connected software parameters are not evidence that raising them creates backing storage.
 
-All results on this page are static analysis of the unchanged original firmware. No hardware access, capacity gain, new working SM, reset or clock change was performed for this stage.
+Results on this page are static analysis of the unchanged original firmware and pinned public source counterparts. No hardware access, capacity gain, new working SM, reset or clock change was performed for this stage.

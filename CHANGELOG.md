@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-16 — Startup metadata candidate
+
+- Matched seven original buffer accesses, including two halfword widths, to the complete legacy WPR-metadata layout; separated V1's reserved fields.
+- Connected the public metadata counterpart to its ordinary usable-size getter. Original record identity, exact service contract, physical capacity and additional usable memory remain unproved.
+
 ## 2026-10-16 — Runtime guard and upstream size inputs
 
 - Connected the original GPU creator mode to the size writer's enabled runtime guard with one strict 127-instruction CPU evaluation.
