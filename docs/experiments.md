@@ -19,6 +19,8 @@ Dates are campaign dates in UTC. The stage numbers are stable notebook reference
 | Stage38, 16 Oct | Further original cold-init CMP40 clock step | 1323 MHz (+8.89% from 1215); same limited copy check passed | Maximum clock, full memory, long stability, bandwidth gain or LLM speed |
 | Stage39, 16 Oct | Final clock point before the requested pause | 1350 MHz (+11.11% from 1215); same limited copy check passed | Maximum clock, full memory, long stability, bandwidth gain or LLM speed |
 
+Stage40 was a separate requested bounded load follow-up at the unchanged1350MHz point:30s copy /60s streaming, 1534.8/1538.1GB/s effective read+write bandwidth, with all checked outputs correct. Scope and temperature limits are in[the load report](bandwidth-load.md).
+
 ## Accepted readback versus effective topology
 
 The memory CTRL values are separate from the effective FBP/FBPA/FBIO status. CMP40 retained the observed840/c03000 geometry and10 logicalFBPs; CMP64 retained852/c0330c and8 logicalFBPs in these experiments. Later source work confirmed that the original training paths consume those effective masks.

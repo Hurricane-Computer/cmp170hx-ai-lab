@@ -16,6 +16,10 @@ The driver continued to report its original 1215-MHz maximum while the actual me
 
 Each short check used two 64-MiB buffers and a private CUDA context, performed one random H2D → D2D → D2H roundtrip, compared the full returned data by SHA256, then freed the buffers and context. This checks a small transfer at the observed clock. It does **not** establish full-range integrity, long-term stability, measured bandwidth gain or LLM throughput. An 11.11% clock increase is not a measured 11.11% application speedup.
 
+## Separate bounded load observation at 1350 MHz
+
+Stage40 added 30 s of internal copy load and 60 s of SM streaming load at the same 1350 MHz / 175 W point. It measured 1534.8 and 1538.1 GB/s respectively, counting requested reads+writes. All checked 512-MiB outputs matched. This is an absolute single-clock bandwidth observation; no matched stock-clock comparison or long-term qualification was performed. See [method, temperatures and limits](bandwidth-load.md).
+
 ## Ordinary input established from original code
 
 Original App08 reads PBUS Scratch13 at `0x1434` in the cold path. A nonzero value replaces the table PLL coefficient at `0x98bc98`; the examined warm path does not consume it. CMP40's original coefficient `0x00012d01` corresponds to N45 / 1215 MHz at the observed 27-MHz reference. Successful steps preserve the other coefficient bytes:

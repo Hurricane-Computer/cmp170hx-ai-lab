@@ -30,6 +30,8 @@ The exact 615.71.09 public GA100 reader decodes a VBIOS-configured memory range,
 
 The CMP40 cold-initialization clock input reached 1242, 1269, 1296, 1323 and now **1350 MHz**, versus the original 1215 MHz (+11.11%). Each step passed a short 64-MiB copy roundtrip. An upper clock limit has not been determined; no worldwide-first claim is made. CMP64 already had an1836-MHz setting before this campaign; its older BIOS-reported maximum was1728 MHz. No fresh long-term clock qualification is claimed. See[Clock notes](clocks.md).
 
+A subsequent one-off load at1350MHz measured1534.8GB/s for internal copies and1538.1GB/s for an SM streaming kernel, counting reads+writes. All checked outputs passed; this does not establish long-term/full-memory stability or LLM throughput. See[bounded load](bandwidth-load.md).
+
 ## Hypotheses that remain hypotheses
 
 The CMP40 may belong to the40-GB A100 memory family and CMP64 to the80-GB family. Manufacturer and density are consistent with this comparison; neither proves that a particular CMP was previously a completed A100. Manufacturing binning, product segmentation, disabled stack population and stack health cannot be inferred from marketing labels alone.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16 — Bounded load and bandwidth at1350MHz
+
+- Completed one additional requested30s-copy/60s-streaming load at unchanged1350MHz/175W: 1534.8/1538.1GB/s effective read+write throughput.
+- All8 full512-MiB output comparisons passed; sampled maxima were51°C GPU/72°C HBM. Context and buffers released.
+- Recorded the method, byte-count convention, hashes and telemetry. No long-term/full-VRAM/LLM qualification or matched stock-clock performance claim. Recurring work remains paused.
+
 ## 2026-10-16 — Final 1350-MHz point and research pause
 
 - Reached 1350 MHz, up 11.11% from the original 1215 MHz, and passed one 64-MiB random-data comparison with buffers/context released.

@@ -12,6 +12,8 @@ Unser öffentliches Forschungstagebuch zu Speicher, Recheneinheiten, Firmware un
 
 Eine weltweite Erstheit behaupten wir nicht: Es gibt bereits einen [früheren Besitzerbericht, der ausdrücklich eine 40-GB-Übertaktung beschreibt](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/). Fremde Angaben und eigene Messungen bleiben getrennt.
 
+Ein anschließender begrenzter Lasttest bei 1350 MHz ergab **1.53 TB/s** beim internen Kopieren und **1.54 TB/s** mit einem Streaming-Rechenkern, jeweils Lesen+Schreiben. Alle geprüften Ausgaben waren korrekt. [90-Sekunden-Test und Grenzen](docs/bandwidth-load.md).
+
 ## Stand: 16. Oktober 2026
 
 Es sind noch keine zusätzlichen tatsächlich nutzbaren GiB oberhalb der bisherigen 40-/64-GiB-Basis und keine zusätzlichen funktionierenden SMs jenseits der bereits etablierten 74 nachgewiesen. Mehrere vermeintliche Hebel sind inzwischen genauer eingegrenzt.

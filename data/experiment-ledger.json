@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T20:10:26.819920+00:00",
+  "updated_utc": "2026-10-16T20:22:59.403021+00:00",
   "records": [
     {
       "id": "stage3",
@@ -177,6 +177,14 @@
       "result": "CMP40 reached 1350 MHz (+11.11% from 1215); one 64-MiB random H2D/D2D/D2H hash comparison passed. Final trial before the requested pause.",
       "limit": "No maximum, full-range integrity, long stability, bandwidth gain or LLM throughput qualification.",
       "interpretation": "docs/clocks.md"
+    },
+    {
+      "id": "stage40-bandwidth-load",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "At1350MHz,30s internal copies measured1534.8GB/s and60s SM streaming measured1538.1GB/s, counting reads+writes. All checked outputs passed.",
+      "limit": "One1.5GiB working set, not full40GiB or long-term stability; no matched stock-clock baseline, DRAM counter or LLM throughput. Automation remains paused.",
+      "interpretation": "docs/bandwidth-load.md"
     }
   ],
   "campaign_result": {

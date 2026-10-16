@@ -12,6 +12,8 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 We do not claim a worldwide first: an [earlier owner's report explicitly describes a 40-GB memory overclock](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/). That external result and its evidence limits are documented separately from our measurements.
 
+A subsequent bounded load observation at 1350 MHz measured **1.53 TB/s** for internal copies and **1.54 TB/s** for an SM streaming kernel, counting reads+writes. All checked outputs matched. See the [90-second load observation and limits](docs/bandwidth-load.md).
+
 ## Current status — 16 October 2026
 
 This campaign has not demonstrated additional usable memory above the existing 40/64-GiB baselines, or additional working SMs beyond the owner's established 74-SM baseline. It has produced successful CMP40 clock steps, useful negative results and more precise maps of the original initialization paths.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T20:10:26.819920+00:00",
+  "updated_utc": "2026-10-16T20:22:59.403021+00:00",
   "cards": [
     {
       "variant": "cmp40",
@@ -27,7 +27,17 @@
         "kind": "operating_clock",
         "bios_reported_maximum_mhz": 1215
       },
-      "short_roundtrip_bytes": 67108864
+      "short_roundtrip_bytes": 67108864,
+      "bounded_load": {
+        "evidence_utc": "2026-10-16T20:21:16.308274+00:00",
+        "clock_mhz": 1350,
+        "total_buffer_bytes": 1610612736,
+        "all_sampled_outputs_match": true,
+        "copy_effective_gb_s": 1534.7865999376315,
+        "stream_effective_gb_s": 1538.1135890031364,
+        "full_memory_integrity_qualified": false,
+        "long_term_stability_proven": false
+      }
     },
     {
       "variant": "cmp64",
