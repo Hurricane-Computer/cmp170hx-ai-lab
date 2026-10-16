@@ -1,6 +1,6 @@
 # Maintenance
 
-The research owner's existing recurring research task maintains this publication at meaningful milestones. Hardware research and publication are separate operations; this repository is the curated public record.
+The scheduled research task and publication upkeep are paused at the owner's request after the final 16 October trial. Resume automatic work only on a new instruction. While active, the existing recurring task maintains this publication at meaningful milestones. Hardware research and publication are separate operations; this repository is the curated public record.
 
 1. Read the latest local research checkpoint and check which observations or static findings actually changed.
 2. Update the appropriate technical note, structured extract and[CHANGELOG](CHANGELOG.md). Preserve earlier negative results and correct mistakes openly.

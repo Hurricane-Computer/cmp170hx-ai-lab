@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16 — Final 1350-MHz point and research pause
+
+- Reached 1350 MHz, up 11.11% from the original 1215 MHz, and passed one 64-MiB random-data comparison with buffers/context released.
+- Recorded the observed clock and matching data hashes; no maximum, long stability, full-memory or throughput claim.
+- Paused the recurring research task at the owner's request. No automatic resumption or further clock point was scheduled.
+
 ## 2026-10-16 — CMP40 1323-MHz step and geometry-input provenance
 
 - Reached 1323 MHz, up 8.89% from1215, and passed one64-MiB random-data copy comparison; maximum and long stability remain unqualified.

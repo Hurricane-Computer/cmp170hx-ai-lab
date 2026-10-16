@@ -4,11 +4,11 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 [Deutsch](README.de.md) · [Current findings](docs/findings.md) · [Experiments](docs/experiments.md) · [Open questions](docs/roadmap.md) · [Sources](docs/sources.md)
 
-## CMP40 memory overclock: 1215 → 1323 MHz
+## CMP40 memory overclock: 1215 → 1350 MHz
 
-**Our Samsung 40-GiB CMP 170HX (`10de:2082`) now operates at 1323 MHz, up 8.89% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269, 1296 and 1323 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
+**Our Samsung 40-GiB CMP 170HX (`10de:2082`) now operates at 1350 MHz, up 11.11% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269, 1296, 1323 and 1350 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
 
-**Exploration is ongoing: 1323 MHz is a tested step, not an established maximum.** We have not qualified long-term stability, the full HBM address space, bandwidth gain or LLM speed. The setting is volatile. See the [clock method and results](docs/clocks.md) and [curated trial records](data/clock-trials.json).
+**The campaign is paused for now: 1350 MHz is a tested step, not an established maximum.** We have not qualified long-term stability, the full HBM address space, bandwidth gain or LLM speed. The setting is volatile. See the [clock method and results](docs/clocks.md) and [curated trial records](data/clock-trials.json).
 
 We do not claim a worldwide first: an [earlier owner's report explicitly describes a 40-GB memory overclock](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/). That external result and its evidence limits are documented separately from our measurements.
 
@@ -18,7 +18,7 @@ This campaign has not demonstrated additional usable memory above the existing 4
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Existing reported capacity | Latest clock evidence |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 1323 MHz operating, 16 Oct 19:50 UTC |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 1350 MHz operating, 16 Oct 20:09 UTC |
 | CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 1836 MHz PLL configuration on an unbound card, 16 Oct 16:24 UTC |
 
 The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied 64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.

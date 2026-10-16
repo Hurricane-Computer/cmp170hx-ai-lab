@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T19:54:33.243047+00:00",
+  "updated_utc": "2026-10-16T20:10:26.819920+00:00",
   "records": [
     {
       "id": "stage3",
@@ -169,6 +169,14 @@
       "result": "Ordinary BIT-I main list empty, four direct script roots zero; Devinit data equals already examined source span.",
       "limit": "No firmware-wide absence claim or new init entry.",
       "interpretation": "docs/firmware.md"
+    },
+    {
+      "id": "stage39-clock",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "CMP40 reached 1350 MHz (+11.11% from 1215); one 64-MiB random H2D/D2D/D2H hash comparison passed. Final trial before the requested pause.",
+      "limit": "No maximum, full-range integrity, long stability, bandwidth gain or LLM throughput qualification.",
+      "interpretation": "docs/clocks.md"
     }
   ],
   "campaign_result": {

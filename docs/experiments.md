@@ -17,6 +17,7 @@ Dates are campaign dates in UTC. The stage numbers are stable notebook reference
 | Stage31,16 Oct | First read of original TPC source0/source1 versus effective status | Source values differ from status semantics; no causal enable formula established | A raw0/1 is a healthy/defective-core label |
 | Stage33, 16 Oct | Next original cold-init CMP40 clock step | 1296 MHz (+6.67% from 1215); one 64-MiB random-data roundtrip passed | Maximum clock, full memory, long stability, bandwidth gain or LLM speed |
 | Stage38, 16 Oct | Further original cold-init CMP40 clock step | 1323 MHz (+8.89% from 1215); same limited copy check passed | Maximum clock, full memory, long stability, bandwidth gain or LLM speed |
+| Stage39, 16 Oct | Final clock point before the requested pause | 1350 MHz (+11.11% from 1215); same limited copy check passed | Maximum clock, full memory, long stability, bandwidth gain or LLM speed |
 
 ## Accepted readback versus effective topology
 
