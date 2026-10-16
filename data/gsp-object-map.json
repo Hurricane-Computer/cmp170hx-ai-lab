@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "evidence_level": "static-analysis",
+  "analysis_date": "2026-10-16",
+  "input": {
+    "name": "gsp_tu10x",
+    "version": "615.71.09",
+    "sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909"
+  },
+  "original_class": {
+    "metadata": "0x405aaf0",
+    "class_pointer": "0x4070010",
+    "id": "0x7ef3cb",
+    "name_corroborated_by_public_source": "OBJGPU",
+    "object_size_hex": "0x5728"
+  },
+  "original_chip_mapping": {
+    "architecture": "0x17",
+    "implementation": "0x0",
+    "chip_hal_key": 42,
+    "mapping_helper": "0x5280af0",
+    "ga100_store": "0x52809a8"
+  },
+  "original_method_selection": {
+    "constructor": "0x530737c",
+    "group": 1,
+    "bit_index": 10,
+    "selection_mask": "0x03f8fc00",
+    "selected_branch": "0x530931c",
+    "slot_store": "0x5308e20",
+    "slot": "0x348",
+    "getter": "0x4b78dc0",
+    "return_value": "0x820000"
+  },
+  "consumer_study": {
+    "slot_load_candidates": 126,
+    "locally_same_object_calls": 13,
+    "fully_traced_status_readers": 7,
+    "new_topology_writer_found": false,
+    "individual_active_ga100_caller_bridge_proven": false
+  },
+  "limits": [
+    "Original binary class and mapping evidence is distinct from newer header layout.",
+    "A load at the same offset on an arbitrary object is not a type proof.",
+    "Static object construction is not proof of a historical live execution.",
+    "No additional usable HBM or working SM demonstrated."
+  ]
+}

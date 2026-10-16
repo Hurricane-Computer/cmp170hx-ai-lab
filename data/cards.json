@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T17:08:17.185363+00:00",
+  "cards": [
+    {
+      "variant": "cmp40",
+      "pci_device_id": "10de:2082",
+      "evidence_level": "observed",
+      "memory_identity": {
+        "manufacturer": "Samsung",
+        "density_code": "0x4",
+        "height": 8,
+        "complete_stack_gib_derived": 8,
+        "identity_evidence_date": "2026-10-15"
+      },
+      "reported_memory_mib": 40960,
+      "reported_memory_evidence_utc": "2026-10-16T15:22:58.259306+00:00",
+      "full_capacity_qualified_in_this_campaign": null,
+      "established_sm_baseline": {
+        "value": 74,
+        "evidence_level": "owner-established",
+        "requalified_in_later_stages": false
+      },
+      "memory_clock": {
+        "mhz": 1269,
+        "evidence_utc": "2026-10-16T15:22:58.259306+00:00",
+        "kind": "operating_clock",
+        "bios_reported_maximum_mhz": 1215
+      },
+      "short_roundtrip_bytes": 67108864
+    },
+    {
+      "variant": "cmp64",
+      "pci_device_id": "10de:20c2",
+      "evidence_level": "observed",
+      "memory_identity": {
+        "manufacturer": "SK Hynix",
+        "density_code": "0xa",
+        "height": 8,
+        "complete_stack_gib_derived": 16,
+        "identity_evidence_date": "2026-10-15"
+      },
+      "reported_memory_mib": 65536,
+      "reported_memory_evidence_utc": "2026-10-15T18:46:48.940426+00:00",
+      "full_capacity_qualified_in_this_campaign": null,
+      "established_sm_baseline": {
+        "value": 74,
+        "evidence_level": "owner-established",
+        "requalified_in_later_stages": false
+      },
+      "memory_clock": {
+        "mhz": 1836,
+        "evidence_utc": "2026-10-16T16:24:16.521385+00:00",
+        "kind": "pll_configuration_unbound",
+        "bios_reported_maximum_mhz": 1728
+      },
+      "short_roundtrip_bytes": null
+    }
+  ]
+}

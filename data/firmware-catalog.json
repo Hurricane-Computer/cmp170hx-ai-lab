@@ -1,0 +1,2033 @@
+{
+  "schema_version": 1,
+  "evidence_level": "static-analysis",
+  "analysis_date": "2026-10-16",
+  "images": [
+    {
+      "name": "cmp40",
+      "rom_sha256": "7c275b8826d65175919012dc3deb625b00c69fddb187c23d1018fb36b9ac6006",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2449000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 12,
+          "legacy_cfg1_row_bits_B": 12,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "cmp64",
+      "rom_sha256": "2b76d99e9ae88100b4524622f9bd51aa810134bc3899f2a6e0747932dcc2fda7",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2449000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 12,
+          "legacy_cfg1_row_bits_B": 12,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22559000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 13,
+          "legacy_cfg1_row_bits_B": 13,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2449000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 12,
+          "legacy_cfg1_row_bits_B": 12,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-hgx40-92.00.36.00.05",
+      "rom_sha256": "f7eeb6eb77e8dfdc1a1f0a07fb4f536bbde07eeb27be84b19ecb7e9c2814764d",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x5981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-hgx80-92.00.94.00.0b",
+      "rom_sha256": "71d88bdd1dbf6e40bb093c7a8d9bc99abbf2016a6cbdd838ad2aeba67932db44",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-sxm4-40gb-92.00.19.00.19",
+      "rom_sha256": "dc4b6725c89af6adbca30155c50e1f2ffd41920915ea7950f16d19f8ea6680c4",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x5981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-sxm4-40gb-92.00.48.00.01",
+      "rom_sha256": "07d63228130d9de22734a0ac8244fb27df24a10d0cb5fd5e09d32e3d3081d5b6",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x5981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-sxm4-80gb-92.00.38.00.01",
+      "rom_sha256": "129c3c1b12dd00355b59ec2050b86a7a77f997a84307e306d489a71954510329",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a800-sxm4-80gb-92.00.ac.00.0d",
+      "rom_sha256": "b1e754f610c15d52d813c5f92f442266c433a801580889927d2a1e94b595b7c8",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-pcie40-92.00.25.00.08",
+      "rom_sha256": "7b3683a0af6a3c74e51cd2aad963ca4bf13140e7c6acc5d662368406ce0d6555",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x5981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-pcie40-92.00.90.00.08",
+      "rom_sha256": "96d70217a6564f9296fe19f9e58452d60afbf3d3d4e8f5b469b4c91dcda55339",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-pcie80-spi-92.00.a0.00.03",
+      "rom_sha256": "4f0e65452a5ebf5ad8c3c5f27c683ccdc52fa8bfd1330883959bbf81d6a0602c",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    },
+    {
+      "name": "a100-pcie80-spi-92.00.90.00.04",
+      "rom_sha256": "c644da6648cde86e42b486f6a88f5ace7673cf2629ff2f736f5f14309e66a0e5",
+      "memory_script_list_pointer": "0x0",
+      "rammap_pointer": "0x0",
+      "partition_table": {
+        "version": "0x10",
+        "header_size": 4,
+        "record_size": 2,
+        "record_count": 6,
+        "table_hex": "10040206000700070007000700070007",
+        "table_sha256": "9385bc48dcea565a25730a9b2fea938950d9f6e13f20b7760eb05e7556841501",
+        "records_hex": [
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007",
+          "0007"
+        ]
+      },
+      "geometry_profiles": [
+        {
+          "profile": 0,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 1,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 2,
+          "cfg0": "0x6981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 3,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 4,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 5,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 6,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 7,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 8,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 9,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 10,
+          "cfg0": "0x7981800",
+          "cfg1": "0x2779000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 15,
+          "legacy_cfg1_row_bits_B": 15,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 11,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 12,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 13,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 14,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        },
+        {
+          "profile": 15,
+          "cfg0": "0x6981800",
+          "cfg1": "0x22669000",
+          "rank_selector_cfg0_bit2": 0,
+          "legacy_cfg1_row_bits_A": 14,
+          "legacy_cfg1_row_bits_B": 14,
+          "bank_count_as_used_by_original_App01": 16
+        }
+      ]
+    }
+  ],
+  "gsp_input": {
+    "version": "615.71.09",
+    "name": "gsp_tu10x",
+    "sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909"
+  },
+  "limits": [
+    "Own original PROMs and vendor update images; no live A100 state claim.",
+    "Older row-field names are corroborative, not a complete GA100 specification.",
+    "Six partition-table records do not prove six populated working stacks."
+  ]
+}

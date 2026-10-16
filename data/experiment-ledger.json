@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T17:08:17.185363+00:00",
+  "records": [
+    {
+      "id": "stage3",
+      "date": "2026-10-15",
+      "evidence_level": "observed",
+      "result": "Memory identities tied to the original DEVICE_ID reader.",
+      "limit": "No hidden-package population or health proof.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage5",
+      "date": "2026-10-15",
+      "evidence_level": "observed",
+      "result": "Direct raw memory-mask requests rejected onCMP64.",
+      "limit": "Other access/initialization mechanisms remain open.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage7-stage10",
+      "date": "2026-10-15",
+      "evidence_level": "observed",
+      "result": "CTRL/EN acceptance did not yield additional effective memory.",
+      "limit": "Readback is not availability.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage13",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "Volatile TPC marker writes visible on globally inactiveGPCs.",
+      "limit": "No execution on thoseGPCs established.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage14-stage15",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "Distinct CTRL sequences retained original physical masks.",
+      "limit": "No new usable memory.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage19",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "CP-bank GPC/memory requests did not change effective topology.",
+      "limit": "No additional workingSM or memory.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage20",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "Nonzero CP witnesses stayed zero on both cards.",
+      "limit": "Zero-clear readback does not prove writableCP.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage25-stage28",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "CMP40 accepted1242 then1269MHz and short64MiB roundtrips.",
+      "limit": "Not full-range integrity, long stability or LLM throughput.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage29",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Original frame/object semantics and actual RPR/RRL instances parsed.",
+      "limit": "Schema names are not proof of an enable mechanism.",
+      "interpretation": "docs/firmware.md"
+    },
+    {
+      "id": "stage30",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Ordinary RPR handoff/consumer connected; no new physical enable.",
+      "limit": "Mirror semantics do not establish extra memory.",
+      "interpretation": "docs/firmware.md"
+    },
+    {
+      "id": "stage31-tpc",
+      "date": "2026-10-16",
+      "evidence_level": "observed",
+      "result": "First TPC source0/source1 comparison on both variants.",
+      "limit": "Correlation is not activation polarity or an execution proof.",
+      "interpretation": "docs/experiments.md"
+    },
+    {
+      "id": "stage31-geometry",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Full stack-density accounting and identical16byte partition tables.",
+      "limit": "No free ordinary rank or copied table established48GiB.",
+      "interpretation": "docs/firmware.md"
+    },
+    {
+      "id": "stage31-gsp",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Original method-construction references for820000 getter found.",
+      "limit": "Actual chip/object binding must be traced, no generic+348 assumption.",
+      "interpretation": "docs/firmware.md"
+    }
+  ],
+  "campaign_result": {
+    "extra_usable_memory_gib_demonstrated": 0,
+    "extra_working_sms_demonstrated": 0
+  }
+}

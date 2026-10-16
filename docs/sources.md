@@ -1,0 +1,29 @@
+# Sources and attribution
+
+## NVIDIA primary material
+
+- [Open GPU kernel modules, pinned revisionca2d03e6](https://github.com/NVIDIA/open-gpu-kernel-modules/tree/ca2d03e6fafd4d4b56b383497d931c25b283bfcf): public register and normal driver interfaces. Public headers do not expose every GA100 topology function.
+- [BIOS Information Table](https://nvidia.github.io/open-gpu-doc/BIOS-Information-Table/BIOS-Information-Table.html): BIT-M pointer definitions, separate from the contents of the own original ROMs.
+- [A10080 PCIe product brief](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/PB-10577-001_v02.pdf), table2:1512-MHz memory clock and native card specification.
+- [A10040 PCIe product brief](https://www.nvidia.cn/content/dam/en-zz/Solutions/Data-Center/a100/pdf/A100-PCIE-Prduct-Brief.pdf): original40-GB reference.
+- [NVIDIA GTC presentationS22047](https://developer.download.nvidia.com/video/gputechconf/gtc/2020/presentations/s22047-high-performance-next-generation-deep-learning-clusters.pdf): Samsung HBM2/40GB and original A100 context.
+- [NVIDIA's SPEC submission](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210917-00056.pdf):1593-MHz A10080SXM reference in a DGXA100 system.
+
+## Memory and original reverse-engineering sources
+
+- JESD235C, January2020,§3.2/Table4 and§13.2.3.15/Table99. A readable[mirror of the original standard](https://studylib.net/doc/28046328/hbm2) was consulted; this is not an official JEDEC download. Only derived parameters are retained here.
+- [Envytools mem.c, pinned](https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/nvbios/mem.c#L351): original UNK0D table parser, header/stride/count, no named00/07 payload semantics.
+- [Envytools older PFB definitions](https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/rnndb/memory/g80_pfb.xml): corroborative older row/column fields, not a complete GA100 specification.
+- [Nouveau GP100 RAM initialization](https://github.com/torvalds/linux/blob/c7decec2f2d2ab0366567f9e30c0e1418cece43f/drivers/gpu/drm/nouveau/nvkm/subdev/fb/ramgp100.c): a separate RAMMAP path; applicability is not automatically transferred toGA100.
+- [TechInsights APE-2108-801](https://www.techinsights.com/products/ape-2108-801): physical A10080PCIe analysis identifying SKHynix memory. This does not identify an exact speed bin for the lab card.
+- [TechInsights MFR-2103-804](https://www.techinsights.com/products/mfr-2103-804): Samsung8-Gb memory die analysis from an A100. A die part number is not a full stacked-package speed-bin guarantee.
+
+## Community work and external evidence
+
+- [amoghmunikote/cmpunlocker](https://github.com/amoghmunikote/cmpunlocker), including[the70→74SM commit](https://github.com/amoghmunikote/cmpunlocker/commit/6c442eeb6448b97c803e72b61da344a39e0a26ab).
+- [admunch888/cmpunlocker](https://github.com/admunch888/cmpunlocker) and[sekkit/cmpunlocker-latest](https://github.com/sekkit/cmpunlocker-latest).
+- [PixelML/club-170hx understanding](https://github.com/PixelML/club-170hx/blob/main/docs/CMP170HX-UNDERSTANDING.md): the author's BIOS, tuning and workload observations; not our measurements.
+- [Schaka's BIOS notes](https://github.com/Schaka/170hx-journey/blob/main/BIOS.md): attributed firmware-profile observations, not universal cross-flash compatibility.
+- [Consensus-Protocol80GB research archive](https://github.com/Consensus-Protocol/cmp170hx/blob/main/docs/frontier/80gb.md) and[open questions](https://github.com/Consensus-Protocol/cmp170hx/blob/main/docs/frontier/open-questions.md): external evidence and proposals. Coherent-access results are not silently converted into full DMA qualification.
+
+Own original-PROM input hashes and vendor image versions are catalogued in[data/firmware-catalog.json](../data/firmware-catalog.json). Vendor update defaults are not live A100 state. Binaries, private transports and full host logs are not required to understand the curated findings and are kept outside this publication.

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+private/
+inputs/
+raw/
+*.bin
+*.rom
+*.ko
+*.pem
+*.key
+*.pfx
+*.pcap*

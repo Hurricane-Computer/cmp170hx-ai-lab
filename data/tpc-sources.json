@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-16T16:41:56.432278+00:00",
+  "register_reads": 66,
+  "register_writes": 0,
+  "cards": [
+    {
+      "variant": "cmp40",
+      "pci_device_id": "10de:2082",
+      "effective_gpc_disable_mask": "0x98",
+      "vectors": {
+        "source0": [
+          {
+            "gpc": 0,
+            "address": "0x820788",
+            "value": "0x0"
+          },
+          {
+            "gpc": 1,
+            "address": "0x82078c",
+            "value": "0x0"
+          },
+          {
+            "gpc": 2,
+            "address": "0x820790",
+            "value": "0x0"
+          },
+          {
+            "gpc": 3,
+            "address": "0x820794",
+            "value": "0x0"
+          },
+          {
+            "gpc": 4,
+            "address": "0x820798",
+            "value": "0x0"
+          },
+          {
+            "gpc": 5,
+            "address": "0x82079c",
+            "value": "0x1"
+          },
+          {
+            "gpc": 6,
+            "address": "0x820b94",
+            "value": "0x1"
+          },
+          {
+            "gpc": 7,
+            "address": "0x820b90",
+            "value": "0x0"
+          }
+        ],
+        "source1": [
+          {
+            "gpc": 0,
+            "address": "0x822800",
+            "value": "0x0"
+          },
+          {
+            "gpc": 1,
+            "address": "0x822804",
+            "value": "0x0"
+          },
+          {
+            "gpc": 2,
+            "address": "0x822808",
+            "value": "0x0"
+          },
+          {
+            "gpc": 3,
+            "address": "0x82280c",
+            "value": "0x0"
+          },
+          {
+            "gpc": 4,
+            "address": "0x822810",
+            "value": "0x0"
+          },
+          {
+            "gpc": 5,
+            "address": "0x822814",
+            "value": "0x0"
+          },
+          {
+            "gpc": 6,
+            "address": "0x822818",
+            "value": "0x0"
+          },
+          {
+            "gpc": 7,
+            "address": "0x82281c",
+            "value": "0x0"
+          }
+        ],
+        "effective_status": [
+          {
+            "gpc": 0,
+            "address": "0x820c38",
+            "value": "0x1"
+          },
+          {
+            "gpc": 1,
+            "address": "0x820c3c",
+            "value": "0x1"
+          },
+          {
+            "gpc": 2,
+            "address": "0x820c40",
+            "value": "0x1"
+          },
+          {
+            "gpc": 3,
+            "address": "0x820c44",
+            "value": "0xff"
+          },
+          {
+            "gpc": 4,
+            "address": "0x820c48",
+            "value": "0xff"
+          },
+          {
+            "gpc": 5,
+            "address": "0x820c4c",
+            "value": "0x0"
+          },
+          {
+            "gpc": 6,
+            "address": "0x820c50",
+            "value": "0x0"
+          },
+          {
+            "gpc": 7,
+            "address": "0x820c54",
+            "value": "0xff"
+          }
+        ],
+        "reconfig_override": [
+          {
+            "gpc": 0,
+            "address": "0x820a40",
+            "value": "0xff"
+          },
+          {
+            "gpc": 1,
+            "address": "0x820a44",
+            "value": "0xff"
+          },
+          {
+            "gpc": 2,
+            "address": "0x820a48",
+            "value": "0xff"
+          },
+          {
+            "gpc": 3,
+            "address": "0x820a4c",
+            "value": "0xff"
+          },
+          {
+            "gpc": 4,
+            "address": "0x820a50",
+            "value": "0xff"
+          },
+          {
+            "gpc": 5,
+            "address": "0x820a54",
+            "value": "0xff"
+          },
+          {
+            "gpc": 6,
+            "address": "0x820a58",
+            "value": "0xff"
+          },
+          {
+            "gpc": 7,
+            "address": "0x820a5c",
+            "value": "0xff"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "cmp64",
+      "pci_device_id": "10de:20c2",
+      "effective_gpc_disable_mask": "0x91",
+      "vectors": {
+        "source0": [
+          {
+            "gpc": 0,
+            "address": "0x820788",
+            "value": "0x0"
+          },
+          {
+            "gpc": 1,
+            "address": "0x82078c",
+            "value": "0x0"
+          },
+          {
+            "gpc": 2,
+            "address": "0x820790",
+            "value": "0x0"
+          },
+          {
+            "gpc": 3,
+            "address": "0x820794",
+            "value": "0x1"
+          },
+          {
+            "gpc": 4,
+            "address": "0x820798",
+            "value": "0x0"
+          },
+          {
+            "gpc": 5,
+            "address": "0x82079c",
+            "value": "0x1"
+          },
+          {
+            "gpc": 6,
+            "address": "0x820b94",
+            "value": "0x0"
+          },
+          {
+            "gpc": 7,
+            "address": "0x820b90",
+            "value": "0x0"
+          }
+        ],
+        "source1": [
+          {
+            "gpc": 0,
+            "address": "0x822800",
+            "value": "0x0"
+          },
+          {
+            "gpc": 1,
+            "address": "0x822804",
+            "value": "0x0"
+          },
+          {
+            "gpc": 2,
+            "address": "0x822808",
+            "value": "0x0"
+          },
+          {
+            "gpc": 3,
+            "address": "0x82280c",
+            "value": "0x0"
+          },
+          {
+            "gpc": 4,
+            "address": "0x822810",
+            "value": "0x0"
+          },
+          {
+            "gpc": 5,
+            "address": "0x822814",
+            "value": "0x0"
+          },
+          {
+            "gpc": 6,
+            "address": "0x822818",
+            "value": "0x0"
+          },
+          {
+            "gpc": 7,
+            "address": "0x82281c",
+            "value": "0x0"
+          }
+        ],
+        "effective_status": [
+          {
+            "gpc": 0,
+            "address": "0x820c38",
+            "value": "0xff"
+          },
+          {
+            "gpc": 1,
+            "address": "0x820c3c",
+            "value": "0x1"
+          },
+          {
+            "gpc": 2,
+            "address": "0x820c40",
+            "value": "0x1"
+          },
+          {
+            "gpc": 3,
+            "address": "0x820c44",
+            "value": "0x0"
+          },
+          {
+            "gpc": 4,
+            "address": "0x820c48",
+            "value": "0xff"
+          },
+          {
+            "gpc": 5,
+            "address": "0x820c4c",
+            "value": "0x0"
+          },
+          {
+            "gpc": 6,
+            "address": "0x820c50",
+            "value": "0x1"
+          },
+          {
+            "gpc": 7,
+            "address": "0x820c54",
+            "value": "0xff"
+          }
+        ],
+        "reconfig_override": [
+          {
+            "gpc": 0,
+            "address": "0x820a40",
+            "value": "0xff"
+          },
+          {
+            "gpc": 1,
+            "address": "0x820a44",
+            "value": "0xff"
+          },
+          {
+            "gpc": 2,
+            "address": "0x820a48",
+            "value": "0xff"
+          },
+          {
+            "gpc": 3,
+            "address": "0x820a4c",
+            "value": "0xff"
+          },
+          {
+            "gpc": 4,
+            "address": "0x820a50",
+            "value": "0xff"
+          },
+          {
+            "gpc": 5,
+            "address": "0x820a54",
+            "value": "0xff"
+          },
+          {
+            "gpc": 6,
+            "address": "0x820a58",
+            "value": "0xff"
+          },
+          {
+            "gpc": 7,
+            "address": "0x820a5c",
+            "value": "0xff"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Firmware selector working names, not official healthy/defective labels.",
+    "Host read visibility does not establish identical privileged or past-boot values.",
+    "No additional working SMs demonstrated."
+  ]
+}
