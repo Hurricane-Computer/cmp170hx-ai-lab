@@ -16,7 +16,7 @@ The public function specifies **FLA virtual address-space size**. A 40-GiB or 64
 
 These are **function evaluations**, not new card measurements. The semantic correspondence uses the complete short branch/scaling pattern and the independently established original GA100 method installation. It is not a name assigned from a current header offset or a recovered debug symbol.
 
-The original function loads a child pointer at `OBJGPU+0x1e80`, then a sizing field at child offset `0x6a0`. The public counterpart names `MemoryManager.Ram.fbTotalMemSizeMb`. The actual original child-class connection and the producer of that field still need their own connected trace; the modern C-structure layout is not transferred to the binary.
+The original function loads a child pointer at `OBJGPU+0x1e80`, then a sizing field at child offset `0x6a0`. The public counterpart names `MemoryManager.Ram.fbTotalMemSizeMb`. The original child-class connection is now independently traced below. Its normal physical-size source remains open; a separate guarded parameter writer is connected below. The modern C-structure layout is not transferred to the binary.
 
 ## Distinct framebuffer sizes in the ordinary GSP client
 
@@ -41,6 +41,36 @@ That body calls method initialization `0x5544dbc`, followed by separate data/fla
 
 One of those selected methods is now bounded more closely: slot `0x1c8` / `0x4a5de18` invokes its installed boundary getter at slot `0x1c0` / `0x4a581d0`, using the same original object. For a present range, it rounds the upper byte boundary to 64 KiB and compares the MiB-scaled value with field `+0x6a0`; a mismatch returns `0x40`. This is a size-consistency consumer. It does not increase that scalar or enable another stack.
 
-The apparently relevant `sd ...,0x6a0(...)` in one called region helper uses an already shifted array base. It updates a region record, not the scalar sizing field. The original unshifted field producer and the independent GPU-child-class connection remain open.
+The apparently relevant `sd ...,0x6a0(...)` in one called region helper uses an already shifted array base. It updates a region record, not the scalar sizing field. The normal physical-size source remains open. A separate conditional scalar writer and the child-class connection have since been resolved below.
+
+## Original child-class routing is now connected
+
+The original GPU class router at `0x4b66aec` extracts the descriptor's class identity. Its own comparison with class `0x22ad47` selects the pointer at **GPU+0x1e80**. A strict CPU-only evaluation follows 40 original instructions through that case to the common engine-state cast boundary. This connects the child used by the sizing getter to the independently anchored original MemoryManager class.
+
+A second original case compares class `0x7faff1` and selects **GPU+0x1e78** in 33 instructions. The original class definition at `0x406bd98` has this identity and size `0x4d0`; NVIDIA's pinned [generated KernelMemorySystem header](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_kern_mem_sys_nvoc.h) supplies the class name. The [public GPU class router](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gpu.c#L1290) provides semantic context, not replacement binary offsets.
+
+A third original case connects class `0x174e21` to **GPU+0x1e70** in 29 instructions. Its own class definition at `0x406f9f0` specifies size `0x8840`. No public class name is assigned solely from its position beside the other children.
+
+All three evaluations use explicit synthetic object pointers and stop before executing the external cast. Only saved caller state is seeded; unknown argument or memory inputs are rejected. These are static routing results, not observations of a live object's contents or additional memory.
+
+The subsequent original MemoryManager lifecycle hook is also connected through its own metadata: interface slot `+0x68` reaches thunk `0x5370574`, which dispatches metadata `+0xc8` to `0x4a54cec`. Its first followed sizing load uses existing field **base+0x6a8**, shifted to bytes. The selected callees reserve regions and initialize a heap from existing sizes; none of the followed operations establishes the producer of base `+0x6a0`.
+
+The original `OverrideFbSize` lookup caches its result separately at **base+0x6b8**, with `u64(-1)` as the default. That cache store does not rewrite base `+0x6a0`. Later heap-clamp behavior and any physical capacity effect are not established by this lookup.
+
+## Earlier configuration receiver
+
+The original KernelMemorySystem metadata connects its normal pre-initialization hook to `0x4a4541c`. This allocates and zeros a 40-byte block, stores its pointer at KMS+`0x228`, then calls the original builder `0x4a40d5c`. That builder obtains flags and callback results from **GPU+0x1e70**, independently connected above to class `0x174e21`. It is a configuration receiver; the examined builder does not write MemoryManager base+`0x6a0`.
+
+The pinned [public configuration contract](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080internal.h#L96) describes compression/comptag flags, ECC-FBPA support, L2 cache size, RAM type and LTC/LTS counts. It contains no total-HBM-capacity member. This is semantic context, not a licence to rename original fields from today's layout. The concrete callback supplying original output `+0x8` has now been resolved independently: the original GA100 initialization selects slot `+0x680` → `0x4a0f7cc`. It multiplies two fields of a packed result for selector `0x58c` by its selected `+0x730` count getter, then scales by 1024; an optional context branch halves the value. That count getter, `0x49fd2e4`, returns `MMIO[0x12006c] & 0x1f` on its normal path. This formula and the complete configuration contract support an **L2 cache-size** interpretation, not total HBM. No live register read was performed.
+
+## A conditional writer of the actual size fields
+
+The original class `0x174e21` pre-initialization path is connected to selected slot `+0xc38` → `0x49fa1c8`. It obtains the original MemoryManager through GPU+`0x1e80`. If the existing region count at MemoryManager+`0x6c8` is zero, its call at `0x49fa49c/4a0` reaches `0x4a6730c`, then `0x4a5d80c`, with that same base object.
+
+This final helper contains **actual unshifted scalar stores**: `0x4a5d8ec` writes `+0x6a0`, `0x4a5d8f0` writes `+0x6a8`, and `0x4a5d8f8` writes `+0x698`. The first two receive `(a2+0xfffff)>>20`; the last initially receives `a2` bytes, before later region accounting. These are distinct from the earlier shifted region-row false positive at `0x4a58f90`.
+
+The result is conditional: the examined path requires MemoryManager+`0x2d4` to be nonzero, valid input parameters, and no existing regions. Its size/base parameters come from original global fields `0x4397ec8` and `0x4397ed0`. The `+0x2d4 == 0` alternative returns error `0x40`; it does not invoke a hidden normal HBM-size supplier.
+
+This closes one real parameter-to-size-field contract. It does **not** establish that the examined path supplies normal HBM on these cards, that its global inputs can be enlarged into backed storage, or that another physical stack is initialized. The source of the normal pre-existing memory regions remains open. No value was changed and no extra usable GiB were demonstrated.
 
 No hardware was accessed in this study. The earlier clock and capacity observations keep their original timestamps. Curated distinctions and calculated examples are in [memory-sizing.json](../data/memory-sizing.json).

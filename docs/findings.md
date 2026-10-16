@@ -15,7 +15,7 @@ The owner had already established74 working SMs. A bounded review of the [origin
 
 ## Memory-size interpretation
 
-The original GA100 sizing getter corresponds to NVIDIA's FLA virtual-address-space calculation: both 40- and 64-GiB FB inputs can return 128 GiB. This is not evidence of extra HBM. The actual GSP memory-size producer remains open; an original MemoryManager class and its 38 selected GA100 method fields now provide a concrete source anchor. See [Memory sizing](memory-sizing.md).
+The original GA100 sizing getter corresponds to NVIDIA's FLA virtual-address-space calculation: both 40- and 64-GiB FB inputs can return 128 GiB. This is not evidence of extra HBM. The normal physical GSP memory-size/region source remains open. One connected conditional parameter path now writes the real base sizing fields, with no extra physical backing demonstrated. Original class routing now connects the sizing getter's GPU+0x1e80 child to MemoryManager and separately identifies GPU+0x1e78 as KernelMemorySystem. The later lifecycle path consumes existing sizes; its OverrideFbSize cache is a separate field. These are source anchors, not extra-capacity results. See [Memory sizing](memory-sizing.md).
 
 ## Firmware and configuration
 

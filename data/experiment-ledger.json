@@ -121,6 +121,14 @@
       "result": "Original sizing getter matches FLA-VASpace calculation; original MemoryManager identity and GA100 method target set anchored.",
       "limit": "No physical capacity result, actual child/size-producer bridge still open, no hardware access.",
       "interpretation": "docs/memory-sizing.md"
+    },
+    {
+      "id": "stage35-original-size-chain",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Original class-child routing and cache-size callback resolved; original early lifecycle connected to one guarded parameter writer of actual MemoryManager size fields.",
+      "limit": "Normal physical HBM-size/region source and extra usable capacity remain unresolved; no hardware access.",
+      "interpretation": "docs/memory-sizing.md"
     }
   ],
   "campaign_result": {

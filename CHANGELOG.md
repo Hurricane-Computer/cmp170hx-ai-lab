@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16 — Original memory-child routing and lifecycle
+
+- Connected the original sizing getter's GPU child to MemoryManager through its own class-routing code; independently identified the adjacent KernelMemorySystem child.
+- Traced the original later lifecycle hook into selected region/heap consumers and separated the OverrideFbSize cache from the unresolved base sizing field.
+- Connected one guarded parameter path to actual unshifted size-field stores; kept the normal physical HBM source open. Resolved the separate config callback as supported L2 sizing. No additional usable-memory claim or new hardware experiment.
+
 ## 2026-10-16 — Memory-sizing domains and original memory-object anchor
 
 - Matched the original GA100 sizing getter to the official FLA virtual-address calculation; a 128-GiB return is not extra HBM.

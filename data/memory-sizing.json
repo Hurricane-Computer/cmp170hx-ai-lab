@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T17:46:52.661565+00:00",
+  "updated_utc": "2026-10-16T18:25:25.961527+00:00",
   "evidence_level": "static-analysis",
   "hardware_operations": 0,
   "original_firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
@@ -14,7 +14,7 @@
     "public_semantic_match": "gpuGetFlaVasSize_GA100",
     "match_evidence": "Same argument-dependent branch, child-load/size scaling,64GiB threshold,128GiB return and doubled-size alternative; public GA100 selects this named method.",
     "interpretation": "FLA virtual address-space sizing, not a physical-capacity result.",
-    "limit": "Supported semantic correspondence, not binary debug-symbol evidence. Actual original child-class and sizing-field producer still require a connected trace; no public C-struct offsets transferred."
+    "limit": "Supported semantic correspondence, not binary debug-symbol evidence. Original child-class routing and one guarded parameter writer are connected; normal physical HBM-size source remains open. No current host offsets transferred."
   },
   "public_source_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/arch/ampere/kern_gpu_ga100.c#L92",
   "sizing_domains": [
@@ -88,7 +88,7 @@
     "method_initialization_call": "0x538b4a8/4ac ->0x5544dbc",
     "data_flag_initialization_call": "0x538b4bc/4c0 ->0x5382018",
     "bounded_original_ga100_method_trace": "192 instructions,38 final slots; GA10042 through the original a1 owner+0x10; only saved s0 seeded, no unresolved input argument seeds.",
-    "not_established": "The OBJGPU+1e80 child in the sizing getter is not yet independently connected to this original class metadata."
+    "not_established": "Normal physical HBM-size/region source and extra usable HBM. One conditional unshifted parameter writer is separately resolved below."
   },
   "extra_usable_memory_demonstrated_gib": 0,
   "physical_memory_test_performed": false,
@@ -105,6 +105,153 @@
     "scalar_size_write_in_selected_consumer": false,
     "physical_enable_demonstrated": false,
     "false_positive_store": "0x4a58f90 uses an already shifted region-array base; not the base scalar6a0.",
-    "original_unshifted_field_producer_resolved": false
+    "unshifted_field_writer_in_selected_consumer": false,
+    "normal_physical_hbm_size_producer_resolved": false
+  },
+  "original_child_class_routing": {
+    "entry": "0x4b66aec",
+    "class_decode_pc": "0x4b66afc",
+    "evidence_level": "static-analysis; strict bounded CPU-only route evaluation",
+    "cases": [
+      {
+        "class_name": "MemoryManager",
+        "class_id": "0x22ad47",
+        "original_class_def": "0x406c5b0",
+        "original_object_size": "0xc20",
+        "guard": "0x4b67108..0x4b67110",
+        "child_load_pc": "0x4b6711c",
+        "gpu_child_offset": "0x1e80",
+        "original_instructions_evaluated": 40
+      },
+      {
+        "class_name": "KernelMemorySystem",
+        "class_id": "0x7faff1",
+        "original_class_def": "0x406bd98",
+        "original_object_size": "0x4d0",
+        "guard": "0x4b66f2c..0x4b66f34",
+        "child_load_pc": "0x4b67334",
+        "gpu_child_offset": "0x1e78",
+        "original_instructions_evaluated": 33
+      },
+      {
+        "class_name": null,
+        "class_name_limit": "Original class174e21; name not independently assigned.",
+        "class_id": "0x174e21",
+        "original_class_def": "0x406f9f0",
+        "original_object_size": "0x8840",
+        "guard": "0x4b67090..0x4b67098",
+        "child_load_pc": "0x4b67444",
+        "gpu_child_offset": "0x1e70",
+        "original_instructions_evaluated": 29
+      }
+    ],
+    "common_cast_tail_target": "0x527cf54",
+    "cast_class_id": "0x7a7ed6",
+    "external_cast_executed": false,
+    "unknown_argument_or_memory_values_assumed": false,
+    "saved_caller_state_seed": "s0 only",
+    "original_child_class_correspondence_established": true,
+    "live_object_or_physical_capacity_proved": false,
+    "public_host_layout_transferred": false
+  },
+  "original_later_size_lifecycle": {
+    "metadata": "0x403d158",
+    "interface_slot": "0x68",
+    "thunk": "0x5370574",
+    "own_hook_slot": "0xc8",
+    "own_hook_entry": "0x4a54cec",
+    "initial_size_load_pc": "0x4a54d28",
+    "initial_existing_size_field": "base+0x6a8",
+    "initial_scale_to_bytes": "<<20",
+    "followed_selected_calls": [
+      "0x4a54d4c/50 ->0x4a6d448",
+      "0x4a55198/9c ->0x4a53e94",
+      "0x4a54028/2c ->0x4a5d5fc"
+    ],
+    "selected_effects": "Existing region reservation/splitting and heap initialization; no base6a0 producer established.",
+    "override_fb_size_cache": {
+      "field": "base+0x6b8",
+      "store_pc": "0x4a54d84",
+      "default": "u64(-1)",
+      "changes_base6a0_in_examined_lookup": false
+    },
+    "limit": "Selected normal call chain, not exhaustive nested-callback or computed-alias analysis; no physical enable input derived."
+  },
+  "class_routing_public_context": [
+    "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gpu.c#L1290",
+    "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_kern_mem_sys_nvoc.h"
+  ],
+  "original_kernel_memory_static_config": {
+    "evidence_level": "static-analysis",
+    "class_id": "0x7faff1",
+    "metadata": "0x4038be8",
+    "dynamic_creator": "0x5366da8",
+    "creator_tail": "0x5366aa8",
+    "interface58_thunk": "0x53508f8",
+    "own_c0_callback": "0x4a4541c",
+    "allocated_zeroed_config_bytes": 40,
+    "config_pointer_field": "KMS+0x228",
+    "original_direct_builder": "0x4a40d5c",
+    "builder_call": "0x4a45484/88",
+    "builder_source_child_load_pc": "0x4a40d84",
+    "builder_source_gpu_child": "0x1e70",
+    "builder_source_class_id": "0x174e21",
+    "original_config8_source": "Callback at source-child+0x680, call0x4a40dd4/dd8; unsigned32bit result widened into64bit output.",
+    "public_contract_context": "Compression/comptag flags, ECC-FBPA support, L2 cache size, compression-page size/shift, RAM type and LTC/LTS counts; no total-HBM-capacity member.",
+    "public_contract_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080internal.h#L96",
+    "limit": "Public contract supplies semantic context, not transferred original offsets. Concrete original config8 callback is a cache-size consumer/calculation; no physical HBM size producer or enable established.",
+    "resolved_config8_callback": {
+      "original_ga100_selection": "Bounded CPU-only original method initialization for key42; 3094 instructions, not GPU execution.",
+      "slot": "0x680",
+      "target": "0x4a0f7cc",
+      "selected_store_pc": "0x538697c",
+      "direct_count_callback_slot": "0x730",
+      "direct_count_callback_target": "0x49fd2e4",
+      "count_callback_expression": "MMIO[0x12006c] & 0x1f, normal return path; static code, no live read.",
+      "size_expression": "((low16(query58c) * bits16..20(query58c) * count_callback)<<10) mod2^32; optional unsigned /2 for context field3dd4==7.",
+      "interpretation": "Supported semantic match to L2 cache sizing from original formula and complete public config contract; not total HBM.",
+      "unshifted_memorymanager6a0_producer": false,
+      "physical_memory_enable": false,
+      "hardware_operations": 0
+    }
+  },
+  "original_conditional_size_writer": {
+    "evidence_level": "static-analysis; connected original lifecycle and base-object provenance",
+    "original_child_class": "0x174e21",
+    "preinit_slot": "0xc38",
+    "preinit_target": "0x49fa1c8",
+    "same_memorymanager_from": "GPU+0x1e80",
+    "empty_region_count_guard": "MemoryManager+0x6c8 ==0",
+    "call_chain": [
+      "0x49fa49c/4a0 ->0x4a6730c",
+      "0x4a6730c ->0x4a5d80c"
+    ],
+    "parameter_globals": {
+      "size_a2": "0x4397ec8",
+      "base_a3": "0x4397ed0"
+    },
+    "guarded_stores": [
+      {
+        "pc": "0x4a5d8ec",
+        "base_field": "MemoryManager+0x6a0",
+        "value": "(a2+0xfffff)>>20, original unsigned arithmetic"
+      },
+      {
+        "pc": "0x4a5d8f0",
+        "base_field": "MemoryManager+0x6a8",
+        "value": "(a2+0xfffff)>>20, original unsigned arithmetic"
+      },
+      {
+        "pc": "0x4a5d8f8",
+        "base_field": "MemoryManager+0x698",
+        "value": "Initially a2 bytes; later region accounting can change this field"
+      }
+    ],
+    "additional_guards": "MemoryManager+0x2d4 !=0; accepted size/base parameters; no existing regions.",
+    "guard_false_branch": "+0x2d4 ==0 reaches error0x40; no alternate physical-size supplier in this helper.",
+    "normal_physical_hbm_source_proved": false,
+    "additional_physical_backing_or_stack_initialization_proved": false,
+    "hardware_operations": 0,
+    "next_open_source": "Normal pre-existing memory-region creation before the followed empty-region fallback."
   }
 }
