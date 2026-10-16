@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T18:47:59.945938+00:00",
+  "evidence_level": "static-analysis",
+  "hardware_operations": 0,
+  "original_firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+  "original_runtime_guard": {
+    "owner_class_id": "0x34a6d6",
+    "owner_class_name_from_pinned_identity": "RmHalspecOwner",
+    "original_owner_class_def": "0x406f1d8",
+    "original_owner_size": "0x18",
+    "original_owner_metadata": "0x40502f8",
+    "embedded_original_gpu_offset": "0x58",
+    "concrete_creator_call": "0x45bbd74/78 ->0x533fbb8",
+    "creator_input": "0x45bbd64: a7=4",
+    "preservation": "0x533fc20: s5=a7;0x533fc6c or0x533fd80: a5=s5",
+    "outer_initializer": "0x533f60c",
+    "own_owner_index_store": "0x533f6b4/b8 stores halfword3 atGPU+68=owner+10 when input4",
+    "memorymanager_owner_query": "Original class34a6d6 query and data-init call538b4bc/c0 ->5382018",
+    "strict_original_data_init_evaluation": {
+      "chip_hal_key": 42,
+      "rm_hal_key": 3,
+      "instructions": 127,
+      "guard_store_pc": "0x5382564",
+      "guard_field": "MemoryManager+0x2d4",
+      "guard_value": 1,
+      "unknown_argument_or_memory_values_assumed": false,
+      "saved_caller_state_seed": "s0 only",
+      "calls_or_io_emulated": false
+    },
+    "interpretation": "The original creator supplies the runtime key that enables the conditional parameter writer; the condition is not by itself evidence of an unused or virtual-only path.",
+    "limit": "No current host RM-variant name assigned to original key3/input4; no live mode or execution observation.",
+    "class_identity_public_context": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_gpu_halspec_nvoc.h#L86"
+  },
+  "original_size_parameter_inputs": {
+    "producer_entry": "0x5503284",
+    "buffer_argument": "0x43b6b68",
+    "unchanged_ecall_pc": "0x5503348",
+    "ecall_inputs": {
+      "t0": 1,
+      "a0": 1,
+      "a1": 8,
+      "a2": "Pointer to stack DWORD4",
+      "a3": 4,
+      "a4": 2,
+      "a5": 11,
+      "a6": "0x43b6b68",
+      "a7": 256,
+      "t1": 2,
+      "t2": "u64(-1)"
+    },
+    "success_guard": "a0&0xff checked at550334c; nonzero branch5503354 precedes selected global stores.",
+    "connected_fields": [
+      {
+        "buffer_offset": "0xb0",
+        "load_pc": "0x5503474",
+        "global_store_pc": "0x5503480",
+        "global_destination": "0x4397ec8",
+        "downstream_argument": "a2 to4a5d80c",
+        "downstream_size_store": "(a2+0xfffff)>>20 toMemoryManager+6a0/6a8"
+      },
+      {
+        "buffer_offset": "0x58",
+        "load_pc": "0x5503484",
+        "global_store_pc": "0x5503490",
+        "global_destination": "0x4397ed0",
+        "downstream_argument": "a3 to4a5d80c"
+      }
+    ],
+    "entry_reference": {
+      "section": ".manifest",
+      "aligned_pointer_va": "0x4012748",
+      "target": "0x5503284",
+      "outer_elf_entry": "0x4009000",
+      "full_start_dispatch_contract_established": false
+    },
+    "ecall_buffer_direction_or_returned_byte_count_established": false,
+    "intervening_initialization_calls_not_proved_side_effect_free": true,
+    "limit": "Exact buffer-to-global-to-size-field dataflow. The same buffer is passed to an earlier successful ECALL with raw0x100 argument, but intervening calls and the content producer are not closed. No service/field-name assignment or physical-backing proof.",
+    "intervening_calls": {
+      "sites": 12,
+      "first_wrapper": {
+        "call_pc": "0x5503360",
+        "target": "0x54ee2d4",
+        "ecall_pc": "0x54ee2e4",
+        "explicit_inputs": {
+          "t0": 7,
+          "a0": 1
+        }
+      },
+      "other_wrapper": {
+        "calls": 11,
+        "last_call_conditional": true,
+        "target": "0x54ee4d0",
+        "ecall_pc": "0x54ee4f8",
+        "explicit_inputs": {
+          "t0": 5,
+          "a0": 255,
+          "a6": "Different caller-provided result record"
+        }
+      },
+      "visible_effect_scope": "Selected stores target nonoverlapping records4397c58..4397dc0, not source buffer43b6b68. ECALL/implicit alias effects remain unresolved."
+    },
+    "raw_a7_argument": 256
+  },
+  "bounded_early_paths": [
+    {
+      "original_class": "MemoryManager22ad47",
+      "actual_hook": "metadata+48 ->537052c ->own+b8 ->4a53308",
+      "result": "Eight indexed software children, original classa30fe6/sizef0; no connected region producer in selected constructor.",
+      "data_initializer_scope": "346 reachable decoded instructions, no calls; this does not exclude direct stores or sources elsewhere."
+    },
+    {
+      "original_class": "174e21",
+      "actual_hook": "metadata+48 ->5372a70 ->own+180 ->49ecc8c",
+      "result": "Four selected return0 callbacks and two configuration-list setup helpers; selected9b0 uses existing0x90-byte records.",
+      "data_initializer_scope": "561 decoded instructions with no calls and two HAL-input reads; no universal writer-absence claim."
+    }
+  ],
+  "claims": {
+    "extra_usable_memory_demonstrated_gib": 0,
+    "extra_working_sms_demonstrated": 0,
+    "new_hardware_experiment_derived": false,
+    "physical_memory_test_performed": false
+  },
+  "interpretation": "docs/startup-memory.md",
+  "address_space_note": "Original firmware virtual code/global-data addresses; no PCIe MMIO write procedure."
+}

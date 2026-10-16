@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16 — Runtime guard and upstream size inputs
+
+- Connected the original GPU creator mode to the size writer's enabled runtime guard with one strict 127-instruction CPU evaluation.
+- Found both size/base input copies from a buffer also passed to a successful ECALL with raw 0x100 argument; kept the content producer, intervening calls, service and physical backing open.
+- Bounded earlier software-child/configuration-list constructors without treating their object counts as HBM stacks. No hardware access or capacity/SM gain.
+
 ## 2026-10-16 — Original memory-child routing and lifecycle
 
 - Connected the original sizing getter's GPU child to MemoryManager through its own class-routing code; independently identified the adjacent KernelMemorySystem child.

@@ -71,6 +71,6 @@ This final helper contains **actual unshifted scalar stores**: `0x4a5d8ec` write
 
 The result is conditional: the examined path requires MemoryManager+`0x2d4` to be nonzero, valid input parameters, and no existing regions. Its size/base parameters come from original global fields `0x4397ec8` and `0x4397ed0`. The `+0x2d4 == 0` alternative returns error `0x40`; it does not invoke a hidden normal HBM-size supplier.
 
-This closes one real parameter-to-size-field contract. It does **not** establish that the examined path supplies normal HBM on these cards, that its global inputs can be enlarged into backed storage, or that another physical stack is initialized. The source of the normal pre-existing memory regions remains open. No value was changed and no extra usable GiB were demonstrated.
+This closes one real parameter-to-size-field contract. It does **not** establish that the examined path supplies normal HBM on these cards, that its global inputs can be enlarged into backed storage, or that another physical stack is initialized. The actual physical memory source remains open. Subsequent analysis connects the original creator mode to this guard and both input globals to a buffer also passed to an earlier success-checked ECALL; see [Startup memory inputs](startup-memory.md). No value was changed and no extra usable GiB were demonstrated.
 
 No hardware was accessed in this study. The earlier clock and capacity observations keep their original timestamps. Curated distinctions and calculated examples are in [memory-sizing.json](../data/memory-sizing.json).

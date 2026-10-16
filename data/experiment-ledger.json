@@ -129,6 +129,14 @@
       "result": "Original class-child routing and cache-size callback resolved; original early lifecycle connected to one guarded parameter writer of actual MemoryManager size fields.",
       "limit": "Normal physical HBM-size/region source and extra usable capacity remain unresolved; no hardware access.",
       "interpretation": "docs/memory-sizing.md"
+    },
+    {
+      "id": "stage36-startup-inputs",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Original creator mode enables the guarded writer; two size inputs originate in a buffer also passed to an earlier successful ECALL; early constructor paths bounded separately.",
+      "limit": "Buffer contract/content producer, intervening calls and physical backing remain unresolved; no hardware access.",
+      "interpretation": "docs/startup-memory.md"
     }
   ],
   "campaign_result": {
