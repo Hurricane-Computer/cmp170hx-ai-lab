@@ -4,6 +4,7 @@ These files are explicit technical projections of the research records, not copi
 
 - [cards.json](cards.json): non-identifying variant observations and evidence timestamps.
 - [clock-trials.json](clock-trials.json): the three observed CMP40 clock steps, short-copy hashes, test limits and attributed prior art.
+- [memory-sizing.json](memory-sizing.json): original sizing-getter correspondence, distinct FB/FLA domains, calculated examples and the new original memory-object anchor; no new physical-memory measurement.
 - [tpc-sources.json](tpc-sources.json): first four-vector observation on both variants, with original selector addresses.
 - [cp-witness.json](cp-witness.json): requested nonzero witness values versus actual readback and effective topology.
 - [firmware-catalog.json](firmware-catalog.json): twelve original-image hashes, geometry profiles and exact partition tables; no firmware binaries.

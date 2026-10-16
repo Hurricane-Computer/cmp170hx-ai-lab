@@ -2,6 +2,8 @@
 
 ## NVIDIA primary material
 
+- [GA100 FLA-VASpace sizing](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/arch/ampere/kern_gpu_ga100.c#L92), [GSP-client FB region initialization](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_gsp_client.c), and the [memory-manager registry consumer](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr.c#L204): separate virtual address space, reported FB and allocator domains.
+
 - [Open GPU kernel modules, pinned revisionca2d03e6](https://github.com/NVIDIA/open-gpu-kernel-modules/tree/ca2d03e6fafd4d4b56b383497d931c25b283bfcf): public register and normal driver interfaces. Public headers do not expose every GA100 topology function.
 - [BIOS Information Table](https://nvidia.github.io/open-gpu-doc/BIOS-Information-Table/BIOS-Information-Table.html): BIT-M pointer definitions, separate from the contents of the own original ROMs.
 - [A10080 PCIe product brief](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/PB-10577-001_v02.pdf), table2:1512-MHz memory clock and native card specification.

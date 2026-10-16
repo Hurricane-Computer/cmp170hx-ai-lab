@@ -11,7 +11,11 @@ Updated16 October2026. See[data/](../data/README.md) for the corresponding struc
 
 ## Compute
 
-The owner had already established74 working SMs. New source-vector measurements show that the two raw firmware-selected vectors cannot simply be renamed as the effective TPC-disable masks. Their precise hardware meaning remains unresolved. No additional working SMs were demonstrated.
+The owner had already established74 working SMs. A bounded review of the [original 70→74 implementation](https://github.com/amoghmunikote/cmpunlocker/pull/55) confirms eight full-byte reconfiguration overrides; the earlier observations already had `ff` on all eight. That same block provides no additional 2082/20c2 parameter or wider field, and this does not prove a universal physical 74-SM maximum. New source-vector measurements show that the two raw firmware-selected vectors cannot simply be renamed as the effective TPC-disable masks. Their precise hardware meaning remains unresolved. No additional working SMs were demonstrated.
+
+## Memory-size interpretation
+
+The original GA100 sizing getter corresponds to NVIDIA's FLA virtual-address-space calculation: both 40- and 64-GiB FB inputs can return 128 GiB. This is not evidence of extra HBM. The actual GSP memory-size producer remains open; an original MemoryManager class and its 38 selected GA100 method fields now provide a concrete source anchor. See [Memory sizing](memory-sizing.md).
 
 ## Firmware and configuration
 

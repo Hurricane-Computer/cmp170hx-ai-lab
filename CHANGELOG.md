@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-16 — Memory-sizing domains and original memory-object anchor
+
+- Matched the original GA100 sizing getter to the official FLA virtual-address calculation; a 128-GiB return is not extra HBM.
+- Separated reported framebuffer length, address-space extent, nonreserved regions and FLA size in notes and curated data.
+- Anchored the original MemoryManager class and 38 selected GA100 method fields without transferring the modern host ABI; the actual sizing producer remains open.
+- Bounded another App01 finalization path and the original 70→74 patch. Neither supplied a new physical-enable experiment; no hardware was accessed in this stage.
+
 ## 2026-10-16 — CMP40 clock highlight and next tested step
 
 - Highlighted the documented Samsung CMP40 memory overclock on both home pages.

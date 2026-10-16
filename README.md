@@ -26,7 +26,7 @@ The two variants must not be treated as identical hardware. A reported capacity 
 ## What is here
 
 - A [result ledger](docs/experiments.md), including failed approaches and the limits of each conclusion.
-- [Memory geometry](docs/memory-geometry.md), [original firmware paths](docs/firmware.md), and the [clock comparison](docs/clocks.md).
+- [Memory geometry](docs/memory-geometry.md), [size fields and virtual address spaces](docs/memory-sizing.md), [original firmware paths](docs/firmware.md), and the [clock comparison](docs/clocks.md).
 - Sanitized, machine-readable observations under [data/](data/README.md).
 - [Methodology](docs/methodology.md), [maintenance rules](MAINTENANCE.md), and a small publication validator.
 

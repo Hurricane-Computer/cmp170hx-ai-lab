@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T17:46:52.661565+00:00",
+  "evidence_level": "static-analysis",
+  "hardware_operations": 0,
+  "original_firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+  "original_getter": {
+    "gpu_slot": "0x230",
+    "entry": "0x4b78e14",
+    "installed_for_ga100_in_original_constructor": true,
+    "child_pointer_offset": "0x1e80",
+    "child_sizing_field_offset": "0x6a0",
+    "original_dataflow": "b!=0 or (v<<20)<=2^36 returns2^37, otherwise v<<21.",
+    "public_semantic_match": "gpuGetFlaVasSize_GA100",
+    "match_evidence": "Same argument-dependent branch, child-load/size scaling,64GiB threshold,128GiB return and doubled-size alternative; public GA100 selects this named method.",
+    "interpretation": "FLA virtual address-space sizing, not a physical-capacity result.",
+    "limit": "Supported semantic correspondence, not binary debug-symbol evidence. Actual original child-class and sizing-field producer still require a connected trace; no public C-struct offsets transferred."
+  },
+  "public_source_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/arch/ampere/kern_gpu_ga100.c#L92",
+  "sizing_domains": [
+    {
+      "field": "fbTotalMemSizeMb",
+      "source": "GSP static info fb_length, rounded to MiB",
+      "meaning": "Reported total FB; original GSP producer not resolved here."
+    },
+    {
+      "field": "fbAddrSpaceSizeMb",
+      "source": "End of the last GSP-provided FB region, rounded to MiB",
+      "meaning": "FB address-space extent, distinct from total/usable backing."
+    },
+    {
+      "field": "fbUsableMemSize",
+      "source": "Sum of nonreserved GSP-provided region lengths",
+      "meaning": "Allocator-facing nonreserved regions, not a physical test."
+    },
+    {
+      "field": "gpuGetFlaVasSize_GA100 return",
+      "source": "Total FB plus virtualization boolean",
+      "meaning": "FLA virtual address-space size,128GiB minimum for ordinary totals up to64GiB."
+    }
+  ],
+  "function_evaluations": [
+    {
+      "input_total_fb_gib": 16,
+      "normal_fla_vas_gib": 128,
+      "nvswitch_virtualization_fla_vas_gib": 128,
+      "evidence_level": "theoretical function evaluation; not a hardware observation"
+    },
+    {
+      "input_total_fb_gib": 40,
+      "normal_fla_vas_gib": 128,
+      "nvswitch_virtualization_fla_vas_gib": 128,
+      "evidence_level": "theoretical function evaluation; not a hardware observation"
+    },
+    {
+      "input_total_fb_gib": 48,
+      "normal_fla_vas_gib": 128,
+      "nvswitch_virtualization_fla_vas_gib": 128,
+      "evidence_level": "theoretical function evaluation; not a hardware observation"
+    },
+    {
+      "input_total_fb_gib": 64,
+      "normal_fla_vas_gib": 128,
+      "nvswitch_virtualization_fla_vas_gib": 128,
+      "evidence_level": "theoretical function evaluation; not a hardware observation"
+    },
+    {
+      "input_total_fb_gib": 80,
+      "normal_fla_vas_gib": 160,
+      "nvswitch_virtualization_fla_vas_gib": 128,
+      "evidence_level": "theoretical function evaluation; not a hardware observation"
+    },
+    {
+      "input_total_fb_gib": 96,
+      "normal_fla_vas_gib": 192,
+      "nvswitch_virtualization_fla_vas_gib": 128,
+      "evidence_level": "theoretical function evaluation; not a hardware observation"
+    }
+  ],
+  "original_memory_object": {
+    "class_id": "0x22ad47",
+    "class_def": "0x406c5b0",
+    "original_object_size": "0xc20",
+    "metadata": "0x403d158",
+    "dynamic_creator": "0x538b6b0",
+    "tail_target": "0x538b3a4",
+    "own_metadata_store": "0x538b480/488/494",
+    "method_initialization_call": "0x538b4a8/4ac ->0x5544dbc",
+    "data_flag_initialization_call": "0x538b4bc/4c0 ->0x5382018",
+    "bounded_original_ga100_method_trace": "192 instructions,38 final slots; GA10042 through the original a1 owner+0x10; only saved s0 seeded, no unresolved input argument seeds.",
+    "not_established": "The OBJGPU+1e80 child in the sizing getter is not yet independently connected to this original class metadata."
+  },
+  "extra_usable_memory_demonstrated_gib": 0,
+  "physical_memory_test_performed": false,
+  "interpretation": "docs/memory-sizing.md",
+  "original_size_consumer": {
+    "slot": "0x1c8",
+    "entry": "0x4a5de18",
+    "nested_slot": "0x1c0",
+    "nested_entry": "0x4a581d0",
+    "same_original_object_for_nested_method_and_scalar_read": true,
+    "scalar_field_offset": "0x6a0",
+    "equation_for_present_range": "(align_up(upper_boundary_bytes,65536)>>20)==object_scalar6a0",
+    "mismatch_return": "0x40",
+    "scalar_size_write_in_selected_consumer": false,
+    "physical_enable_demonstrated": false,
+    "false_positive_store": "0x4a58f90 uses an already shifted region-array base; not the base scalar6a0.",
+    "original_unshifted_field_producer_resolved": false
+  }
+}

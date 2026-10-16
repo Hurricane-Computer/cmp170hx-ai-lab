@@ -24,6 +24,10 @@ At4dfc..4e0e, the CMP original reads820c14 intoD1570. The early configuration ha
 
 Two24-unit completion polls at5597..55bc and6985..69ad use the same cache. A later constrained MMIO-table path also skips a disabled-unit record before its write loop; it does not supply a new physical-mask setter. The previously tested CTRL-before-Devinit timing is not made novel merely by naming this cache point.
 
+## A separate App01 finalization path
+
+A newly bounded ordinary App01 path at `0x25e..0x298` conditionally clears bit5 of `0x9a3c80` and `0x9a3c7c`, then checks the cleared values. Its sole record gate is TypeE+6 bit0, already set in both original images; this differs from the TypeE+8 request word. The path follows the end-callback list within this App01 invocation. Its absolute order relative to a separate App08 invocation is not established. The hardware meaning of bit5 and any connection to memory geometry remain open; no size, stack or interleave input is demonstrated. No hardware write was derived.
+
 ## TPC source interpretation
 
 The original selectors identify source0, source1, effective status and reconfiguration override as separate vectors. Stage31 measured all four once on both variants. In globally activeGPCs, source0=0 correlates with status1, and source0=1 with status0; source1 was host-visible0 throughout.

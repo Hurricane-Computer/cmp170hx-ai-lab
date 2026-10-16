@@ -11,6 +11,8 @@
 
 The original OBJGPU→GA10042→slot348→getter4b78dc0→820000 chain is now established. Find an actual normal GPC/FBP topology consumer or producer whose argument connects to that identified object, then distinguish a status read from a producing store. Seven locally verified reader candidates did not supply a new topology writer. A generic object+348 load and the current public header's method order are still insufficient. See[GSP object map](gsp-object-map.md).
 
+A new, separate memory-source anchor is the original MemoryManager class and its 38 actually selected GA100 method fields. Connect the producer of the sizing field to the actual original child object before interpreting it as physical capacity; the identified FLA sizing getter is a virtual-address calculation. The App01 finalizer register bits also require their real producer/meaning before a geometry experiment. See [Memory sizing](memory-sizing.md).
+
 ## What would justify another hardware attempt
 
 A new writer, latch, ordering condition or access context must be distinguishable from the previous negative experiments. Prepare the specific input, observable outcome, required reset scope and evidence capture before running it in the owner's authorized test environment. A proposal stays a proposal until execution evidence exists.

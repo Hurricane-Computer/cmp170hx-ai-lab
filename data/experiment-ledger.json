@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T17:25:10.083545+00:00",
+  "updated_utc": "2026-10-16T17:46:52.661565+00:00",
   "records": [
     {
       "id": "stage3",
@@ -113,6 +113,14 @@
       "result": "CMP40 reached 1296 MHz through its original cold-init input; one 64-MiB random-data roundtrip passed.",
       "limit": "Tested step, not maximum clock, full-range integrity, long stability, bandwidth or LLM throughput qualification.",
       "interpretation": "docs/clocks.md"
+    },
+    {
+      "id": "stage34-sizing",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Original sizing getter matches FLA-VASpace calculation; original MemoryManager identity and GA100 method target set anchored.",
+      "limit": "No physical capacity result, actual child/size-producer bridge still open, no hardware access.",
+      "interpretation": "docs/memory-sizing.md"
     }
   ],
   "campaign_result": {
