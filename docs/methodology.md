@@ -17,6 +17,8 @@ A register readback proves what that access returned. It does not by itself prov
 
 For an additional-capacity claim, record the effective topology, address mapping, actually allocated range and an appropriate data-independence/integrity check. Bound the claim to the tested range and transfer method. Never silently turn CPU-coherent access into a DMA result, or a remote author's result into a lab measurement.
 
+A page tag can mean one word or a filled page; state the actual coverage. Keep all candidate ranges allocated and fill them before the final global verification. A clean upper readback can coexist with overwritten lower data. Check result transfers and completion independently; transport failure is not zero errors. The [CPU method counterexample](capacity-evidence.md) demonstrates these distinctions without accessing hardware.
+
 For an additional-SM claim, distinguish enumeration from actual independent execution. The owner's74-SM baseline is accepted; this campaign did not repeat that qualification. CUDA SMID values can have gaps and NSMID is an identifier-space size, not an active-SM count.
 
 Host reads can differ from privileged firmware observations. A host-side zero is not a general proof of zero in every access context. Static control flow says what a branch would do with specified inputs, not that a past boot took that branch.

@@ -22,4 +22,6 @@ Wir unterscheiden zwischen Vermutung, angekündigtem Erfolg, angenommenem Regist
 
 Die beiden untersuchten Varianten sind unterschiedlich: 2082 meldet Samsung-Speicher mit 8 GiB je vollständigem Stapel, 20c2 SK Hynix mit 16 GiB. Daraus folgt noch nicht, wie viele weitere Stapel physisch bestückt, erreichbar und funktionsfähig sind.
 
+**48 GiB ist bei der CMP40 das erste Ziel, keine belegte Obergrenze.** Der fremde 77,5-GiB-Bericht hält die 80-GiB-Hypothese offen. Unser [Quellenabgleich und kleiner CPU-Gegenversuch](docs/capacity-evidence.md) trennen diesen Hinweis von den eigenen Alias-Befunden.
+
 Das Repository wächst mit wichtigen neuen Ergebnissen. Dazu gehören auch erfolglose Versuche, damit wir bekannte Sackgassen nicht immer wieder ablaufen. Technische Berichte und öffentliche Primärquellen stehen in den verlinkten englischen Fachnotizen; bereinigte Messdaten liegen unter [data/](data/README.md).

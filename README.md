@@ -32,7 +32,7 @@ The two variants must not be treated as identical hardware. A reported capacity 
 - Sanitized, machine-readable observations under [data/](data/README.md).
 - [Methodology](docs/methodology.md), [maintenance rules](MAINTENANCE.md), and a small publication validator.
 
-The principal questions are CMP40 toward 48 GiB, CMP64 toward 80/96 GiB, and further working compute resources. These are research targets, not advertised unlocks. We record successful writes, effective topology changes, reported capacity and demonstrated usable capacity separately.
+The principal questions are CMP40 toward 48 GiB, CMP64 toward 80/96 GiB, and further working compute resources. **48 GiB is a first target, not a CMP40 ceiling: the external 77.5-GiB report keeps the 80-GiB hypothesis open.** See the [capacity-evidence audit and CPU counterexample](docs/capacity-evidence.md). These are research targets, not advertised unlocks. We record successful writes, effective topology changes, reported capacity and demonstrated usable capacity separately.
 
 ## Validate a contribution
 

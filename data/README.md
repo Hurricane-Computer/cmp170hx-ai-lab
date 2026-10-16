@@ -2,6 +2,7 @@
 
 These files are explicit technical projections of the research records, not copies of raw logs or private checkpoints.
 
+- [capacity-evidence.json](capacity-evidence.json): external77.5/72-GiB lead, archived full-word test audit, historical47-GiB alias and CPU method counterexamples; no new GPU capacity result.
 - [cards.json](cards.json): non-identifying variant observations and evidence timestamps.
 - [clock-trials.json](clock-trials.json): the five observed CMP40 clock steps, short-copy hashes, test limits and attributed prior art.
 - [bandwidth-load.json](bandwidth-load.json): one bounded1350-MHz load, CUDA-event throughput, explicit read+write byte counts, output hashes and sampled telemetry; no long-term or full-memory qualification.

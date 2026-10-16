@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16 — Capacity counterevidence and executable method example
+
+- Kept CMP40 toward80GiB explicitly open alongside the first48-GiB target and the identity-derived density model.
+- Audited the archived full-word checker: global fill/check ordering is sound, while unchecked result transfers leave a validation gap. No historical false pass is asserted.
+- Added a CPU-only synthetic alias example with sparse/dense coverage, ordering controls and result-copy fault injection. No GPU experiment or automatic resumption.
+
 ## 2026-10-16 — Bounded load and bandwidth at1350MHz
 
 - Completed one additional requested30s-copy/60s-streaming load at unchanged1350MHz/175W: 1534.8/1538.1GB/s effective read+write throughput.

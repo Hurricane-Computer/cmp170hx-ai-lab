@@ -21,6 +21,8 @@ Dates are campaign dates in UTC. The stage numbers are stable notebook reference
 
 Stage40 was a separate requested bounded load follow-up at the unchanged1350MHz point:30s copy /60s streaming, 1534.8/1538.1GB/s effective read+write bandwidth, with all checked outputs correct. Scope and temperature limits are in[the load report](bandwidth-load.md).
 
+Stage41 was an offline capacity-evidence audit plus a CPU counterexample. It preserves the external77.5/72-GiB positive lead, audits the archived full-word checker and demonstrates two false-pass methods under a synthetic alias. It does not reproduce a historical GPU run or unlock memory. See [capacity evidence](capacity-evidence.md).
+
 ## Accepted readback versus effective topology
 
 The memory CTRL values are separate from the effective FBP/FBPA/FBIO status. CMP40 retained the observed840/c03000 geometry and10 logicalFBPs; CMP64 retained852/c0330c and8 logicalFBPs in these experiments. Later source work confirmed that the original training paths consume those effective masks.

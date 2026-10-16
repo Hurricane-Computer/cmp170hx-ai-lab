@@ -32,3 +32,7 @@
 - [Consensus-Protocol80GB research archive](https://github.com/Consensus-Protocol/cmp170hx/blob/main/docs/frontier/80gb.md) and[open questions](https://github.com/Consensus-Protocol/cmp170hx/blob/main/docs/frontier/open-questions.md): external evidence and proposals. Coherent-access results are not silently converted into full DMA qualification.
 
 Own original-PROM input hashes and vendor image versions are catalogued in[data/firmware-catalog.json](../data/firmware-catalog.json). Vendor update defaults are not live A100 state. Binaries, private transports and full host logs are not required to understand the curated findings and are kept outside this publication.
+
+## Capacity counterevidence audit
+
+The [pinned 77.5/72-GiB community record](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md) is an attributed report with an unreviewed original checking implementation. Archived `hbm45.cu` is separately identified by its source hash in [capacity evidence](capacity-evidence.md); its previously linked Gist API returned HTTP404 during this audit. The CPU counterexample is original lab code and supplies no hardware capacity measurement.

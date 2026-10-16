@@ -17,7 +17,7 @@ For density4, the accounting is:
 
 `2^14 rows × 2 SID choices × 16 banks × 1 KiB per pseudochannel page × 2 pseudochannels × 8 channels = 8 GiB`.
 
-DensityA has one further row bit and gives16 GiB. At these identified densities,48 GiB requires six8-GiB-stack-equivalents;80/96 GiB requires five/six16-GiB-stack-equivalents. These are conditional accounting models, not observations of additional physical packages.
+DensityA has one further row bit and gives16 GiB. At these identified densities,48 GiB requires six8-GiB-stack-equivalents;80/96 GiB requires five/six16-GiB-stack-equivalents. These are conditional accounting models, not observations of additional physical packages. They are not a reason to discard the external 77.5/72-GiB positive report. Independently validated dense results would require revisiting the density interpretation, population or board differences; the exact external test remains unavailable. See the [capacity-evidence audit](capacity-evidence.md).
 
 ## Controller fields and limits
 

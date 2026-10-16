@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-16T21:20:03.196733+00:00",
+  "scope": "Historical evidence audit plus CPU method counterexamples; no new GPU run.",
+  "capacity_position": {
+    "cmp40_first_target_gib": 48,
+    "first_target_is_ceiling": false,
+    "cmp40_80gib_hypothesis_open": true,
+    "new_extra_usable_gib_proved": false,
+    "density_response_overrules_all_contrary_evidence": false
+  },
+  "external_775gib_report": {
+    "evidence_level": "third-party",
+    "url": "https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md",
+    "repository_commit": "d923a25fb2ecb6ee3d62654983f453194b66485f",
+    "document_sha256": "c8530a784c5c720f6ccecf022c6bedfc737ae432aafe39b88e5de9bf98c4a5eb",
+    "reported_gib": 77.5,
+    "reported_blocks": 310,
+    "reported_block_mib": 256,
+    "reported_later_run_gib": 72,
+    "exact_test_implementation_obtained": false,
+    "public_tree_complete": true,
+    "public_tree_blobs": 117,
+    "tree_scope": "Pinned documentation repository; no executable memory-test source found.",
+    "sparse_word_per_page_method_established": false,
+    "independently_reproduced_by_this_lab": false,
+    "meaning_if_validated": "Independent simultaneous dense readback would strongly support 80-GiB-class physical backing on those cards."
+  },
+  "archived_hbm45_source_audit": {
+    "evidence_level": "static-analysis",
+    "filename": "hbm45.cu",
+    "sha256": "b0dece433f94394c5a730637dc9ffe09e95e1c3970f5faf4adc809b598c8cb33",
+    "attributed_url": "https://gist.github.com/cuddylac997/c3d80faa2430e3650cd934eda5fd65a9",
+    "retrieval": "Public Gist API returned HTTP404 on16October; exact archived source examined instead.",
+    "global_fill_precedes_global_verify": true,
+    "every_64bit_word_filled_and_checked": true,
+    "line_ranges": {
+      "pattern": [
+        20,
+        22
+      ],
+      "full_fill": [
+        24,
+        28
+      ],
+      "full_check": [
+        30,
+        36
+      ],
+      "all_fills_then_sync": [
+        58,
+        61
+      ],
+      "unchecked_result_copy": [
+        70,
+        72
+      ]
+    },
+    "unchecked_operations": [
+      "error-counter allocations",
+      "counter H2D clear",
+      "error-counter D2H copy",
+      "first-error detail D2H copy"
+    ],
+    "actual_historical_copy_failure_proved": false,
+    "finding": "Zero-initialized host count can produce a clean verdict if the unchecked copy fails without updating it.",
+    "does_not_show": "That a particular historical clean run was false."
+  },
+  "own_historical_alias": {
+    "evidence_level": "observed",
+    "date": "2026-09-20",
+    "variant": "cmp40",
+    "record_sha256": "344aa85247a8c0f3ce2b413dc6106b216ad0b99836426db80ac50098d7460524",
+    "allocated_gib": 47,
+    "untouched_guard_gib": [
+      39,
+      41
+    ],
+    "filled_and_verified_logical_ranges_gib": [
+      [
+        0,
+        39
+      ],
+      [
+        41,
+        47
+      ]
+    ],
+    "upper_41_to_47_readback_clean": true,
+    "lower_1_to_7_corrupted": true,
+    "mismatched_64bit_words": 805306368,
+    "observed_low_word0_contains_high_word": 288,
+    "observed_offset_bytes": 2304,
+    "scope": "Tested geometry aliases; neither independent upper capacity nor universal absence of80GiB follows.",
+    "current_hardware_retest": false
+  },
+  "cpu_method_demo": {
+    "schema_version": 1,
+    "kind": "cpu-only-method-counterexamples",
+    "hardware_capacity_proof": false,
+    "gpu_accesses": 0,
+    "model": {
+      "logical_pages": 80,
+      "folded_backing_pages": 40,
+      "page_bytes": 4096,
+      "word_bytes": 8,
+      "logical_bytes": 327680,
+      "folded_backing_bytes": 163840,
+      "upper_view_byte_offset_xor": "0x900",
+      "mapping_scope": "Synthetic example, not a complete identified GPU mapping."
+    },
+    "memory_cases": [
+      {
+        "name": "one_tag_per_page_global",
+        "folded_backing": true,
+        "upper_byte_offset_xor": "0x900",
+        "write_all_before_verify_all": true,
+        "words_checked_per_seed": 80,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 0,
+            "first_mismatch": null
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 0,
+            "first_mismatch": null
+          }
+        ]
+      },
+      {
+        "name": "two_offset_tags_global",
+        "folded_backing": true,
+        "upper_byte_offset_xor": "0x900",
+        "write_all_before_verify_all": true,
+        "words_checked_per_seed": 160,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 80,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0xc0ffee0000000000",
+              "actual": "0xc0ffee0000005120"
+            }
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 80,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0x39193ed37e73a62b",
+              "actual": "0x39193ed37e73f70b"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dense_address_pattern_global",
+        "folded_backing": true,
+        "upper_byte_offset_xor": "0x900",
+        "write_all_before_verify_all": true,
+        "words_checked_per_seed": 40960,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 20480,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0xc0ffee0000000000",
+              "actual": "0xc0ffee0000005120"
+            }
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 20480,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0x39193ed37e73a62b",
+              "actual": "0x39193ed37e73f70b"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dense_address_pattern_chunk_at_a_time",
+        "folded_backing": true,
+        "upper_byte_offset_xor": "0x900",
+        "write_all_before_verify_all": false,
+        "words_checked_per_seed": 40960,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 0,
+            "first_mismatch": null
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 0,
+            "first_mismatch": null
+          }
+        ]
+      },
+      {
+        "name": "one_tag_per_page_plain_fold",
+        "folded_backing": true,
+        "upper_byte_offset_xor": "0x0",
+        "write_all_before_verify_all": true,
+        "words_checked_per_seed": 80,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 40,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0xc0ffee0000000000",
+              "actual": "0xc0ffee0000005000"
+            }
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 40,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0x39193ed37e73a62b",
+              "actual": "0x39193ed37e73f62b"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dense_address_pattern_independent_backing",
+        "folded_backing": false,
+        "upper_byte_offset_xor": "0x900",
+        "write_all_before_verify_all": true,
+        "words_checked_per_seed": 40960,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 0,
+            "first_mismatch": null
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 0,
+            "first_mismatch": null
+          }
+        ]
+      },
+      {
+        "name": "dense_hbm45_pattern_global",
+        "folded_backing": true,
+        "upper_byte_offset_xor": "0x900",
+        "write_all_before_verify_all": true,
+        "words_checked_per_seed": 40960,
+        "results": [
+          {
+            "seed": "0xc0ffee0000000000",
+            "mismatched_words": 20480,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0xc0ffee0000000000",
+              "actual": "0x3ebf1eaf33cb97a0"
+            }
+          },
+          {
+            "seed": "0x39193ed37e73a62b",
+            "mismatched_words": 20480,
+            "first_mismatch": {
+              "logical_page": 0,
+              "byte_offset": 0,
+              "expected": "0x39193ed37e73a62b",
+              "actual": "0xc759ce7c4db8318b"
+            }
+          }
+        ]
+      }
+    ],
+    "result_channel_cases": [
+      {
+        "name": "unchecked_failed_copy_with_nonzero_device_errors",
+        "copy_succeeded": false,
+        "device_error_count": 123,
+        "verdict": "CLEAN"
+      },
+      {
+        "name": "checked_failed_copy_with_nonzero_device_errors",
+        "copy_succeeded": false,
+        "device_error_count": 123,
+        "verdict": "TRANSPORT_ERROR"
+      },
+      {
+        "name": "checked_successful_copy_with_nonzero_device_errors",
+        "copy_succeeded": true,
+        "device_error_count": 123,
+        "verdict": "DATA_ERROR"
+      },
+      {
+        "name": "checked_successful_copy_with_zero_device_errors",
+        "copy_succeeded": true,
+        "device_error_count": 0,
+        "verdict": "CLEAN"
+      }
+    ],
+    "limits": [
+      "Not a reproduction of any historical GPU run.",
+      "No conclusion that the external 77.5-GiB test used sparse tags.",
+      "A dense whole-page unique-tag fill differs from one tagged word per page.",
+      "A possible failed-copy false pass does not prove a past copy failed.",
+      "Two offset tags detect this model but do not prove full physical capacity."
+    ]
+  }
+}

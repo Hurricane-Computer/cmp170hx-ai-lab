@@ -19,7 +19,7 @@ The exact-release public usable-size decoder is now closed, and an original App4
 
 A new writer, latch, ordering condition or access context must be distinguishable from the previous negative experiments. Prepare the specific input, observable outcome, required reset scope and evidence capture before running it in the owner's authorized test environment. A proposal stays a proposal until execution evidence exists.
 
-The complete ordinary rank accounting and identical partition table do not themselves yield an extra-capacity experiment. CMP40 toward 48 GiB is the first geometry hypothesis, not a categorical upper limit: 80/96-GiB hypotheses would require new evidence that changes the presently decoded 8-GiB-per-stack model. Even 48 GiB is not proven physically available. New evidence of other package/channel population, a different normal configuration path or a reproduced external method could reopen a hypothesis.
+The complete ordinary rank accounting and identical partition table do not themselves yield an extra-capacity experiment. CMP40 toward 48 GiB is the first geometry hypothesis, not a categorical upper limit. The [77.5-GiB counterevidence and test-method audit](capacity-evidence.md) are an explicit parallel lead: 80/96-GiB hypotheses would require new evidence that changes the presently decoded 8-GiB-per-stack model. Even 48 GiB is not proven physically available. New evidence of other package/channel population, a different normal configuration path or a reproduced external method could reopen a hypothesis.
 
 ## Useful independent contributions
 

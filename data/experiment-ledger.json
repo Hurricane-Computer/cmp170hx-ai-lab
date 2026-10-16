@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T20:22:59.403021+00:00",
+  "updated_utc": "2026-10-16T21:20:03.196733+00:00",
   "records": [
     {
       "id": "stage3",
@@ -185,6 +185,14 @@
       "result": "At1350MHz,30s internal copies measured1534.8GB/s and60s SM streaming measured1538.1GB/s, counting reads+writes. All checked outputs passed.",
       "limit": "One1.5GiB working set, not full40GiB or long-term stability; no matched stock-clock baseline, DRAM counter or LLM throughput. Automation remains paused.",
       "interpretation": "docs/bandwidth-load.md"
+    },
+    {
+      "id": "stage41",
+      "date": "2026-10-16",
+      "evidence_level": "static-analysis",
+      "result": "Audited archived full-word checker and ran seven synthetic alias cases with two seeds plus four result-channel controls on CPU.",
+      "limit": "No new GPU experiment, historical false-pass proof or additional usable capacity; external77.5/72GiB remains an open lead.",
+      "interpretation": "docs/capacity-evidence.md"
     }
   ],
   "campaign_result": {
