@@ -33,3 +33,5 @@ The [I/O constructor](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61d
 This identifies a real rejection beyond the earlier general page-contiguity hypothesis. The exact user-library conversion to CUDA error1 and individual log-to-direction assignment were not traced. Smaller windows inside the same GPU aperture do not address this condition. Any next mapping experiment needs an ordinary allocation-aware GPU route and its constraints; no forced-success return, removed guard or unchanged registration retry.
 
 CPU mapping is a useful additional observation path. It establishes neither working GPU P2P, a larger usable framebuffer, nor a physical40-GiB ceiling. The separate positive75/76- and77.5/72-GiB reports remain open;48GiB remains an initial capacity target. Earlier [peer-data failures](peer-option-trials.md) retain their original scope.
+
+The subsequent [ordinary VMM trial](vmm-peer-mapping.md) creates real owner allocations successfully, but rejects both foreign-device access requests. It uses a separate documented mapping mechanism and preserves the I/O guard.

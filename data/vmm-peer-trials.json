@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "stage": 82,
+  "recorded_utc": "2026-10-17T20:57:26.020265+00:00",
+  "evidence_level": "observed",
+  "trial_start_utc": "2026-10-17T20:50:09.372854+00:00",
+  "trial_end_utc": "2026-10-17T20:50:11.073564+00:00",
+  "driver": {
+    "candidate": "G",
+    "release": "615.71.09",
+    "core_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "CUDA_driver_API_version": 13040,
+    "VMM_symbol_lookup_version": 10020,
+    "registry_options_empty": true
+  },
+  "records": [
+    {
+      "owner": "cmp40",
+      "accessor": "cmp64",
+      "VMM_support": {
+        "owner": {
+          "rc": 0,
+          "value": 1
+        },
+        "accessor": {
+          "rc": 0,
+          "value": 1
+        }
+      },
+      "legacy_peer_capability": {
+        "rc": 0,
+        "value": 0
+      },
+      "physical_allocation_bytes": 2097152,
+      "minimum_granularity_bytes": 2097152,
+      "actual_allocation_properties": {
+        "type": 1,
+        "location_type": 1,
+        "location_matches_owner": true,
+        "compressionType": 0,
+        "gpuDirectRDMACapable": 0
+      },
+      "create_rc": 0,
+      "owner_RW_map_and_source_check_pass": true,
+      "checked_source_bytes": 1048576,
+      "source_before_sha256": "8f94a222c8b5aea1a8392c4ac398407d67d2975cf8dc3d094a70ee32cf638080",
+      "source_after_sha256": "8f94a222c8b5aea1a8392c4ac398407d67d2975cf8dc3d094a70ee32cf638080",
+      "source_host_sentinels_changed": true,
+      "requested_reader_access_flags": 1,
+      "foreign_access_rc": 101,
+      "foreign_access_CUDA_name": "CUDA_ERROR_INVALID_DEVICE",
+      "remote_read_verdict": null,
+      "resources_released": true,
+      "cleanup_all_success": true
+    },
+    {
+      "owner": "cmp64",
+      "accessor": "cmp40",
+      "VMM_support": {
+        "owner": {
+          "rc": 0,
+          "value": 1
+        },
+        "accessor": {
+          "rc": 0,
+          "value": 1
+        }
+      },
+      "legacy_peer_capability": {
+        "rc": 0,
+        "value": 0
+      },
+      "physical_allocation_bytes": 2097152,
+      "minimum_granularity_bytes": 2097152,
+      "actual_allocation_properties": {
+        "type": 1,
+        "location_type": 1,
+        "location_matches_owner": true,
+        "compressionType": 0,
+        "gpuDirectRDMACapable": 0
+      },
+      "create_rc": 0,
+      "owner_RW_map_and_source_check_pass": true,
+      "checked_source_bytes": 1048576,
+      "source_before_sha256": "89a83715abc2cba171e9a99e02dc39edc9c70487000bd537ec42ea8dcddf7ffc",
+      "source_after_sha256": "89a83715abc2cba171e9a99e02dc39edc9c70487000bd537ec42ea8dcddf7ffc",
+      "source_host_sentinels_changed": true,
+      "requested_reader_access_flags": 1,
+      "foreign_access_rc": 101,
+      "foreign_access_CUDA_name": "CUDA_ERROR_INVALID_DEVICE",
+      "remote_read_verdict": null,
+      "resources_released": true,
+      "cleanup_all_success": true
+    }
+  ],
+  "scope": {
+    "max_planned_source_allocation_bytes": 8388608,
+    "actual_remote_read_kernels": 0,
+    "actual_result_publisher_kernels": 0,
+    "legacy_peer_enable_calls": 0,
+    "IOMEM_registration_calls": 0,
+    "peer_copy_calls": 0,
+    "VM_restarts": 0,
+    "GPU_resets": 0,
+    "driver_or_registry_changes": 0,
+    "working_GPU_P2P_established": false,
+    "extra_usable_GiB": 0,
+    "additional_SM": 0,
+    "bandwidth_measured": false
+  },
+  "declaration_provenance": {
+    "repository": "NVIDIA/cuda-python",
+    "commit": "576ef68874f2fcbbb00f7f2302960c3b20597164",
+    "path": "cuda_bindings/cuda/bindings/cydriver.pxd",
+    "sha256": "e86c1cd40ba1fb5942a354e5a69d3cb951d77144341c097233b614174ce937d8",
+    "ABI_sizes": {
+      "location": 8,
+      "allocation_prop": 32,
+      "access_desc": 12,
+      "allocation_flags": 8
+    },
+    "guest_packages_or_headers_installed": false
+  },
+  "native_allocator_source": {
+    "evidence_level": "static-analysis",
+    "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "actual_G_source_check_utc": "2026-10-17T20:55:26.333031+00:00",
+    "actual_G_sources": [
+      {
+        "path": "src/nvidia/src/kernel/mem_mgr/virtual_mem.c",
+        "sha256": "7b9949bc423a29ba8cc16ee50590bb5e3eaaef394d6bdd8f531cbfc2fff0fb9a",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/mem_mgr/virtual_mem.c"
+      },
+      {
+        "path": "src/nvidia/generated/g_virt_mem_allocator_nvoc.c",
+        "sha256": "780ab364cd7888d21ac5ff9ed68749a1db317404efae75676094cd56607dde8d",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_virt_mem_allocator_nvoc.c"
+      },
+      {
+        "path": "src/nvidia/generated/g_virt_mem_allocator_nvoc.h",
+        "sha256": "6fa258f90e8b6cb09f9c37398f5600ecfbb4bcd57edf430f17f5133ac53868cf",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_virt_mem_allocator_nvoc.h"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/mem_mgr/arch/hopper/virt_mem_allocator_gh100.c",
+        "sha256": "0aeb1d527e4d4f61626707c2918f922007e07fd2eceba4d4747b9e0fc57cac32",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/arch/hopper/virt_mem_allocator_gh100.c"
+      }
+    ],
+    "GH100_or_newer_allocator_selected_for_GA100": false,
+    "GA100_default_allocator_status": "NV_ERR_NOT_SUPPORTED",
+    "pair_requires_static_BAR1_on_both": true,
+    "existing_mailbox_connection_excluded": true,
+    "exact_CUDA101_to_internal_path_traced": false,
+    "port_built_or_installed": false,
+    "required_port_review": [
+      "Actual owner window and accessor DMA mapping",
+      "Aperture admission and native reserve",
+      "Offset/physical/DMA address domains",
+      "Matching allocate/free/refcount/error cleanup",
+      "CMP-specific selection with normal checks retained"
+    ]
+  },
+  "interpretation": "Owner VMM data works; both native foreign access requests reject before a remote kernel. No physical memory ceiling inferred; positive large-memory reports remain open."
+}

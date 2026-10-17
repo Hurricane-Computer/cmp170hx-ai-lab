@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Ordinary VMM owner allocations and peer-admission rejection
+
+- Both CMPs create/map2MiB device allocations and pass full1MiB source comparisons before and after foreign read-access requests. Both requests return101; no remote kernel runs.
+- All cleanup succeeds without restart/reset or driver changes. Pinned native allocator selection and static-BAR1 prerequisites explain why a real CMP mapping implementation remains separate from capability reporting.
+
 ## 2026-10-17 — Identified the I/O registration's GPU-range rejection
 
 - Two recorded kernel diagnostics coincide with Stage80's registrations and identify GPU framebuffer/BAR2 overlap. Three actual G source hashes match upstream, including the rejecting check.
