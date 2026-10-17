@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Cache-command correction and ordinary flush
+
+- Connected actual original GA100-selected consumers and corrected the use of `17e2a0` cache-command residues as per-channel capacity labels. Positive large-memory test reports remain open.
+- One ordinary cache flush succeeded on each idle CMP, with a clean-register change and unchanged reported40/64GiB and clocks. No additional memory/SM or data-retention test claimed.
+
 ## 2026-10-17 — Normal register-range dataflow
 
 - Connected the original class metadata and saved GA100 selection to a normal builder for the register address families discussed in the capacity reports.

@@ -425,6 +425,23 @@
       "result": "Connected original class174e21 metadata, saved GA100 method selection and the normal register-range builder. Selected outputs140000/17e000/2000 become range descriptors.",
       "limit": "No runtime execution or decoder-bit/value producer established. No new constructor trace, GPU access, configuration change or extra usable memory/SM.",
       "interpretation": "docs/ltc-register-layout.md"
+    },
+    {
+      "id": "stage62-cache-command-semantics",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Original GA100-selected writers and completion polling match public cache-management flags.70000300/10000300 represent ALL/LAST cache-command parameters after completion, not2/4GB per channel.",
+      "limit": "No captured runtime function execution or capacity verdict. Positive75/76GiB and77.5/72GiB tests remain open.",
+      "interpretation": "docs/ltc-cache-commands.md"
+    },
+    {
+      "id": "stage62-ordinary-cache-flush",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T16:52:03.621530+00:00",
+      "result": "One public FB_FLUSH_GPU_CACHE(flags38) succeeded on each idle CMP.2a4 changed70010300->70000300;2a0 stayed70000300 on both40/64GiB configurations. Clients cleaned up successfully.",
+      "limit": "12 read-only MMIO observations; no direct MMIO write, VRAM allocation, reset, driver/clock/geometry change or extra usable memory/SM. No data-retention or full-capacity test.",
+      "interpretation": "docs/ltc-cache-commands.md"
     }
   ],
   "campaign_result": {

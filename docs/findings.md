@@ -45,3 +45,8 @@ The [complete normal topology wrappers](topology-gates.md) distinguish a special
 ## Normal register-layout route, 17 October
 
 The original GA100 method selection and class metadata now connect a [register-range builder](ltc-register-layout.md) to the address families discussed in the capacity reports. The builder creates range descriptors; the actual field at relative offset `0x2b4` and its value producer remain open. No new hardware experiment or capacity gain follows yet.
+
+
+## Cache-command correction and ordinary flush, 17 October
+
+The follow-up [original GA100 consumers](ltc-cache-commands.md) explain `17e2a0` values `70000300`/`10000300` as completed ALL/LAST cache commands, correcting their use as per-channel capacity labels. One ordinary write-back/invalidate flush succeeded on each idle CMP; `2a4` changed while reported40/64GiB and clocks stayed constant. No new usable HBM or SM. The positive75/76GiB and77.5/72GiB reports remain open.

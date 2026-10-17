@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "firmware": {
+    "release": "615.71.09",
+    "sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909"
+  },
+  "owner": {
+    "class_id": "0x174e21",
+    "chip_key": 42,
+    "range_array": "0x8760",
+    "range_count": "0x8768"
+  },
+  "selection": [
+    {
+      "slot": "0xa08",
+      "target": "0x4a06eec",
+      "installation_store": "0x5543bd8"
+    },
+    {
+      "slot": "0x880",
+      "target": "0x4a02a0c",
+      "installation_store": "0x5542f44"
+    }
+  ],
+  "invalidate": {
+    "relative_offset": "0x2a0",
+    "broadcast_address": "0x17e2a0",
+    "public_name": "TSTG_CMGMT0",
+    "pending_bit": 0,
+    "spacing_bits": "0x300",
+    "class_bits": {
+      "LAST": "0x10000000",
+      "NORMAL": "0x20000000",
+      "FIRST": "0x40000000"
+    },
+    "table": [
+      {
+        "requested_class": "ALL",
+        "input_flags": "0x1",
+        "invalidate_command_word": "0x70000301",
+        "word_after_pending_bit_clears": "0x70000300"
+      },
+      {
+        "requested_class": "FIRST",
+        "input_flags": "0x2",
+        "invalidate_command_word": "0x40000301",
+        "word_after_pending_bit_clears": "0x40000300"
+      },
+      {
+        "requested_class": "LAST",
+        "input_flags": "0x4",
+        "invalidate_command_word": "0x10000301",
+        "word_after_pending_bit_clears": "0x10000300"
+      },
+      {
+        "requested_class": "NORMAL",
+        "input_flags": "0x8",
+        "invalidate_command_word": "0x20000301",
+        "word_after_pending_bit_clears": "0x20000300"
+      }
+    ],
+    "write_call": "0x4a071ac",
+    "completion_read_call": "0x4a07210",
+    "completion_mask": "0x1",
+    "interpretation": "Command parameters and completion state, not a density or per-channel capacity decoder."
+  },
+  "clean": {
+    "relative_offset": "0x2a4",
+    "broadcast_address": "0x17e2a4",
+    "public_name": "TSTG_CMGMT1",
+    "pending_bit": 0,
+    "wait_for_fb_pull": "0x10000",
+    "same_class_masks": true,
+    "write_call": "0x4a0707c"
+  },
+  "companion": {
+    "relative_offset": "0x2b4",
+    "broadcast_address": "0x17e2b4",
+    "original_operation": "Read current word and OR0x00a00000, guarded by object+0x86d9",
+    "public_ga10b_name": "TSTG_SET_MGMT_3",
+    "public_ga10b_matching_fields": {
+      "bit21": "disallow_clean_fclr_imm",
+      "bit23": "disallow_clean_ce_imm"
+    },
+    "limit": "Matching GA10B field names corroborate the exact original GA100 RMW; no blanket transfer of other GA10B fields or density interpretation."
+  },
+  "sources": [
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "release": "615.71.09",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080internal.h",
+      "sha256": "b860f25c4a03727449eb63aa3317075fd7a7c82f785ff64cc3be96fdc1a6096d",
+      "lines": "2133-2154",
+      "role": "Exact-release ordinary L2 control flag names"
+    },
+    {
+      "path": "drivers/gpu/nvgpu/include/nvgpu/hw/ga10b/hw_ltc_ga10b.h",
+      "url": "https://github.com/OE4T/linux-nvgpu/blob/21d928824dc7ca3dc17603a53b11edc6641ace2d/drivers/gpu/nvgpu/include/nvgpu/hw/ga10b/hw_ltc_ga10b.h",
+      "repository": "OE4T/linux-nvgpu",
+      "commit": "21d928824dc7ca3dc17603a53b11edc6641ace2d",
+      "git_blob_sha1": "f89bbad066db1e8d8924cf155f6869305b18a64f",
+      "distribution": "public mirror of NVIDIA NvGPU source",
+      "bytes": 27437,
+      "sha256": "ce83e2488fd3a6c794d935b26e4207861d5b54084249ac64fc74cf3c046f46e7",
+      "lines": "124-132,319-339",
+      "role": "NVIDIA NvGPU definitions, pinned public mirror; cross-chip corroboration"
+    }
+  ],
+  "limits": [
+    "Original selected method is a static contract, not captured runtime GSP execution.",
+    "No new physical-memory enable mechanism follows from these cache-command words.",
+    "Positive75/76GiB and77.5/72GiB reports remain open; this corrects a register interpretation, not their data-test verdicts."
+  ],
+  "date": "2026-10-17",
+  "static_analysis_utc": "2026-10-17T16:53:30.123314+00:00",
+  "evidence_level": "static-analysis and separately timestamped observation",
+  "live_trial": {
+    "evidence_level": "observed",
+    "evidence_utc": "2026-10-17T16:52:03.621530+00:00",
+    "driver": "615.71.09",
+    "command": "0x2080130e",
+    "flags": "0x38",
+    "control_calls": 2,
+    "control_retries": 0,
+    "MMIO_reads": 12,
+    "direct_MMIO_writes": 0,
+    "MMIO_mapping": "PROT_READ",
+    "VRAM_allocated_bytes": 0,
+    "resets": 0,
+    "configuration_changes": 0,
+    "cards": [
+      {
+        "variant": "cmp40",
+        "control_status": "0x0",
+        "flags": "0x38",
+        "register_offsets_from_0x17e000_before": {
+          "0x2a0": "0x70000300",
+          "0x2a4": "0x70010300",
+          "0x2b4": "0x30"
+        },
+        "register_offsets_from_0x17e000_after": {
+          "0x2a0": "0x70000300",
+          "0x2a4": "0x70000300",
+          "0x2b4": "0x30"
+        },
+        "reported_memory_mib_before": 40960,
+        "reported_memory_mib_after": 40960,
+        "memory_clock_mhz_before": 1215,
+        "memory_clock_mhz_after": 1215,
+        "used_memory_mib_before": 0,
+        "used_memory_mib_after": 0,
+        "gpu_process_count_before": 0,
+        "gpu_process_count_after": 0,
+        "temporary_RM_client_cleanup_status": "0x0"
+      },
+      {
+        "variant": "cmp64",
+        "control_status": "0x0",
+        "flags": "0x38",
+        "register_offsets_from_0x17e000_before": {
+          "0x2a0": "0x70000300",
+          "0x2a4": "0x70010300",
+          "0x2b4": "0x30"
+        },
+        "register_offsets_from_0x17e000_after": {
+          "0x2a0": "0x70000300",
+          "0x2a4": "0x70000300",
+          "0x2b4": "0x30"
+        },
+        "reported_memory_mib_before": 65536,
+        "reported_memory_mib_after": 65536,
+        "memory_clock_mhz_before": 1728,
+        "memory_clock_mhz_after": 1728,
+        "used_memory_mib_before": 0,
+        "used_memory_mib_after": 0,
+        "gpu_process_count_before": 0,
+        "gpu_process_count_after": 0,
+        "temporary_RM_client_cleanup_status": "0x0"
+      }
+    ],
+    "limit": "Successful ordinary API and immediate before/after words, not captured GSP function execution or a new capacity test."
+  },
+  "correction": {
+    "foreign_source": "https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md",
+    "foreign_interpretation": "The comparison table labels17e2a0 values70000300 and10000300 as2GB/channel and4GB/channel.",
+    "finding": "Those exact values are explained by ALL versus LAST cache-operation class masks after pending clears. Do not use them as a capacity/density decoder.",
+    "not_refuted": "The separate positive75/76GiB and77.5/72GiB data-test reports remain open."
+  },
+  "new_usable_memory_gib_demonstrated": 0,
+  "additional_working_sms_demonstrated": 0
+}

@@ -84,5 +84,10 @@
   "configuration_changes": 0,
   "new_usable_memory_gib_demonstrated": 0,
   "additional_working_sms_demonstrated": 0,
-  "next_source_question": "Follow normal consumers of the specific object+8760 register-range array and base/e00 method, especially an access to relative offset2b4. Prove its GA100 field semantics and actual value producer before proposing a hardware write. Do not repeat generic aperture construction or key42 tracing."
+  "next_source_question": "Follow normal consumers of the specific object+8760 register-range array and base/e00 method, especially an access to relative offset2b4. Prove its GA100 field semantics and actual value producer before proposing a hardware write. Do not repeat generic aperture construction or key42 tracing.",
+  "follow_up": {
+    "reference": "ltc-cache-commands.json",
+    "date": "2026-10-17",
+    "result": "Specific GA100-selected consumers now connected.2a0/2a4 are cache commands;2b4 has a matching cache-policy RMW. Earlier open-question text records the preceding analysis stage."
+  }
 }

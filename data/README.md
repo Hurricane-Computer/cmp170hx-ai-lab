@@ -42,3 +42,5 @@ These files are explicit technical projections of the research records, not copi
 [topology-gates.json](topology-gates.json) separates the complete original debug-wrapper guards from four current read-only observations and their conditional routes; no mask write or new HBM/SM.
 
 [ltc-register-layout.json](ltc-register-layout.json) records original GA100 method selection, the class-owned builder and its register-range descriptors. It does not establish a decoder-bit contract or a new hardware result.
+
+[ltc-cache-commands.json](ltc-cache-commands.json) separates original selected cache-command semantics, the corrected third-party density label, and two bounded ordinary flush observations. No capacity test or extra-memory claim.
