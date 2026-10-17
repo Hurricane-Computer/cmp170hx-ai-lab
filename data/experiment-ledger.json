@@ -369,6 +369,30 @@
       "result": "Corrected three out-of-range diagnostic slices and connected normal GSP logging metadata to its separate-ELF contract.",
       "limit": "Matching vendor logging ELF and specific names remain unresolved. No capacity mechanism or hardware change.",
       "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage58-recovered-owner-window-tests",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "Recovered five historical own outputs: 70/78 GiB small windows pass, while larger-footprint records retain clean upper self-checks and show high-pattern-sourced lower corruption. Checked-copy source and visit totals audited; no new GPU run.",
+      "limit": "No new GPU experiment, current physical-card binding, isolated cache explanation, whole-allocation capacity or refutation of foreign77.5/72GiB reports.",
+      "interpretation": "docs/capacity-evidence.md"
+    },
+    {
+      "id": "stage58-normal-logging-companion",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Resolved the normal versioned GA100 optional diagnostic filename and the decoder's normal handling of an absent companion.",
+      "limit": "No matching ELF, specific diagnostic-name resolution, configuration change or capacity/SM result.",
+      "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage58-scoped-companion-query",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "The matching logging companion was not obtained from the queried installed firmware directories or selected CMP artifacts.",
+      "limit": "Scoped file query only, no global absence claim, GPU API/MMIO access or memory/clock/process-state refresh.",
+      "interpretation": "docs/memory-geometry.md"
     }
   ],
   "campaign_result": {

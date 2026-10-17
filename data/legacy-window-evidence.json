@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-17",
+  "evidence_level": "recovered historical owner records and static checker audit",
+  "new_GPU_experiment": false,
+  "checker_source_sha256": "062e320ad75e9be1f38ff9d1a2941a989de5925368bb2b9039c6f7d402fb8089",
+  "archived_runners_expected_executable_sha256": "86861cf6a4a82a12f738a38152581105016c1e50362c462ef741c7575bea2f7c",
+  "source_binding_limit": "Prepared runners pin the executable hash and source matches the recorded format/control flow. An exact source-to-executable build binding is not re-established here.",
+  "checker_contract": {
+    "fill": "Address/window-dependent64-bit words using SM st.global.cg, with checked launch and context synchronization.",
+    "readback": "Checked Driver-API D2H copies; CPU comparison of every returned word.",
+    "order": "Fill all low windows; verify low; fill all high windows; reverify all low; verify high; check complete visit totals.",
+    "scope": "Only selected disjoint windows are filled, not all bytes of the large allocation."
+  },
+  "records": [
+    {
+      "id": "legacy-72-light",
+      "source_sha256": "87a00822cc1aae2cefe276e42bd98476e9cbd51c9dbb286177e7ae34e5a3a584",
+      "historical_execution_time": null,
+      "current_physical_card_binding": "not established",
+      "allocation_gib": 70.0,
+      "unique_selected_written_mib": 14,
+      "low_windows": {
+        "count": 8,
+        "size_mib_each": 1,
+        "starts_mib": [
+          512,
+          4096,
+          8192,
+          16384,
+          24576,
+          29696,
+          32768,
+          35000
+        ]
+      },
+      "high_windows": {
+        "count": 6,
+        "size_mib_each": 1,
+        "starts_mib": [
+          41472,
+          45056,
+          49152,
+          57344,
+          65536,
+          70656
+        ]
+      },
+      "recorded_result": {
+        "status": "NO_FOLD_OBSERVED",
+        "rc": 0,
+        "high_fill_complete": 1,
+        "low_before_mismatches": 0,
+        "low_after_mismatches": 0,
+        "high_after_mismatches": 0,
+        "low_after_high_sourced": 0,
+        "visited_low_before": 1048576,
+        "visited_low_after": 1048576,
+        "visited_high_after": 786432,
+        "cleanup_failed": 0
+      },
+      "recorded_CUDA_failure_count": 0,
+      "aggregate_consistency": "passed",
+      "first_alias_sample": []
+    },
+    {
+      "id": "legacy-72-moderate",
+      "source_sha256": "188e3d696e0914965db9bf706c13a8f22390dca6f56f5a104f882cb83def923b",
+      "historical_execution_time": null,
+      "current_physical_card_binding": "not established",
+      "allocation_gib": 70.0,
+      "unique_selected_written_mib": 1600,
+      "low_windows": {
+        "count": 15,
+        "size_mib_each": 64,
+        "starts_mib": [
+          512,
+          768,
+          1024,
+          1536,
+          4096,
+          8192,
+          16384,
+          24576,
+          28160,
+          29184,
+          29696,
+          30208,
+          31232,
+          32768,
+          35000
+        ]
+      },
+      "high_windows": {
+        "count": 10,
+        "size_mib_each": 64,
+        "starts_mib": [
+          41472,
+          41984,
+          45056,
+          49152,
+          57344,
+          65536,
+          69120,
+          70144,
+          70656,
+          71168
+        ]
+      },
+      "recorded_result": {
+        "status": "FOLD_HIGH_TO_LOW_CONFIRMED",
+        "rc": 10,
+        "high_fill_complete": 1,
+        "low_before_mismatches": 0,
+        "low_after_mismatches": 81668976,
+        "high_after_mismatches": 0,
+        "low_after_high_sourced": 81668976,
+        "visited_low_before": 125829120,
+        "visited_low_after": 125829120,
+        "visited_high_after": 83886080,
+        "cleanup_failed": 0
+      },
+      "recorded_CUDA_failure_count": 0,
+      "aggregate_consistency": "passed",
+      "first_alias_sample": [
+        {
+          "offset": 536870912,
+          "decoded_source": 43486546176,
+          "expected_id": 1,
+          "source_id": 16,
+          "source_in_window": 1
+        }
+      ]
+    },
+    {
+      "id": "legacy-80-light",
+      "source_sha256": "a8aae6332fcc67f6a340e7b87716c5fe34444f5ad773e194945bdde3ae1721c0",
+      "historical_execution_time": null,
+      "current_physical_card_binding": "not established",
+      "allocation_gib": 78.0,
+      "unique_selected_written_mib": 16,
+      "low_windows": {
+        "count": 8,
+        "size_mib_each": 1,
+        "starts_mib": [
+          512,
+          4096,
+          8192,
+          16384,
+          24576,
+          29696,
+          32768,
+          37888
+        ]
+      },
+      "high_windows": {
+        "count": 8,
+        "size_mib_each": 1,
+        "starts_mib": [
+          41472,
+          45056,
+          49152,
+          57344,
+          65536,
+          70656,
+          73728,
+          78848
+        ]
+      },
+      "recorded_result": {
+        "status": "NO_FOLD_OBSERVED",
+        "rc": 0,
+        "high_fill_complete": 1,
+        "low_before_mismatches": 0,
+        "low_after_mismatches": 0,
+        "high_after_mismatches": 0,
+        "low_after_high_sourced": 0,
+        "visited_low_before": 1048576,
+        "visited_low_after": 1048576,
+        "visited_high_after": 1048576,
+        "cleanup_failed": 0
+      },
+      "recorded_CUDA_failure_count": 0,
+      "aggregate_consistency": "passed",
+      "first_alias_sample": []
+    },
+    {
+      "id": "legacy-80-moderate",
+      "source_sha256": "db7e069bf7bef559df27fda2c0fce0dbeb8f29152a8728f5c3cdcef142b079a5",
+      "historical_execution_time": null,
+      "current_physical_card_binding": "not established",
+      "allocation_gib": 78.0,
+      "unique_selected_written_mib": 1792,
+      "low_windows": {
+        "count": 15,
+        "size_mib_each": 64,
+        "starts_mib": [
+          512,
+          768,
+          1024,
+          1536,
+          4096,
+          8192,
+          16384,
+          24576,
+          29696,
+          32768,
+          33280,
+          34304,
+          35328,
+          36352,
+          37888
+        ]
+      },
+      "high_windows": {
+        "count": 13,
+        "size_mib_each": 64,
+        "starts_mib": [
+          41472,
+          41984,
+          45056,
+          49152,
+          57344,
+          65536,
+          70656,
+          73728,
+          74240,
+          75264,
+          76288,
+          77312,
+          78848
+        ]
+      },
+      "recorded_result": {
+        "status": "FOLD_HIGH_TO_LOW_CONFIRMED",
+        "rc": 10,
+        "high_fill_complete": 1,
+        "low_before_mismatches": 0,
+        "low_after_mismatches": 106834960,
+        "high_after_mismatches": 0,
+        "low_after_high_sourced": 106834960,
+        "visited_low_before": 125829120,
+        "visited_low_after": 125829120,
+        "visited_high_after": 109051904,
+        "cleanup_failed": 0
+      },
+      "recorded_CUDA_failure_count": 0,
+      "aggregate_consistency": "passed",
+      "first_alias_sample": [
+        {
+          "offset": 536870912,
+          "decoded_source": 43486546176,
+          "expected_id": 1,
+          "source_id": 16,
+          "source_in_window": 1
+        }
+      ]
+    },
+    {
+      "id": "legacy-80-41-smoke",
+      "source_sha256": "560d6fbf774285191d930f938280237b5ad65da5e4372323e1a1c69aeb139312",
+      "historical_execution_time": null,
+      "current_physical_card_binding": "not established",
+      "allocation_gib": 41.0,
+      "unique_selected_written_mib": 3,
+      "low_windows": {
+        "count": 2,
+        "size_mib_each": 1,
+        "starts_mib": [
+          512,
+          1024
+        ]
+      },
+      "high_windows": {
+        "count": 1,
+        "size_mib_each": 1,
+        "starts_mib": [
+          41472
+        ]
+      },
+      "recorded_result": {
+        "status": "NO_FOLD_OBSERVED",
+        "rc": 0,
+        "high_fill_complete": 1,
+        "low_before_mismatches": 0,
+        "low_after_mismatches": 0,
+        "high_after_mismatches": 0,
+        "low_after_high_sourced": 0,
+        "visited_low_before": 262144,
+        "visited_low_after": 262144,
+        "visited_high_after": 131072,
+        "cleanup_failed": 0
+      },
+      "recorded_CUDA_failure_count": 0,
+      "aggregate_consistency": "passed",
+      "first_alias_sample": []
+    }
+  ],
+  "interpretation": {
+    "positive": "The light records contain clean checked comparisons at selected addresses up to77GiB, beyond allocation success alone.",
+    "negative": "Both larger-footprint records report clean upper self-checks with high-pattern-sourced lower corruption. One shared example pairs0.5GiB with40.5GiB+0x900.",
+    "cache_hypothesis": "L2-resident small windows could mask backing aliases. This is unproven: the archived small and larger runs also differ in boots and allocation placement; no isolated cache-residency measurement exists.",
+    "physical_limit": "Neither an80GiB independent mapping nor a physical40GiB ceiling is established.",
+    "foreign_reports": "The separate original77.5/72GiB checker remains unrecovered; these own records do not refute those reports."
+  },
+  "primary_context": [
+    {
+      "url": "https://docs.nvidia.com/cuda/parallel-thread-execution/#cache-operators",
+      "fact": "The st.cg cache hint permits L2 caching; it is not an HBM-bypass or full-cache-invalidation guarantee."
+    },
+    {
+      "url": "https://images.nvidia.com/aem-dam/en-zz/Solutions/data-center/nvidia-ampere-architecture-whitepaper.pdf",
+      "fact": "NVIDIA documents40MB L2 for A100 as architecture context, not a live cache-size measurement of these historical boards."
+    }
+  ]
+}

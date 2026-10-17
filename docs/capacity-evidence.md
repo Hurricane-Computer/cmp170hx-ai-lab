@@ -2,13 +2,14 @@
 
 **48 GiB is our first target, not an established physical ceiling. An 80-GiB-class CMP40 remains an open hypothesis.** Current identity decoding suggests 8 GiB per complete stack on the examined card. That is useful evidence, but a trustworthy conflicting capacity result would require us to revisit the decoding, population or differences between boards.
 
-## Three records, three different limits
+## Different records, different limits
 
 | Record | What it contributes | What remains unproved |
 |---|---|---|
 | External 77.5/72-GiB report | Reported positive counterevidence worth pursuing | Exact test implementation and independent reproduction |
 | Archived 75–76-GiB `hbm45.cu` report | Full-word pattern and correct global fill/check ordering | Reliability of its unchecked result-copy channel in historical runs |
 | Our 20 September 47-GiB experiment | An upper region read correctly while corrupting lower data | Availability under a different mapping or physical absence of more memory |
+| Recovered owner 70-/78-GiB window tests | Clean small upper windows; larger selected writes expose lower corruption | Whole-allocation independence, original run date and current physical-card identity |
 
 The [pinned community record](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md) reports 310 × 256-MiB blocks, a later 72-GiB pass and severe lifecycle limits. It describes tags in every page, but does not provide the exact checking implementation in the examined documentation tree. We cannot tell whether that means a single tagged word or a completely filled page. The script-driven initialization was followed by a stock-driver handoff; “driverless” does not establish that subsequent data tests bypassed CUDA. These are attributed reports, not this lab's new measurements.
 
@@ -45,3 +46,21 @@ Both copy programs allocate every chunk before their first fill copy. Their repo
 ## Matching-version comparison and new small GPU controls
 
 The [next follow-up](capacity-followup.md) checks the principal old configuration against our historical coherent80 trial, maps the repeated fault in matching original 610.43.03 firmware, and records 12 new small GPU verifier controls across both CMPs. The controls distinguish clean from deliberately wrong data and agree over two checked verdict paths. They are not a new high-capacity result.
+
+## Recovered owner window tests
+
+Five preserved outputs recover a more precise version of our own large-allocation history. These are **historical records audited on 17 October**, not new GPU runs. The checker source uses checked launches, synchronization and D2H copies; it compares every returned 64-bit word on the CPU. All low windows are filled and checked before upper writes, then rechecked afterwards.
+
+| Allocated | Unique selected bytes written | Lower wrong 64-bit words after upper writes | Upper self-check |
+|---|---|---|---|
+|70 GiB|14 MiB|0|Clean|
+|70 GiB|1,600 MiB|81,668,976|Clean|
+|78 GiB|16 MiB|0|Clean|
+|78 GiB|1,792 MiB|106,834,960|Clean|
+|41 GiB|3 MiB|0|Clean|
+
+The 78-GiB light test includes a checked 1-MiB window starting at 77 GiB. That is real selected-window readback evidence. Both larger-footprint tests nevertheless find upper-pattern words in lower windows. Their first reported example pairs a lower word at 0.5 GiB with upper data from 40.5 GiB+0x900, consistent with the earlier observed offset. Clean upper readback therefore coexists with lower corruption in these records.
+
+Cache residency is a plausible **unproved explanation** for the small-window difference. NVIDIA's [PTX contract](https://docs.nvidia.com/cuda/parallel-thread-execution/#cache-operators) allows L2 caching for the checker's `st.cg` stores. The [A100 whitepaper](https://images.nvidia.com/aem-dam/en-zz/Solutions/data-center/nvidia-ampere-architecture-whitepaper.pdf) documents 40 MB L2 as architecture context. Neither establishes actual cache residency in these runs. The small and larger tests also used different boots and allocations, so this is not an isolated cache experiment.
+
+The archived runners pin a common executable hash; exact source-to-executable build provenance and a binding to either currently installed physical card are not re-established here. [Selected ranges, counters, source fingerprints and limits](../data/legacy-window-evidence.json) retain the useful evidence without publishing raw logs. These own records neither prove an 80-GiB mapping nor establish a physical 40-GiB ceiling, and do not dispose of the separate foreign 77.5/72-GiB reports. If a distinct expanded mapping becomes available, bounded future checks should record the active footprint/cache condition and preserve lower canaries; these old mappings need no unchanged replay.

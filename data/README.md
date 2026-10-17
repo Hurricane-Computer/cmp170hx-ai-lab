@@ -36,3 +36,5 @@ These files are explicit technical projections of the research records, not copi
 [io-aperture-analysis.json](io-aperture-analysis.json) identifies the normal range class, I/O contract and the resolved static normal GA100 constructor selection. It contains no hardware observation or decoder-bit programming recipe.
 
 [logging-metadata.json](logging-metadata.json) records the separate LibOS log-metadata contract and unresolved diagnostic references; the matching logging ELF is still an open artifact question.
+
+[legacy-window-evidence.json](legacy-window-evidence.json) separates historical large allocations, actually written windows, checked readback and lower alias corruption; cache masking remains a hypothesis. No historical GPU test was replayed.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "stage": 57,
+  "stage": 58,
   "evidence_level": "static-analysis",
   "analysis_utc": "2026-10-17T14:57:51.586411+00:00",
   "firmware_version": "615.71.09",
@@ -48,6 +48,49 @@
       "bytes": 89875,
       "sha256": "9ef254ac68337f98b771edbf13abbc258cb0be96b6164c631e81d596ee6fa9cc",
       "git_blob_sha1": "260ea247d931fc70fdf99feafeff5be54aee57b4"
+    },
+    {
+      "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+      "bytes": 272591,
+      "sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+      "git_blob_sha1": "7e89ef468d35807018f8cbd6c044960607e8244f"
+    },
+    {
+      "path": "kernel-open/common/inc/nv-firmware.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/common/inc/nv-firmware.h",
+      "bytes": 5715,
+      "sha256": "c913551c3f49d30799662f9d9373f4fe47ad9873006d35c26cd00e118b508af8",
+      "git_blob_sha1": "78db84fc5633748522b274c86f46b73bb72fe5f5"
+    },
+    {
+      "path": "kernel-open/nvidia/nv.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv.c",
+      "bytes": 174618,
+      "sha256": "ce04946d288cf0251668a2d847acceb2a39af9dac2f13bb005f53759c774dbf7",
+      "git_blob_sha1": "df5a5e0e5ef59fcf44e9532b6bdef4ebf8d3c435"
     }
-  ]
+  ],
+  "initial_stage": 57,
+  "normal_companion_followup": {
+    "analysis_utc": "2026-10-17T15:20:42.471350+00:00",
+    "expected_relative_name": "nvidia/615.71.09/gsp_log_tu10x.bin",
+    "normal_optional_contract": [
+      "The normal GA100/TU11X/TU10X family branch selects the gsp_log_tu10x basename for GSP_LOG.",
+      "The platform macro prefixes the driver version and adds.bin.",
+      "Normal module firmware declarations omit optional gsp_log files.",
+      "The log-decoder setup returns normally when no logging ELF is supplied. With one supplied it uses the normal matching-container checks and selected logging section; no checks were altered."
+    ],
+    "file_presence_query_utc": "2026-10-17T15:07:01.085707+00:00",
+    "query_scope": "Normal installed NVIDIA615.71.09 firmware directories and selected local CMP artifact inventories.",
+    "matching_companion_obtained": false,
+    "ordinary_GSP_basenames_found": [
+      "gsp_ga10x.bin",
+      "gsp_tu10x.bin"
+    ],
+    "GPU_API_calls": 0,
+    "register_accesses": 0,
+    "configuration_changes": 0,
+    "limits": "Scoped absence only; no global vendor-availability claim, specific diagnostic-name resolution or memory/clock/process-state refresh."
+  }
 }

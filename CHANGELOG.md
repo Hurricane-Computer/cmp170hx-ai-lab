@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Recovered owner window tests and normal logging filename
+
+- Recovered five historical 70-/78-/41-GiB allocation outputs and the checked-copy source. Small selected windows pass; larger records show lower corruption despite clean upper self-checks. Cache masking is an unproved explanation, not a new capacity verdict.
+- Resolved the normal optional GA100 logging-companion filename; scoped installed-file/artifact queries did not obtain it. No GPU capacity trial or configuration change.
+
 ## 2026-10-17 — Bound GA100 dispatch and separate logging metadata
 
 - Connected the normal aperture-owner HAL argument to original GA100 key42 and its return-zero constructor slot; reused the previous conditional trace.
