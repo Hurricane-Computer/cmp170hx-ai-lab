@@ -224,5 +224,45 @@
   "geometry_register_writes": 0,
   "driver_or_service_changes": 0,
   "extra_usable_memory_demonstrated": false,
-  "new_working_SMs_demonstrated": false
+  "new_working_SMs_demonstrated": false,
+  "ordinary_region_policy": {
+    "stage": 54,
+    "evidence_level": "static-analysis",
+    "analysis_utc": "2026-10-17T13:52:08.214548+00:00",
+    "driver_version": "615.71.09",
+    "official_source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "base_regions": "The non-VF public build imports GSP-supplied framebuffer regions; its later region HAL is a successful no-op.",
+    "size_override_handler": "memmgrHandleSizeOverrides_GP100, selected for GA100 by the public HAL binding.",
+    "size_override_effect": "Above an existing row's limit the override leaves it unchanged. Otherwise it reserves a suffix within that row and subtracts usable bytes. It cannot extend the row.",
+    "original_policy_literal": "RMIgnoreUpperMemory",
+    "original_firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+    "original_policy_finding": "An ordinary lookup conditionally caches this Boolean in the original MemoryManager. A physical upper-region builder or applicable unlock effect is not established by that write.",
+    "hardware_accesses": 0,
+    "new_capacity_or_SM": false,
+    "physical_capacity_limit_inferred": false,
+    "foreign_positive_reports_refuted": false,
+    "limits": "This source result does not inventory HBM packages, identify a new physical map or justify setting a legacy mixed-memory bit. Unbound same-offset candidates remain unbound.",
+    "sources": [
+      {
+        "path": "src/nvidia/src/kernel/gpu/mem_mgr/arch/pascal/mem_mgr_gp100.c",
+        "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/arch/pascal/mem_mgr_gp100.c",
+        "sha256": "dd4fadaa7d0d9640735606d879e4deee96ccd02bdef5071041baca00fa40293b"
+      },
+      {
+        "path": "src/nvidia/generated/g_mem_mgr_nvoc.c",
+        "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_mem_mgr_nvoc.c",
+        "sha256": "051a4a738c6574231bd1c55720efc1541fb13da8349524072f39694c1f2c5ca5"
+      },
+      {
+        "path": "src/nvidia/generated/g_mem_mgr_nvoc.h",
+        "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_mem_mgr_nvoc.h",
+        "sha256": "9daa3026a1ab58e4331d95d211cb0d55e49c01a17b7861e7d72d1809fedd6783"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_gsp_client.c",
+        "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_gsp_client.c",
+        "sha256": "1e6259cf27e2c4499b5239ef987ad016a8cd9e4a6679b018038ac89e70a3dd16"
+      }
+    ]
+  }
 }

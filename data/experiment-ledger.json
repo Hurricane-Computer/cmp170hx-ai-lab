@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T12:37:28.965564+00:00",
+  "updated_utc": "2026-10-17T13:52:08.214548+00:00",
   "records": [
     {
       "id": "stage3",
@@ -328,6 +328,14 @@
       "evidence_level": "static-analysis",
       "result": "Vendor-hash-verified original610.43.03 image maps the recurring reported fault to a normal RM object-pointer byte load.",
       "limit": "No runtime trap registers/effective address, named copy-engine function, root cause, firmware execution or patch established.",
+      "interpretation": "docs/capacity-followup.md"
+    },
+    {
+      "id": "stage54-ordinary-region-policy",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Bound the public GA100 size override to a reserve-only region handler and separated a real original upper-memory policy cache from an unproven physical mapper.",
+      "limit": "No hardware access, extra memory, SM gain, physical upper limit or refutation of foreign capacity reports.",
       "interpretation": "docs/capacity-followup.md"
     }
   ],

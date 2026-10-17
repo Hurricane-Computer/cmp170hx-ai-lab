@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Ordinary region policy and a reserve-only size override
+
+- Traced the pinned public GA100 size override to a handler that restricts existing regions rather than extending them.
+- Separated a real original upper-memory policy cache from an unproven physical mapper; no hardware trial or additional capacity/SM claimed.
+
 ## 2026-10-17 — Matching 610 fault anchor and small verifier controls
 
 - Compared the principal foreign report configuration with our already-tested historical coherent80 fields; did not repeat that capacity ladder.

@@ -25,3 +25,13 @@ The original [NVIDIA 610.43.03 release](https://download.nvidia.com/XFree86/Linu
 In that exact image, the recurring reported PC `0x5b2ba28` maps to a byte load through an ordinary RM object-pointer chain. It is not enough to name a copy-engine routine or establish the original cause. The report supplies no runtime register set or effective fault address for resolving that pointer. Other listed PCs were mapped only to file-backed sections; addresses outside them do not establish their original cause. No firmware patch follows from this observation, and no original firmware or derived assembly is distributed here.
 
 The next capacity approach still needs a distinct applicable physical-layout mechanism. The checked small verdict path can then be reused, without routinely repeating this control or the completed CPU alias demonstration. [Selected values, source hashes and 12 case records](../data/capacity-followup.json).
+
+## Ordinary region policy is not a new physical map
+
+The pinned public NVIDIA 615.71.09 [HAL binding](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_mem_mgr_nvoc.c) selects `memmgrHandleSizeOverrides_GP100` for GA100 despite the older suffix. The [handler](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/arch/pascal/mem_mgr_gp100.c) only restricts existing allocatable regions: an override above a row's limit skips that row; otherwise it reserves the suffix while retaining the original limit and subtracting usable bytes. Raising this override does not create another address range.
+
+The same public build's ordinary non-VF base-region path imports GSP-supplied regions. Its later region HAL returns success without adding a region. Changing those software tables alone would not establish a different physical HBM map.
+
+Separately, original-firmware analysis found the ordinary `RMIgnoreUpperMemory` lookup and a conditional Boolean cache write in the original MemoryManager. That name and cache write do not establish an applicable upper-region producer, a changed address decoder, or a useful unlock. Same-offset accesses in unrelated objects were kept separate. No raw firmware or derived assembly is distributed.
+
+This was an offline source result, with no hardware access or new capacity/SM test. It does not set a physical capacity ceiling or refute the attributed 75/76 and 77.5/72-GiB results. The useful next target is a distinct applicable physical address-layout producer, rather than a size-cache toggle or repetition of the scalar/carveout path. Source hashes and scope are recorded in the [structured follow-up](../data/capacity-followup.json).
