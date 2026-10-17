@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
+  "updated_utc": "2026-10-17T11:07:40.565665+00:00",
   "cards": [
     {
       "variant": "cmp40",
@@ -39,17 +39,17 @@
         "long_term_stability_proven": false
       },
       "latest_guest_state": {
-        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
         "reported_memory_mib": 40960,
         "memory_clock_mhz": 1215,
-        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "status": "Candidate G; full8MiB random H2D/D2D/D2H hash check passed; no P2P route advertised.",
         "full_capacity_qualified": false
       },
       "last_successful_guest_state": {
-        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
         "reported_memory_mib": 40960,
         "memory_clock_mhz": 1215,
-        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "status": "Candidate G; full8MiB random H2D/D2D/D2H hash check passed; no P2P route advertised.",
         "full_capacity_qualified": false
       },
       "previous_successful_guest_state": {
@@ -57,6 +57,13 @@
         "reported_memory_mib": 40960,
         "memory_used_mib": 9725,
         "memory_clock_mhz": 1350
+      },
+      "previous_working_F_guest_state": {
+        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "reported_memory_mib": 40960,
+        "memory_clock_mhz": 1215,
+        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "full_capacity_qualified": false
       }
     },
     {
@@ -86,17 +93,17 @@
       },
       "short_roundtrip_bytes": null,
       "latest_guest_state": {
-        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
         "reported_memory_mib": 65536,
         "memory_clock_mhz": 1728,
-        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "status": "Candidate G; full8MiB random H2D/D2D/D2H hash check passed; no P2P route advertised.",
         "full_capacity_qualified": false
       },
       "last_successful_guest_state": {
-        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
         "reported_memory_mib": 65536,
         "memory_clock_mhz": 1728,
-        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "status": "Candidate G; full8MiB random H2D/D2D/D2H hash check passed; no P2P route advertised.",
         "full_capacity_qualified": false
       },
       "previous_successful_guest_state": {
@@ -105,6 +112,13 @@
         "memory_used_mib": 0,
         "memory_clock_mhz": 1728,
         "scope": "8-GiB base configuration after targeted reset; historical64-GiB unlock not reproduced in this guest boot."
+      },
+      "previous_working_F_guest_state": {
+        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "reported_memory_mib": 65536,
+        "memory_clock_mhz": 1728,
+        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "full_capacity_qualified": false
       }
     }
   ]

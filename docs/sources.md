@@ -48,3 +48,11 @@ The [pinned 77.5/72-GiB community record](https://github.com/Consensus-Protocol/
 [NVIDIA BAR2 root-entry handoff](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/gpu/bus/kern_bus.c#L831) documents the ordinary CPU/GSP table merge. [Linux device-I/O mapping semantics](https://cdn.kernel.org/doc/html/latest/driver-api/device-io.html) distinguish ordinary and write-combined mappings; they motivated C without establishing a root cause.
 
 The [pinned BAR1 forcing patch](https://github.com/admunch888/cmpunlocker/blob/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03/driver/patches/bar1-resize-unlock.patch) supplies the E/F comparison target. The [exact tested final delta](bar1-forcing-delta.md) attributes that fork and NVIDIA source; it is not a complete driver distribution.
+
+## Mailbox candidate and mainboard boundary
+
+- [NVIDIA static-BAR1 pair prerequisites](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/gpu/bus/arch/hopper/kern_bus_gh100.c) and [force/auto size checks](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/gpu/bus/arch/turing/kern_bus_tu102.c).
+- [Native peer capability path](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/platform/p2p/p2p_caps.c): chipset discovery precedes the ordinary topology and GPU checks.
+- [Pinned bayley README](https://github.com/bayley/cmpunlocker/blob/5a7bb4b7e5056306fe49e8b824787659abb19914/README.md) and [architecture note](https://github.com/bayley/cmpunlocker/blob/5a7bb4b7e5056306fe49e8b824787659abb19914/docs/ARCHITECTURE.md): conflicting mailbox claims at the same revision; not our transfer result.
+- [ASUS first-generation board BIOS/BMC releases](https://www.asus.com/us/supportonly/pro%20ws%20wrx80e-sage%20se%20wifi/helpdesk_bios/):1901/1801 package references and1.34.0 BMC listing. Firmware binaries remain external.
+- [ASUS BIOS manual](https://dlcdnets.asus.com/pub/ASUS/mb/SocketTRX4/Pro_WS_WRX80E-SAGE_SE_WIFI/E18120_PRO_WS_WRX80E-SAGE_SE_WIFI_BIOS_Manual_EM_WEB.pdf): PCI Subsystem Settings, Above4G and Re-Size BAR controls. This is documentation, not a current-settings dump.

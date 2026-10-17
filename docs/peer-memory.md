@@ -39,3 +39,7 @@ Marker-method correction: Stage42 scanned the compressed module file. Stage43 de
 ## Working F baseline, 17 October 10:28 UTC
 
 F reports CMP40 40 GiB / 1215 MHz and CMP64 64 GiB / 1728 MHz after its small checked copies passed. All six directed `cuDeviceCanAccessPeer` calls again returned success with capability zero; access and native-atomic attributes were also zero. This query allocated no memory, enabled no peer access and attempted no peer copies or kernels. P2P patches remain unapplied. The [separate structured F baseline](../data/peer-memory.json) records the exact module hash. Future work must start from F and preserve its non-forced BAR1 policy.
+
+## Candidate G: per-device report alone is insufficient
+
+The next [bounded mailbox experiment](mailbox-p2p.md) kept F's BAR1 policy and changed only CMP per-device reports. All three small ordinary copies passed, but native chipset discovery in this guest remained unavailable and all six peer directions stayed zero. No peer transfer or kernel ran. Current G and historical F are separately timestamped in the structured data.

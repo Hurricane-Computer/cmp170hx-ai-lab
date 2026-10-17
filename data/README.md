@@ -3,9 +3,9 @@
 These files are explicit technical projections of the research records, not copies of raw logs or private checkpoints.
 
 - [capacity-evidence.json](capacity-evidence.json): external77.5/72-GiB lead, archived full-word test audit, historical47-GiB alias and CPU method counterexamples; no new GPU capacity result.
-- [peer-memory.json](peer-memory.json): historical Stage42 and working-F directed matrices, exact module fingerprints, separate 8/64-GiB CMP64 observations and the untested P2P source lead.
+- [peer-memory.json](peer-memory.json): historical Stage42/F and later G directed matrices, exact module fingerprints, separate 8/64-GiB CMP64 observations and the scoped native-discovery refusal.
 - [bar2-root-observations.json](bar2-root-observations.json): normalized D/E RPC statuses and actual eight-byte root comparisons; no private addresses or logs.
-- [driver-candidates.json](driver-candidates.json): six built/live-tested driver variants, A–E BAR2 failures, working F with checked copies, exact source hashes and corrected compressed/ELF module evidence.
+- [driver-candidates.json](driver-candidates.json): seven built/live-tested driver variants, A–E BAR2 failures, working F/G with checked copies, exact source hashes and corrected compressed/ELF module evidence.
 - [cards.json](cards.json): non-identifying variant observations and evidence timestamps.
 - [clock-trials.json](clock-trials.json): the five observed CMP40 clock steps, short-copy hashes, test limits and attributed prior art.
 - [bandwidth-load.json](bandwidth-load.json): one bounded1350-MHz load, CUDA-event throughput, explicit read+write byte counts, output hashes and sampled telemetry; no long-term or full-memory qualification.
@@ -20,3 +20,5 @@ These files are explicit technical projections of the research records, not copi
 - [gsp-object-map.json](gsp-object-map.json): the original GPU/GA100 method-selection chain and its explicit limits.
 
 `observed` fields describe their recorded timestamp. `owner-established` values were accepted from the existing setup rather than requalified. A null full-capacity-tested field is intentional: this campaign did not perform intensive full-VRAM qualification.
+
+[mailbox-candidate.json](mailbox-candidate.json) contains the scoped G mechanism, native discovery refusal, six directed capabilities, checked ordinary-copy hashes, static-BAR1 prerequisite and vendor firmware fingerprints. It contains no raw logs or firmware payloads.

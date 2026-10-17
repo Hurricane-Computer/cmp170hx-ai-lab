@@ -20,14 +20,14 @@ This campaign has not demonstrated additional usable memory above the existing 4
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz under working F, 17 Oct 10:25 UTC; 8-MiB copy passed |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz under working F, 17 Oct 10:25 UTC; 8-MiB copy passed |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz under candidate G, 17 Oct 10:55 UTC; 8-MiB copy passed |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz under candidate G, 17 Oct 10:55 UTC; 8-MiB copy passed |
 
 The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied 64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.
 
 The first [P2P matrix](docs/peer-memory.md) advertised no route among the two CMP variants and Blackwell with the earlier guest module. At that point CMP64 was CUDA-visible after a targeted reset and reported its 8-GiB base configuration; the historical 64-GiB unlock was not reproduced in that boot.
 
-The [mixed-driver trials](docs/driver-candidates.md) recovered a working baseline: candidate F disables the fork's BAR1 forcing bundle, initializes both CMPs, and passed checked 8-MiB copies on all three GPUs. This restores the historical 40/64-GiB variants; it adds no capacity, and all six current P2P capabilities remain zero.
+The [mixed-driver trials](docs/driver-candidates.md) recovered a working baseline: candidate F disables the fork's BAR1 forcing bundle, initializes both CMPs, and passed checked 8-MiB copies on all three GPUs. This restores the historical 40/64-GiB variants; it adds no capacity, and all six current P2P capabilities remain zero. The subsequent [mailbox candidate G](docs/mailbox-p2p.md) kept that BAR1 policy, passed the small copies and isolated a remaining native guest chipset-discovery refusal; all six peer directions stayed zero.
 
 ## What is here
 

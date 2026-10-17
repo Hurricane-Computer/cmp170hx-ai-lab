@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-17 — Scoped mailbox trial and native discovery boundary
+
+- Built G separately from preserved F, overriding only CMP per-device PCIe reports while retaining native topology/platform checks and F BAR1 policy.
+- All three small ordinary copies passed; six peer directions stayed zero at the native guest chipset-discovery boundary. No peer copy/kernel or extra HBM/SM claimed.
+- Closed the full-static-BAR1 prerequisite under current64MiB apertures and recorded contradictory mailbox reports at one pinned revision.
+- Compared actual host resource sizes and official BIOS/BMC releases; vendor BIOS package hashes matched, with no firmware change.
+
 ## 2026-10-17 — Working mixed-CMP baseline recovered
 
 - D/E confirmed successful CPU/GSP root-entry handoffs with matching eight-byte readbacks; both candidates still failed BAR2.

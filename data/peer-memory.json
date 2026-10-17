@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
+  "updated_utc": "2026-10-17T11:07:40.565665+00:00",
   "evidence_level": "observed",
-  "scope": "Directed CUDA peer capability in one Linux passthrough guest; no forced reporting and no actual peer-copy/kernel trial.",
+  "scope": "Historical Stage42 directed CUDA capability in a Linux passthrough guest; no forced reporting in that first matrix. Later F/G observations are separate below.",
   "driver_version": "615.71.09",
   "guest_module_sha256": "3171edbeaea1c43f8b4c9711e45213dd01b986bacc2395fb6d040998a6596881",
   "peer_query_utc": "2026-10-17T09:08:03.151125+00:00",
@@ -165,7 +165,7 @@
     },
     "capability_matrix_unchanged_historical": true
   },
-  "historical_field_notice": "The original top-level matrix/config/current_guest_observations fields describe Stage42 at peer_query_utc. Latest workingF observation is separate below.",
+  "historical_field_notice": "Original top-level fields describe Stage42 at peer_query_utc; working_F_baseline and later mailbox_candidate_G are separate timed observations.",
   "working_F_baseline": {
     "evidence_utc": "2026-10-17T10:28:36.417003+00:00",
     "driver_module_sha256": "29c491f1c02b0d11d9b314c299094f61c834d3a4079846df30ffa92ca715f229",
@@ -287,5 +287,142 @@
     "peer_kernel_calls": 0,
     "p2p_patches_applied": false,
     "iommu_acs_host_changes": false
+  },
+  "mailbox_candidate_G": {
+    "evidence_utc": "2026-10-17T10:55:26.877911+00:00",
+    "module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "mechanism": "CMP per-device firmware-reported read/write restrictions overridden to OK; native mailbox, compatibility, chipset/topology and cache logic retained.",
+    "original_cmp_firmware_report": {
+      "both_read": 2,
+      "both_write": 2,
+      "decoded_status": "GPU_NOT_SUPPORTED",
+      "skip_chipset_check": 0
+    },
+    "native_pair_result": {
+      "read_status": 5,
+      "write_status": 5,
+      "decoded_status": "NOT_SUPPORTED",
+      "query_rc": 0,
+      "chipset_initialized": false,
+      "chipset_read_capable": false,
+      "chipset_write_capable": false,
+      "hypervisor_detected": true,
+      "early_gate": "Native code exits before topology enumeration when chipset initialization is unavailable.",
+      "common_switch_log_limit": "The true flag is the initial local value at this early exit, not a discovered shared physical switch."
+    },
+    "pairs": [
+      {
+        "accessor": "blackwell",
+        "owner": "cmp64",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        },
+        "outcome": "not_advertised"
+      },
+      {
+        "accessor": "blackwell",
+        "owner": "cmp40",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        },
+        "outcome": "not_advertised"
+      },
+      {
+        "accessor": "cmp64",
+        "owner": "blackwell",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        },
+        "outcome": "not_advertised"
+      },
+      {
+        "accessor": "cmp64",
+        "owner": "cmp40",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        },
+        "outcome": "not_advertised"
+      },
+      {
+        "accessor": "cmp40",
+        "owner": "blackwell",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        },
+        "outcome": "not_advertised"
+      },
+      {
+        "accessor": "cmp40",
+        "owner": "cmp64",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        },
+        "outcome": "not_advertised"
+      }
+    ],
+    "peer_enable_calls": 0,
+    "actual_peer_copy_calls": 0,
+    "actual_peer_kernel_launches": 0,
+    "retained_policy": {
+      "EnableResizableBar": 0,
+      "cmp_BAR1_bytes": 67108864,
+      "blackwell_BAR1_bytes": 137438953472,
+      "BIF_override_and_P2P_type_defaults_unchanged": true,
+      "host_IOMMU_ACS_changes": false
+    }
   }
 }

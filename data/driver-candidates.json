@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
+  "updated_utc": "2026-10-17T11:07:40.565665+00:00",
   "kernel": "6.8.0-147-generic",
   "driver_version": "615.71.09",
   "source_fork_revision": "7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03",
@@ -9,7 +9,7 @@
   "compiler_jobs": 4,
   "runtime_module_package_preserved": true,
   "previous_initrd_backed_up": true,
-  "p2p_patches_applied": false,
+  "p2p_patches_applied": true,
   "explicit_cuda_test_allocations": 6,
   "copy_smoke_executed": true,
   "actual_peer_copy_executed": false,
@@ -123,6 +123,22 @@
       "extra_usable_memory_proved": false,
       "p2p_proved": false,
       "copy_smoke_reached": true
+    },
+    {
+      "name": "G",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T10:55:29.362385+00:00",
+      "module_file_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+      "difference": "CMP per-device firmware-reported read/write restrictions overridden to OK; native mailbox, compatibility, chipset/topology and cache logic retained.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 1,
+      "ready_gpu_count": 3,
+      "cmp_initialization_error": null,
+      "self_test_readback": "All3 small ordinary-copy checks passed",
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false,
+      "copy_smoke_reached": true
     }
   ],
   "configured_fb_mib_in_candidate_a_initialization": {
@@ -147,13 +163,13 @@
     "both_cmp_bar1_final_resource_mib": 64
   },
   "latest_guest_status": {
-    "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
-    "blackwell": "NVMLvisible",
-    "cmp40": "NVML/CUDAready",
-    "cmp64": "NVML/CUDAready",
+    "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
+    "retained_candidate": "G",
+    "blackwell": "NVML/CUDA ready",
+    "cmp40": "NVML/CUDA ready",
+    "cmp64": "NVML/CUDA ready",
     "gpu_services_left_stopped": true,
     "stock_driver_not_automatically_restored": true,
-    "retained_candidate": "F",
     "reported_inventory": {
       "blackwell": {
         "reported_memory_mib": 97887,
@@ -273,5 +289,32 @@
     "both_cmp_final_BAR1_mib": 64,
     "conclusion": "Disabling this forcing bundle restored readiness in this guest while E failed. Individual contribution of the two writes versus global override is not isolated.",
     "scope": "F retains C uncached CPU mapping and E diagnostics; this is not a proven minimal dependency set or a universal hardware verdict."
+  },
+  "p2p_patch_scope": "G overrides only CMP per-device firmware read/write reports; no static-BAR1, BIF, chipset or topology override.",
+  "mailbox_G_copy_check": {
+    "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
+    "bytes_each": 8388608,
+    "buffers_per_device": 2,
+    "copies": [
+      {
+        "variant": "blackwell",
+        "source_sha256": "3360e9e6a1648269872a4d193ae61715e6d4a7831e98c66f2b5e1ee9cc1c7fd7",
+        "returned_sha256": "3360e9e6a1648269872a4d193ae61715e6d4a7831e98c66f2b5e1ee9cc1c7fd7",
+        "match": true
+      },
+      {
+        "variant": "cmp64",
+        "source_sha256": "038153efb549a5a741604a0570fa9ae6761913675adfa6c507aaa44ebb119a54",
+        "returned_sha256": "038153efb549a5a741604a0570fa9ae6761913675adfa6c507aaa44ebb119a54",
+        "match": true
+      },
+      {
+        "variant": "cmp40",
+        "source_sha256": "1b9f9795d8e973c5ebf55decc3f7a0a67f8e30f162b48b84f3e476e46c406ccb",
+        "returned_sha256": "1b9f9795d8e973c5ebf55decc3f7a0a67f8e30f162b48b84f3e476e46c406ccb",
+        "match": true
+      }
+    ],
+    "all_owned_buffers_and_context_refs_released": true
   }
 }

@@ -68,3 +68,7 @@ Keep the working F module and recovery artifacts. The fresh [directed peer query
 Extra-capacity and ordinary SM research continue from their own source leads. There is no reason to repeat the completed D/E handoff checks or the failing A–E modules. CMP40's earlier 1350 MHz remains a historical tested point; its current F boot is at 1215 MHz.
 
 [Candidate hashes, diagnostics and explicit limits](../data/driver-candidates.json). Sources: [NVIDIA 615.71.09](https://github.com/NVIDIA/open-gpu-kernel-modules/tree/615.71.09), [pinned fork](https://github.com/admunch888/cmpunlocker/tree/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03). No proprietary firmware or raw host logs are published here.
+
+## Candidate G: mailbox report isolated from native discovery
+
+G derives from F in a separate tree and keeps the working non-forced BAR1 policy. Both CMPs and Blackwell passed their small checked copies. Overriding only CMP's per-device PCIe report was insufficient: ordinary guest chipset initialization remained unavailable, and all six peer capabilities were zero. No peer enable/copy/kernel ran. See the [source boundary, contradictory prior report and mainboard lead](mailbox-p2p.md) and [curated G record](../data/mailbox-candidate.json). F remains preserved; G adds no memory or SMs.

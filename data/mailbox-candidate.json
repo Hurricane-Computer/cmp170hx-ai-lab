@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-17T11:07:40.565665+00:00",
+  "evidence_level": "observed",
+  "candidate": "G",
+  "evidence_utc": "2026-10-17T10:55:26.877911+00:00",
+  "driver_version": "615.71.09",
+  "kernel": "6.8.0-147-generic",
+  "module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+  "base_F_module_sha256": "29c491f1c02b0d11d9b314c299094f61c834d3a4079846df30ffa92ca715f229",
+  "patch_sha256": "c3a44897a4833c59d944b20586e96cf975a9325d41e2eddfab47581147f4c4c1",
+  "changed_sources": [
+    {
+      "path": "src/nvidia/src/kernel/gpu/gpu.c",
+      "before_sha256": "287b204497d90139836f15b1d05a5abca50a67cd2c235e0351194c00153a2257",
+      "after_sha256": "cc110674503e4315e2f1c890a7f4a01b4243b604408c12fb153848202e1970be"
+    },
+    {
+      "path": "src/nvidia/src/kernel/platform/p2p/p2p_caps.c",
+      "before_sha256": "292fa2cbf7950fcc5b3e9d84c1c49c3d81a043e9adae4d56dd3b15dbda8bb32a",
+      "after_sha256": "ada9a05dd1ee131e384d24d47a789815a911df76258af68ddedcf5d2afc7e000"
+    }
+  ],
+  "separate_build_tree": true,
+  "working_F_preserved": true,
+  "mechanism": "CMP per-device firmware-reported read/write restrictions overridden to OK; native mailbox, compatibility, chipset/topology and cache logic retained.",
+  "original_cmp_firmware_report": {
+    "both_read": 2,
+    "both_write": 2,
+    "decoded_status": "GPU_NOT_SUPPORTED",
+    "skip_chipset_check": 0
+  },
+  "native_pair_result": {
+    "read_status": 5,
+    "write_status": 5,
+    "decoded_status": "NOT_SUPPORTED",
+    "query_rc": 0,
+    "chipset_initialized": false,
+    "chipset_read_capable": false,
+    "chipset_write_capable": false,
+    "hypervisor_detected": true,
+    "early_gate": "Native code exits before topology enumeration when chipset initialization is unavailable.",
+    "common_switch_log_limit": "The true flag is the initial local value at this early exit, not a discovered shared physical switch."
+  },
+  "pairs": [
+    {
+      "accessor": "blackwell",
+      "owner": "cmp64",
+      "can_access_peer_rc": 0,
+      "can_access_peer": 0,
+      "attributes": {
+        "access_supported": {
+          "rc": 0,
+          "value": 0
+        },
+        "native_atomic_supported": {
+          "rc": 0,
+          "value": 0
+        }
+      },
+      "outcome": "not_advertised"
+    },
+    {
+      "accessor": "blackwell",
+      "owner": "cmp40",
+      "can_access_peer_rc": 0,
+      "can_access_peer": 0,
+      "attributes": {
+        "access_supported": {
+          "rc": 0,
+          "value": 0
+        },
+        "native_atomic_supported": {
+          "rc": 0,
+          "value": 0
+        }
+      },
+      "outcome": "not_advertised"
+    },
+    {
+      "accessor": "cmp64",
+      "owner": "blackwell",
+      "can_access_peer_rc": 0,
+      "can_access_peer": 0,
+      "attributes": {
+        "access_supported": {
+          "rc": 0,
+          "value": 0
+        },
+        "native_atomic_supported": {
+          "rc": 0,
+          "value": 0
+        }
+      },
+      "outcome": "not_advertised"
+    },
+    {
+      "accessor": "cmp64",
+      "owner": "cmp40",
+      "can_access_peer_rc": 0,
+      "can_access_peer": 0,
+      "attributes": {
+        "access_supported": {
+          "rc": 0,
+          "value": 0
+        },
+        "native_atomic_supported": {
+          "rc": 0,
+          "value": 0
+        }
+      },
+      "outcome": "not_advertised"
+    },
+    {
+      "accessor": "cmp40",
+      "owner": "blackwell",
+      "can_access_peer_rc": 0,
+      "can_access_peer": 0,
+      "attributes": {
+        "access_supported": {
+          "rc": 0,
+          "value": 0
+        },
+        "native_atomic_supported": {
+          "rc": 0,
+          "value": 0
+        }
+      },
+      "outcome": "not_advertised"
+    },
+    {
+      "accessor": "cmp40",
+      "owner": "cmp64",
+      "can_access_peer_rc": 0,
+      "can_access_peer": 0,
+      "attributes": {
+        "access_supported": {
+          "rc": 0,
+          "value": 0
+        },
+        "native_atomic_supported": {
+          "rc": 0,
+          "value": 0
+        }
+      },
+      "outcome": "not_advertised"
+    }
+  ],
+  "peer_enable_calls": 0,
+  "actual_peer_copy_calls": 0,
+  "actual_peer_kernel_launches": 0,
+  "ordinary_copy_check": {
+    "evidence_utc": "2026-10-17T10:55:24.772232+00:00",
+    "bytes_each": 8388608,
+    "buffers_per_device": 2,
+    "copies": [
+      {
+        "variant": "blackwell",
+        "source_sha256": "3360e9e6a1648269872a4d193ae61715e6d4a7831e98c66f2b5e1ee9cc1c7fd7",
+        "returned_sha256": "3360e9e6a1648269872a4d193ae61715e6d4a7831e98c66f2b5e1ee9cc1c7fd7",
+        "match": true
+      },
+      {
+        "variant": "cmp64",
+        "source_sha256": "038153efb549a5a741604a0570fa9ae6761913675adfa6c507aaa44ebb119a54",
+        "returned_sha256": "038153efb549a5a741604a0570fa9ae6761913675adfa6c507aaa44ebb119a54",
+        "match": true
+      },
+      {
+        "variant": "cmp40",
+        "source_sha256": "1b9f9795d8e973c5ebf55decc3f7a0a67f8e30f162b48b84f3e476e46c406ccb",
+        "returned_sha256": "1b9f9795d8e973c5ebf55decc3f7a0a67f8e30f162b48b84f3e476e46c406ccb",
+        "match": true
+      }
+    ],
+    "all_owned_buffers_and_context_refs_released": true
+  },
+  "reported_inventory": {
+    "blackwell": {
+      "reported_memory_mib": 97887,
+      "memory_clock_mhz": 14001
+    },
+    "cmp64": {
+      "reported_memory_mib": 65536,
+      "memory_clock_mhz": 1728
+    },
+    "cmp40": {
+      "reported_memory_mib": 40960,
+      "memory_clock_mhz": 1215
+    }
+  },
+  "retained_policy": {
+    "EnableResizableBar": 0,
+    "cmp_BAR1_bytes": 67108864,
+    "blackwell_BAR1_bytes": 137438953472,
+    "BIF_override_and_P2P_type_defaults_unchanged": true,
+    "host_IOMMU_ACS_changes": false
+  },
+  "static_BAR1_source_review": {
+    "both_devices_must_enable_static_bar1": true,
+    "force_mode_minimum": "Aligned client framebuffer size must fit the mappable BAR1 VA range.",
+    "auto_mode_minimum": "Framebuffer plus reservations, channels, mailbox/console alignment padding.",
+    "cmp_bar1_bytes_observed_in_F": 67108864,
+    "working_F_framebuffer_mib": {
+      "cmp40": 40960,
+      "cmp64": 65536
+    },
+    "conclusion": "The current64MiB aperture does not satisfy this full-static-BAR1 route; a1MiB test buffer would not remove the whole-framebuffer prerequisite.",
+    "not_claimed": "No proof against dynamic/windowed BAR1 designs or ordinary mailbox P2P; no BAR size/host IOMMU/ACS changes."
+  },
+  "external_claim_audit": {
+    "repository": "bayley/cmpunlocker",
+    "revision": "5a7bb4b7e5056306fe49e8b824787659abb19914",
+    "commit_date": "2026-08-08T22:40:07Z",
+    "architecture_claim": "Ordinary mailbox P2P reportedly works with64MiB BAR1 after per-device capability changes.",
+    "readme_counterclaim": "At the same revision, README instead reports mailbox setup success but zero data movement and documents static-BAR1 as its working route.",
+    "architecture_url": "https://github.com/bayley/cmpunlocker/blob/5a7bb4b7e5056306fe49e8b824787659abb19914/docs/ARCHITECTURE.md",
+    "readme_url": "https://github.com/bayley/cmpunlocker/blob/5a7bb4b7e5056306fe49e8b824787659abb19914/README.md",
+    "readme_sha256": "1372ef9f1b8d29ab6f910c51f6dfbcc25da2e6239e56b434af762a5b375a9715",
+    "bar1_patch_same_as_already_pinned_fork": true,
+    "interpretation": "Conflicting third-party claims, not a new proven64MiB route. G is a scoped local test of the remaining per-device-vs-native-gate distinction."
+  },
+  "mainboard_review": {
+    "model": "ASUS Pro WS WRX80E-SAGE SE WIFI",
+    "installed_BIOS": "1801",
+    "latest_vendor_BIOS": "1901",
+    "latest_release_date": "2026-08-14",
+    "installed_BMC": "1.34",
+    "latest_vendor_BMC": "1.34.0",
+    "latest_release_notes": "AGESA ChagallWS PI1.0.0.E and security; no explicit BAR fix stated.",
+    "host_cmp_BAR1_bytes": 67108864,
+    "host_cmp_advertised_ReBAR_sizes": [
+      "64MiB"
+    ],
+    "host_blackwell_BAR1_bytes": 137438953472,
+    "all_three_host_BAR1_bases_above_4g": true,
+    "current_UEFI_settings_not_exported": true,
+    "firmware_updated": false,
+    "downloaded_vendor_references": [
+      {
+        "version": "1901",
+        "url": "https://dlcdnets.asus.com/pub/ASUS/mb/BIOS/Pro-WS-WRX80E-SAGE-SE-WIFI-ASUS-1901.zip",
+        "package_sha256": "513cbb0cd189c9bf4864a1d59c4e1d55f1f6af691cd44f0e77bba5f8c19e7c26",
+        "vendor_package_sha256_matched": true,
+        "capsule_sha256": "3e147ebdd4efa63c7fbb17d6905727f200d37e693774912934c727536090b03f"
+      },
+      {
+        "version": "1801",
+        "url": "https://dlcdnets.asus.com/pub/ASUS/mb/BIOS/Pro-WS-WRX80E-SAGE-SE-WIFI-ASUS-1801.zip",
+        "package_sha256": "b05f13f0f0782c490e63315c2c1f4a3d9a6c256df841fff2acd8629c3c586555",
+        "vendor_package_sha256_matched": true,
+        "capsule_sha256": "f5e5acd33960c422580b82476b06d983bbdbe27457f1cf669041e3c603793f0c"
+      }
+    ]
+  },
+  "limits": [
+    "No additional usable capacity or SM proved.",
+    "Not a proof that mailbox hardware can never work.",
+    "No large/static BAR1 route or peer data movement tested.",
+    "A small peer-test allocation cannot satisfy a whole-framebuffer static-BAR1 prerequisite.",
+    "No whole-HBM qualification or SM/ECC requalification.",
+    "BIOS update availability is not evidence of a BAR fix."
+  ]
+}

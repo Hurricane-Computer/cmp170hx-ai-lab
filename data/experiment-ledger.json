@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
+  "updated_utc": "2026-10-17T11:07:40.565665+00:00",
   "records": [
     {
       "id": "stage3",
@@ -225,6 +225,14 @@
       "result": "D/E verified successful root-entry RPCs and matching8-byte CPU/GSP copies but still failed BAR2. F disabled fork BAR1 forcing and restored bothCMPs;8MiB checked copies passed on all3GPUs.",
       "limit": "No extra40/64GiB capacity, full-memory qualification orP2P success. Six current F peer directions remain0. Exact offending forcing element not isolated.",
       "interpretation": "docs/driver-candidates.md"
+    },
+    {
+      "id": "stage46",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "G changed only CMP per-device PCIe reports; all3 ordinary small copies passed. Native guest chipset discovery remained unavailable and all6 peer directions stayed0. Both CMP BAR1s currently advertise64MiB; host Blackwell has128GiB BAR1.",
+      "limit": "No actual peer activation/copy/kernel or extra HBM/SM. Third-party mailbox claims conflict within one pinned revision. BIOS1901 references downloaded and vendor hashes verified; no firmware change.",
+      "interpretation": "docs/mailbox-p2p.md"
     }
   ],
   "campaign_result": {
