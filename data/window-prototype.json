@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "stage": 85,
+  "evidence_utc": "2026-10-17T21:44:19.895813+00:00",
+  "component": "Inactive CMP external-window transaction and native API adapter",
+  "native_driver_version": "615.71.09",
+  "native_source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "files": [
+    {
+      "path": "prototypes/cmp-window/cmp_window_lease.h",
+      "sha256": "a4b7fe8bae1559e3676a5407ad797f61e09e41f1de1522164d80bc40fc821d1a"
+    },
+    {
+      "path": "prototypes/cmp-window/cmp_window_native.inc",
+      "sha256": "7a016456dc92498ef83f7f51320f0eb160f16f87e5eafaf42e975a99405a321f"
+    },
+    {
+      "path": "prototypes/cmp-window/test_window_lease.c",
+      "sha256": "81f7dea89a3ded9aee0abe7637de838ef02e9fa536702ead2b026097c47d4cb3"
+    }
+  ],
+  "CPU_validation": {
+    "evidence_level": "observed",
+    "result": "passed",
+    "scope": "Resource-contract fault injection, not GPU emulation",
+    "scenario_groups": 15,
+    "address_boundary_cases": 10000,
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "compiler_flags": [
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "GPU_calls": 0,
+    "executions": 1
+  },
+  "native_build": {
+    "evidence_level": "observed",
+    "compiler_run_succeeded": true,
+    "module_count": 5,
+    "adapter_entries_emitted_in_actual_translation_unit": true,
+    "adapter_entries_kept_in_final_module": false,
+    "runtime_callers_added": 0,
+    "warning_count": 6,
+    "warning_scope": "Compiler-version warning and diagnostics in unrelated existing UVM/DRM source.",
+    "new_driver_installed_or_loaded": false,
+    "base_and_rollback_preserved": true
+  },
+  "implementation_limits": {
+    "evidence_level": "static-analysis",
+    "maximum_allocation_bytes": 2097152,
+    "reserve_bytes": 37748736,
+    "owner_global_budget": true,
+    "zero_DMA_address_valid": true,
+    "cleanup_failure_quarantine": true,
+    "quarantine_validation_scope": "CPU callbacks reporting failures; native void cleanup APIs provide no independent completion ACK.",
+    "native_owner_reference_held_by_adapter": false,
+    "external_PTE_and_final_duplicate_release_hooks_implemented": false,
+    "external_only_pair_admission_implemented": false,
+    "fatal_client_teardown_implemented": false,
+    "ready_for_hardware": false
+  },
+  "resolved_harness_errors": [
+    "Transport exceeded shell argument limit; transfer reduced to new files.",
+    "Collector used wrong intermediate object path and then final-module symbol expectation; actual compiled object resolved without rebuild/retest."
+  ],
+  "scope": {
+    "GPU_API_calls": 0,
+    "GPU_allocations_or_kernels": 0,
+    "direct_MMIO_accesses": 0,
+    "driver_or_configuration_changes": 0,
+    "restarts_or_resets": 0,
+    "extra_usable_GiB": 0,
+    "additional_SM": 0
+  },
+  "capacity_limit": "No capacity gain or physical40GiB ceiling established; positive75/76 and77.5/72GiB reports remain open."
+}

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Bounded window allocator component compiled
+
+- Added original owner-budget/resource transaction code and native615.71.09 adapter; CPU fault-injection passes15 scenario groups and10,000 boundary cases under sanitizers.
+- Actual translation-unit symbols confirm compilation; five modules link and unused entries are removed. Corrected transfer/collector errors without rebuild/retest/reset. Runtime admission, PTE/lifetime hooks and fatal owner-reference cleanup remain unimplemented; nothing installed or GPU-tested.
+
 ## 2026-10-17 — UVM external PTE route and published48-GB checker scope
 
 - Identified the separate UVM external-allocation producer, VA-space admission and final duplicated-handle release; partial maps share the lease. Nine actual UVM/interface sources match pinned upstream.

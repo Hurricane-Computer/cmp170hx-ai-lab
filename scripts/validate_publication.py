@@ -8,7 +8,7 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 ERRORS = []
-ALLOWED_SUFFIXES = {'.md', '.json', '.py', ''}
+ALLOWED_SUFFIXES = {'.md', '.json', '.py', '.c', '.h', '.inc', ''}
 BLOCKED = {
     'private key': r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',
     'credential token': r'\b(?:gh[pousr]_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9_-]{25,})\b',
