@@ -43,3 +43,11 @@ F reports CMP40 40 GiB / 1215 MHz and CMP64 64 GiB / 1728 MHz after its small ch
 ## Candidate G: per-device report alone is insufficient
 
 The next [bounded mailbox experiment](mailbox-p2p.md) kept F's BAR1 policy and changed only CMP per-device reports. All three small ordinary copies passed, but native chipset discovery in this guest remained unavailable and all six peer directions stayed zero. No peer transfer or kernel ran. Current G and historical F are separately timestamped in the structured data.
+
+## Pair-level option lead, 17 October follow-up
+
+An [operator report](https://gist.github.com/ropuls/d2978531ba3a1a183e70f62f3de2eb84/8eb8b88e6bcb76c2e3766aafa178d94882200be5) describes cross-root transfers between two 64-GiB cards (20c2), using `ForceP2P=0x11` together with three bayley patches. It reports 6.70 GB/s unidirectional and 13.01 GB/s bidirectional transfers, and explicitly leaves the option-only case untested. The sekkit fork preserves the same report lineage; it is not a second independent replication. This differs from our mixed-card passthrough guest and is not our result.
+
+In the [original pair handler](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/platform/p2p/p2p_caps.c), the registry override is evaluated before cached per-device reports and the later hypervisor/chipset status gates. The [normal registry reader](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/gpu/bif/kernel_bif.c) loads it during BIF initialization. G's earlier change affected cached per-device reports, so this is a distinguishable experiment. It supplies no evidence that the physical route or a full-size BAR1 mapping exists.
+
+A bounded trial is prepared on unchanged G: the single option, 1 MiB per CMP context, fresh random source/destination sentinels, checked copied bytes and separate direct remote-pointer SM read/write checks. Capability overrides will be labelled as forced; a copy alone can stage through host memory. No topology-field, static-BAR1, P2P-type or host IOMMU/ACS change is included. **This trial has not run.** It expands no framebuffer and establishes no extra usable capacity. [Curated source and preparation record](../data/peer-option-followup.json).

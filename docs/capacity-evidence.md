@@ -73,3 +73,7 @@ Another preserved owner output declares a 75-GiB cap and allocates 73.875 GiB. I
 Across both passes the **distinct written footprint is only 8.5 MiB**; repeated writes total 17 MiB and checked readback totals 25.5 MiB. These are positive sparse observations, with the same unresolved cache-residency question as the small window tests. The attempted 1-MiB variant returned `cuInit` error100 before allocating or writing anything. It is neither a failed data test nor a memory-size threshold.
 
 [Selected configuration, ranges, counters and source hashes](../data/legacy-window-evidence.json) preserve this record. Its original execution date and binding to a currently installed physical card remain unestablished. It is a separate own checker, not the foreign full-word `hbm45` implementation or the still-sought original 77.5/72-GiB test. No historical run was replayed.
+
+## Named checker leads, 17 October follow-up
+
+The [pinned artifact catalogue](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/appendix/artifacts.md) names `check_fold.py` and `cuda_dbg.py`, explicitly marking both as not archived files and distributed outside the repository. It describes a page-index PTX check and a separate sparse alias probe. These are concrete search leads, not recovered implementations or proof that either is the exact 77.5/72-GiB checker. Targeted searches have not recovered that source; the positive reports remain open. [Selected catalogue fingerprint](../data/peer-option-followup.json).

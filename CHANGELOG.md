@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Pair-option lead and named checker search
+
+- Distinguished the original pair-level option from G's cached per-device report change; pinned one external cross-root transfer report and its preserved fork as one evidence lineage.
+- Prepared a bounded copy/remote-SM trial, explicitly not executed. Located two out-of-band checker filenames without claiming recovery or rejecting the positive 77.5/72-GiB reports.
+
 ## 2026-10-17 — Configured quantity and existing rank inputs
 
 - Connected a pinned author-reported CFG1/CSTATUS before-after result with the original amount interpretation. These status quantities are not independent backing proof.

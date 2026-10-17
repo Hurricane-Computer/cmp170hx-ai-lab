@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "stage": 68,
+  "evidence_level": "static-analysis",
+  "reviewed_utc": "2026-10-17T19:06:35.866482+00:00",
+  "actual_hardware_trial_executed": false,
+  "additional_usable_memory_established": false,
+  "new_SM_count_established": false,
+  "operator_report": {
+    "evidence_level": "third-party",
+    "source": "https://gist.github.com/ropuls/d2978531ba3a1a183e70f62f3de2eb84/8eb8b88e6bcb76c2e3766aafa178d94882200be5",
+    "source_sha256": "ec83ebd89d9b96e6fc3f2dd3fff12470c463baae6cc97cd26fa02ee2b21e5ab9",
+    "preserved_fork": "https://gist.github.com/sekkit/e83c16d1eeeb1e16e08d67b28901a66c/8eb8b88e6bcb76c2e3766aafa178d94882200be5",
+    "same_report_lineage": true,
+    "reported_devices": [
+      "20c2",
+      "20c2"
+    ],
+    "reported_combination": "ForceP2P=0x11 plus three bayley patches; not an option-only result",
+    "reported_unidirectional_GBps": 6.7,
+    "reported_bidirectional_GBps": 13.01,
+    "our_reproduction": false
+  },
+  "source_mechanism": {
+    "driver_release": "615.71.09",
+    "option": "ForceP2P=0x11",
+    "registry_reader": "src/nvidia/src/kernel/gpu/bif/kernel_bif.c",
+    "pair_handler": "src/nvidia/src/kernel/platform/p2p/p2p_caps.c",
+    "behavior": "Original pair override returns before cached device-capability, hypervisor and chipset-status gates.",
+    "difference_from_G": "G changed cached per-device reports. This pair override is an earlier gate.",
+    "does_not_establish": "Physical routing, native support, full BAR1 aperture, copied bytes or direct peer-pointer kernel access."
+  },
+  "prepared_trial": {
+    "executed": false,
+    "unchanged_G_module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "targets": [
+      "cmp40",
+      "cmp64"
+    ],
+    "bytes_per_context": 1048576,
+    "maximum_peer_copy_calls": 2,
+    "maximum_peer_kernel_launches": 4,
+    "verification": "Fresh random inputs and sentinels; checked copy and full-output hashes; separate direct SM remote read and write with source unchanged; checked cleanup.",
+    "separate_outcomes": [
+      "forced capability",
+      "peer activation",
+      "copy data",
+      "SM remote read",
+      "SM remote write"
+    ],
+    "force_topology_fields": false,
+    "force_static_BAR1": false,
+    "force_P2P_type": false,
+    "change_host_IOMMU_ACS": false,
+    "capacity_expansion": false
+  },
+  "checker_search": {
+    "source": "https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/appendix/artifacts.md",
+    "source_sha256": "96b9703b1620dd1ee2a6559973f6414c54210ed2c3824ef1ba66f35816ca7e18",
+    "named_leads": [
+      "check_fold.py",
+      "cuda_dbg.py"
+    ],
+    "catalogue_labels": "Not archived as files; distributed outside the repository.",
+    "exact_77_5_or_72_GiB_checker_recovered": false,
+    "positive_reports_refuted": false
+  }
+}

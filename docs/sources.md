@@ -63,3 +63,8 @@ The [pinned BAR1 forcing patch](https://github.com/admunch888/cmpunlocker/blob/7
 - [LongSoft UEFIExtract A75](https://github.com/LongSoft/UEFITool/releases/tag/A75) and [IFRExtractor-RS v1.6.1](https://github.com/LongSoft/IFRExtractor-RS/releases/tag/v1.6.1). Official GitHub asset SHA256 digests matched. The A75 AMD-specific parsing limitation is retained in the interpretation.
 
 The [discovery/firmware note](discovery-and-firmware.md) reports facts derived from the original ASUS capsules and a narrowly scoped live read; it does not distribute firmware or a full NVRAM export.
+
+## Pair override and checker-file leads
+
+- [ropuls operator guide](https://gist.github.com/ropuls/d2978531ba3a1a183e70f62f3de2eb84/8eb8b88e6bcb76c2e3766aafa178d94882200be5) and [its sekkit fork](https://gist.github.com/sekkit/e83c16d1eeeb1e16e08d67b28901a66c/8eb8b88e6bcb76c2e3766aafa178d94882200be5): one report lineage; combined patched configuration, no isolated option-only result.
+- [Consensus artifact catalogue](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/appendix/artifacts.md): named out-of-band checker leads; source code not recovered here.
