@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "evidence_utc": "2026-10-17T11:32:16.362094+00:00",
+  "stage": 47,
+  "discovery": {
+    "evidence_level": "static-analysis",
+    "driver": "615.71.09",
+    "source_fingerprints": [
+      {
+        "role": "passthrough-property",
+        "file": "src/nvidia/src/kernel/gpu/gpu.c",
+        "sha256": "287b204497d90139836f15b1d05a5abca50a67cd2c235e0351194c00153a2257",
+        "functions": [
+          "_setPlatformNoHostbridgeDetect",
+          "gpuSetupVirtualGuestOwnedHW"
+        ],
+        "line_anchors": [
+          175,
+          4938,
+          4963
+        ],
+        "source_version": "615.71.09",
+        "evidence_level": "static-analysis"
+      },
+      {
+        "role": "chipset-init",
+        "file": "src/nvidia/src/kernel/platform/chipset/chipset_pcie.c",
+        "sha256": "8cdef61abba6a4e8fa732cc666f1963db90508996f8c3adb5c7d629f109e9ef5",
+        "functions": [
+          "objClInitPcieChipset"
+        ],
+        "line_anchors": [
+          531,
+          561,
+          642
+        ],
+        "source_version": "615.71.09",
+        "evidence_level": "static-analysis"
+      },
+      {
+        "role": "hypervisor-approval",
+        "file": "src/nvidia/src/kernel/virtualization/hypervisor/hypervisor.c",
+        "sha256": "7c2f88ee0994a47119dbb55cd5c7dfee6054b9b98cdb3b1eadaeadf76ea746e9",
+        "functions": [
+          "hypervisorPcieP2pDetection_IMPL",
+          "_hypervisorCheckVirtualPcieP2PGeneralApproval"
+        ],
+        "line_anchors": [
+          66,
+          322
+        ],
+        "source_version": "615.71.09",
+        "evidence_level": "static-analysis"
+      },
+      {
+        "role": "kvm-fallback",
+        "file": "src/nvidia/src/kernel/virtualization/hypervisor/kvm/kvm.c",
+        "sha256": "1b65f9b5cd06d3e575ae753bd5ffa78ee1e789b6a6976f0ad8251bb612754cf7",
+        "functions": [
+          "_dummyKvmIsP2PSupported",
+          "kvmHypervisorOps"
+        ],
+        "line_anchors": [
+          31,
+          48
+        ],
+        "source_version": "615.71.09",
+        "evidence_level": "static-analysis"
+      }
+    ],
+    "hostbridge_policy": {
+      "normal_hvm_handle_path_sets_no_hostbridge_detect": true,
+      "chipset_init_requires_no_hostbridge_detect_false": true,
+      "producer_path_separately_runtime_traced": false,
+      "interpretation": "Intentional normal passthrough policy is consistent with G ChipsetInitialized=0; that flag alone is not evidence of a broken physical motherboard."
+    },
+    "hypervisor_approval": {
+      "order": [
+        "valid hypervisor peer-clique approval",
+        "general passthrough firmware approval",
+        "hypervisor-specific fallback"
+      ],
+      "general_approval_requires_all_devices_passthrough": true,
+      "general_approval_issues_fresh_physical_RMAPI_capability_query": true,
+      "general_approval_consumes_G_cached_per_GPU_override": false,
+      "fresh_response_in_this_function_measured": false,
+      "kvm_fallback_returns_false": true,
+      "valid_peer_clique_requires_actual_hypervisor_approval": true,
+      "interpretation": "G did not modify the fresh-query boundary. The source explains why a cached override is insufficient; it does not prove the later response or a working mapping."
+    },
+    "driver_change_or_runtime_trial_this_stage": false,
+    "limits": [
+      "No forced ChipsetInitialized, topology, peer-clique ID or KVM approval.",
+      "No inference that KVM passthrough P2P is globally impossible.",
+      "No peer activation, copy or kernel and no new memory/SM result."
+    ]
+  },
+  "mainboard_firmware": {
+    "evidence_level": "static-analysis",
+    "board": "ASUS Pro WS WRX80E-SAGE SE WIFI, first generation",
+    "compared_versions": [
+      "1801",
+      "1901"
+    ],
+    "input_capsules": [
+      {
+        "version": "1901",
+        "sha256": "3e147ebdd4efa63c7fbb17d6905727f200d37e693774912934c727536090b03f"
+      },
+      {
+        "version": "1801",
+        "sha256": "f5e5acd33960c422580b82476b06d983bbdbe27457f1cf669041e3c603793f0c"
+      }
+    ],
+    "generic_UEFI_executable_section_comparison": {
+      "count_per_image": {
+        "1801": 467,
+        "1901": 467
+      },
+      "unique_GUID_matches": 467,
+      "byte_identical": 366,
+      "byte_different": 101,
+      "ambiguous_matches": 0,
+      "limit": "Byte differences include headers/data and do not establish changed behavior. Unsupported AMD-specific regions are outside this generic extraction claim."
+    },
+    "PCI_settings_module": {
+      "file_guid": "2CE5604F-A982-4D2E-8FD0-D1600C2E1515",
+      "bytes": 60832,
+      "sha256_both_versions": "6cbde998c9188bb2109c15592afa0ce9ed192565c9696ad1d560f3ba7362095a",
+      "byte_identical": true
+    },
+    "decoded_forms": [
+      {
+        "module": "pci-settings",
+        "identical_decoded_English_forms_excluding_input_hash_header": true,
+        "decoded_line_counts": [
+          127,
+          127
+        ]
+      },
+      {
+        "module": "setup",
+        "identical_decoded_English_forms_excluding_input_hash_header": true,
+        "decoded_line_counts": [
+          5376,
+          5376
+        ]
+      }
+    ],
+    "IFR_contract": {
+      "varstore": "PCI_COMMON",
+      "guid": "ACA9F304-21E2-4852-9875-7FF4881D67A5",
+      "bytes": 8,
+      "above_4g_decoding": {
+        "byte_offset": 3,
+        "encoding": {
+          "0": "disabled",
+          "1": "enabled"
+        }
+      },
+      "resizable_bar_support": {
+        "byte_offset": 4,
+        "encoding": {
+          "0": "disabled",
+          "1": "auto"
+        }
+      }
+    },
+    "current_stored_settings": {
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T11:29:38.575165+00:00",
+      "installed_BIOS": "1801",
+      "UEFI_attributes": 7,
+      "settings": {
+        "above_4g_decoding": {
+          "offset": 3,
+          "value": 1,
+          "meaning": "enabled"
+        },
+        "resizable_bar_support": {
+          "offset": 4,
+          "value": 1,
+          "meaning": "auto"
+        }
+      },
+      "read_scope": "Only the named 8-byte PCI_COMMON variable; only the two relevant values retained.",
+      "limit": "Stored configuration is not proof of effective device resizing or a full NVRAM backup."
+    },
+    "tools": [
+      {
+        "repository": "LongSoft/UEFITool",
+        "version": "A75",
+        "zip_sha256": "20ff18208913d32c99e3b002717abeddaa3b6509ac62e6699e462b0f533be646",
+        "exe_sha256": "e372554c8ec1c8f1ad123d739072eb699cf011d12d2d71954bcdb63c79812fb0",
+        "github_asset_digest_matched": true
+      },
+      {
+        "repository": "LongSoft/IFRExtractor-RS",
+        "version": "v1.6.1",
+        "zip_sha256": "3a0d93ecd3a4cb092d210c499d125ffd782982311f5f8dc40a8b180b58c4ffe7",
+        "exe_sha256": "01b50d394a93edad8299207ae0c88577d65db5fc86280467afab55e486d62c1c",
+        "github_asset_digest_matched": true
+      }
+    ],
+    "settings_changed": false,
+    "firmware_flashed": false,
+    "interpretation": "Above4G and ReBAR Auto were already selected. No new setting definition or verified BAR fix was found in the reviewed forms. Other firmware behavior was not exhaustively analyzed."
+  },
+  "hardware_experiments_this_stage": 0,
+  "additional_usable_GiB_or_working_SMs_demonstrated": false,
+  "current_GPU_state": "No change made. G last observed at Stage46 timestamps; no fresh whole-state or CUDA qualification this stage."
+}

@@ -42,3 +42,5 @@ Static studies, including A100 comparisons and original firmware flow analysis, 
 Stage44 tested a distinct CMP-only uncached CPU BAR2 mapping request. The same-target four-byte BAR0 prechecks passed, but translated BAR2 still failed. No extra usable memory or P2P was proved. The ordinary CPU/GSP page-table join is the next diagnostic lead. See [driver candidates](driver-candidates.md).
 
 Stage45 tested D/E root handoff diagnostics and F without BAR1 forcing. Both RPCs returned zero and independent eight-byte CPU/GSP root reads matched, but D/E still failed BAR2. F restored both CMPs and checked 8-MiB copies passed on all three GPUs. Six working-F P2P capabilities remain zero. This is recovered baseline usability, not additional capacity. See [driver candidates](driver-candidates.md).
+
+Stage47 traced the normal guest discovery policy and independent fresh firmware-approval query, then compared BIOS definitions offline and read only the two relevant stored PCI settings. Both switches were already selected. No driver/firmware/VM change or GPU trial followed. See [discovery and firmware](discovery-and-firmware.md).

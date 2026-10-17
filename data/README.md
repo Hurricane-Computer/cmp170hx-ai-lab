@@ -22,3 +22,5 @@ These files are explicit technical projections of the research records, not copi
 `observed` fields describe their recorded timestamp. `owner-established` values were accepted from the existing setup rather than requalified. A null full-capacity-tested field is intentional: this campaign did not perform intensive full-VRAM qualification.
 
 [mailbox-candidate.json](mailbox-candidate.json) contains the scoped G mechanism, native discovery refusal, six directed capabilities, checked ordinary-copy hashes, static-BAR1 prerequisite and vendor firmware fingerprints. It contains no raw logs or firmware payloads.
+
+[discovery-and-firmware.json](discovery-and-firmware.json) records normal passthrough discovery boundaries, exact BIOS/module/tool hashes and the two observed stored PCI settings. Source analysis, offline comparisons and live observations are separate.

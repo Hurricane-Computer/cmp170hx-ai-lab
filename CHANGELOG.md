@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Normal discovery source and BIOS settings
+
+- Traced the intentional HVM hostbridge-scan policy and a fresh passthrough capability query that does not consume G's cached override; KVM fallback is false. No later runtime response or P2P data path claimed.
+- Compared 467 matched generic UEFI executable sections; the PCI setup module and reviewed decoded forms are unchanged between BIOS 1801 and 1901. Parser/semantic limits are explicit.
+- Read only the IFR-identified PCI variable: Above4G enabled and ReBAR Auto already selected. No settings, firmware, driver or VM changes and no new capacity/SM result.
+
 ## 2026-10-17 — Scoped mailbox trial and native discovery boundary
 
 - Built G separately from preserved F, overriding only CMP per-device PCIe reports while retaining native topology/platform checks and F BAR1 policy.
