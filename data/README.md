@@ -37,4 +37,4 @@ These files are explicit technical projections of the research records, not copi
 
 [logging-metadata.json](logging-metadata.json) records the separate LibOS log-metadata contract and unresolved diagnostic references; the matching logging ELF is still an open artifact question.
 
-[legacy-window-evidence.json](legacy-window-evidence.json) separates historical large allocations, actually written windows, checked readback and lower alias corruption; cache masking remains a hypothesis. No historical GPU test was replayed.
+[legacy-window-evidence.json](legacy-window-evidence.json) separates historical large allocations, actually written windows, checked readback and lower alias corruption; cache masking remains a hypothesis. No historical GPU test was replayed. The additional 75-GiB-cap raster record covers 68 pairs but only 8.5 MiB distinct written locations; its larger-window attempt never reached allocation.

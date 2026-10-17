@@ -393,6 +393,14 @@
       "result": "The matching logging companion was not obtained from the queried installed firmware directories or selected CMP artifacts.",
       "limit": "Scoped file query only, no global absence claim, GPU API/MMIO access or memory/clock/process-state refresh.",
       "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage59-recovered-raster",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "Recovered historical 75-GiB-cap raster: 68 pairs and two complete checked passes, 408 clean window records, only 8.5 MiB distinct written locations. Larger-window attempt failed cuInit before any allocation.",
+      "limit": "No new GPU run, dense 75-GiB qualification, isolated cache mechanism, current physical-card binding or refutation of foreign capacity reports.",
+      "interpretation": "docs/capacity-evidence.md"
     }
   ],
   "campaign_result": {

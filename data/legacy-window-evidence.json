@@ -312,5 +312,71 @@
       "url": "https://images.nvidia.com/aem-dam/en-zz/Solutions/data-center/nvidia-ampere-architecture-whitepaper.pdf",
       "fact": "NVIDIA documents40MB L2 for A100 as architecture context, not a live cache-size measurement of these historical boards."
     }
-  ]
+  ],
+  "raster_followup": {
+    "audit_utc": "2026-10-17T15:32:29.528459+00:00",
+    "evidence_level": "historical owner record and static checker audit",
+    "source_fingerprints": {
+      "64k_output_sha256": "ee13b0e3f0eaed70472223114df1d8383971bb0f774e84fb4e0a668f855a1001",
+      "1m_attempt_output_sha256": "5413ef8ef5e7a7058c051014fdc054b9281756b6da0908f6cbe6c2b7ca4a6717",
+      "preserved_checker_sha256": "881bcb916553fbd6450b036aeafc99b2aba20860cb172071670f2d97ec5ae11d"
+    },
+    "historical_execution_time": null,
+    "current_physical_card_binding": "not established",
+    "recorded_configuration": {
+      "declared_cap_mib": 76800,
+      "CUDA_total_mib": 76479,
+      "allocation_mib": 75648,
+      "headroom_mib": 512,
+      "pairs": 68
+    },
+    "selected_coverage": {
+      "allocation_gib": 73.875,
+      "pair_count": 68,
+      "logical_HIGH_minus_LOW_mib": 40960,
+      "LOW_first_start_mib": 0,
+      "LOW_start_step_mib": 512,
+      "LOW_last_start_mib": 34304,
+      "HIGH_first_start_mib": 40960,
+      "HIGH_last_start_mib": 75264,
+      "window_kib": 64,
+      "passes": 2,
+      "unique_selected_written_mib": 8.5,
+      "total_write_mib_all_passes": 17.0,
+      "total_D2H_compared_mib_all_passes": 25.5,
+      "verification_records": 408,
+      "total_mismatches": 0,
+      "every_selected_word_compared": true
+    },
+    "pass_variation": "Normal and inverted 48-bit payloads, with separate source tags.",
+    "recorded_summary": {
+      "pairs": 68,
+      "full_stable": 0,
+      "partial_stable": 0,
+      "none_stable": 68,
+      "pass_dependent": 0,
+      "anomalous": 0,
+      "total_fold_words": 0
+    },
+    "completed_both_passes": true,
+    "recorded_cleanup_failed": 0,
+    "larger_window_attempt": {
+      "recorded_status": "FAIL_CUDA_INIT",
+      "recorded_exit_code": 2,
+      "API": "cuInit",
+      "CUDA_error_code": 100,
+      "allocation_reached": false,
+      "windows_written": 0,
+      "limit": "This is not a failed data test and establishes no HBM threshold or failure cause."
+    },
+    "source_contract": {
+      "write_readback": "Checked SM launch/context synchronization and D2H copies; CPU compares every selected 64-bit word.",
+      "ordering": "Each pass fills all lower windows, checks lower, fills all upper, rechecks lower, then checks upper.",
+      "source_build_limit": "Preserved source agrees with the output schema/control flow. Exact historical executable build provenance is not re-established."
+    },
+    "scope": "Positive checked upper/lower samples through a 73.5-GiB upper start, with 8.5 MiB distinct written locations in a 73.875-GiB allocation. Not a dense 75-GiB capacity qualification.",
+    "cache_hypothesis": "Compatible with the small-footprint L2-residency hypothesis; actual residency and a causal masking effect were not measured.",
+    "foreign_report_limit": "This own raster implementation is separate from full-word hbm45 and the unrecovered original 77.5/72-GiB checker.",
+    "new_GPU_experiment": false
+  }
 }

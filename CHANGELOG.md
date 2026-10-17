@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Recovered 75-GiB-cap sparse raster
+
+- Recovered two-pass results for 68 lower/upper pairs: 408 clean window checks in a 73.875-GiB allocation, with only 8.5 MiB distinct written locations.
+- Separated the larger-window attempt's CUDA-start failure from a data-test failure. No historical test replay or new capacity claim.
+
 ## 2026-10-17 — Recovered owner window tests and normal logging filename
 
 - Recovered five historical 70-/78-/41-GiB allocation outputs and the checked-copy source. Small selected windows pass; larger records show lower corruption despite clean upper self-checks. Cache masking is an unproved explanation, not a new capacity verdict.
