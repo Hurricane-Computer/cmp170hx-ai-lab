@@ -20,14 +20,14 @@ This campaign has not demonstrated additional usable memory above the existing 4
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | Unavailable under candidate C, 17 Oct 10:00 UTC; previously 40 GiB / 1350 MHz |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | Unavailable under candidate C, 17 Oct 10:00 UTC; previously 8 GiB / 1728 MHz |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz under working F, 17 Oct 10:25 UTC; 8-MiB copy passed |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz under working F, 17 Oct 10:25 UTC; 8-MiB copy passed |
 
 The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied 64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.
 
 The first [P2P matrix](docs/peer-memory.md) advertised no route among the two CMP variants and Blackwell with the earlier guest module. At that point CMP64 was CUDA-visible after a targeted reset and reported its 8-GiB base configuration; the historical 64-GiB unlock was not reproduced in that boot.
 
-Subsequent [mixed-driver trials](docs/driver-candidates.md) built three concrete candidates, but both CMPs failed their BAR2 initialization test. Only Blackwell is currently NVML-visible in that guest; no new usable-memory or P2P result is claimed.
+The [mixed-driver trials](docs/driver-candidates.md) recovered a working baseline: candidate F disables the fork's BAR1 forcing bundle, initializes both CMPs, and passed checked 8-MiB copies on all three GPUs. This restores the historical 40/64-GiB variants; it adds no capacity, and all six current P2P capabilities remain zero.
 
 ## What is here
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:03:45.228856+00:00",
+  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
   "cards": [
     {
       "variant": "cmp40",
@@ -39,12 +39,20 @@
         "long_term_stability_proven": false
       },
       "latest_guest_state": {
-        "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
-        "reported_memory_mib": null,
-        "memory_clock_mhz": null,
-        "status": "Probe-time BAR2 self-test failed under candidate C; no fresh usable capacity/clock query."
+        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "reported_memory_mib": 40960,
+        "memory_clock_mhz": 1215,
+        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "full_capacity_qualified": false
       },
       "last_successful_guest_state": {
+        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "reported_memory_mib": 40960,
+        "memory_clock_mhz": 1215,
+        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "full_capacity_qualified": false
+      },
+      "previous_successful_guest_state": {
         "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
         "reported_memory_mib": 40960,
         "memory_used_mib": 9725,
@@ -78,12 +86,20 @@
       },
       "short_roundtrip_bytes": null,
       "latest_guest_state": {
-        "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
-        "reported_memory_mib": null,
-        "memory_clock_mhz": null,
-        "status": "Probe-time BAR2 self-test failed under candidate C; no fresh usable capacity/clock query."
+        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "reported_memory_mib": 65536,
+        "memory_clock_mhz": 1728,
+        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "full_capacity_qualified": false
       },
       "last_successful_guest_state": {
+        "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+        "reported_memory_mib": 65536,
+        "memory_clock_mhz": 1728,
+        "status": "Working candidate F; full8MiB random H2D/D2D/D2H hash check passed.",
+        "full_capacity_qualified": false
+      },
+      "previous_successful_guest_state": {
         "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
         "reported_memory_mib": 8192,
         "memory_used_mib": 0,

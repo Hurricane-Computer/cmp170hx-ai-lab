@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T09:11:38.399166+00:00",
+  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
   "evidence_level": "observed",
   "scope": "Directed CUDA peer capability in one Linux passthrough guest; no forced reporting and no actual peer-copy/kernel trial.",
   "driver_version": "615.71.09",
@@ -164,5 +164,128 @@
       "SEC2_DEBUG": false
     },
     "capability_matrix_unchanged_historical": true
+  },
+  "historical_field_notice": "The original top-level matrix/config/current_guest_observations fields describe Stage42 at peer_query_utc. Latest workingF observation is separate below.",
+  "working_F_baseline": {
+    "evidence_utc": "2026-10-17T10:28:36.417003+00:00",
+    "driver_module_sha256": "29c491f1c02b0d11d9b314c299094f61c834d3a4079846df30ffa92ca715f229",
+    "reported_inventory": {
+      "blackwell": {
+        "reported_memory_mib": 97887,
+        "memory_clock_mhz": 14001
+      },
+      "cmp64": {
+        "reported_memory_mib": 65536,
+        "memory_clock_mhz": 1728
+      },
+      "cmp40": {
+        "reported_memory_mib": 40960,
+        "memory_clock_mhz": 1215
+      }
+    },
+    "pairs": [
+      {
+        "accessor": "blackwell",
+        "owner": "cmp64",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        }
+      },
+      {
+        "accessor": "blackwell",
+        "owner": "cmp40",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        }
+      },
+      {
+        "accessor": "cmp64",
+        "owner": "blackwell",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        }
+      },
+      {
+        "accessor": "cmp64",
+        "owner": "cmp40",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        }
+      },
+      {
+        "accessor": "cmp40",
+        "owner": "blackwell",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        }
+      },
+      {
+        "accessor": "cmp40",
+        "owner": "cmp64",
+        "can_access_peer_rc": 0,
+        "can_access_peer": 0,
+        "attributes": {
+          "access_supported": {
+            "rc": 0,
+            "value": 0
+          },
+          "native_atomic_supported": {
+            "rc": 0,
+            "value": 0
+          }
+        }
+      }
+    ],
+    "explicit_cuda_allocations_in_this_query": 0,
+    "peer_enable_calls": 0,
+    "peer_copy_calls": 0,
+    "peer_kernel_calls": 0,
+    "p2p_patches_applied": false,
+    "iommu_acs_host_changes": false
   }
 }

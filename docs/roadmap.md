@@ -23,11 +23,13 @@ The complete ordinary rank accounting and identical partition table do not thems
 
 ## Peer communication
 
-The first [directed P2P matrix](peer-memory.md) is negative with the current guest build. A pinned opt-in BAR1 implementation for both CMP IDs is a separate source candidate. Prepare it against the exact driver, actual BAR1 resources and physical topology; reproduce the ordinary64-GiB unlock separately. Only checked peer copies plus explicit peer-pointer kernel access count as demonstrated P2P.
+Both the first and the working-F [directed P2P matrices](peer-memory.md) are negative. A pinned opt-in BAR1 implementation for both CMP IDs is a separate source candidate. Prepare it against the exact working F driver, actual BAR1 resources and physical topology, retaining the recovered 64-GiB configuration. Only checked peer copies plus explicit peer-pointer kernel access count as demonstrated P2P.
 
-## Current driver prerequisite
+## Working driver baseline
 
-Three [mixed-profile candidates](driver-candidates.md) failed the same BAR2 self-test. Direct four-byte BAR0 prechecks pass. The accepted uncached CPU-aperture request alone did not solve it. Next instrument the ordinary CPU/GSP BAR2 root-entry handoff and its RPC status; do not repeat A/B/C or the placement-only hypothesis. The retained guest currently exposes only Blackwell through NVML. P2P remains queued behind this usable-driver prerequisite.
+Candidate F in the [driver study](driver-candidates.md) restores both CMPs by disabling the fork's BAR1 forcing bundle. All three GPUs passed small checked CUDA copies. Preserve this module, native BAR1 policy and recovery artifacts. D/E already confirmed successful root-entry RPCs and matching top-level eight-byte copies; do not repeat those as unresolved checks.
+
+Prepare any P2P opt-in against F in a separate build tree. The old A-based builder is stale, and automatically restoring the BAR1 forcing path would regress the tested setup. Keep normal platform/topology checks and distinguish advertised capability from actual transfers. Further capacity and normal SM source leads remain the primary research goals.
 
 ## Useful independent contributions
 

@@ -40,3 +40,5 @@ The established74-SM baseline and ECC were not requalified. Known unsuccessful C
 Static studies, including A100 comparisons and original firmware flow analysis, are tracked separately in[Firmware notes](firmware.md). No LLM performance ranking is inferred from the clock checks.
 
 Stage44 tested a distinct CMP-only uncached CPU BAR2 mapping request. The same-target four-byte BAR0 prechecks passed, but translated BAR2 still failed. No extra usable memory or P2P was proved. The ordinary CPU/GSP page-table join is the next diagnostic lead. See [driver candidates](driver-candidates.md).
+
+Stage45 tested D/E root handoff diagnostics and F without BAR1 forcing. Both RPCs returned zero and independent eight-byte CPU/GSP root reads matched, but D/E still failed BAR2. F restored both CMPs and checked 8-MiB copies passed on all three GPUs. Six working-F P2P capabilities remain zero. This is recovered baseline usability, not additional capacity. See [driver candidates](driver-candidates.md).

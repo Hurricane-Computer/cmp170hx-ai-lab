@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:03:45.228856+00:00",
+  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
   "kernel": "6.8.0-147-generic",
   "driver_version": "615.71.09",
   "source_fork_revision": "7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03",
@@ -10,8 +10,8 @@
   "runtime_module_package_preserved": true,
   "previous_initrd_backed_up": true,
   "p2p_patches_applied": false,
-  "explicit_cuda_test_allocations": 0,
-  "copy_smoke_executed": false,
+  "explicit_cuda_test_allocations": 6,
+  "copy_smoke_executed": true,
   "actual_peer_copy_executed": false,
   "actual_peer_kernel_executed": false,
   "variants": [
@@ -72,6 +72,57 @@
       "PCI_BAR2_resource_mib": 32,
       "CPU_aperture_base_matches_PCI_resource": true,
       "copy_smoke_reached": false
+    },
+    {
+      "name": "D",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T10:13:33.623927+00:00",
+      "module_file_sha256": "b540f2c3bf9135596ff1198a7aaa1e72831e19aae0f975c9a7f888387a56d3a5",
+      "difference": "CMP-only existing root-entry/RPC metadata logs; C behavior retained.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 1,
+      "cmp_initialization_error": "0x24:0x72:1298",
+      "self_test": "kbusVerifyBar2_GM107",
+      "self_test_readback": "0 instead of test pattern",
+      "ready_gpu_count": 1,
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false,
+      "copy_smoke_reached": false
+    },
+    {
+      "name": "E",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T10:19:16.632837+00:00",
+      "module_file_sha256": "49a3aaedc744099f44ce8e30cc4a003ee14d702f88e1498f9120c499f0a73fe6",
+      "difference": "Independent8-byte CPU/GSP root-entry reads through source-backed BAR0 helper, explicit window restore.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 1,
+      "cmp_initialization_error": "0x24:0x72:1298",
+      "self_test": "kbusVerifyBar2_GM107",
+      "self_test_readback": "0 instead of test pattern",
+      "ready_gpu_count": 1,
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false,
+      "copy_smoke_reached": false
+    },
+    {
+      "name": "F",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T10:25:58.733491+00:00",
+      "module_file_sha256": "29c491f1c02b0d11d9b314c299094f61c834d3a4079846df30ffa92ca715f229",
+      "difference": "Remove fork BAR1 force writes and global ResizableBar override; retain passive snapshots, native policy and E diagnostics.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 1,
+      "cmp_initialization_error": null,
+      "self_test": "kbusVerifyBar2_GM107",
+      "self_test_readback": "Initialization and small CUDA copies passed",
+      "ready_gpu_count": 3,
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false,
+      "copy_smoke_reached": true
     }
   ],
   "configured_fb_mib_in_candidate_a_initialization": {
@@ -96,20 +147,36 @@
     "both_cmp_bar1_final_resource_mib": 64
   },
   "latest_guest_status": {
-    "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
+    "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
     "blackwell": "NVMLvisible",
-    "cmp40": "probe-timeinitfailed",
-    "cmp64": "probe-timeinitfailed",
+    "cmp40": "NVML/CUDAready",
+    "cmp64": "NVML/CUDAready",
     "gpu_services_left_stopped": true,
     "stock_driver_not_automatically_restored": true,
-    "retained_candidate": "C"
+    "retained_candidate": "F",
+    "reported_inventory": {
+      "blackwell": {
+        "reported_memory_mib": 97887,
+        "memory_clock_mhz": 14001
+      },
+      "cmp64": {
+        "reported_memory_mib": 65536,
+        "memory_clock_mhz": 1728
+      },
+      "cmp40": {
+        "reported_memory_mib": 40960,
+        "memory_clock_mhz": 1215
+      }
+    }
   },
   "limits": [
-    "Configured64/40GiB is not ready or usablememory.",
-    "No tested variant reached the planned smallCUDAcopychecks orP2Ptrial.",
+    "Configured 64/40-GiB declarations alone are not proof of ready or usable memory.",
     "Removing the PRAMIN placement clamp alone did not solve this initfailure; this does not close every mapping hypothesis.",
     "Module srcversion was equal across the two variants; it is not a unique identifier for the rebuilt resource-manager core.",
-    "C tests the accepted uncached mapping request; actual CPU PAT encoding was not independently measured. Its negative result is not proof that all ordering hypotheses are impossible."
+    "C tests the accepted uncached mapping request; actual CPU PAT encoding was not independently measured. Its negative result is not proof that all ordering hypotheses are impossible.",
+    "A through E never reached small CUDA checks; F passed8MiB checked copies on all3GPUs.",
+    "F restores historical40/64GiB reports and small-copy usability, not extra capacity or dense whole-HBM integrity.",
+    "The successfully copied8-byte top-level entry does not independently prove all lower PTEs or actual hardware binding."
   ],
   "compressed_module_audit": {
     "evidence_utc": "2026-10-17T09:22:46.254554+00:00",
@@ -159,7 +226,52 @@
       "mechanism": "CPU-RM PDE3[0] is passed through UPDATE_BAR_PDE RPC into the GSP-RM hardware-bound BAR2 root.",
       "status_gap": "RPC macro assigns status, but function ends with NV_OK and caller does not consume the return.",
       "actual_RPC_failure_observed": false,
-      "next_diagnostic": "Record both root descriptors, copied entry, level shift and actual RPC return without bypassing the self-test."
+      "current_status": "D observed RPCstatus0 on both; E independently read matching CPU/GSP top-level8bytes. Failed-RPC/absent-copy explanations not observed.",
+      "completed_diagnostic": "Record both root descriptors, copied entry, level shift and actual RPC return without bypassing the self-test."
     }
+  },
+  "working_F_copy_check": {
+    "evidence_utc": "2026-10-17T10:25:56.836142+00:00",
+    "buffer_bytes_each": 8388608,
+    "owned_buffers_per_device": 2,
+    "devices_tested": 3,
+    "copies": [
+      {
+        "variant": "blackwell",
+        "source_sha256": "09a84644ee9392572bcfab8aed4f7e63c12eecff4e12e4997e722b4ec5ec6859",
+        "returned_sha256": "09a84644ee9392572bcfab8aed4f7e63c12eecff4e12e4997e722b4ec5ec6859",
+        "match": true
+      },
+      {
+        "variant": "cmp64",
+        "source_sha256": "5321709f1662a65a60c29d551d97f419b5cef59dcf49d628db089a2d3e6974a7",
+        "returned_sha256": "5321709f1662a65a60c29d551d97f419b5cef59dcf49d628db089a2d3e6974a7",
+        "match": true
+      },
+      {
+        "variant": "cmp40",
+        "source_sha256": "786457f472437b7af4d7ee29a42eb835e4672f6165433f40b62845e0e795da8c",
+        "returned_sha256": "786457f472437b7af4d7ee29a42eb835e4672f6165433f40b62845e0e795da8c",
+        "match": true
+      }
+    ],
+    "cleanup_all_owned_buffers_and_context_refs_released": true,
+    "full_capacity_or_alias_integrity_qualified": false
+  },
+  "working_F_bar1_policy": {
+    "source_before_sha256": "736793e5d8f11b6ccf21370977ad9a7d1c9b68ec4527d3560d65d7c7ac909930",
+    "source_after_sha256": "e5659bf84222ded51f5465202548866e6388831f4dda7d230ad6548f26aec9a9",
+    "last_delta_patch_sha256": "58583d6751b0a45856cfbee16d522fd98b9c56eaf96e27445f13e9330d173493",
+    "force_writes_removed": 2,
+    "global_parameter_override_removed": true,
+    "observed_EnableResizableBar": 0,
+    "both_cmp_passive_before_and_after": {
+      "CYA": "0x00000026",
+      "CFG": "0x80000000",
+      "CAP": "0x00000400"
+    },
+    "both_cmp_final_BAR1_mib": 64,
+    "conclusion": "Disabling this forcing bundle restored readiness in this guest while E failed. Individual contribution of the two writes versus global override is not isolated.",
+    "scope": "F retains C uncached CPU mapping and E diagnostics; this is not a proven minimal dependency set or a universal hardware verdict."
   }
 }

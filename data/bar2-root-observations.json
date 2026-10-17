@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
+  "records": [
+    {
+      "candidate": "D",
+      "evidence_utc": "2026-10-17T10:13:33.623927+00:00",
+      "evidence_level": "observed",
+      "rows": [
+        {
+          "variant": "cmp40",
+          "rpc_status": 0,
+          "forwarded_entry_nonzero": true,
+          "cpu_pdb_equals_cpu_pde": true,
+          "forwarded_entry_matches_input": true,
+          "entry_bytes": 8,
+          "level_shift": 47,
+          "bar_access_blocked": false
+        },
+        {
+          "variant": "cmp64",
+          "rpc_status": 0,
+          "forwarded_entry_nonzero": true,
+          "cpu_pdb_equals_cpu_pde": true,
+          "forwarded_entry_matches_input": true,
+          "entry_bytes": 8,
+          "level_shift": 47,
+          "bar_access_blocked": false
+        }
+      ]
+    },
+    {
+      "candidate": "E",
+      "evidence_utc": "2026-10-17T10:19:16.632837+00:00",
+      "evidence_level": "observed",
+      "rows": [
+        {
+          "variant": "cmp40",
+          "rpc_status": 0,
+          "forwarded_entry_nonzero": true,
+          "cpu_pdb_equals_cpu_pde": true,
+          "forwarded_entry_matches_input": true,
+          "entry_bytes": 8,
+          "level_shift": 47,
+          "bar_access_blocked": false,
+          "independent_readback": {
+            "cpu_status": 0,
+            "gsp_status": 0,
+            "window_restore_status": 0,
+            "bytes_each": 8,
+            "cpu_matches_expected": true,
+            "gsp_matches_expected": true
+          }
+        },
+        {
+          "variant": "cmp64",
+          "rpc_status": 0,
+          "forwarded_entry_nonzero": true,
+          "cpu_pdb_equals_cpu_pde": true,
+          "forwarded_entry_matches_input": true,
+          "entry_bytes": 8,
+          "level_shift": 47,
+          "bar_access_blocked": false,
+          "independent_readback": {
+            "cpu_status": 0,
+            "gsp_status": 0,
+            "window_restore_status": 0,
+            "bytes_each": 8,
+            "cpu_matches_expected": true,
+            "gsp_matches_expected": true
+          }
+        }
+      ]
+    }
+  ],
+  "limit": "Successful RPC and matching top-level8bytes are distinct from a working hardware BAR2 walk, lower-level PTEs or dense capacity/alias integrity."
+}

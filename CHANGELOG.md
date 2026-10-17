@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-17 — Working mixed-CMP baseline recovered
+
+- D/E confirmed successful CPU/GSP root-entry handoffs with matching eight-byte readbacks; both candidates still failed BAR2.
+- F removed the fork's BAR1 force writes and global override. Both CMPs initialized at their historical 40/64-GiB reports; all three GPUs passed checked 8-MiB copies.
+- Exported the exact last source delta and preserved negative trials, scope and hashes. No extra capacity or full-HBM qualification is claimed.
+- Fresh F capabilities remain zero in all six P2P directions; no actual peer transfer was attempted.
+
 ## 2026-10-17 — Uncached BAR2 request and narrower failure path
 
 - Built and boot-tested a third candidate with a CMP-only uncached CPU BAR2 mapping request; both CMPs still failed initialization.

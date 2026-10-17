@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T10:03:45.228856+00:00",
+  "updated_utc": "2026-10-17T10:34:22.879224+00:00",
   "records": [
     {
       "id": "stage3",
@@ -216,6 +216,14 @@
       "evidence_level": "observed",
       "result": "CMP-only uncached CPU BAR2 mapping request accepted, but both CMPs still fail the same BAR2 check. Same-target 4-byte BAR0 prechecks explicitly logged as passed.",
       "limit": "No extra usable memory, CUDA-copy or P2P proof; actual CPU PAT encoding not independently read. Ordinary CPU/GSP page-table join is a source lead, not a diagnosed RPC failure.",
+      "interpretation": "docs/driver-candidates.md"
+    },
+    {
+      "id": "stage45",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "D/E verified successful root-entry RPCs and matching8-byte CPU/GSP copies but still failed BAR2. F disabled fork BAR1 forcing and restored bothCMPs;8MiB checked copies passed on all3GPUs.",
+      "limit": "No extra40/64GiB capacity, full-memory qualification orP2P success. Six current F peer directions remain0. Exact offending forcing element not isolated.",
       "interpretation": "docs/driver-candidates.md"
     }
   ],
