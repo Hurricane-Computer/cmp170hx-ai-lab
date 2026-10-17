@@ -35,3 +35,7 @@ The same public build's ordinary non-VF base-region path imports GSP-supplied re
 Separately, original-firmware analysis found the ordinary `RMIgnoreUpperMemory` lookup and a conditional Boolean cache write in the original MemoryManager. That name and cache write do not establish an applicable upper-region producer, a changed address decoder, or a useful unlock. Same-offset accesses in unrelated objects were kept separate. No raw firmware or derived assembly is distributed.
 
 This was an offline source result, with no hardware access or new capacity/SM test. It does not set a physical capacity ceiling or refute the attributed 75/76 and 77.5/72-GiB results. The useful next target is a distinct applicable physical address-layout producer, rather than a size-cache toggle or repetition of the scalar/carveout path. Source hashes and scope are recorded in the [structured follow-up](../data/capacity-followup.json).
+
+## Normal manager-mode follow-up
+
+A later [ordinary CPU-RM comparison](cpu-rm-capacity.md) retained both cards' geometry and reported 40/64 GiB without GSP, but CUDA initialization returned 101 before the first allocation. This is a distinct admission boundary, not another upper-memory data result.

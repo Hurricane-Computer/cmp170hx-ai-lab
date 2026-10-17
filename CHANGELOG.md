@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 — Normal CPU-RM retains reported 40/64 GiB; CUDA stops before allocation
+
+- Verified the actual matching 615.71.09 proprietary Runfile/core, built separate stock modules and observed ordinary GSP-off startup with unchanged geometry on both CMPs.
+- First `cuInit(0)` returned 101 before the planned copy or any explicit allocation. Kept Blackwell compatibility, CMP classification and companion-module observations separate from an unproved cause.
+- Preserved the proprietary unload warning and successful returned Open-driver CUDA initialization; no extra usable GiB claimed. [Observation and limits](docs/cpu-rm-capacity.md).
+
 ## 2026-10-18 — Original post-matrix DRAM mode settings
 
 - Bound six additional original App08 command stores to the same profile selector; three selected cases correlate two DRAM payload fields with controller timings.

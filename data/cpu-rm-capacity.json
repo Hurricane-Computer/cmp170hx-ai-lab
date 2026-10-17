@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "stage": 89,
+  "evidence_level": "observed",
+  "evidence_window_utc": [
+    "2026-10-17T23:21:12.770498+00:00",
+    "2026-10-17T23:21:13.573558+00:00"
+  ],
+  "window_basis": "Proprietary load banner to proprietary core unregister; individual calls were not separately timestamped.",
+  "driver_version": "615.71.09",
+  "normal_mode": {
+    "flavor": "proprietary",
+    "NVreg_EnableGpuFirmware": 0,
+    "NVreg_EnableResizableBar": 0,
+    "loaded_srcversion": "A1B9C1CB149D84B5D35F8C7",
+    "normal_open_module_teardown_then_normal_proprietary_load": true,
+    "custom_geometry_patch_in_proprietary_build": false
+  },
+  "vendor_package": {
+    "url": "https://download.nvidia.com/XFree86/Linux-x86_64/615.71.09/NVIDIA-Linux-x86_64-615.71.09-no-compat32.run",
+    "bytes": 408760466,
+    "sha256": "e5545862c291f3991a91ee40dd9c7a71cccc69247a193d5e5b891bfd964ac104",
+    "vendor_sha256_matched": true,
+    "proprietary_core_present": true,
+    "proprietary_core_bytes": 115549872,
+    "proprietary_core_sha256": "56a870c6e91ebc787eaeb8dbe074d9e9a51001126273b700e34ab2c5dba919bc",
+    "installer_executed": false
+  },
+  "cards": [
+    {
+      "variant": "cmp40",
+      "reported_mib": 40960,
+      "gsp_firmware_reported": "N/A",
+      "registers_before": {
+        "0x9a0204": "0x2669000",
+        "0x100ce0": "0x28a",
+        "0x9a038c": "0xa7"
+      },
+      "registers_after": {
+        "0x9a0204": "0x2669000",
+        "0x100ce0": "0x28a",
+        "0x9a038c": "0xa7"
+      },
+      "geometry_readbacks_unchanged": true,
+      "new_capacity_qualified_gib": 0,
+      "CPU_mode_copy_pass": null
+    },
+    {
+      "variant": "cmp64",
+      "reported_mib": 65536,
+      "gsp_firmware_reported": "N/A",
+      "registers_before": {
+        "0x9a0204": "0x2779000",
+        "0x100ce0": "0x20b",
+        "0x9a038c": "0xa7"
+      },
+      "registers_after": {
+        "0x9a0204": "0x2779000",
+        "0x100ce0": "0x20b",
+        "0x9a038c": "0xa7"
+      },
+      "geometry_readbacks_unchanged": true,
+      "new_capacity_qualified_gib": 0,
+      "CPU_mode_copy_pass": null
+    }
+  ],
+  "CUDA_attempt": {
+    "first_call": "cuInit(0)",
+    "result": 101,
+    "result_name": "CUDA_ERROR_INVALID_DEVICE",
+    "context_creation_calls": 0,
+    "explicit_allocation_calls": 0,
+    "copy_calls": 0,
+    "planned_small_copy_executed": false,
+    "failure_cause_proven": false
+  },
+  "returned_working_open_driver": {
+    "cuInit_result": 0,
+    "device_count": 3,
+    "matched_libcuda_version": "615.71.09",
+    "loaded_srcversion_matches_installed_file": true,
+    "source_identity_check_utc": "2026-10-17T23:27:36.752685+00:00",
+    "init_control_utc": "2026-10-17T23:24:53.533834+00:00",
+    "injected_CUDA_visibility_order_or_loader_environment": false
+  },
+  "other_observations": {
+    "Blackwell_probe_rejected_with_requires_open_modules": true,
+    "Blackwell_omitted_from_proprietary_NVML_inventory": true,
+    "Blackwell_caused_CUDA101": null,
+    "automatic_open_UVM_load_attempts_had_symbol_errors": true,
+    "explicit_matching_proprietary_UVM_insmod_result": 0,
+    "explicit_UVM_loaded_srcversion_independently_read": false,
+    "proprietary_unload_stack_cache_objects_remaining_warning": true,
+    "guest_continued_and_returned_G_CUDA_init_succeeded": true
+  },
+  "static_admission_candidate": {
+    "evidence_level": "static-analysis",
+    "field": "NV2080_CTRL_GPU_INFO_INDEX_CMP_SKU",
+    "index": "0x3c",
+    "normal_control": "NV2080_CTRL_CMD_GPU_GET_INFO",
+    "NO": 0,
+    "YES": 1,
+    "archived_working_build_recipe_applies_CMP_NO_patch": true,
+    "current_G_live_field_value": null,
+    "stock_CPU_mode_live_field_value": null,
+    "libcuda_consumer_or_causality_proven": false
+  },
+  "not_executed": [
+    "Additional capacity allocation",
+    "80-GiB geometry retry",
+    "GPU/host reset",
+    "Proprietary binary patch",
+    "GPU exclusion parameter",
+    "CMP-only process-visibility comparison",
+    "CMP_SKU control query"
+  ],
+  "limits": [
+    "Register continuity and reported 40/64 GiB do not establish allocator/data access or additional physical backing.",
+    "CUDA failed before the planned copy and before an explicit capacity allocation.",
+    "Reported 75/76 and 77.5/72 GiB third-party positives remain open; no physical ceiling follows.",
+    "Fresh guest boot before another mode comparison will avoid reusing the observed teardown-warning state."
+  ],
+  "sources": [
+    "https://download.nvidia.com/XFree86/Linux-x86_64/615.71.09/README/kernel_open.html",
+    "https://download.nvidia.com/XFree86/Linux-x86_64/615.71.09/README/gsp.html",
+    "https://download.nvidia.com/XFree86/Linux-x86_64/615.71.09/NVIDIA-Linux-x86_64-615.71.09-no-compat32.run.sha256sum",
+    "https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__INITIALIZE.html",
+    "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gpu.h"
+  ]
+}
