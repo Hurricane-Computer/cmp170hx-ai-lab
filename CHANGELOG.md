@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Bound GA100 dispatch and separate logging metadata
+
+- Connected the normal aperture-owner HAL argument to original GA100 key42 and its return-zero constructor slot; reused the previous conditional trace.
+- Corrected out-of-range diagnostic slices and documented the separate logging-ELF contract. No hardware trial, extra memory or SM claimed.
+
 ## 2026-10-17 — Identified ordinary register-aperture path
 
 - Matched the original range class to NVIDIA IoAperture and its ordinary read/write contract; construction alone changes software fields.

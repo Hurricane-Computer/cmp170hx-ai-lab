@@ -42,8 +42,16 @@
     "selected_function": "0x52659f8",
     "selected_body": "Returns zero without a device operation.",
     "interpreted_original_instructions": 473,
-    "actual_caller_supplied_key_bound": false,
-    "limit": "CPU-only interpretation of a supplied parameter, not observed chip dispatch or firmware execution."
+    "actual_caller_supplied_key_bound": true,
+    "limit": "Original normal GA100 selection is statically bound. This is not a live trace, a global exclusion of other register aliases, or a physical-capacity limit.",
+    "stage56_status": "Supplied parameter only; normal caller binding was then unresolved.",
+    "binding_scope": "Static original normal GA100 initialization; no captured runtime trace.",
+    "normal_argument_chain": [
+      "The ordinary creator requests class0x74bc71, GpuHalspecOwner, and passes that typed subobject to its initializer and method table.",
+      "Original OBJGPU RTTI locates GpuHalspecOwner at offset0x40; the table reads its ChipHal at offset0x10.",
+      "The original GA100 mapper stores42 at GPU+0x50, matching that exact typed field. The pinned public GA100 map independently agrees.",
+      "The already recorded key42 interpretation therefore applies to this original normal GA100 slot; neither alternative100800/80h array constructor is selected there."
+    ]
   },
   "hardware_accesses": 0,
   "configuration_changes": 0,
@@ -96,6 +104,22 @@
       "bytes": 45458,
       "sha256": "b6df5224f2681e3a606827b8dc0151e4e78aa6c438e47c27bc019120881f9cc0",
       "git_blob_sha1": "0f11f486206d177a1ecaf008a10bdda59ca02a80"
+    },
+    {
+      "path": "src/nvidia/generated/g_gpu_halspec_nvoc.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_gpu_halspec_nvoc.h",
+      "bytes": 6818,
+      "sha256": "8a0ae8b0d2509a9fa31e90e51ece9294935271bc6a3adcc1fdf70b3521a92f0e",
+      "git_blob_sha1": "c38088e7f7e2a586d73c1249cb077d5f5c5902b1"
+    },
+    {
+      "path": "src/nvidia/generated/g_chips2halspec_nvoc.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_chips2halspec_nvoc.c",
+      "bytes": 6160,
+      "sha256": "ec0f299b4dffa6160d102e2dc3d7e4db776116354649b676987146c52542548a",
+      "git_blob_sha1": "b88bca75200c310869d19653a147a937b41364a8"
     }
-  ]
+  ],
+  "followup_stage": 57,
+  "followup_utc": "2026-10-17T14:57:51.586411+00:00"
 }

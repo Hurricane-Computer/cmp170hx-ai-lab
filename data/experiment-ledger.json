@@ -353,6 +353,22 @@
       "result": "Identified the original range class as IoAperture/RegisterAperture and connected ordinary width-specific I/O and mapped32-bit-store semantics. Parameter42 conditionally selects a return-zero constructor slot.",
       "limit": "Actual caller key and GA100 decoder-field meaning remain unbound; no hardware access, configuration change, extra usable memory or SM.",
       "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage57-GA100-aperture-selection",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Connected the ordinary typed HAL argument to original GA100 key42. The relevant normal constructor slot selects a return-zero stub; the existing conditional CPU trace was reused.",
+      "limit": "No live execution capture, new hardware trial, global decoder-path exclusion, extra capacity or SM.",
+      "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage57-logging-metadata",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Corrected three out-of-range diagnostic slices and connected normal GSP logging metadata to its separate-ELF contract.",
+      "limit": "Matching vendor logging ELF and specific names remain unresolved. No capacity mechanism or hardware change.",
+      "interpretation": "docs/memory-geometry.md"
     }
   ],
   "campaign_result": {

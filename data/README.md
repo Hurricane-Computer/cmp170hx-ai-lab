@@ -33,4 +33,6 @@ These files are explicit technical projections of the research records, not copi
 
 [configured-memory-geometry.json](configured-memory-geometry.json) records the first ordinary FBP/FBPA/LTC geometry GETs and separately calculated consistency checks. Reported units do not establish hidden physical memory.
 
-[io-aperture-analysis.json](io-aperture-analysis.json) identifies the normal range class, I/O contract and a conditional chip-parameter result. It contains no hardware observation or decoder-bit programming recipe.
+[io-aperture-analysis.json](io-aperture-analysis.json) identifies the normal range class, I/O contract and the resolved static normal GA100 constructor selection. It contains no hardware observation or decoder-bit programming recipe.
+
+[logging-metadata.json](logging-metadata.json) records the separate LibOS log-metadata contract and unresolved diagnostic references; the matching logging ELF is still an open artifact question.
