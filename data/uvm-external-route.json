@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "stage": 84,
+  "recorded_utc": "2026-10-17T21:27:55.032225+00:00",
+  "evidence_level": "static-analysis",
+  "official_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "source_verification": {
+    "evidence_level": "observed",
+    "evidence_utc": "2026-10-17T21:21:36.047776+00:00",
+    "actual_G_whole_files_equal": 9,
+    "files": [
+      {
+        "path": "kernel-open/nvidia-uvm/uvm.c",
+        "sha256": "81870dad066249991b39e2f1e70ddf0a48e4803eb48f487d0de7708c835a621a",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia-uvm/uvm.c"
+      },
+      {
+        "path": "kernel-open/nvidia-uvm/uvm_gpu.c",
+        "sha256": "fbe5638f353ab228502d12d8fdbf9529932503c14b9c8369adfc141437d07dcc",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia-uvm/uvm_gpu.c"
+      },
+      {
+        "path": "kernel-open/nvidia-uvm/uvm_map_external.c",
+        "sha256": "7f45887c7cb90c71e9d299aaeeffa1f579641334d279ba28574e8a5e318fba08",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia-uvm/uvm_map_external.c"
+      },
+      {
+        "path": "kernel-open/nvidia-uvm/uvm_va_space.c",
+        "sha256": "d3afb05ecd5a051312c5bad2f3406c01c9c75fda46a6323381551b96b1572dbf",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia-uvm/uvm_va_space.c"
+      },
+      {
+        "path": "kernel-open/nvidia-uvm/uvm_mmu.c",
+        "sha256": "b8572dc2e4dcefeec246bdc97c4a3f0f2537bd3b75ac4b7e163c4b20d1b6caff",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia-uvm/uvm_mmu.c"
+      },
+      {
+        "path": "kernel-open/nvidia/nv_uvm_interface.c",
+        "sha256": "b3980da6fccd532ce5bf245a2c9ea63325cdf2e6b594514436fb518621c77494",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv_uvm_interface.c"
+      },
+      {
+        "path": "kernel-open/nvidia/nv_gpu_ops.h",
+        "sha256": "e96de410b56d162adcf5d4ec611b8a18dc76dc9cae57e2af3fb97d96d1ed7561",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv_gpu_ops.h"
+      },
+      {
+        "path": "kernel-open/common/inc/nv_uvm_interface.h",
+        "sha256": "4d8e4f46bc2afc99cb074f425f459b98ca072d50b91e25b7085db0df0081c89d",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/common/inc/nv_uvm_interface.h"
+      },
+      {
+        "path": "src/nvidia/exports_link_command.txt",
+        "sha256": "b3312b233ce8658452b9f91799d78ca894d7ce7233542caaa0cbe4cbc4f5daf1",
+        "equal_pinned": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/exports_link_command.txt"
+      }
+    ]
+  },
+  "routes": {
+    "core_virtual_memory": "virtual_mem.c -> dmaAllocBar1P2PMapping_HAL; full peer unmap required.",
+    "UVM_external": "UVM external map -> duplicated owner-memory handle -> RM external PTE builder -> UVM PTE installation.",
+    "interface_entry": "nvUvmInterfaceGetExternalAllocPtes forwards to rm_gpu_ops_get_external_alloc_ptes; matching common RM implementation is nvGpuOpsGetExternalAllocPtes[OrPhysAddrs].",
+    "reviewed_external_builder_calls_core_GH100_allocator": false,
+    "actual_closed_CUDA_request_dynamically_traced": false,
+    "exact_internal_CUDA101_producer_identified": false
+  },
+  "admission": {
+    "parent_pair_uses_actual_RM_object_and_caps": true,
+    "BAR1_pairs_auto_enabled_on_VA_space_GPU_registration": true,
+    "manual_PCIe_peer_enable_accepts_ordinary_PCIe_link_only": true,
+    "external_map_requires_registered_owner_and_enabled_VA_space_pair": true,
+    "RM_external_builder_checks_peer_support_again": true,
+    "unsupported_results_forced_positive": false
+  },
+  "normal_UVM_lifetime": {
+    "owner_allocation_held_by_duplicate": true,
+    "partial_split_increments_shared_handle_reference": true,
+    "tracker_and_PTE_clear_completion_precede_final_handle_drop": true,
+    "only_final_reference_invokes_FreeDupedHandle": true,
+    "dynamic_lease_hook": "Final duplicated-handle release, with matching accessor/owner resources.",
+    "core_full_unmap_restriction_applies_globally_to_UVM": false,
+    "all_fatal_error_cleanup_proven": false
+  },
+  "other_copy_consumers": {
+    "physical_peer_copy_requires_nonzero_global_BAR1_DMA_size": true,
+    "virtual_peer_copy_can_construct_peer_wide_identity_map": true,
+    "active_copy_mode_measured": false,
+    "requirement": "Reject or separately implement managed/internal copies for a per-allocation-only dynamic pair; never substitute zero global DMA metadata as a working whole-framebuffer map."
+  },
+  "external_implementation": {
+    "evidence_level": "third-party",
+    "repository": "Duanyll/open-gpu-kernel-modules",
+    "base_commit": "51edebee79919b54f498c19a0be31982cd97646e",
+    "head_commit": "025090f64d7f79b3b6de118c3e9c50bc32988235",
+    "complete_changed_path_count": 77,
+    "complete_correctness_audit": false,
+    "UVM_changed_files": [
+      "kernel-open/nvidia-uvm/uvm_gpu.h"
+    ],
+    "UVM_header_change": "Blackwell+ coherence special case, outside its architecture condition for Ampere CMP.",
+    "documented_scope": "Explicit external communication buffers; managed peer migration, virtual peer copy and mixed static/dynamic pairs excluded.",
+    "reported_workload": "cuMem communication with38GiB resident allocation on modified48GB RTX4090; legacy whole-device peer allocations remain approximately BAR-sized.",
+    "CMP_result_or_general_identical_card_requirement": false,
+    "selected_documents": [
+      {
+        "path": "docs/48g-4090-p2p/method3-impl-notes.md",
+        "url": "https://raw.githubusercontent.com/Duanyll/open-gpu-kernel-modules/025090f64d7f79b3b6de118c3e9c50bc32988235/docs/48g-4090-p2p/method3-impl-notes.md",
+        "sha256": "393c583665c969f916a88ab12f89d34e89bdf2952a738062d6ed0288d25c070d"
+      },
+      {
+        "path": "docs/48g-4090-p2p/method3-review-followups.md",
+        "url": "https://raw.githubusercontent.com/Duanyll/open-gpu-kernel-modules/025090f64d7f79b3b6de118c3e9c50bc32988235/docs/48g-4090-p2p/method3-review-followups.md",
+        "sha256": "853e65d1a67ed87973dd11ced1cb663b11bbb79783b5475d6e093e97eb76530f"
+      },
+      {
+        "path": "docs/48g-4090-p2p/method3-usable-vram-cumem-vs-legacy.md",
+        "url": "https://raw.githubusercontent.com/Duanyll/open-gpu-kernel-modules/025090f64d7f79b3b6de118c3e9c50bc32988235/docs/48g-4090-p2p/method3-usable-vram-cumem-vs-legacy.md",
+        "sha256": "f2a4951864fd4025e8bcd1c056acfc855d64d9f8b1467ad7e09b50f02660faaf"
+      }
+    ]
+  },
+  "external_checker_audit": {
+    "evidence_level": "static-analysis",
+    "sources": [
+      {
+        "path": "docs/48g-4090-p2p/dist_p2p_bigmem.py",
+        "url": "https://raw.githubusercontent.com/Duanyll/open-gpu-kernel-modules/025090f64d7f79b3b6de118c3e9c50bc32988235/docs/48g-4090-p2p/dist_p2p_bigmem.py",
+        "sha256": "3ec1925c6153673af83ccf0453defc4ccea06bf999de8c6aa6dcb9231bb69f77"
+      },
+      {
+        "path": "docs/48g-4090-p2p/p2pbig.cu",
+        "url": "https://raw.githubusercontent.com/Duanyll/open-gpu-kernel-modules/025090f64d7f79b3b6de118c3e9c50bc32988235/docs/48g-4090-p2p/p2pbig.cu",
+        "sha256": "52639fab2f41289f827240b40e06727d3a9121316cee454dad1af067bb3740fc"
+      }
+    ],
+    "resident_collective_test": {
+      "default_resident_GiB": 38,
+      "default_collective_MiB": 256,
+      "resident_fill": "Uniform rank+1 float16",
+      "collective_buffer_checked": true,
+      "final_dense_address_distinct_resident_readback": false,
+      "scope": "Resident-fill and collective coexistence, not whole-resident physical-capacity qualification."
+    },
+    "legacy_tail_test": {
+      "default_requested_GiB": 34,
+      "default_checked_tail_MiB": 512,
+      "allocation_backoff_GiB": 1,
+      "below_boundary_warning": true,
+      "final_PASS_requires_allocation_above_32GiB": false,
+      "VA_offset_establishes_high_physical_address": false,
+      "lower_canaries_rechecked_after_tail_write": false,
+      "scope": "Checked position-dependent tail; final PASS alone does not prove crossing a physical32GiB boundary."
+    },
+    "historical_false_pass_established": false,
+    "executed_here": false,
+    "same_checker_as_CMP_75_76_or_77_5GiB_report": false
+  },
+  "unbuilt_candidate": {
+    "preferred_scope": "CMP-pair-only external allocation window producer and final-handle lease.",
+    "PTE_policy": "Reuse actual selected GA100 page/kind/read-only/noncoherent formatting; verified allocation-relative window addresses only.",
+    "first_planned_owner_allocation_bytes_each": 2097152,
+    "first_planned_checked_bytes": 1048576,
+    "remaining": [
+      "Resource-backed pair admission",
+      "Internal-copy consumer gate",
+      "Owner-global aperture accounting and native reserve",
+      "Lock order and fatal-error cleanup",
+      "Separate implementation/build/review"
+    ],
+    "built": false,
+    "installed": false,
+    "ready_for_hardware": false
+  },
+  "scope": {
+    "GPU_API_calls": 0,
+    "direct_MMIO_accesses": 0,
+    "driver_builds": 0,
+    "GPU_allocations_or_kernels": 0,
+    "configuration_changes": 0,
+    "VM_restarts": 0,
+    "GPU_resets": 0,
+    "host_reboots": 0,
+    "extra_usable_GiB": 0,
+    "additional_SM": 0,
+    "bandwidth_measured": false
+  },
+  "capacity_limit": "No additional CMP memory/SM or physical40GiB ceiling established. Separate CMP75/76 and77.5/72GiB reports remain open."
+}

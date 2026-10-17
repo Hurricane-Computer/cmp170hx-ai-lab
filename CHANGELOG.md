@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — UVM external PTE route and published48-GB checker scope
+
+- Identified the separate UVM external-allocation producer, VA-space admission and final duplicated-handle release; partial maps share the lease. Nine actual UVM/interface sources match pinned upstream.
+- Traced global-DMA assumptions in other peer-copy consumers and narrowed the external author's reported cuMem/legacy results using two checker sources. No checker execution, driver build, new GPU trial or capacity gain.
+
 ## 2026-10-17 — BAR1 address domains and teardown contract
 
 - Traced the actual dynamic aperture map/free path and ordinary peer-DMA translation; separated returned aperture, CPU-physical and accessor-DMA addresses.
