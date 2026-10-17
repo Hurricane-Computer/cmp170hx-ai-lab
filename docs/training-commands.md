@@ -59,3 +59,24 @@ For the stored path corresponding to historical CMP40 profile 4, six consumed co
 The source also exposes one explicit normal bit-0 toggle at `0x9a0218` in the CMP40 graph. Its hardware field name and any capacity-adoption role remain unknown. It is not yet a proved geometry latch or a justified standalone write. The A100 data differences likewise do not establish their cause as capacity, nor demonstrate that a transplant is suitable. No raw vendor command payloads were published or executed.
 
 The useful next source task is to identify the consumed command/interface semantics and the normal toggle's full state requirements. More bytes, a different script or a completed script alone would not establish more independent storage.
+
+
+## Expanded original controls and command completion limits
+
+The command-record comparison now covers ten existing original vendor images. These are stored-data projections through the examined CMP consumer, conditional on the earlier own profile IDs. They do not show which profile a physical A100 actually selects. In particular, the presence of profile 4 in an 80-GB firmware does not establish that an 80-GB card executes it.
+
+| Stored-data group | Original firmware images | Profile 4 projection | Profile 7 projection |
+|---|---|---|---|
+| Four 40-GB controls | HGX40 `92.00.36.00.05`; SXM4-40 `92.00.19.00.19`; PCIe40 `92.00.25.00.08` and `92.00.90.00.08` | Matches CMP | Matches CMP |
+| Five 80-GB controls | HGX80 `92.00.94.00.0b`; SXM4-80 `92.00.38.00.01`; A800-SXM4-80 `92.00.ac.00.0d`; PCIe80 `92.00.a0.00.03` and `92.00.90.00.04` | Same six changed records in every image | Matches CMP |
+| One separate 40-GB case | SXM4-40 `92.00.48.00.01` | The selected records have zero stored lengths | Record 29 has zero stored length |
+
+The five 80-GB projections are identical in the examined active record fields, including the six changed records already identified. That strengthens a systematic firmware-family correlation across these images. It still does not identify the changes as a physical-capacity mechanism. The zero-length case is kept separate; its native boot behavior has not been traced. Whole-table hashes differ in additional places outside these conditional paths.
+
+The original MMIO consumer alternates the declared addresses while writing each payload word. Of the 72 changed active words in the six-record comparison, **71 go to `0x9a0090` and one to `0x9a0094`**. No per-word status or readback is checked in this particular store loop. Reaching the loop end establishes that the declared words were submitted; it does not establish completion of the device commands or acceptance of a new memory geometry.
+
+The normal FE marker's intervening helper waits on elapsed IO-counter ticks. It does not poll `0x9a0218`, a ready bit or memory size. The counter's time unit and the toggled bit's hardware meaning remain unresolved. Other ordinary setup code also packs settings into the same register. None of this justifies replaying the isolated toggle.
+
+[NVIDIA's FBPA relocation note](https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt) establishes the older-to-newer register-family mapping. The bounded [envytools register reference](https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/rnndb/memory/gf100_pbfb.xml) and [Nouveau RAM code](https://github.com/torvalds/linux/blob/v6.12/drivers/gpu/drm/nouveau/nvkm/subdev/fb/ramgf100.c) provide older-family context, without decoding the required GA100 command fields. No claim of global absence of public definitions is made. Reusing older GDDR command meanings for this HBM interface remains an unverified inference.
+
+There was no hardware access or new usable-memory/SM result in this follow-up. The next distinct source control is the manually constructed ordinary command sequence in the same original App08, to help identify the encoded operations before selecting a live experiment. Raw command payloads and firmware-derived assembly remain private.

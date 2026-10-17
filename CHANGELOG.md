@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Expanded vendor command controls
+
+- Compared ten original vendor images on the conditional stored command paths, keeping the zero-length SXM40 case explicit.
+- Found the same six-record profile4 delta in all five 80-GB images; nine profile7 projections match CMP. Native A100 execution is unobserved.
+- Separated MMIO word submission and elapsed-counter waiting from device completion or capacity acceptance. Command meanings remain unresolved; no hardware trial or extra memory/SM claimed.
+
 ## 2026-10-17 — Stored training records and A100 controls
 
 - Connected the original normal-data header to4 lists,12 sequences and50 command records, identical in both CMP originals.

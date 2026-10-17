@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T12:07:48.304332+00:00",
+  "updated_utc": "2026-10-17T12:24:32.097630+00:00",
   "records": [
     {
       "id": "stage3",
@@ -272,6 +272,14 @@
       "evidence_level": "static-analysis",
       "result": "Mapped4/12/50 original command tables and historical profile selection. Special route belongs to a different profile. A10040 tables match; A10080 has real selected CMP40-path differences but no selected CMP64-path difference.",
       "limit": "No fresh runtime argument/profile/execution observation, known capacity-latch meaning, suitable transplant or hardware trial. No extra usable memory/SM.",
+      "interpretation": "docs/training-commands.md"
+    },
+    {
+      "id": "stage50",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Expanded original command controls to ten images. Five 80-GB controls share the same six-record profile4 delta; four 40-GB controls match CMP and one has zero stored lengths. Profile7 matches in nine controls. Identified MMIO submission and counter-wait completion limits.",
+      "limit": "Conditional stored-data projections, not native A100 profile/execution observations or proof of a capacity switch. Command fields and a reversible capacity trial remain unresolved; no hardware access or extra usable memory/SM.",
       "interpretation": "docs/training-commands.md"
     }
   ],
