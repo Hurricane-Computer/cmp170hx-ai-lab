@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Owned DMA-BUF windows and rejected I/O registration
+
+- Default exports permit full1MiB CPU comparisons with zero wrong bytes on both CMPs; explicit PCIe exports return801. Source before/after checks and cleanup pass.
+- Both directed I/O registrations return invalid-value before a remote GPU kernel runs. Separated the new dynamic-window source lead, nominal aperture budget and one earlier preparation error/restart; no extra memory or working P2P claimed.
+
 ## 2026-10-17 — Independent peer verdict and owner-cache variation
 
 - A GPU-authored mapped-host verdict establishes all 131,072 remote words wrong in a bounded 1-MiB CMP40-to-CMP64 read; separate D2H matches the verdict and owner data stays correct.

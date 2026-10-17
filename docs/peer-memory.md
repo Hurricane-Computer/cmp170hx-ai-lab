@@ -55,3 +55,5 @@ A bounded trial is prepared on unchanged G: the single option, 1 MiB per CMP con
 ## Completed option/data follow-up
 
 The [bounded trials](peer-option-trials.md) now separate forced capability and successful activation from wrong peer-copy and remote-read results. A later diagnostic passed all twelve ordinary transfer checks around activation with fresh host sentinels. Working P2P, additional capacity and a physical memory ceiling are not claimed.
+
+The subsequent [owned-window experiments](dynamic-peer-windows.md) use a different mapping mechanism: default DMA-BUF export and full CPU reads succeed on both CMPs, while registration for the other GPU rejects in both directions. No remote kernel ran in that follow-up; it provides an additional observation path without establishing working P2P or extra HBM.

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-17T20:23:48.935760+00:00",
+  "driver": {
+    "release": "615.71.09",
+    "candidate": "G",
+    "core_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "CUDA_driver_API_version": 13040,
+    "registry_options_empty": true
+  },
+  "scope": {
+    "owned_allocation_bytes": 1114112,
+    "CPU_read_only": true,
+    "GPU_owner_memory_writes_from_accessor": 0,
+    "full_capacity_qualified": false,
+    "extra_usable_GiB": 0,
+    "additional_SM": 0,
+    "working_GPU_P2P_established": false
+  },
+  "records": [
+    {
+      "stage": 78,
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T20:10:01.893435+00:00",
+      "export_type_DMA_BUF_FD": 1,
+      "export_flags": 1,
+      "bytes_per_window": 1048576,
+      "actual_CPU_mmap_reads": 0,
+      "cards": [
+        {
+          "variant": "cmp40",
+          "export_rc": 801,
+          "outcome": "native-export-rejected",
+          "resources_released": true,
+          "export_CUDA_name": null,
+          "owner_before_after_match": true
+        },
+        {
+          "variant": "cmp64",
+          "export_rc": 801,
+          "outcome": "native-export-rejected",
+          "resources_released": true,
+          "export_CUDA_name": null,
+          "owner_before_after_match": true
+        }
+      ]
+    },
+    {
+      "stage": 79,
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T20:12:11.322321+00:00",
+      "export_type_DMA_BUF_FD": 1,
+      "export_flags": 0,
+      "bytes_per_window": 1048576,
+      "actual_CPU_mmap_reads": 2,
+      "cards": [
+        {
+          "variant": "cmp40",
+          "export_rc": 0,
+          "outcome": "CPU-window-data-match",
+          "resources_released": true,
+          "export_CUDA_name": "CUDA_SUCCESS",
+          "owner_before_after_match": true,
+          "checked_bytes": 1048576,
+          "wrong_bytes": 0,
+          "expected_sha256": "121c99abde5b9e5786d9d48a016c5ee27d985d1aeb9b3b7acee6fbf05ac014b4",
+          "mapped_sha256": "121c99abde5b9e5786d9d48a016c5ee27d985d1aeb9b3b7acee6fbf05ac014b4"
+        },
+        {
+          "variant": "cmp64",
+          "export_rc": 0,
+          "outcome": "CPU-window-data-match",
+          "resources_released": true,
+          "export_CUDA_name": "CUDA_SUCCESS",
+          "owner_before_after_match": true,
+          "checked_bytes": 1048576,
+          "wrong_bytes": 0,
+          "expected_sha256": "26f4c36d65705d44b9b2aa61d011e463d46c869e6796ec7e4bcf99e99a55c1eb",
+          "mapped_sha256": "26f4c36d65705d44b9b2aa61d011e463d46c869e6796ec7e4bcf99e99a55c1eb"
+        }
+      ]
+    },
+    {
+      "stage": 80,
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T20:20:48.696551+00:00",
+      "IOMEM_register_attempts": 2,
+      "actual_GPU_IO_read_kernels": 0,
+      "actual_result_publisher_kernels": 0,
+      "ordinary_CUDA_peer_enable_or_copy_calls": 0,
+      "pairs": [
+        {
+          "owner": "cmp40",
+          "accessor": "cmp64",
+          "CPU_window": {
+            "checked_bytes": 1048576,
+            "wrong_bytes": 0,
+            "expected_sha256": "f1140f46f8d1a274a0225eb28775ae404d9e0ba94924efcb595f77685c67c458",
+            "actual_sha256": "f1140f46f8d1a274a0225eb28775ae404d9e0ba94924efcb595f77685c67c458"
+          },
+          "register_flags": 6,
+          "register_rc": 1,
+          "register_CUDA_name": "CUDA_ERROR_INVALID_VALUE",
+          "VMA_IO_and_PFNMAP_flags_observed": true,
+          "owner_before_after_match": true,
+          "resources_released": true,
+          "GPU_read_verdict": null
+        },
+        {
+          "owner": "cmp64",
+          "accessor": "cmp40",
+          "CPU_window": {
+            "checked_bytes": 1048576,
+            "wrong_bytes": 0,
+            "expected_sha256": "553865fc48324ceff5a9596ff477934cdfff9bf13b74a0a1002178d57f33041e",
+            "actual_sha256": "553865fc48324ceff5a9596ff477934cdfff9bf13b74a0a1002178d57f33041e"
+          },
+          "register_flags": 6,
+          "register_rc": 1,
+          "register_CUDA_name": "CUDA_ERROR_INVALID_VALUE",
+          "VMA_IO_and_PFNMAP_flags_observed": true,
+          "owner_before_after_match": true,
+          "resources_released": true,
+          "GPU_read_verdict": null
+        }
+      ]
+    }
+  ],
+  "preparation_error": {
+    "stage": 77,
+    "evidence_level": "observed",
+    "test_allocation_or_export_executed": false,
+    "cause": "Idle check after own CUDA initialization",
+    "unnecessary_guest_restarts": 1,
+    "GPU_resets": 0,
+    "previous_pair_option_removed_in_recovery": true,
+    "correction": "Workload preflight before CUDA initialization"
+  },
+  "stages78_through80_recovery": {
+    "guest_restarts": 0,
+    "GPU_resets": 0,
+    "driver_or_registry_changes": 0
+  },
+  "source_lead": {
+    "evidence_level": "static-analysis",
+    "author_repository": "Duanyll/open-gpu-kernel-modules",
+    "author_commit": "025090f64d7f79b3b6de118c3e9c50bc32988235",
+    "author_base_commit": "51edebee79919b54f498c19a0be31982cd97646e",
+    "official615_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "author_reserve_bytes": 67108864,
+    "native_third_party_reserve_bytes": 37748736,
+    "nominal_aperture_remainder_if_unused_bytes": 29360128,
+    "free_or_contiguous_space_measured": false,
+    "author_patch_installed": false,
+    "official_GDRCopy_commit": "fcec3ce0bb40a97a6cc45dd4afeec4bccb509712",
+    "IOMEM_exact_internal_rejection_identified": false,
+    "IOMEM_page_frame_continuity_measured": false,
+    "pinned_Linux_source_files": [
+      {
+        "path": "kernel-open/nvidia/os-mlock.c",
+        "sha256": "dcee9c5d88286ab8b07b6a9e991b64da7f125c0c8a387f11ab1aecbf5a0cd15e",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/os-mlock.c"
+      },
+      {
+        "path": "kernel-open/nvidia/nv-mmap.c",
+        "sha256": "7b2e8a9ece1b5ff36a9fa55dd84b43d60746b51e5c07dc97c13dee45a017dad2",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv-mmap.c"
+      },
+      {
+        "path": "kernel-open/nvidia/nv-dma.c",
+        "sha256": "7912d6cf000450848b9c54b20b580958e7698f91fc6107c10b4e0fc502cd8942",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv-dma.c"
+      },
+      {
+        "path": "kernel-open/nvidia/nv-dmabuf.c",
+        "sha256": "ce1f1a6d311be10b3d84818407ec0dd65b5fb4f564fcfb36f69fd536e2f59f5b",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv-dmabuf.c"
+      }
+    ]
+  },
+  "interpretation": "Bounded owned CPU windows work. I/O registration rejects before a GPU read. No physical capacity ceiling inferred; positive large-memory reports remain open."
+}
