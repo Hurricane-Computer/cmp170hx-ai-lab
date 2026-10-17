@@ -1,4 +1,29 @@
-# Normal CPU-RM geometry adoption and the CUDA admission boundary
+# Normal CPU-RM geometry adoption and CUDA admission
+
+## New CMP-only result: both cards pass small CPU-RM copies
+
+On 17 October 2026 at 23:48 UTC, **both CMPs initialized CUDA and passed bounded H2D/D2D/D2H copies under the unchanged proprietary 615.71.09 CPU-RM driver with GSP disabled**. This closes the ordinary CPU-RM admission obstacle for this configuration. It establishes a working allocator and small data path, with zero additional usable GiB demonstrated so far.
+
+| Variant | Reported MiB | cuInit / visible count | Temporary buffers | Full returned-data comparison | Native CMP_SKU: Open → CPU |
+|---|---:|---|---|---|---|
+|CMP40|40960|0 / 1|2 × 8 MiB|SHA256 matched|NO 0 → YES 1|
+|CMP64|65536|0 / 1|2 × 8 MiB|SHA256 matched|NO 0 → YES 1|
+
+The comparison started with a fresh guest kernel because of the earlier teardown warning. After normal Open-module unload, the existing Blackwell function received Linux's documented [`driver_override=none`](https://github.com/torvalds/linux/blob/v6.8/Documentation/ABI/testing/sysfs-bus-pci#L323-L342) before proprietary module loading. It remained unbound; only the two CMPs bound to NVIDIA. This changes normal driver matching and leaves the PCI device present. No IOMMU/ACS change, bus reset, geometry write or firmware modification was used.
+
+The exact loaded proprietary core and UVM source identities were both independently checked against the stock built modules. An Open modeset module also autoloaded; this is recorded separately and does not become a claim that every companion was stock. Each fresh CUDA process selected one currently observed complete CMP UUID before its first CUDA call and checked that the returned PCI identity matched its intended card. All CUDA, full-buffer readback and cleanup calls succeeded. No performance or full-capacity qualification follows from 16 MiB of live buffers per card.
+
+Native `GPU_GET_INFO` queries and cleanup also succeeded on both cards under both managers: the working Open build returned `CMP_SKU=NO`, while the unmodified stock CPU driver returned `YES`. **YES alone therefore does not prevent CUDA in the successful CPU configuration.** No CPU classification patch was needed. This does not identify the closed CUDA consumer or prove that the field is irrelevant in every configuration.
+
+The prior error 101 was replaced by success in the combined fresh-kernel, Blackwell-unbound, matched-UVM, single-CMP-visible configuration. These simultaneous changes do not isolate one sole cause. NVIDIA emitted the expected unprobed-device warning for the deliberately unbound Blackwell; it was not silently counted as another initialized device.
+
+CPU-RM remains active for the next capacity work; Blackwell remains unbound and the normally stopped RTX cooling service's full-fan stop policy remains in effect. Installed Open modules and the frozen rollback were preserved; the model was not restarted. The next proposed comparison is a normal larger-geometry initialization followed by this now-working manager, with small independently tagged lower/upper data windows. It has not yet run. CMP64 still separately needs an applicable additional-controller or larger-region producer; no unsupported mask writes follow from this admission result.
+
+[Selected native call statuses, exact module identities, hashes and limits](../data/cpu-rm-admission.json).
+
+## Earlier mixed-device comparison: report continuity, then CUDA101
+
+The following is the earlier 23:21 UTC observation and the questions it left open at that time. The later successful result above supersedes its untested-admission status, while preserving the actual failure and teardown warning.
 
 On 17 October 2026 at approximately 23:21 UTC, a normal proprietary 615.71.09 start with GSP disabled retained both CMPs' existing geometry and reported 40/64 GiB. **The first CUDA call returned 101 before a context, allocation or copy.** This establishes register/report continuity through the ordinary driver lifecycle; it does not establish usable additional HBM or a working CPU-RM CUDA allocator.
 

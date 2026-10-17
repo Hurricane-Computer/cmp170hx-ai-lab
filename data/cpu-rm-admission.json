@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "stage": 90,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-17T23:48:39.827956+00:00",
+  "driver_version": "615.71.09",
+  "mode": {
+    "flavor": "stock proprietary CPU-RM",
+    "GSP_enabled": false,
+    "resizable_BAR_enabled": false,
+    "exact_loaded_core_srcversion": "A1B9C1CB149D84B5D35F8C7",
+    "exact_loaded_UVM_srcversion": "33A31B862B1F12EE634326B",
+    "core_sha256": "07b44a821e04408acb375417a99f10832fb1678d04ac087c3ae508be2581323a",
+    "UVM_sha256": "913628080481eb654d61ff4f73ad83a2cf7464bff46f026ea2ae203fd96806ff",
+    "stock_core_or_UVM_source_changes": 0,
+    "Blackwell_normal_guest_driver_override": "none",
+    "Blackwell_unbound": true,
+    "bound_NVIDIA_devices": "The two independently identified CMPs only",
+    "one_CMP_UUID_visible_per_CUDA_process": true,
+    "fresh_guest_kernel_before_comparison": true,
+    "unplanned_Open_modeset_autoload_observed": true,
+    "all_companions_claimed_stock": false,
+    "companion_identity_claim": "Actual core and UVM identities independently read; no blanket companion claim"
+  },
+  "cards": [
+    {
+      "variant": "cmp40",
+      "reported_mib": 40960,
+      "gsp_firmware_reported": "N/A",
+      "CUDA_process_selection": "One complete currently observed GPU UUID; value withheld",
+      "cuInit_rc": 0,
+      "device_count": 1,
+      "PCI_identity_checked": true,
+      "buffer_bytes_each": 8388608,
+      "allocations": 2,
+      "copy_order": [
+        "H2D",
+        "D2D",
+        "synchronize",
+        "D2H"
+      ],
+      "native_calls": [
+        {
+          "call": "cuInit",
+          "rc": 0
+        },
+        {
+          "call": "cuDeviceGetCount",
+          "rc": 0
+        },
+        {
+          "call": "cuDeviceGetPCIBusId",
+          "rc": 0
+        },
+        {
+          "call": "cuDevicePrimaryCtxRetain",
+          "rc": 0
+        },
+        {
+          "call": "cuCtxSetCurrent",
+          "rc": 0
+        },
+        {
+          "call": "cuMemAlloc_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemAlloc_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemcpyHtoD_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemcpyDtoD_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuCtxSynchronize",
+          "rc": 0
+        },
+        {
+          "call": "cuMemcpyDtoH_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemFree_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemFree_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuCtxSetCurrent",
+          "rc": 0
+        },
+        {
+          "call": "cuDevicePrimaryCtxRelease_v2",
+          "rc": 0
+        }
+      ],
+      "source_sha256": "2f260c43d0f75f0039ea19661ba46049b4eccde31c03c9e0f3723b6f2a67727f",
+      "returned_sha256": "2f260c43d0f75f0039ea19661ba46049b4eccde31c03c9e0f3723b6f2a67727f",
+      "full_buffer_comparison_passed": true,
+      "cleanup_rcs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_owned_resources_released": true,
+      "full_reported_capacity_qualified": false,
+      "new_usable_gib_proven": 0,
+      "ordinary_CMP_SKU_GET": {
+        "command": "0x20800101",
+        "index": "0x3c",
+        "working_Open_value": 0,
+        "stock_CPU_value": 1,
+        "both_native_queries_and_cleanup_passed": true,
+        "modified_in_CPU_driver": false
+      },
+      "evidence_utc": "2026-10-17T23:48:39.571876+00:00"
+    },
+    {
+      "variant": "cmp64",
+      "reported_mib": 65536,
+      "gsp_firmware_reported": "N/A",
+      "CUDA_process_selection": "One complete currently observed GPU UUID; value withheld",
+      "cuInit_rc": 0,
+      "device_count": 1,
+      "PCI_identity_checked": true,
+      "buffer_bytes_each": 8388608,
+      "allocations": 2,
+      "copy_order": [
+        "H2D",
+        "D2D",
+        "synchronize",
+        "D2H"
+      ],
+      "native_calls": [
+        {
+          "call": "cuInit",
+          "rc": 0
+        },
+        {
+          "call": "cuDeviceGetCount",
+          "rc": 0
+        },
+        {
+          "call": "cuDeviceGetPCIBusId",
+          "rc": 0
+        },
+        {
+          "call": "cuDevicePrimaryCtxRetain",
+          "rc": 0
+        },
+        {
+          "call": "cuCtxSetCurrent",
+          "rc": 0
+        },
+        {
+          "call": "cuMemAlloc_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemAlloc_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemcpyHtoD_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemcpyDtoD_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuCtxSynchronize",
+          "rc": 0
+        },
+        {
+          "call": "cuMemcpyDtoH_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemFree_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuMemFree_v2",
+          "rc": 0
+        },
+        {
+          "call": "cuCtxSetCurrent",
+          "rc": 0
+        },
+        {
+          "call": "cuDevicePrimaryCtxRelease_v2",
+          "rc": 0
+        }
+      ],
+      "source_sha256": "7e47ef1babe685c02d2437a5052d9c85c0186f523811b4b0d7cf0f1fc16414d9",
+      "returned_sha256": "7e47ef1babe685c02d2437a5052d9c85c0186f523811b4b0d7cf0f1fc16414d9",
+      "full_buffer_comparison_passed": true,
+      "cleanup_rcs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_owned_resources_released": true,
+      "full_reported_capacity_qualified": false,
+      "new_usable_gib_proven": 0,
+      "ordinary_CMP_SKU_GET": {
+        "command": "0x20800101",
+        "index": "0x3c",
+        "working_Open_value": 0,
+        "stock_CPU_value": 1,
+        "both_native_queries_and_cleanup_passed": true,
+        "modified_in_CPU_driver": false
+      },
+      "evidence_utc": "2026-10-17T23:48:39.313863+00:00"
+    }
+  ],
+  "interpretation": {
+    "CPU_RM_CUDA_allocator_and_small_data_path_work_on_both_CMPs": true,
+    "alone_which_change_fixed_prior_101_proven": false,
+    "previous_changes": [
+      "Fresh kernel",
+      "Blackwell not bound or probed by proprietary NVIDIA driver",
+      "Explicit matching stock UVM identity",
+      "One CMP visible per CUDA process"
+    ],
+    "CMP_SKU_YES_alone_prevents_CUDA": false,
+    "closed_libcuda_CMP_SKU_consumer_traced": false,
+    "larger_geometry_test_executed": false,
+    "new_usable_gib_proven": 0,
+    "no_capacity_ceiling_or_refutation_of_external_positive_reports": true
+  },
+  "operations": {
+    "guest_restarts": 1,
+    "CMP_bus_resets": 0,
+    "host_reboots": 0,
+    "custom_geometry_register_writes": 0,
+    "intensive_VRAM_stress": false,
+    "ordinary_driver_initialization_performed": true
+  },
+  "retained_state": {
+    "CPU_RM_kept_for_next_capacity_work": true,
+    "Blackwell_unbound": true,
+    "RTX_cooling_service_normally_stopped_at_full_fan_policy": true,
+    "model_not_restarted": true,
+    "installed_Open_and_frozen_rollback_files_preserved": true
+  },
+  "next_step": "Prepare normal larger-geometry initialization followed by this working CPU-RM path; reuse a small simultaneous lower/upper tagged-data comparison. No unchanged GSP-mode retry or source-lifetime/authentication manipulation.",
+  "sources": [
+    "https://github.com/torvalds/linux/blob/v6.8/Documentation/ABI/testing/sysfs-bus-pci#L323-L342",
+    "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv-reg.h#L478-L489",
+    "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gpu.h",
+    "https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-environment-variables"
+  ]
+}

@@ -39,3 +39,5 @@ This was an offline source result, with no hardware access or new capacity/SM te
 ## Normal manager-mode follow-up
 
 A later [ordinary CPU-RM comparison](cpu-rm-capacity.md) retained both cards' geometry and reported 40/64 GiB without GSP, but CUDA initialization returned 101 before the first allocation. This is a distinct admission boundary, not another upper-memory data result.
+
+The subsequent fresh-kernel CMP-only configuration passed small CPU-RM allocation/copy checks on **both** cards. Stock CPU-RM returned `CMP_SKU=YES` while CUDA succeeded. The [updated comparison](cpu-rm-capacity.md) separates this real admission/data result from the still-unexecuted larger-geometry test and the unresolved cause of the earlier error 101.

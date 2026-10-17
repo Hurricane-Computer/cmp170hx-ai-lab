@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 — Both CMPs pass bounded copies under stock CPU-RM
+
+- Fresh-kernel CMP-only operation with Blackwell normally unbound, matched stock core/UVM and per-process device selection passed CUDA admission and 8-MiB H2D/D2D/D2H checks on both cards; all cleanup succeeded.
+- Native product-info reads returned Open NO / stock CPU YES for both CMPs. CPU CUDA worked without a classification patch; no single cause is assigned to the earlier error 101.
+- Kept this distinct working-manager result separate from an unexecuted larger-geometry comparison and additional usable VRAM. [Evidence and limits](docs/cpu-rm-capacity.md).
+
 ## 2026-10-18 — Normal CPU-RM retains reported 40/64 GiB; CUDA stops before allocation
 
 - Verified the actual matching 615.71.09 proprietary Runfile/core, built separate stock modules and observed ordinary GSP-off startup with unchanged geometry on both CMPs.
