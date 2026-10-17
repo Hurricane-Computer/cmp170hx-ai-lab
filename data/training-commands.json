@@ -898,5 +898,41 @@
     ],
     "hardware_operations": 0,
     "new_capacity_trial_derived": false
+  },
+  "native_zero_length_followup": {
+    "stage": 52,
+    "evidence_utc": "2026-10-17T12:48:47.495583+00:00",
+    "evidence_level": "static-analysis",
+    "original_image": "a100-sxm4-40gb-92.00.48.00.01",
+    "original_input_sha256": {
+      "ROM": "07d63228130d9de22734a0ac8244fb27df24a10d0cb5fd5e09d32e3d3081d5b6",
+      "App08_IMEM": "c0173ecd3885958819248051f43fd7b1ca97ae545d3c490d63970067d1d56e4d",
+      "App08_DMEM": "05c75c793028b5eabfd5429f5b38cd71bcdf24c3d6236325b50e53ba81039054"
+    },
+    "native_consumer_range": "0xc59b..0xcab7",
+    "record_reader": "0x8e6f..0x8e9b",
+    "format": "32b1w1b2d80d",
+    "length_offset": "0x80",
+    "length_load_pc": "0xc723",
+    "initial_loop_test_pc": "0xc90d",
+    "payload_store_pc": "0xc901",
+    "zero_is_full_length_sentinel_on_examined_path": false,
+    "projected_cases": [
+      {
+        "profile": 4,
+        "records": 29,
+        "payload_length_sum": 0,
+        "FE_markers": 1
+      },
+      {
+        "profile": 7,
+        "records": 1,
+        "payload_length_sum": 0,
+        "FE_markers": 0
+      }
+    ],
+    "surrounding_state_operations_still_possible": true,
+    "native_runtime_selection_or_execution_observed": false,
+    "extra_usable_memory_demonstrated": false
   }
 }

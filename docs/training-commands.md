@@ -100,3 +100,9 @@ The same source provides a useful completion contract. Its `clear_memory()` wrap
 The polling implementation uses the default mask `0xffffffff` at these call sites, so these are equality tests, rather than tests for selected bits being set. They are source-level candidates for a future relevant experiment. Their accessibility on the actual CMP setup has not been tested. A blocked or poison read provides no completion result. Even valid completion would establish initialization status, not an independent physical-memory inventory or usable additional capacity.
 
 This source follow-up performed no hardware access. The next distinct question is the ordinary producer and meaning of the route flag and additional command control; the exact state condition is not itself a capacity mechanism. Original command payloads and derived assembly remain private.
+
+## Native zero-length control
+
+The separate SXM4-40 `92.00.48.00.01` case has now been checked in its own App08 consumer, rather than assuming the CMP code is identical. Its record reader uses the same declared length field. A zero length reaches the initial index-versus-length test and skips the payload store; it is not a hidden full-length sentinel in this path.
+
+Conditionally following stored profile 4 selects 29 zero-length records and one FE marker; profile 7 selects one zero-length record without an FE marker. The enclosing prologue/cleanup and any FE marker can still run. This does not establish that the firmware performs no initialization, nor reveal its runtime-selected profile. No firmware was executed and no new capacity mechanism follows. Exact source fingerprints and anchors are in the [structured record](../data/training-commands.json).

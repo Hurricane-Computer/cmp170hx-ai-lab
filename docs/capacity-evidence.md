@@ -34,4 +34,10 @@ Independent backing and a plain fold are controls. Fault-injected result-copy ca
 
 Obtain the original 77.5-GiB test code and establish exactly which bytes were filled, whether all regions stayed allocated, whether all writes finished before any final verification, and how completion and errors reached the host. A future capacity test should use independent address-dependent data throughout the tested range, recheck lower canaries after upper writes, check every API/synchronization/result transfer, and report transport failures separately. Sparse probes and allocation success remain leads rather than capacity proofs.
 
-Curated sources, historical limits and reproducible CPU results: [capacity-evidence.json](../data/capacity-evidence.json). No new GiB or SMs were unlocked. Scheduled work remains paused.
+Curated sources, historical limits and reproducible CPU results: [capacity-evidence.json](../data/capacity-evidence.json). This audit was completed during the 16 October pause; scheduled research resumed on 17 October. No new GiB or SMs were unlocked by the audit.
+
+## Recovered checker files, 17 October follow-up
+
+A separate [pinned primary report](https://gist.github.com/sekkit/b30da03773768d0cd4e3de18e0619656/2f65500f3c81609f7d46522b1c7df5dea16dd5c6) includes `hbm45.cu`, `hbmh2d.cu` and `hbmstage.cu`. Its kernel checker matches the archived source after newline normalization, retaining the unchecked result-copy return. The attributed 75/76-GiB successes remain positive counterevidence; a historical false pass has not been demonstrated. This is not recovery of the separate original 77.5/72-GiB checker.
+
+Both copy programs allocate every chunk before their first fill copy. Their reported failure during write progress therefore does not isolate an allocation-time threshold. A first-allocated staging buffer also does not establish its physical FB address. No program or CPU counterexample was rerun. [File hashes and scoped observations](../data/capacity-evidence.json) preserve the comparison.

@@ -317,5 +317,51 @@
       "A possible failed-copy false pass does not prove a past copy failed.",
       "Two offset tags detect this model but do not prove full physical capacity."
     ]
+  },
+  "recovered_checker_stage52": {
+    "stage": 52,
+    "evidence_utc": "2026-10-17T13:03:53.666930+00:00",
+    "evidence_level": "third-party",
+    "source": "https://gist.github.com/sekkit/b30da03773768d0cd4e3de18e0619656/2f65500f3c81609f7d46522b1c7df5dea16dd5c6",
+    "revision": "2f65500f3c81609f7d46522b1c7df5dea16dd5c6",
+    "files": [
+      {
+        "filename": "170hx-gsp-dma-report.md",
+        "bytes": 15730,
+        "sha256": "41b0a90947817d57de81e1ce45cc5bf485f706bec6cba22e7f7a6e843bc1cddb"
+      },
+      {
+        "filename": "hbm45.cu",
+        "bytes": 3864,
+        "sha256": "17703ae975488967c6dccc5129dd8784c8083193282ccc6f336137fc25683698"
+      },
+      {
+        "filename": "hbmh2d.cu",
+        "bytes": 4541,
+        "sha256": "de067d1cd078535fbe1e78457b7dd70174b9980d39fa400c0ff0fef27025431a"
+      },
+      {
+        "filename": "hbmstage.cu",
+        "bytes": 5876,
+        "sha256": "b47a7cde8347d133e742e2e450fb26b9d4bc6f7419f67d4b199929388082784b"
+      }
+    ],
+    "hbm45_same_text_after_newline_normalization": true,
+    "hbm45_same_raw_bytes": false,
+    "previous_archived_sha256": "b0dece433f94394c5a730637dc9ffe09e95e1c3970f5faf4adc809b598c8cb33",
+    "reported_kernel_test_gib": [
+      75,
+      76
+    ],
+    "reported_result_independently_reproduced": false,
+    "original_77_5_72_gib_checker_recovered": false,
+    "source_observations": {
+      "all_chunk_allocations_precede_H2D_fill_in_both_copy_programs": true,
+      "result_copy_return_checked_in_both_copy_programs": false,
+      "staging_first_allocation_proves_low_physical_FB_address": false
+    },
+    "attributed_positive_counterevidence_retained": true,
+    "historical_false_pass_demonstrated": false,
+    "new_GPU_or_CPU_counterexample_run": false
   }
 }

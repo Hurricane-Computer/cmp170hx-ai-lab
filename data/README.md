@@ -26,3 +26,5 @@ These files are explicit technical projections of the research records, not copi
 [discovery-and-firmware.json](discovery-and-firmware.json) records normal passthrough discovery boundaries, exact BIOS/module/tool hashes and the two observed stored PCI settings. Source analysis, offline comparisons and live observations are separate.
 
 [training-commands.json](training-commands.json) contains the original normal App08 command forms, six selector-pair table, mask-dependent port selection and explicitly calculated historical examples; no new hardware observation.
+
+[fb-regions.json](fb-regions.json) contains the ordinary exported-region observations, filtered-view limits and exact first-party ABI fingerprints. These are configured ranges, not hidden-memory tests.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Native zero lengths, exported regions and recovered checkers
+
+- Checked the exceptional zero-length table in its native consumer; payload stores skip while surrounding operations remain separate.
+- Queried normal framebuffer regions on both CMPs: one exported range each, no second upper range in the retained configuration. No new memory/SM or physical-capacity limit claimed.
+- Recovered an attributed checker set and recorded its correspondence and source limits without rerunning the old counterexample or GPU programs.
+
 ## 2026-10-17 — Direct command route and native completion observations
 
 - Connected the manually constructed original commands to a distinct state predicate, unique direct caller and flag clearing.

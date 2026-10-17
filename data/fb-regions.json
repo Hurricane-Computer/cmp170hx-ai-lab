@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "stage": 52,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-17T13:00:36.138904+00:00",
+  "driver_version": "615.71.09",
+  "candidate": "G",
+  "module_file_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+  "operation": "Ordinary RM GET_FB_REGION_INFO, temporary client/device/subdevice handles freed.",
+  "control": "0x20801320",
+  "abi": {
+    "region_bytes": 56,
+    "params_bytes": 904,
+    "region_array_offset": 8
+  },
+  "sources": [
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h",
+      "sha256": "9f735d562ebc1046f220c5a16fe7cfc11dcacf5c4ab1aed88aadf5c05c897a9c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h"
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_ctrl.c",
+      "sha256": "38e039dfa35879904436a15b269273bc93b416c96cc6bcd1d3f72f2745c70e37",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_ctrl.c"
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_gsp_client.c",
+      "sha256": "1e6259cf27e2c4499b5239ef987ad016a8cd9e4a6679b018038ac89e70a3dd16",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/mem_mgr_gsp_client.c"
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/sdk/nvidia/inc/nvtypes.h",
+      "sha256": "da23dbc28805c390d62338dba5603eb12b2e94c8aaf873c1c42c1a5f10f26b79",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/nvtypes.h"
+    }
+  ],
+  "cards": [
+    {
+      "variant": "cmp40",
+      "status": "0x00000000",
+      "cleanup_status": "0x00000000",
+      "reported_memory_mib": 40960,
+      "memory_clock_mhz": 1215,
+      "exported_region_count": 1,
+      "regions": [
+        {
+          "index": 0,
+          "base": 168820736,
+          "limit": 42625269759,
+          "size_bytes": 42456449024,
+          "reserved_bytes": 0,
+          "performance": 20,
+          "support_compressed": true,
+          "support_iso": true,
+          "protected": false
+        }
+      ]
+    },
+    {
+      "variant": "cmp64",
+      "status": "0x00000000",
+      "cleanup_status": "0x00000000",
+      "reported_memory_mib": 65536,
+      "memory_clock_mhz": 1728,
+      "exported_region_count": 1,
+      "regions": [
+        {
+          "index": 0,
+          "base": 268959744,
+          "limit": 68339695615,
+          "size_bytes": 68070735872,
+          "reserved_bytes": 0,
+          "performance": 16,
+          "support_compressed": true,
+          "support_iso": true,
+          "protected": false
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "The export handler omits reserved and internal-heap regions. It is not an inventory of hidden physical HBM.",
+    "A single exported range in the current configuration neither proves nor excludes additional unexposed physical capacity.",
+    "The regionTag field is not interpreted because the examined export handler does not assign it.",
+    "Performance is a driver-relative value, not a bandwidth measurement or a validated cross-card speed ratio."
+  ],
+  "MMIO_writes": 0,
+  "framebuffer_allocated_bytes": 0,
+  "resets": 0,
+  "new_usable_capacity_demonstrated": false,
+  "new_working_SMs_demonstrated": false
+}

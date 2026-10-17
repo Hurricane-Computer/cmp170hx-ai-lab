@@ -289,6 +289,30 @@
       "result": "Traced the manual original command route to its unique direct caller, state predicate and consumed flag. Identified extra command controls and a separate first-party boot/memory-clear wait contract with exact equality predicates.",
       "limit": "Route field names and capacity effects remain unresolved. The NVIDIA clear_memory wrapper waits without starting a clear. No new hardware reading, route override, capacity trial, extra memory or SM.",
       "interpretation": "docs/training-commands.md"
+    },
+    {
+      "id": "stage52-native",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Native SXM40 consumer skips table payload stores for the projected zero-length records; surrounding state operations remain possible.",
+      "limit": "No runtime profile capture, command-field meaning or capacity mechanism.",
+      "interpretation": "docs/training-commands.md"
+    },
+    {
+      "id": "stage52-regions",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "Normal region query succeeded on both CMPs and exported one range each within their existing40/64GiB configurations.",
+      "limit": "Filtered RM metadata only, no physical inventory or extra-capacity qualification.",
+      "interpretation": "docs/fb-regions.md"
+    },
+    {
+      "id": "stage52-checker",
+      "date": "2026-10-17",
+      "evidence_level": "third-party",
+      "result": "Recovered three published checker files; kernel source matches the archive after newline normalization.",
+      "limit": "No rerun or recovered original77.5/72GiB checker; source limits do not establish a historical false pass.",
+      "interpretation": "docs/capacity-evidence.md"
     }
   ],
   "campaign_result": {
