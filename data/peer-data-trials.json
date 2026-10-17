@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-17T19:25:15.980186+00:00",
+  "evidence_level": "observed",
+  "driver_release": "615.71.09",
+  "unchanged_G_module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+  "single_option": "ForceP2P=0x11",
+  "topology_or_static_BAR1_or_P2P_type_forced": false,
+  "host_IOMMU_ACS_changed": false,
+  "first_dispatch": {
+    "stage": 68,
+    "classification": "observer false positive before peer calls",
+    "reason": "A normal SEC2/PMA debug success status0 matched the broad RmInitAdapter substring.",
+    "peer_enable_copy_kernel_calls": 0,
+    "test_guest_restarts": 2,
+    "exclusive_CMP_bus_resets": 2,
+    "actual_GPU_fault_inferred": false
+  },
+  "trials": [
+    {
+      "stage": 69,
+      "completed_utc": "2026-10-17T19:16:36.579609+00:00",
+      "phase": "completed-negative-peer-trial-unforced-G-recovered",
+      "explicit_peer_enable_calls": 1,
+      "peer_copy_calls": 1,
+      "peer_kernel_launches": 0,
+      "bytes_per_owned_buffer": 1048576,
+      "pairs": [
+        {
+          "accessor": "cmp64",
+          "owner": "cmp40",
+          "can_access_peer_rc": 0,
+          "can_access_peer": 1,
+          "attributes": {
+            "access_supported": {
+              "rc": 0,
+              "value": 1
+            },
+            "native_atomic_supported": {
+              "rc": 0,
+              "value": 0
+            }
+          },
+          "peer_enable_rc": 0,
+          "outcome": "peer-test-failed",
+          "error": "copy-destination: full random content mismatch",
+          "owned_resources_released": true,
+          "capability_is_forced": true,
+          "selected_API_results": [
+            {
+              "label": "enable-peer",
+              "rc": 0
+            },
+            {
+              "label": "cuMemcpyPeer",
+              "rc": 0
+            },
+            {
+              "label": "sync-peer-copy",
+              "rc": 0
+            },
+            {
+              "label": "download-copy-destination",
+              "rc": 0
+            }
+          ],
+          "checked_cleanup_calls": 11,
+          "cleanup_all_rc_zero": true,
+          "comparisons": [
+            {
+              "label": "copy-destination",
+              "expected_sha256": "6ec0e484b3b6fddfc1656430fa43bc42c70db44109669623698f8c20d03407e8",
+              "actual_sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+              "match": false,
+              "bytes": 1048576
+            }
+          ],
+          "local_observations": []
+        }
+      ],
+      "force_option_retained": false,
+      "test_guest_restarts": 2,
+      "exclusive_CMP_bus_resets": 2,
+      "sources": [
+        {
+          "name": "stage69_trial_host.py",
+          "sha256": "20499649aa21015fc4a0399fb36d5ec427b781524de46d76a290ca2b8b770872"
+        },
+        {
+          "name": "stage69_config_guest.py",
+          "sha256": "06f3290c6cf4fcbf9609230b57fc5018cc3753cd33765cf80a900909ca084471"
+        },
+        {
+          "name": "stage69_peer_guest.py",
+          "sha256": "12c47886bf9c0b9b3cbbed50c11f1e9c489a1b7813e09572d000ca5b79d92ee0"
+        }
+      ]
+    },
+    {
+      "stage": 70,
+      "completed_utc": "2026-10-17T19:20:44.399874+00:00",
+      "phase": "completed-negative-peer-trial-unforced-G-recovered",
+      "explicit_peer_enable_calls": 1,
+      "peer_copy_calls": 0,
+      "peer_kernel_launches": 1,
+      "bytes_per_owned_buffer": 1048576,
+      "pairs": [
+        {
+          "accessor": "cmp64",
+          "owner": "cmp40",
+          "can_access_peer_rc": 0,
+          "can_access_peer": 1,
+          "attributes": {
+            "access_supported": {
+              "rc": 0,
+              "value": 1
+            },
+            "native_atomic_supported": {
+              "rc": 0,
+              "value": 0
+            }
+          },
+          "peer_enable_rc": 0,
+          "outcome": "peer-test-failed",
+          "error": "remote-read-destination: full random content mismatch",
+          "ordinary_transfers_before_peer_verified": true,
+          "owned_resources_released": true,
+          "capability_is_forced": true,
+          "selected_API_results": [
+            {
+              "label": "download-owner-transfer-control-before-peer",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-transfer-control-before-peer",
+              "rc": 0
+            },
+            {
+              "label": "enable-peer",
+              "rc": 0
+            },
+            {
+              "label": "launch-SM-remote-read",
+              "rc": 0
+            },
+            {
+              "label": "sync-SM-remote-read",
+              "rc": 0
+            },
+            {
+              "label": "download-remote-read-destination",
+              "rc": 0
+            }
+          ],
+          "checked_cleanup_calls": 11,
+          "cleanup_all_rc_zero": true,
+          "comparisons": [
+            {
+              "label": "owner-transfer-control-before-peer",
+              "expected_sha256": "7354ee64d8cf7ab7a9e9713504ea46371274998514a85246301b3a710ed372d4",
+              "actual_sha256": "7354ee64d8cf7ab7a9e9713504ea46371274998514a85246301b3a710ed372d4",
+              "match": true,
+              "bytes": 1048576
+            },
+            {
+              "label": "accessor-transfer-control-before-peer",
+              "expected_sha256": "15f2d23588b1d024f06d03cafa99f5e1ae6405cb9ac0a38ad830d3f9d649b065",
+              "actual_sha256": "15f2d23588b1d024f06d03cafa99f5e1ae6405cb9ac0a38ad830d3f9d649b065",
+              "match": true,
+              "bytes": 1048576
+            },
+            {
+              "label": "remote-read-destination",
+              "expected_sha256": "7354ee64d8cf7ab7a9e9713504ea46371274998514a85246301b3a710ed372d4",
+              "actual_sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+              "match": false,
+              "bytes": 1048576
+            }
+          ],
+          "local_observations": []
+        }
+      ],
+      "force_option_retained": false,
+      "test_guest_restarts": 2,
+      "exclusive_CMP_bus_resets": 2,
+      "sources": [
+        {
+          "name": "stage70_trial_host.py",
+          "sha256": "8e27e2dc533a84d3fd7868e9139a86979137c0fe314488b6f6515e583bccd92b"
+        },
+        {
+          "name": "stage70_config_guest.py",
+          "sha256": "aa760034fb029944d79182fc9527bb1f7f354da0d1516487bf083efc5f794545"
+        },
+        {
+          "name": "stage70_peer_guest.py",
+          "sha256": "c8dcf03e413d5d5bf2a26842ca7f98ba026289c917ef43e514e59282d7d17f24"
+        }
+      ]
+    },
+    {
+      "stage": 71,
+      "completed_utc": "2026-10-17T19:23:51.761639+00:00",
+      "phase": "completed-local-channel-diagnostic-no-peer-data-proof",
+      "explicit_peer_enable_calls": 2,
+      "peer_copy_calls": 0,
+      "peer_kernel_launches": 0,
+      "bytes_per_owned_buffer": 1048576,
+      "pairs": [
+        {
+          "accessor": "cmp64",
+          "owner": "cmp40",
+          "can_access_peer_rc": 0,
+          "can_access_peer": 1,
+          "attributes": {
+            "access_supported": {
+              "rc": 0,
+              "value": 1
+            },
+            "native_atomic_supported": {
+              "rc": 0,
+              "value": 0
+            }
+          },
+          "peer_enable_rc": 0,
+          "outcome": "local-result-channel-observed",
+          "local_before_enable_verified": true,
+          "local_after_enable_verified": true,
+          "local_fresh_upload_after_enable_verified": true,
+          "owned_resources_released": true,
+          "capability_is_forced": true,
+          "selected_API_results": [
+            {
+              "label": "download-owner-before-enable",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-before-enable",
+              "rc": 0
+            },
+            {
+              "label": "enable-peer",
+              "rc": 0
+            },
+            {
+              "label": "download-owner-after-enable-no-peer-traffic",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-after-enable-no-peer-traffic",
+              "rc": 0
+            },
+            {
+              "label": "download-owner-fresh-upload-after-enable",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-fresh-upload-after-enable",
+              "rc": 0
+            }
+          ],
+          "checked_cleanup_calls": 9,
+          "cleanup_all_rc_zero": true,
+          "comparisons": [],
+          "local_observations": [
+            {
+              "label": "owner-before-enable",
+              "bytes": 1048576,
+              "expected_sha256": "de76f6f1c65bc6596652de9ff023061d41dc436c96fa20220b426a334ba871a2",
+              "actual_sha256": "de76f6f1c65bc6596652de9ff023061d41dc436c96fa20220b426a334ba871a2",
+              "initial_host_buffer_sha256": "687e49c95d992e1ecb4fee0fd53cacadbc4102800ba24e61e04abdc7fba6a327",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "accessor-before-enable",
+              "bytes": 1048576,
+              "expected_sha256": "9413b954eb30438ea829c93ca5c8659c70b072dafa5509e26e9cb5734c57b046",
+              "actual_sha256": "9413b954eb30438ea829c93ca5c8659c70b072dafa5509e26e9cb5734c57b046",
+              "initial_host_buffer_sha256": "99ea42ecf0fcd0185c0c3cbe44746e7aa01028dab98c4838b734aedd953ffe1e",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "owner-after-enable-no-peer-traffic",
+              "bytes": 1048576,
+              "expected_sha256": "de76f6f1c65bc6596652de9ff023061d41dc436c96fa20220b426a334ba871a2",
+              "actual_sha256": "de76f6f1c65bc6596652de9ff023061d41dc436c96fa20220b426a334ba871a2",
+              "initial_host_buffer_sha256": "1759c2f5dc7f7cb8e6d5b17cfb915dd8d244b1f57afe05021627e9178c863c59",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "accessor-after-enable-no-peer-traffic",
+              "bytes": 1048576,
+              "expected_sha256": "9413b954eb30438ea829c93ca5c8659c70b072dafa5509e26e9cb5734c57b046",
+              "actual_sha256": "9413b954eb30438ea829c93ca5c8659c70b072dafa5509e26e9cb5734c57b046",
+              "initial_host_buffer_sha256": "41520cc659d52fc7c328fbc1354c360c19049bd4108cc54e9d00ba6e177724ab",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "owner-fresh-upload-after-enable",
+              "bytes": 1048576,
+              "expected_sha256": "34d07ef4052702ab129b5c9dc83bdc04a643e509ef7c477cd4555f946cb60c9d",
+              "actual_sha256": "34d07ef4052702ab129b5c9dc83bdc04a643e509ef7c477cd4555f946cb60c9d",
+              "initial_host_buffer_sha256": "160ffb823d136a08f7685ea8ae53eee49c0e4ae1a12ff80a024fbbfa8dd1fc8c",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "accessor-fresh-upload-after-enable",
+              "bytes": 1048576,
+              "expected_sha256": "2b9f518f1870da7d1048a97bb6a28f7792a38fcc0734cefb8f85a9cc10ae5bf0",
+              "actual_sha256": "2b9f518f1870da7d1048a97bb6a28f7792a38fcc0734cefb8f85a9cc10ae5bf0",
+              "initial_host_buffer_sha256": "f65e4a5a4a18903eb928efcaa5f884d72239421dceb37169b4afcedf1e133b3c",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            }
+          ]
+        },
+        {
+          "accessor": "cmp40",
+          "owner": "cmp64",
+          "can_access_peer_rc": 0,
+          "can_access_peer": 1,
+          "attributes": {
+            "access_supported": {
+              "rc": 0,
+              "value": 1
+            },
+            "native_atomic_supported": {
+              "rc": 0,
+              "value": 0
+            }
+          },
+          "peer_enable_rc": 0,
+          "outcome": "local-result-channel-observed",
+          "local_before_enable_verified": true,
+          "local_after_enable_verified": true,
+          "local_fresh_upload_after_enable_verified": true,
+          "owned_resources_released": true,
+          "capability_is_forced": true,
+          "selected_API_results": [
+            {
+              "label": "download-owner-before-enable",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-before-enable",
+              "rc": 0
+            },
+            {
+              "label": "enable-peer",
+              "rc": 0
+            },
+            {
+              "label": "download-owner-after-enable-no-peer-traffic",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-after-enable-no-peer-traffic",
+              "rc": 0
+            },
+            {
+              "label": "download-owner-fresh-upload-after-enable",
+              "rc": 0
+            },
+            {
+              "label": "download-accessor-fresh-upload-after-enable",
+              "rc": 0
+            }
+          ],
+          "checked_cleanup_calls": 9,
+          "cleanup_all_rc_zero": true,
+          "comparisons": [],
+          "local_observations": [
+            {
+              "label": "owner-before-enable",
+              "bytes": 1048576,
+              "expected_sha256": "3ae7e5711a85477c78a8f3f4a2c05e398f131a30cdbffe6d46a71999b45f6a55",
+              "actual_sha256": "3ae7e5711a85477c78a8f3f4a2c05e398f131a30cdbffe6d46a71999b45f6a55",
+              "initial_host_buffer_sha256": "24adf63d83bcb08ab12ac7fb840cf0a21a1b62ed3de36a35de4f2f11e8259302",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "accessor-before-enable",
+              "bytes": 1048576,
+              "expected_sha256": "99bede33a3f920ce7b77f071b0ff977095dc18cac250434419c970c369d9cfb1",
+              "actual_sha256": "99bede33a3f920ce7b77f071b0ff977095dc18cac250434419c970c369d9cfb1",
+              "initial_host_buffer_sha256": "a6a3cb6e14636081cafecfe24196365e85ba901eeca4c0352344b0158376dd58",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "owner-after-enable-no-peer-traffic",
+              "bytes": 1048576,
+              "expected_sha256": "3ae7e5711a85477c78a8f3f4a2c05e398f131a30cdbffe6d46a71999b45f6a55",
+              "actual_sha256": "3ae7e5711a85477c78a8f3f4a2c05e398f131a30cdbffe6d46a71999b45f6a55",
+              "initial_host_buffer_sha256": "bcf8bf671e278f8314ec3fcf537a46090f11e488eb654aa57af64679367d8a07",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "accessor-after-enable-no-peer-traffic",
+              "bytes": 1048576,
+              "expected_sha256": "99bede33a3f920ce7b77f071b0ff977095dc18cac250434419c970c369d9cfb1",
+              "actual_sha256": "99bede33a3f920ce7b77f071b0ff977095dc18cac250434419c970c369d9cfb1",
+              "initial_host_buffer_sha256": "3c7350f06262007dd6ecc1f96b3b515f687dca8f27c8b472b8bd53ac62f17c73",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "owner-fresh-upload-after-enable",
+              "bytes": 1048576,
+              "expected_sha256": "1208fcc2d46debf296acbe40d3dc7f2bc0cf608227b6f9d1a79631b59d2c51b3",
+              "actual_sha256": "1208fcc2d46debf296acbe40d3dc7f2bc0cf608227b6f9d1a79631b59d2c51b3",
+              "initial_host_buffer_sha256": "0934f289708e0775a79c21da3dcd4880ebcee259db5338d7170cd47b4bc230c5",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            },
+            {
+              "label": "accessor-fresh-upload-after-enable",
+              "bytes": 1048576,
+              "expected_sha256": "a2a27039ff4e56d32145a6f23be87c55a82fb33435cb3519e180047ac89b2d41",
+              "actual_sha256": "a2a27039ff4e56d32145a6f23be87c55a82fb33435cb3519e180047ac89b2d41",
+              "initial_host_buffer_sha256": "af14e99551af26c865e947668174a58891c8fa5aa90f3e263de24665af3432cf",
+              "match": true,
+              "host_buffer_unchanged": false,
+              "all_returned_bytes_zero": false,
+              "wrong_bytes": 0
+            }
+          ]
+        }
+      ],
+      "force_option_retained": true,
+      "test_guest_restarts": 1,
+      "exclusive_CMP_bus_resets": 0,
+      "sources": [
+        {
+          "name": "stage71_trial_host.py",
+          "sha256": "ae789d394a3fd6be7efbc6151600dc6e314e8443e7fad147eb12257b706035c4"
+        },
+        {
+          "name": "stage71_config_guest.py",
+          "sha256": "5680eb43471ef59e83e1d8f3b86bde8939c329714ec9286197a296e14b68d46a"
+        },
+        {
+          "name": "stage71_peer_guest.py",
+          "sha256": "45c9f4ccf54c26aed23480482394019ab17d232e8fc52e0cb37f00ac4590eb22"
+        }
+      ]
+    }
+  ],
+  "interpretation": {
+    "working_P2P_demonstrated": false,
+    "copy_or_SM_write_in_reverse_direction_qualified": false,
+    "local_transfer_control_matches": 12,
+    "local_control_bytes_each": 1048576,
+    "negative_data_limit": "Copy and remote-read mismatches were returned through D2H into initially zero-filled host buffers. The returned hashes match an all-zero payload; this alone does not prove GPU memory contained zeros or rule out a no-op result transfer.",
+    "control_limit": "Later ordinary transfer controls passed before/after activation with fresh host sentinels and both directed pairs; no peer-data operation ran in that diagnostic. They do not retroactively prove the earlier result channel after a peer command.",
+    "one_cause_not_supported": "Activation alone did not reproduce ordinary local transfer corruption in the diagnostic.",
+    "additional_usable_memory_or_SM_demonstrated": false,
+    "physical_CMP40_capacity_ceiling_established": false,
+    "foreign_75_76_and_77_5_72_reports_remain_open": true
+  },
+  "latest_state": {
+    "force_option_retained_for_diagnosis": true,
+    "same_G_binary": true,
+    "reported_CMP_GiB": [
+      40,
+      64
+    ],
+    "model_not_restored": true,
+    "last_health_has_no_Xid_lines": true,
+    "no_host_reboot": true,
+    "other_guest_process_snapshot_unchanged": true
+  }
+}

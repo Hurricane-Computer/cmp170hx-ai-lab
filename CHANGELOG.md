@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Peer activation, wrong data, and local-transfer controls
+
+- Explicit pair option permits the tested activation, but one 1-MiB peer copy and one separate remote-read kernel produce wrong destination hashes despite API success. Remote write/reverse data direction remains unqualified.
+- Twelve ordinary local comparisons around activation pass with fresh host result sentinels. Recorded result-transport limits, the initial observer false positive, required recovery, and the final retained diagnostic option. No extra capacity or SM.
+
 ## 2026-10-17 — Pair-option lead and named checker search
 
 - Distinguished the original pair-level option from G's cached per-device report change; pinned one external cross-root transfer report and its preserved fork as one evidence lineage.
