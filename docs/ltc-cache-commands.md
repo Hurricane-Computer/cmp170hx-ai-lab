@@ -35,3 +35,15 @@ At **2026-10-17T16:52:03.621530+00:00**, each idle card received one documented 
 The same `2a0` value is present on both different reported-capacity configurations. The immediate clean-register observation changes in a manner consistent with the documented operation; neither reported memory nor clock changes. We did not capture a firmware execution trace, prove the physical cause of earlier aliases, test data retention across the flush, qualify full memory or unlock extra HBM/SMs.
 
 The practical addition is a working ordinary cache-flush route on both cards for a future carefully bounded data test. A meaningful follow-up must connect data written before the flush to checked data read afterwards, with independent result transfer. Cache-command residues must not be counted as extra-memory evidence. [Structured source anchors and observations](../data/ltc-cache-commands.json).
+
+
+## Data-bearing follow-up
+
+At **2026-10-17T17:07:01.585034+00:00**, the ordinary cache operation was used with a live CUDA context and actual data on each CMP. One 8-MiB allocation held two 512-KiB windows at offsets0 and4MiB. A reused SM fill kernel wrote independently tagged64-bit words; the CPU calculated expected words separately and checked every D2H return and every word. There were two finite phases with fresh patterns: without an explicit flush, then with one public write-back/invalidate/full-cache call between kernel synchronization and the first readback. No register observations or direct writes were needed.
+
+| Card | Unflushed phase | Flushed phase | Flush status | Owned-resource cleanup |
+|---|---|---|---|---|
+| CMP40 | 131072 words,0 bad | 131072 words,0 bad | success | all successful |
+| CMP64 | 131072 words,0 bad | 131072 words,0 bad | success | all successful |
+
+Across both cards524288 words were checked with0 differences; expected and returned SHA256 values match for all eight window records. Each card wrote2MiB across the two phases, within1MiB of distinct window locations. This demonstrates data surviving the ordinary flush call with a live CUDA context. It does not trace actual cache residency, establish historical alias causality, test memory above40/64GiB, or qualify additional capacity. Driver, clocks and geometry were unchanged. The existing verifier's fault-injection/control matrix was not repeated. Detailed source fingerprints, hashes, checked-copy flags and cleanup statuses are in the [structured data](../data/ltc-cache-commands.json).

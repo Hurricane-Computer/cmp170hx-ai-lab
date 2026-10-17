@@ -187,5 +187,202 @@
     "not_refuted": "The separate positive75/76GiB and77.5/72GiB data-test reports remain open."
   },
   "new_usable_memory_gib_demonstrated": 0,
-  "additional_working_sms_demonstrated": 0
+  "additional_working_sms_demonstrated": 0,
+  "data_retention_trial": {
+    "evidence_level": "observed",
+    "evidence_utc": "2026-10-17T17:07:01.585034+00:00",
+    "description": "Two SM-written tagged windows, CPU full-word comparison with and without an intervening ordinary full-cache write-back/invalidate while the CUDA context remains alive.",
+    "source_sha256": "18ed9dba6e45ed83013c23f891b56e6aaa583afe1cacdd0eed708338b95e4f76",
+    "reused_PTX_sha256": "67b483d2e9b61224e361282d77cf8eae621e611be02e8ae88b47a830d429be86",
+    "allocation_bytes_per_card": 8388608,
+    "distinct_written_bytes_per_card": 1048576,
+    "total_written_bytes_per_card": 2097152,
+    "total_checked_words_both_cards": 524288,
+    "total_bad_words": 0,
+    "ordinary_flush_controls": 2,
+    "MMIO_reads": 0,
+    "direct_MMIO_writes": 0,
+    "geometry_driver_clock_changes": 0,
+    "resets": 0,
+    "cards": [
+      {
+        "variant": "cmp40",
+        "reported_mib_before": 40960,
+        "memory_clock_mhz_before": 1215,
+        "allocation_bytes": 8388608,
+        "window_bytes": 524288,
+        "window_offsets": [
+          0,
+          4194304
+        ],
+        "phases": [
+          {
+            "with_cache_flush": false,
+            "seed": "0x758b85757d49e890",
+            "flush_status": null,
+            "windows": [
+              {
+                "offset_bytes": 0,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "c5c39be1e890f07301d7684626503d718c094883d83bfc54ad0dcd9478f867a6",
+                "returned_sha256": "c5c39be1e890f07301d7684626503d718c094883d83bfc54ad0dcd9478f867a6",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              },
+              {
+                "offset_bytes": 4194304,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "0a2ba01a4e1781ae3ba58bdf7277fc64fbdf88a5375af6f372f369e691af9566",
+                "returned_sha256": "0a2ba01a4e1781ae3ba58bdf7277fc64fbdf88a5375af6f372f369e691af9566",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              }
+            ]
+          },
+          {
+            "with_cache_flush": true,
+            "seed": "0x3fc9d604798463fa",
+            "flush_status": "0x0",
+            "windows": [
+              {
+                "offset_bytes": 0,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "ab2059accff2ca0169ff51476dd3c21e5db298707faf6f9c45ad0721dec0af7d",
+                "returned_sha256": "ab2059accff2ca0169ff51476dd3c21e5db298707faf6f9c45ad0721dec0af7d",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              },
+              {
+                "offset_bytes": 4194304,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "912efa4fd2e524844ec8065bab95f7e1f2f2a25ed41f55576104c153e724290e",
+                "returned_sha256": "912efa4fd2e524844ec8065bab95f7e1f2f2a25ed41f55576104c153e724290e",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              }
+            ]
+          }
+        ],
+        "cleanup": [
+          {
+            "op": "module_unload",
+            "rc": 0
+          },
+          {
+            "op": "free_owned_VRAM",
+            "rc": 0
+          },
+          {
+            "op": "destroy_owned_context",
+            "rc": 0
+          },
+          {
+            "op": "free_RM_client",
+            "rc": 0
+          }
+        ],
+        "cleanup_all_zero": true
+      },
+      {
+        "variant": "cmp64",
+        "reported_mib_before": 65536,
+        "memory_clock_mhz_before": 1728,
+        "allocation_bytes": 8388608,
+        "window_bytes": 524288,
+        "window_offsets": [
+          0,
+          4194304
+        ],
+        "phases": [
+          {
+            "with_cache_flush": false,
+            "seed": "0xcba117c19f29d328",
+            "flush_status": null,
+            "windows": [
+              {
+                "offset_bytes": 0,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "9cde1830cd7ef107752fc9a9402dc3c4f614aa75bb07818b46759290e5bc2d97",
+                "returned_sha256": "9cde1830cd7ef107752fc9a9402dc3c4f614aa75bb07818b46759290e5bc2d97",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              },
+              {
+                "offset_bytes": 4194304,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "e2604ea9b1f4ac02811e6c54529071411bdd4dba8825d6813a551e5d710b86ac",
+                "returned_sha256": "e2604ea9b1f4ac02811e6c54529071411bdd4dba8825d6813a551e5d710b86ac",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              }
+            ]
+          },
+          {
+            "with_cache_flush": true,
+            "seed": "0xf9ee22905e87c222",
+            "flush_status": "0x0",
+            "windows": [
+              {
+                "offset_bytes": 0,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "264c7bd264414274080e4a4eecb6b16126927a12527ca6078d39a0d48efcf0ae",
+                "returned_sha256": "264c7bd264414274080e4a4eecb6b16126927a12527ca6078d39a0d48efcf0ae",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              },
+              {
+                "offset_bytes": 4194304,
+                "checked_words": 65536,
+                "bad_words": 0,
+                "first_bad_word": null,
+                "expected_sha256": "bfaaf4a7a57232701f2a2f8beb7ae01dce4c2dfc6a05199edd99318bdab617ff",
+                "returned_sha256": "bfaaf4a7a57232701f2a2f8beb7ae01dce4c2dfc6a05199edd99318bdab617ff",
+                "D2H_return_checked": true,
+                "all_words_compared_on_CPU": true
+              }
+            ]
+          }
+        ],
+        "cleanup": [
+          {
+            "op": "module_unload",
+            "rc": 0
+          },
+          {
+            "op": "free_owned_VRAM",
+            "rc": 0
+          },
+          {
+            "op": "destroy_owned_context",
+            "rc": 0
+          },
+          {
+            "op": "free_RM_client",
+            "rc": 0
+          }
+        ],
+        "cleanup_all_zero": true
+      }
+    ],
+    "limits": [
+      "Existing supported40/64GiB profiles; no upper-capacity address touched.",
+      "Data survived the documented API call; firmware execution or actual cache-residency was not traced.",
+      "No dense/full-capacity qualification, new memory/SM, or refutation of foreign positive reports.",
+      "The old verifier fault-injection cases were not rerun."
+    ]
+  }
 }

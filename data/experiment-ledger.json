@@ -442,6 +442,15 @@
       "result": "One public FB_FLUSH_GPU_CACHE(flags38) succeeded on each idle CMP.2a4 changed70010300->70000300;2a0 stayed70000300 on both40/64GiB configurations. Clients cleaned up successfully.",
       "limit": "12 read-only MMIO observations; no direct MMIO write, VRAM allocation, reset, driver/clock/geometry change or extra usable memory/SM. No data-retention or full-capacity test.",
       "interpretation": "docs/ltc-cache-commands.md"
+    },
+    {
+      "id": "stage63-cache-data-retention",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T17:07:01.585034+00:00",
+      "result": "Both CMPs passed unflushed/flushed SM-write->CPU-read comparisons with a live CUDA context:524288 words total,0 bad, eight matching hashes, both public flush calls and all owned-resource cleanup successful.",
+      "limit": "8MiB allocation/card,1MiB distinct windows/card,2MiB written/card over two phases. No upper-capacity address, direct MMIO, driver/geometry/clock change, extra HBM/SM or cache-causality proof.",
+      "interpretation": "docs/ltc-cache-commands.md"
     }
   ],
   "campaign_result": {

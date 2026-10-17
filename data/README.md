@@ -44,3 +44,5 @@ These files are explicit technical projections of the research records, not copi
 [ltc-register-layout.json](ltc-register-layout.json) records original GA100 method selection, the class-owned builder and its register-range descriptors. It does not establish a decoder-bit contract or a new hardware result.
 
 [ltc-cache-commands.json](ltc-cache-commands.json) separates original selected cache-command semantics, the corrected third-party density label, and two bounded ordinary flush observations. No capacity test or extra-memory claim.
+
+The cache-command extract now also records a small data-bearing live-CUDA follow-up: complete CPU comparisons across the ordinary flush, without an upper-capacity test.

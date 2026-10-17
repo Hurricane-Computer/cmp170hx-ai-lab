@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Data across the ordinary cache flush
+
+- Both CMPs retained SM-written tagged data across an ordinary write-back/invalidate call with a live CUDA context;524288 CPU-checked words and eight window hashes matched, with successful cleanup.
+- Bounded8MiB allocation/card and1MiB distinct data/card. No upper-capacity address, driver/clock/geometry change or extra-memory claim.
+
 ## 2026-10-17 — Cache-command correction and ordinary flush
 
 - Connected actual original GA100-selected consumers and corrected the use of `17e2a0` cache-command residues as per-channel capacity labels. Positive large-memory test reports remain open.
