@@ -48,3 +48,25 @@ BIT-M+0x11 (Memory Script List) and BIT-P-v2+4 (RAMMAP) are zero in all twelve i
 A meaningful new capacity experiment needs a documented or concretely traced producer/adoption point that changes effective physical availability. The six-record table, existing profile columns, an extra address bit, or copied A100 defaults do not establish such a producer.
 
 Sources: JESD235C§3.2/Table4 and§13.2.3.15; NVIDIA's public BIT specification; unchanged original App01/App08 code; pinned envytools parser. Full links and provenance limits are in[Sources](sources.md).
+
+## Configured FBP and L2 geometry measured on 17 October
+
+At 14:07 UTC both CMPs answered 28 targeted ordinary FB/GR GET queries under the retained 615.71.09 test driver. All returned success, and both temporary RM root handles were freed. No compute channel, CUDA allocation, direct MMIO access, SET control, clock change or reset was used.
+
+| Variant | Reported active FBPs | Reported active FBPAs | Reported LTCs | Reported L2 slices |
+|---|---:|---:|---:|---:|
+| CMP40 | 10 | 20 | 20 | 80 |
+| CMP64 | 8 | 16 | 16 | 64 |
+
+Both report architectural dimensions of 12 FBPs, 24 FBPAs and 24 LTCs, with two FBPAs/two LTCs per FBP and four slices per LTC. The pinned GA100 [hwproject definition](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga100/hwproject.h) also defines the architectural 24-FBPA count. An architectural dimension is not proof that every disabled unit is healthy or can be enabled.
+
+| Variant | Reported FBP mask | Reported FBPA mask | Reported LTC mask |
+|---|---|---|---|
+| CMP40 | `0x7bf` | `0x3fcfff` | `0x3fcfff` |
+| CMP64 | `0x7ad` | `0x3fccf3` | `0x3fccf3` |
+
+Mask popcounts agree with the reported counts. In each case, LTC count equals active FBP count times the reported two-LTC width, and slice count equals LTC count times four. Expanding each set FBP bit into two consecutive set bits also reproduces the LTC mask; this is numerical consistency, not independent proof of physical wiring.
+
+The reported configuration therefore shows no partial-LTC deficit that would motivate the older mixed-memory hypothesis. NVIDIA's older [GP100 FBPA note](https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt) discusses such coverage differences; its split-address programming is not established for GA100 by this measurement. We did not set its mixed-memory bit or probe a presumed upper physical address.
+
+These are driver-reported configured units, not independently counted HBM packages or a test of extra capacity. They establish neither a physical 40/64-GiB ceiling nor a failure of the attributed 75/76 and 77.5/72-GiB reports. [Selected results, derived checks and exact source hashes](../data/configured-memory-geometry.json).

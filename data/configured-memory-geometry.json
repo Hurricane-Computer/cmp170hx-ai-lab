@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "stage": 55,
+  "evidence_utc": "2026-10-17T14:07:05.824738+00:00",
+  "driver_version": "615.71.09",
+  "configuration": "Retained candidate G; no geometry override in this query.",
+  "method": "Ordinary FB/GR GET controls, fourteen geometry indices per card. All28 returned success; temporary root handles freed.",
+  "FB_GET_control": "0x20801301",
+  "GR_GET_control": "0x20801201",
+  "targeted_geometry_GETs": 28,
+  "successful_geometry_GETs": 28,
+  "MIG_mode": "Disabled on both queried cards",
+  "cards": [
+    {
+      "variant": "cmp40",
+      "reported_mib": 40960,
+      "memory_clock_mhz": 1215,
+      "reported_active_fbpa_count": 20,
+      "reported_active_fbp_count": 10,
+      "reported_active_ltc_count": 20,
+      "reported_lts_count": 80,
+      "reported_architectural_fbpa_count": 24,
+      "reported_architectural_fbp_count": 12,
+      "reported_architectural_ltc_count": 24,
+      "reported_ltc_per_fbp": 2,
+      "reported_fbpa_per_fbp": 2,
+      "reported_slices_per_ltc": 4,
+      "fbpa_mask": "0x3fcfff",
+      "fbp_mask": "0x7bf",
+      "ltc_mask": "0x3fcfff",
+      "temporary_root_cleanup_status": 0,
+      "evidence_level": "observed driver-reported configuration",
+      "derived_consistency": {
+        "evidence_level": "calculated",
+        "mask_popcounts_match_counts": true,
+        "ltc_total_equals_active_fbp_times_reported_width": true,
+        "lts_total_equals_ltc_times_reported_slices": true,
+        "consecutive_bit_pair_expansion_matches": true,
+        "bit_pair_limit": "Numerical agreement under consecutive bit-group expansion; no independent physical wiring or package inventory proof."
+      }
+    },
+    {
+      "variant": "cmp64",
+      "reported_mib": 65536,
+      "memory_clock_mhz": 1728,
+      "reported_active_fbpa_count": 16,
+      "reported_active_fbp_count": 8,
+      "reported_active_ltc_count": 16,
+      "reported_lts_count": 64,
+      "reported_architectural_fbpa_count": 24,
+      "reported_architectural_fbp_count": 12,
+      "reported_architectural_ltc_count": 24,
+      "reported_ltc_per_fbp": 2,
+      "reported_fbpa_per_fbp": 2,
+      "reported_slices_per_ltc": 4,
+      "fbpa_mask": "0x3fccf3",
+      "fbp_mask": "0x7ad",
+      "ltc_mask": "0x3fccf3",
+      "temporary_root_cleanup_status": 0,
+      "evidence_level": "observed driver-reported configuration",
+      "derived_consistency": {
+        "evidence_level": "calculated",
+        "mask_popcounts_match_counts": true,
+        "ltc_total_equals_active_fbp_times_reported_width": true,
+        "lts_total_equals_ltc_times_reported_slices": true,
+        "consecutive_bit_pair_expansion_matches": true,
+        "bit_pair_limit": "Numerical agreement under consecutive bit-group expansion; no independent physical wiring or package inventory proof."
+      }
+    }
+  ],
+  "interpretation": "Both reported active FBP sets have the full reported LTC and slice totals. No reported partial-LTC deficit motivates the older mixed-memory branch in this configuration.",
+  "limits": [
+    "Driver-reported topology only, not an independent raw physical fuse/package inventory.",
+    "The old GP100 mixed-memory address decoder is not established for GA100.",
+    "No physical capacity ceiling, new useful HBM or refutation of foreign positive reports.",
+    "No direct MMIO, SET, CUDA, VRAM allocation, reset, clock/driver/service change or repeated74SM/ECC test."
+  ],
+  "requested_VRAM_bytes": 0,
+  "direct_MMIO_accesses": 0,
+  "SET_controls": 0,
+  "resets": 0,
+  "new_usable_GiB": 0,
+  "additional_working_SM": 0,
+  "physical_package_inventory_proven": false,
+  "physical_capacity_ceiling_inferred": false,
+  "foreign_positive_capacity_reports_refuted": false,
+  "sources": [
+    {
+      "path": "src/common/inc/swref/published/ampere/ga100/hwproject.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga100/hwproject.h",
+      "sha256": "bfb0a0eef44e254d9193e29101f0172ab8540b2adbd0294fbfc465398b6e203a"
+    },
+    {
+      "path": "src/common/sdk/nvidia/inc/ctrl/ctrlxxxx.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrlxxxx.h",
+      "sha256": "3c34cab9ddee358b3480a96795ec5068eae1c3f2328921a8d0a83d0d3f751db7"
+    },
+    {
+      "path": "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gr.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gr.h",
+      "sha256": "3606a7eca1edab791659af041ecbe207596e516db2f94db261dadd57f939b478"
+    },
+    {
+      "path": "src/common/sdk/nvidia/inc/ctrl/ctrl0080/ctrl0080gr.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl0080/ctrl0080gr.h",
+      "sha256": "d5e4c50d04cdb155a91976947995565bcc8a34ea366604975bf38029b29354c9"
+    },
+    {
+      "path": "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h",
+      "sha256": "9f735d562ebc1046f220c5a16fe7cfc11dcacf5c4ab1aed88aadf5c05c897a9c"
+    }
+  ]
+}

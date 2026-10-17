@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T13:52:08.214548+00:00",
+  "updated_utc": "2026-10-17T14:08:59.860699+00:00",
   "records": [
     {
       "id": "stage3",
@@ -337,6 +337,14 @@
       "result": "Bound the public GA100 size override to a reserve-only region handler and separated a real original upper-memory policy cache from an unproven physical mapper.",
       "limit": "No hardware access, extra memory, SM gain, physical upper limit or refutation of foreign capacity reports.",
       "interpretation": "docs/capacity-followup.md"
+    },
+    {
+      "id": "stage55-configured-memory-geometry",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "Both CMPs answered28 ordinary geometry GETs; their reported active FBP sets have full reported LTC/slice totals. Temporary handles released.",
+      "limit": "Reported configuration only, no independent physical inventory, extra capacity, SM gain or GA100 mixed-memory decoder established.",
+      "interpretation": "docs/memory-geometry.md"
     }
   ],
   "campaign_result": {

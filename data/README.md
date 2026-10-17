@@ -30,3 +30,5 @@ These files are explicit technical projections of the research records, not copi
 [fb-regions.json](fb-regions.json) contains the ordinary exported-region observations, filtered-view limits and exact first-party ABI fingerprints. These are configured ranges, not hidden-memory tests.
 
 [capacity-followup.json](capacity-followup.json) separates the 12 small live verifier controls, matching-version static fault mapping and historical configuration comparison. No additional capacity is asserted.
+
+[configured-memory-geometry.json](configured-memory-geometry.json) records the first ordinary FBP/FBPA/LTC geometry GETs and separately calculated consistency checks. Reported units do not establish hidden physical memory.

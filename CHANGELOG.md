@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Configured FBP and L2 geometry
+
+- Read 28 targeted normal geometry GETs on the two CMPs: 10/20 FBP/LTC for CMP40 and 8/16 for CMP64, with full reported slice totals.
+- Separated observed topology from calculated mask consistency and unknown physical capacity; no upper-address or memory-enable write.
+
 ## 2026-10-17 — Ordinary region policy and a reserve-only size override
 
 - Traced the pinned public GA100 size override to a handler that restricts existing regions rather than extending them.
