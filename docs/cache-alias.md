@@ -34,3 +34,6 @@ The retained G modules and saved boot image were restored for a controlled recov
 No additional usable GiB or working SM was demonstrated. This alias result closes this particular H/profile/cache trial; repeating its constants or the old small verifier controls is not a new approach. A further hardware experiment needs a sourced difference in actual address mapping or takeover, not another advertised-size change. The foreign positive 75/76-GiB and77.5/72-GiB reports remain open.48 GiB is a first target, not a proven CMP40 limit.
 
 The [structured extract](../data/cache-alias-trial.json) contains deliberately selected phase counts, hashes, configuration readbacks, source fingerprints, late-failure classification and recovery evidence. Private logs, access material and firmware are not distributed.
+
+
+The source follow-up separates a [register-address translator and Nouveau sizing routes](addressing-vs-size.md) from actual HBM data mapping. Neither supplies an independent backing proof or a new hardware experiment.

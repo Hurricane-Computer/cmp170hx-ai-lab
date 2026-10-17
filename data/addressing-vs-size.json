@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "evidence_level": "static-analysis",
+  "analysis_utc": "2026-10-17T18:00:39.588526+00:00",
+  "hardware_accesses": 0,
+  "configuration_changes": 0,
+  "ordinary_original_register_address_helper": {
+    "firmware_release": "615.71.09",
+    "firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+    "entry": "0x4a58824",
+    "selector_argument": "a2",
+    "index_argument": "a3",
+    "offset_argument": "a4",
+    "success_cases": [
+      {
+        "selector": 0,
+        "condition": "index=0",
+        "u32_result": "0x9a0000 + (offset & 0x3fff)"
+      },
+      {
+        "selector": 1,
+        "condition": "ordinary representable index",
+        "u32_result": "0x900000 + index*0x4000 + (offset & 0x3fff)"
+      },
+      {
+        "selector": 2,
+        "condition": "ordinary representable index",
+        "u32_result": "0x980000 + index*0x4000 + (offset & 0x3fff)"
+      }
+    ],
+    "writes_hardware_on_these_success_paths": false,
+    "decodes_HBM_data_addresses": false,
+    "interpretation": "Register-block selector/index/offset translation. Not a high-VRAM-address decoder, controller enable or capacity program.",
+    "selected_GA100_object_binding_established": false,
+    "selection_limit": "Saved GA100 MemoryManager final-slots do not select this target; adjacent direct-reference search found none. Neither search is exhaustive.",
+    "source_url": "https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt"
+  },
+  "normal_nouveau_size_route": {
+    "linux_commit": "c7decec2f2d2ab0366567f9e30c0e1418cece43f",
+    "GA100_callback_table": {
+      "vidmem_size": "gp102_fb_vidmem_size",
+      "non_GSP_ram_new": "gp102_ram_new"
+    },
+    "non_GSP_size_input_register": "0x100ce0",
+    "non_GSP_decoding": "((LMR >>4)&63) << ((LMR&15)+20), then15/16 if bit30 is set",
+    "derived_examples": [
+      {
+        "LMR": "0x28a",
+        "bit30": 0,
+        "parsed_bytes": 42949672960,
+        "parsed_gib": 40
+      },
+      {
+        "LMR": "0x28b",
+        "bit30": 0,
+        "parsed_bytes": 85899345920,
+        "parsed_gib": 80
+      }
+    ],
+    "examples_are_new_hardware_observations": false,
+    "non_GSP_allocator": "Uses that scalar size, less256KiB head and1MiB tail, for one normal allocation range.",
+    "GSP_branch": "ga100_fb_new ->r535_fb_new replaces ram_new withr535_fb_ram_new; RAM size and allocation regions come from gsp->fb.",
+    "GSP_branch_not_collapsed_into_LMR": "The copied vidmem.size callback remains in the function table, but the RAM constructor imports GSP metadata instead of calling gp102_ram_new.",
+    "independent_physical_capacity_test": false,
+    "implication": "Another driver capacity display or an allocator accepting the scalar/regions is not an independent full backing proof.",
+    "limits": "No Nouveau driver installed or executed here; firmware producer of gsp->fb is not closed by these four files.",
+    "sources": [
+      {
+        "repository": "torvalds/linux",
+        "commit": "c7decec2f2d2ab0366567f9e30c0e1418cece43f",
+        "path": "drivers/gpu/drm/nouveau/nvkm/subdev/fb/ga100.c",
+        "sha256": "57bb0ab42a876b2cbed4a418de12739ee7c253fde1d98dc26c115d9d902b97df",
+        "bytes": 1783,
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/c7decec2f2d2ab0366567f9e30c0e1418cece43f/drivers/gpu/drm/nouveau/nvkm/subdev/fb/ga100.c"
+      },
+      {
+        "repository": "torvalds/linux",
+        "commit": "c7decec2f2d2ab0366567f9e30c0e1418cece43f",
+        "path": "drivers/gpu/drm/nouveau/nvkm/subdev/fb/gp102.c",
+        "sha256": "188b2b89134544fe538baa0722daacd5a5a92c23b997b91e100ec31a6e939a59",
+        "bytes": 2989,
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/c7decec2f2d2ab0366567f9e30c0e1418cece43f/drivers/gpu/drm/nouveau/nvkm/subdev/fb/gp102.c"
+      },
+      {
+        "repository": "torvalds/linux",
+        "commit": "c7decec2f2d2ab0366567f9e30c0e1418cece43f",
+        "path": "drivers/gpu/drm/nouveau/nvkm/subdev/fb/ramgp102.c",
+        "sha256": "f97378987e3a15d2db7752396c2e5713f156303bb7f6bde08d5d83a5ad3d7918",
+        "bytes": 733,
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/c7decec2f2d2ab0366567f9e30c0e1418cece43f/drivers/gpu/drm/nouveau/nvkm/subdev/fb/ramgp102.c"
+      },
+      {
+        "repository": "torvalds/linux",
+        "commit": "c7decec2f2d2ab0366567f9e30c0e1418cece43f",
+        "path": "drivers/gpu/drm/nouveau/nvkm/subdev/fb/r535.c",
+        "sha256": "8d8c31fa93751a2950d1ea7136f04b05527b11864d1cc4ad38dd44e44f947723",
+        "bytes": 2477,
+        "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/c7decec2f2d2ab0366567f9e30c0e1418cece43f/drivers/gpu/drm/nouveau/nvkm/subdev/fb/r535.c"
+      }
+    ]
+  },
+  "capacity_result": {
+    "extra_usable_gib_demonstrated": 0,
+    "extra_working_sms_demonstrated": 0,
+    "physical_capacity_ceiling_established": false,
+    "foreign_positive_reports_refuted": false
+  },
+  "limits": [
+    "A register address translator is not a physical HBM data-address decoder.",
+    "No source-contract transfer of GP100 mixed-density bits or unit-count limits to GA100.",
+    "The original helper has no completed native GA100 object selection; no hardware use proposed.",
+    "Nouveau was not installed or run. Size parsing and imported allocation regions are not capacity qualification.",
+    "No repeat of the H trial, small verifier controls or owner-established SM/ECC baseline."
+  ]
+}

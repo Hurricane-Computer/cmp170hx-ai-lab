@@ -460,6 +460,14 @@
       "result": "Paired80-GiB H profile initialized and41 GiB allocated. Unflushed windows passed; after ordinary flush 65536 lower words matched the upper payload while the upper self-check passed. Later GSP failure; G recovery succeeded.",
       "limit": "2.5 MiB distinct data, 5 MiB writes, 655360 checked words over two ordered phases. No dense qualification, physical 40 GiB ceiling, extra usable memory/SM, or refutation of positive foreign reports.",
       "interpretation": "docs/cache-alias.md"
+    },
+    {
+      "id": "stage65-addressing-versus-size",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Original helper computes FBPA register addresses, not high HBM data mapping. Pinned Nouveau GA100 code distinguishes LMR parsing/non-GSP allocation from a GSP constructor importing framebuffer size and regions.",
+      "limit": "No native GA100 object binding for the original helper, new physical decoder field, Nouveau execution, GPU access or extra usable capacity. Foreign positive tests remain open.",
+      "interpretation": "docs/addressing-vs-size.md"
     }
   ],
   "campaign_result": {

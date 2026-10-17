@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Register addressing versus capacity inputs
+
+- Separated an original register-block address translator from physical HBM data mapping; its native GA100 selection remains unresolved.
+- Traced distinct pinned Nouveau non-GSP and GSP sizing/allocation paths. They parse or import size information; no independent extra-memory qualification or new hardware access.
+
 ## 2026-10-17 — Upper-window alias after ordinary cache flush
 
 - CMP40 accepted a paired 80-GiB H profile and a41-GiB allocation. Without an explicit flush the small windows passed; after the ordinary flush 512 KiB of lower data matched the upper payload, whose own check still passed.
