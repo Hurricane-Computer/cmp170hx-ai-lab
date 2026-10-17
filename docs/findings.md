@@ -35,3 +35,8 @@ A subsequent one-off load at1350MHz measured1534.8GB/s for internal copies and15
 ## Hypotheses that remain hypotheses
 
 The CMP40 may belong to the40-GB A100 memory family and CMP64 to the80-GB family. Manufacturer and density are consistent with this comparison; neither proves that a particular CMP was previously a completed A100. Manufacturing binning, product segmentation, disabled stack population and stack health cannot be inferred from marketing labels alone.
+
+
+## Enclosing topology gates, 17 October
+
+The [complete normal topology wrappers](topology-gates.md) distinguish a special literal `0x20b0` block from CMP64's additional source-vector tail. Four source-bound read-only observations resolve the two current inputs without retrying old mask writes. This is a conditional source-routing result, not extra live resources or captured production execution.

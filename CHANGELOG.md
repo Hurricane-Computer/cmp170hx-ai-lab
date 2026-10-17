@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Normal topology-wrapper gates
+
+- Paired both complete original debug wrappers and separated the special `0x20b0` block from CMP64's additional source-vector tail.
+- Read exactly two source-bound inputs per CMP. Current values select different conditional wrapper routes; no writes, resets or additional resources.
+
 ## 2026-10-17 — Recovered 75-GiB-cap sparse raster
 
 - Recovered two-pass results for 68 lower/upper pairs: 408 clean window checks in a 73.875-GiB allocation, with only 8.5 MiB distinct written locations.

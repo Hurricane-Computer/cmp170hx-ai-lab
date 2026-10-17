@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "stage": 60,
+  "static_evidence_level": "original plaintext debug App45 analysis",
+  "observation_evidence_level": "four read-only current MMIO observations",
+  "evidence_utc": "2026-10-17T15:52:56.530787+00:00",
+  "driver_version": "615.71.09",
+  "read_count": 4,
+  "write_count": 0,
+  "read_mapping_protection": "PROT_READ",
+  "mapped_bytes_per_card": 4096,
+  "resets": 0,
+  "configuration_changes": 0,
+  "CUDA_allocations": 0,
+  "cards": [
+    {
+      "variant": "cmp64",
+      "evidence_utc": "2026-10-17T15:52:56.530787+00:00",
+      "observed_values": {
+        "0x8204d8": "0x20c2",
+        "0x8204bc": "0x1"
+      },
+      "low_byte_gate_open": true,
+      "special_20b0_guard_matches": false,
+      "conditional_debug_wrapper_route": "Skip special block and continue into previously analyzed source-vector tail",
+      "fresh_operating_snapshot": {
+        "reported_mib": 65536,
+        "used_mib": 0,
+        "memory_clock_mhz": 1728
+      },
+      "original_debug_disassembly_sha256": "f882eda55dff1dc6b0d539527b086aeeed0b6ed5d4961d1f689b86853bc9e09d",
+      "normal_wrapper_span": [
+        "0x68a7",
+        "0x6b4b"
+      ],
+      "production_execution_captured": false
+    },
+    {
+      "variant": "cmp40",
+      "evidence_utc": "2026-10-17T15:52:56.530787+00:00",
+      "observed_values": {
+        "0x8204d8": "0x2082",
+        "0x8204bc": "0x1"
+      },
+      "low_byte_gate_open": true,
+      "special_20b0_guard_matches": false,
+      "conditional_debug_wrapper_route": "Skip special block and return0",
+      "fresh_operating_snapshot": {
+        "reported_mib": 40960,
+        "used_mib": 0,
+        "memory_clock_mhz": 1215
+      },
+      "original_debug_disassembly_sha256": "ebc243c0c9ac956a394b5b2261102d42f004a5ea8d30af77bf05f829876d60d9",
+      "normal_wrapper_span": [
+        "0x6887",
+        "0x6a48"
+      ],
+      "production_execution_captured": false
+    }
+  ],
+  "normal_contract": {
+    "shared_gate": "A zero low byte from8204bc exits the whole inspected wrapper with status1.",
+    "special_guard": "The special block compares the8204d8 input with literal20b0.",
+    "variant_difference": "With a different input, CMP40 returns0 while CMP64 falls through into its source-vector reconfiguration tail.",
+    "special_arithmetic": "Contains literal54 and54-(GPC-count*PTOP-TPC-width-popcount(selector2)). This is software arithmetic, not a live54-TPC result.",
+    "write_semantics": "The special block uses the known per-GPC reconfiguration bank and an OR helper. OR alone does not establish physical enable/disable polarity.",
+    "existing_tail_reference": "The CMP64 tail source1-zero exit and XOR selection were already analyzed with historical vectors; those vectors were not reread here."
+  },
+  "limits": [
+    "Conditional original-debug-code routing under these current host-readable inputs, not captured boot execution or proved equivalence to production App85.",
+    "The8204d8 values match the respective visible PCI device IDs, but exact vendor register names and writable field producers are not assigned.",
+    "No gate or reconfiguration write, additional SM, extra usable HBM or new physical-capacity limit.",
+    "The existing74-SM/ECC baseline was not requalified. Current process counts and geometry were not refreshed by these reads.",
+    "No changed ID, forced guard, protected production-code analysis or retry of old CP/CTRL/EN sequences."
+  ]
+}

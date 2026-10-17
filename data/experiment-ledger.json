@@ -401,6 +401,22 @@
       "result": "Recovered historical 75-GiB-cap raster: 68 pairs and two complete checked passes, 408 clean window records, only 8.5 MiB distinct written locations. Larger-window attempt failed cuInit before any allocation.",
       "limit": "No new GPU run, dense 75-GiB qualification, isolated cache mechanism, current physical-card binding or refutation of foreign capacity reports.",
       "interpretation": "docs/capacity-evidence.md"
+    },
+    {
+      "id": "stage60-normal-topology-wrapper",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Paired both complete original debug wrappers: shared low-byte gate, special20b0 block, and CMP40 return versus CMP64 source-tail continuation.",
+      "limit": "No captured production execution, official field names, physical polarity, writable producer or new54-TPC result.",
+      "interpretation": "docs/topology-gates.md"
+    },
+    {
+      "id": "stage60-topology-gate-reads",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "Four read-only observations:2082/1 onCMP40 and20c2/1 onCMP64. Both pass the outer debug gate and miss the special20b0 comparison.",
+      "limit": "Host-readable inputs at the recorded time, not early privileged execution. No writes, resets,74SM/ECC requalification or extra HBM/SM.",
+      "interpretation": "docs/topology-gates.md"
     }
   ],
   "campaign_result": {
