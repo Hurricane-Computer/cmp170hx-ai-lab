@@ -1032,8 +1032,8 @@
     ],
     "field_name_corroboration": {
       "evidence_level": "third-party",
-      "url": "https://tangled.org/clee.sh/cmpunlocker/blob/main/overclocking/timings/reference/hbm2-timings-decoded.md",
-      "retrieval": "Indexed primary-author excerpts; complete blob/raw retrieval returned403. No full-file hash/commit or independent vendor-header audit.",
+      "url": "https://github.com/bayley/cmpunlocker/blob/5a7bb4b7e5056306fe49e8b824787659abb19914/overclocking/timings/reference/hbm2-timings-decoded.md",
+      "retrieval": "Complete pinned published GitHub file retrieved and hashed. Underlying vendor header not independently audited. Byte identity to inaccessible Tangled location not established.",
       "fields": {
         "controller_WR": [
           22,
@@ -1055,7 +1055,16 @@
           19,
           18
         ]
-      }
+      },
+      "earlier_indexed_url": "https://tangled.org/clee.sh/cmpunlocker/blob/main/overclocking/timings/reference/hbm2-timings-decoded.md",
+      "commit": "5a7bb4b7e5056306fe49e8b824787659abb19914",
+      "commit_utc": "2026-08-08T22:40:07Z",
+      "file_bytes": 31650,
+      "file_sha256": "2c7573887dfb33b44a1b309005f3fd35b311aea81745d6b6d74bfc717da2d42c",
+      "git_blob_sha1": "20a080197d6f1521aa7357655602aa161cff351a",
+      "retrieved_utc": "2026-10-17T22:27:20.521363+00:00",
+      "native_rank_enum_present_in_complete_analysis": false,
+      "rank_lead_deferred_until_new_definition_or_native_consumer": true
     },
     "conclusion": "Same-profile initialization includes DRAM mode words whose two payload fields match controller timings. A scalar CFG1 change is not the whole original initialization sequence.",
     "limits": [

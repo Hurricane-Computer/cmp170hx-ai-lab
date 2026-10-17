@@ -4,6 +4,7 @@
 
 - Bound six additional original App08 command stores to the same profile selector; three selected cases correlate two DRAM payload fields with controller timings.
 - Separated those real initialization settings from an unproved rank/density mechanism. No new write candidate, firmware execution or usable-capacity claim.
+- Follow-up: pinned and hashed a complete published timing analysis from a different location; it still supplies no rank enum. Preserved the missing vendor-header audit and unproved equivalence to the inaccessible location.
 
 ## 2026-10-17 — Bounded window allocator component compiled
 
