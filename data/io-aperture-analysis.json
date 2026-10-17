@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "stage": 56,
+  "evidence_level": "static-analysis",
+  "analysis_utc": "2026-10-17T14:37:46.228411+00:00",
+  "firmware_version": "615.71.09",
+  "firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+  "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "normal_range_class": {
+    "name": "IoAperture",
+    "class_id": "0x40549c",
+    "original_object_size": "0x90",
+    "base_name": "RegisterAperture",
+    "base_class_id": "0xfcaf2e"
+  },
+  "original_data_fields": {
+    "pGpu": "0x68",
+    "deviceIndex": "0x70",
+    "deviceInstance": "0x74",
+    "pMapping": "0x78",
+    "mappingStartAddr": "0x80",
+    "baseAddress": "0x84",
+    "length": "0x88"
+  },
+  "normal_contract": [
+    "Parent-backed initialization copies the existing GPU/device/mapping fields, adds the supplied offset to baseAddress, and stores the supplied length.",
+    "The method table supplies reads and writes of8/16/32bits, an explicit32-bit unicast write, and a register-range validity query.",
+    "Ordinary reads/writes form regAddr=baseAddress+relativeOffset and mappingRegAddr=regAddr-mappingStartAddr; existing sanity/filter handling is retained.",
+    "The inspected32-bit write implementation has an ordinary mapped-store path. Constructor field stores are not themselves hardware-register writes."
+  ],
+  "candidate_range": {
+    "supplied_offset": "0x100800",
+    "supplied_length": "0x80",
+    "two_alternative_array_constructors": true,
+    "GA100_decoder_bit_contract_established": false
+  },
+  "conditional_dispatch": {
+    "owner_class_id": "0xd1c956",
+    "owner_name": null,
+    "supplied_parameter_key": 42,
+    "slot_offset": "0x758",
+    "selected_function": "0x52659f8",
+    "selected_body": "Returns zero without a device operation.",
+    "interpreted_original_instructions": 473,
+    "actual_caller_supplied_key_bound": false,
+    "limit": "CPU-only interpretation of a supplied parameter, not observed chip dispatch or firmware execution."
+  },
+  "hardware_accesses": 0,
+  "configuration_changes": 0,
+  "extra_usable_memory_gib_demonstrated": 0,
+  "extra_working_sms_demonstrated": 0,
+  "limits": [
+    "A general register I/O contract does not identify a decoder configuration field or a reversible capacity change.",
+    "Numerical field/index matches alone do not identify another object or prove a consumer.",
+    "No physical-capacity ceiling and no refutation of the attributed75/76 or77.5/72GiB reports."
+  ],
+  "sources": [
+    {
+      "path": "src/nvidia/generated/g_ioaccess_nvoc.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_ioaccess_nvoc.c",
+      "bytes": 4791,
+      "sha256": "402f36a2fd3e773bd630a6f92e1b819c0ffd94887334a3f9cdf9494cd75d9440",
+      "git_blob_sha1": "30620c41526c84e76cb669aafe992a3ebf6c987d"
+    },
+    {
+      "path": "src/nvidia/generated/g_ioaccess_nvoc.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_ioaccess_nvoc.h",
+      "bytes": 15764,
+      "sha256": "9ebc81f6777e9f118fb57c61ad864016a222c7ed1c28be733cc5549a32e0c9cb",
+      "git_blob_sha1": "7e5ebebd590103e5e4ab5d652efc6b99115475e5"
+    },
+    {
+      "path": "src/nvidia/src/libraries/ioaccess/ioaccess.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/libraries/ioaccess/ioaccess.c",
+      "bytes": 6721,
+      "sha256": "bbe645d3e8f87a8715483fc20b87ac2ea2f13e5c9dc55d381d9b70d22e49a34e",
+      "git_blob_sha1": "d2c2dca3aec8985c2b639f7d4805e94e4525c889"
+    },
+    {
+      "path": "src/nvidia/generated/g_gpu_access_nvoc.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_gpu_access_nvoc.c",
+      "bytes": 30668,
+      "sha256": "f77fbbe4558a9186a12aecb055871911de9020804d8d1087b48d92822ce23a5d",
+      "git_blob_sha1": "94b045a4be29c5295eed719f3f1b4609775aed84"
+    },
+    {
+      "path": "src/nvidia/generated/g_gpu_access_nvoc.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_gpu_access_nvoc.h",
+      "bytes": 39990,
+      "sha256": "55120d5ad58cfc5f9a35de3c8b2d9125f165c63414ea3f7b58782fa62ff4ab5f",
+      "git_blob_sha1": "3ac77f2e5b4a2d8d523e2b267b7dd8f6627c25af"
+    },
+    {
+      "path": "src/nvidia/src/kernel/gpu/gpu_access.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gpu_access.c",
+      "bytes": 45458,
+      "sha256": "b6df5224f2681e3a606827b8dc0151e4e78aa6c438e47c27bc019120881f9cc0",
+      "git_blob_sha1": "0f11f486206d177a1ecaf008a10bdda59ca02a80"
+    }
+  ]
+}

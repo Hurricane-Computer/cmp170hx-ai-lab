@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Identified ordinary register-aperture path
+
+- Matched the original range class to NVIDIA IoAperture and its ordinary read/write contract; construction alone changes software fields.
+- Separated a conditional parameter42 return-zero slot from observed chip dispatch. No decoder-field meaning, hardware trial or extra memory/SM established.
+
 ## 2026-10-17 — Configured FBP and L2 geometry
 
 - Read 28 targeted normal geometry GETs on the two CMPs: 10/20 FBP/LTC for CMP40 and 8/16 for CMP64, with full reported slice totals.

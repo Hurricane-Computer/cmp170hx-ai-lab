@@ -345,6 +345,14 @@
       "result": "Both CMPs answered28 ordinary geometry GETs; their reported active FBP sets have full reported LTC/slice totals. Temporary handles released.",
       "limit": "Reported configuration only, no independent physical inventory, extra capacity, SM gain or GA100 mixed-memory decoder established.",
       "interpretation": "docs/memory-geometry.md"
+    },
+    {
+      "id": "stage56-normal-register-aperture",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Identified the original range class as IoAperture/RegisterAperture and connected ordinary width-specific I/O and mapped32-bit-store semantics. Parameter42 conditionally selects a return-zero constructor slot.",
+      "limit": "Actual caller key and GA100 decoder-field meaning remain unbound; no hardware access, configuration change, extra usable memory or SM.",
+      "interpretation": "docs/memory-geometry.md"
     }
   ],
   "campaign_result": {

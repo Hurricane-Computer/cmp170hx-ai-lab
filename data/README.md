@@ -32,3 +32,5 @@ These files are explicit technical projections of the research records, not copi
 [capacity-followup.json](capacity-followup.json) separates the 12 small live verifier controls, matching-version static fault mapping and historical configuration comparison. No additional capacity is asserted.
 
 [configured-memory-geometry.json](configured-memory-geometry.json) records the first ordinary FBP/FBPA/LTC geometry GETs and separately calculated consistency checks. Reported units do not establish hidden physical memory.
+
+[io-aperture-analysis.json](io-aperture-analysis.json) identifies the normal range class, I/O contract and a conditional chip-parameter result. It contains no hardware observation or decoder-bit programming recipe.

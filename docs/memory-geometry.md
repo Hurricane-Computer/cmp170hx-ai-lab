@@ -70,3 +70,14 @@ Mask popcounts agree with the reported counts. In each case, LTC count equals ac
 The reported configuration therefore shows no partial-LTC deficit that would motivate the older mixed-memory hypothesis. NVIDIA's older [GP100 FBPA note](https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt) discusses such coverage differences; its split-address programming is not established for GA100 by this measurement. We did not set its mixed-memory bit or probe a presumed upper physical address.
 
 These are driver-reported configured units, not independently counted HBM packages or a test of extra capacity. They establish neither a physical 40/64-GiB ceiling nor a failure of the attributed 75/76 and 77.5/72-GiB reports. [Selected results, derived checks and exact source hashes](../data/configured-memory-geometry.json).
+
+
+## The normal register-range object is IoAperture
+
+The original range class `0x40549c`, size `0x90`, is now identified as **IoAperture** by the exactly pinned NVIDIA [generated class definition](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_gpu_access_nvoc.h). Its original base-class identity also matches **RegisterAperture**. This replaces the earlier unnamed-object interpretation.
+
+The ordinary [implementation](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gpu_access.c) copies the parent's existing device/mapping state, adds a relative base offset and stores a length. Its methods read and write registers of specified widths through that mapping. Original-code field use and the mapped32-bit store path agree with this contract. These are software range objects; constructing one does not itself change the memory decoder or demonstrate another HBM package.
+
+Two alternative original array constructors supply offset `0x100800` and length `0x80`. They are selected through a chip-dependent method table, not an unconditional path. A bounded CPU interpretation with parameter42 selects a return-zero stub for the relevant slot rather than either array constructor. The actual caller-supplied chip parameter is not yet connected, so this remains a **conditional software result**, not an observation of GA100 execution.
+
+No GA100 decoder-bit contract, capacity-changing field or reversible hardware experiment follows yet. There was no hardware access or configuration change in this analysis. The larger foreign capacity reports remain open. [Explicit fields, provenance and applicability limits](../data/io-aperture-analysis.json).
