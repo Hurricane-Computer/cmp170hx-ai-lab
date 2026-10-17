@@ -6,7 +6,7 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 ## CMP40 memory overclock: 1215 → 1350 MHz
 
-**Our Samsung 40-GiB CMP 170HX (`10de:2082`) now operates at 1350 MHz, up 11.11% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269, 1296, 1323 and 1350 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
+**The highest recorded operating clock of our Samsung 40-GiB CMP 170HX (`10de:2082`) is 1350 MHz, up 11.11% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269, 1296, 1323 and 1350 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
 
 **Research resumed on 17 October: 1350 MHz is a tested step, not an established maximum.** We have not qualified long-term stability, the full HBM address space, bandwidth gain or LLM speed. The setting is volatile. See the [clock method and results](docs/clocks.md) and [curated trial records](data/clock-trials.json).
 
@@ -20,12 +20,14 @@ This campaign has not demonstrated additional usable memory above the existing 4
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB /1350 MHz, 17 Oct 09:09 UTC |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 8 GiB /1728 MHz after reset, 17 Oct 09:09 UTC |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | Unavailable under candidate B, 17 Oct 09:40 UTC; previously 40 GiB / 1350 MHz |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | Unavailable under candidate B, 17 Oct 09:40 UTC; previously 8 GiB / 1728 MHz |
 
 The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied 64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.
 
-The first [P2P matrix](docs/peer-memory.md) advertises no route among the two CMP variants and Blackwell with the current guest build. CMP64 is CUDA-visible after a targeted reset but currently reports its 8-GiB base configuration; the historical64-GiB unlock was not reproduced in that boot.
+The first [P2P matrix](docs/peer-memory.md) advertised no route among the two CMP variants and Blackwell with the earlier guest module. At that point CMP64 was CUDA-visible after a targeted reset and reported its 8-GiB base configuration; the historical 64-GiB unlock was not reproduced in that boot.
+
+Subsequent [mixed-driver trials](docs/driver-candidates.md) built two concrete candidates, but both CMPs failed their BAR2 initialization test. Only Blackwell is currently NVML-visible in that guest; no new usable-memory or P2P result is claimed.
 
 ## What is here
 

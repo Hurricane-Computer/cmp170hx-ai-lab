@@ -40,3 +40,7 @@ The [pinned 77.5/72-GiB community record](https://github.com/Consensus-Protocol/
 ## Peer memory
 
 [NVIDIA multi-GPU guide](https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html) and [directed peer API](https://docs.nvidia.com/cuda/cuda-runtime-api/cuda_runtime_api/group__CUDART__PEER.html): transfer/context rules and IOMMU scope. The [pinned opt-in fork](https://github.com/admunch888/cmpunlocker/blob/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03/README.md) supplies source and owner reports, not a lab reproduction; [peer-memory.json](../data/peer-memory.json) records exact source hashes and current test limits.
+
+## Driver candidates
+
+[NVIDIA615.71.09 source](https://github.com/NVIDIA/open-gpu-kernel-modules/tree/615.71.09) and the [pinned mixed-profile fork](https://github.com/admunch888/cmpunlocker/tree/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03) supplied the build inputs. Download fingerprints, the exact candidate hashes and limited live failure observations are in [driver-candidates.json](../data/driver-candidates.json). A successful build is not device readiness.

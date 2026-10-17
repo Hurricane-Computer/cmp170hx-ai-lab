@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-17T09:45:04.866625+00:00",
+  "kernel": "6.8.0-147-generic",
+  "driver_version": "615.71.09",
+  "source_fork_revision": "7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03",
+  "nvidia_source_archive_sha256": "caf48cda7d5fe7374d1d24ca4a90efb4dc783eefabfad5fa4b64fdc24213b62a",
+  "fork_archive_sha256": "395236b0f0980242f499b4550d07d3055a9c310f857da7b8e2c17882786e0809",
+  "compiler_jobs": 4,
+  "runtime_module_package_preserved": true,
+  "previous_initrd_backed_up": true,
+  "p2p_patches_applied": false,
+  "explicit_cuda_test_allocations": 0,
+  "copy_smoke_executed": false,
+  "actual_peer_copy_executed": false,
+  "actual_peer_kernel_executed": false,
+  "variants": [
+    {
+      "name": "A",
+      "evidence_level": "observed",
+      "module_file_sha256": "478ea8033c0a1ccc521e644ccab480faba146b672bc01a701a2f86bf5b59ae0c",
+      "evidence_utc": "2026-10-17T09:32:07.897976+00:00",
+      "difference": "Pinned mixed40/64profile; no P2P or clock opt-in.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 0,
+      "cmp_initialization_error": "0x24:0x72:1298",
+      "self_test": "kbusVerifyBar2_GM107",
+      "self_test_readback": "0 instead of the test pattern",
+      "ready_gpu_count": 1,
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false
+    },
+    {
+      "name": "B",
+      "evidence_level": "observed",
+      "module_file_sha256": "1ed2d6af8114025ab042059eb0b00ad7aa48e5371fc86a33960248fe1d8324e9",
+      "evidence_utc": "2026-10-17T09:40:58.928770+00:00",
+      "difference": "OriginalNVIDIA PRAMINplacement restored; existing test-address log promotedINFOtoERROR.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 1,
+      "cmp_initialization_error": "0x24:0x72:1298",
+      "self_test": "kbusVerifyBar2_GM107",
+      "self_test_readback": "0 instead of the test pattern",
+      "ready_gpu_count": 1,
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false
+    }
+  ],
+  "configured_fb_mib_in_candidate_a_initialization": {
+    "cmp40": 40960,
+    "cmp64": 65536
+  },
+  "mapping_b_diagnostic": {
+    "cmp40": {
+      "previous_window_fb_offset": "0x9fff00000",
+      "test_fb_offset": "0x9f4ade000",
+      "test_aperture": 0,
+      "window_register": "0x0009f4ad"
+    },
+    "cmp64": {
+      "previous_window_fb_offset": "0xffff00000",
+      "test_fb_offset": "0xff48de000",
+      "test_aperture": 0,
+      "window_register": "0x000ff48d"
+    },
+    "readback_mmio_offset": "0x70e000",
+    "readback_value": "0x0",
+    "both_cmp_bar1_final_resource_mib": 64
+  },
+  "latest_guest_status": {
+    "evidence_utc": "2026-10-17T09:40:58.928770+00:00",
+    "blackwell": "NVMLvisible",
+    "cmp40": "probe-timeinitfailed",
+    "cmp64": "probe-timeinitfailed",
+    "gpu_services_left_stopped": true,
+    "stock_driver_not_automatically_restored": true
+  },
+  "limits": [
+    "Configured64/40GiB is not ready or usablememory.",
+    "Neither variant reached the planned smallCUDAcopychecks orP2Ptrial.",
+    "Removing the PRAMIN placement clamp alone did not solve this initfailure; this does not close every mapping hypothesis.",
+    "Module srcversion was equal across the two variants; it is not a unique identifier for the rebuilt resource-manager core."
+  ],
+  "compressed_module_audit": {
+    "evidence_utc": "2026-10-17T09:22:46.254554+00:00",
+    "earlier_stage42_query_read_compressed_bytes": true,
+    "corrected_elf_query_agrees_markers_absent": true,
+    "modules": [
+      {
+        "kernel": "6.8.0-147-generic",
+        "file_sha256": "3171edbeaea1c43f8b4c9711e45213dd01b986bacc2395fb6d040998a6596881",
+        "elf_sha256": "deabe7a3257b6f0798052da510a6671c3fd2dce6a008402df5e0a9278c38b26a",
+        "bytes_file": 11285512,
+        "bytes_elf": 21383864,
+        "markers": {
+          "CMPUNLOCK_P2P": false,
+          "CMPUNLOCK_BAR1P2P": false,
+          "SEC2_DEBUG_LATE_PMA": false,
+          "CMPUNLOCK": false,
+          "SEC2_DEBUG": false
+        }
+      },
+      {
+        "kernel": "6.8.0-142-generic",
+        "file_sha256": "40788dbf8dee295f16fa305d7d135e47a5d0702dc035218484f4b9e9680f8dbf",
+        "elf_sha256": "aace2d544883c280f657dc5103ec02603df475efedb1d83e9e9b73b8ed494870",
+        "bytes_file": 11285646,
+        "bytes_elf": 21383864,
+        "markers": {
+          "CMPUNLOCK_P2P": false,
+          "CMPUNLOCK_BAR1P2P": false,
+          "SEC2_DEBUG_LATE_PMA": false,
+          "CMPUNLOCK": false,
+          "SEC2_DEBUG": false
+        }
+      }
+    ]
+  }
+}

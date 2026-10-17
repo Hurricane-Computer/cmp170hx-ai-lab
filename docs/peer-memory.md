@@ -2,6 +2,8 @@
 
 **Identical cards are not a general CUDA P2P prerequisite.** Support depends on the actual device pair, driver and interconnect. Check each direction independently. Our first matrix advertises no supported route, so it is a baseline for further work, not an impossibility claim.
 
+Later [baseline-driver trials](driver-candidates.md) left the CMPs unavailable under the retained test candidate. The following six-pair matrix belongs to its earlier stated module and timestamp.
+
 ## Observed on 17 October 2026
 
 Three physical GPUs were assigned to one Linux passthrough guest with open driver615.71.09. The initial boot left the CMP64 unable to initialize GSP. One reset confined to its exclusive PCIe branch made it CUDA-visible again. Other running guests retained their process IDs. After that reset it reports **8 GiB at1728MHz**, not the historical64-GiB unlock. CMP40 still reports40GiB at1350MHz. The current driver must reproduce the ordinary64-GiB unlock separately; device visibility is not that unlock.
@@ -31,3 +33,5 @@ The same README contains an earlier common-switch requirement and a later owner 
 Next: prepare the exact-release opt-in driver candidate offline, account for both CMP IDs, ordinary memory unlock, BAR1 support and actual topology, then use the already prepared bounded data/peer-kernel check if the configuration advertises a valid route. Keep capability, mapping creation, copied bytes and direct kernel access as separate outcomes. P2P would improve communication; it would not automatically merge all VRAM into one device.
 
 [Curated matrix and source hashes](../data/peer-memory.json). Capacity research and further SM hypotheses continue separately. The scheduled research task was reactivated at the owner's request on17October.
+
+Marker-method correction: Stage42 scanned the compressed module file. Stage43 decompressed it, checked ELF and confirmed the same absent markers. See [corrected hashes and method](driver-candidates.md#marker-method-correction).

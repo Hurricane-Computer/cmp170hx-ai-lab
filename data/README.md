@@ -4,6 +4,7 @@ These files are explicit technical projections of the research records, not copi
 
 - [capacity-evidence.json](capacity-evidence.json): external77.5/72-GiB lead, archived full-word test audit, historical47-GiB alias and CPU method counterexamples; no new GPU capacity result.
 - [peer-memory.json](peer-memory.json): six directed guest capability queries, exact current build/config, separate current8-GiB CMP64 observation and untested BAR1-source lead.
+- [driver-candidates.json](driver-candidates.json): two built/live-tested driver variants, actual BAR2 failure, retained unavailable-CMP state and corrected compressed/ELF module evidence.
 - [cards.json](cards.json): non-identifying variant observations and evidence timestamps.
 - [clock-trials.json](clock-trials.json): the five observed CMP40 clock steps, short-copy hashes, test limits and attributed prior art.
 - [bandwidth-load.json](bandwidth-load.json): one bounded1350-MHz load, CUDA-event throughput, explicit read+write byte counts, output hashes and sampled telemetry; no long-term or full-memory qualification.

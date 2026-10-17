@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-17 — Two concrete driver trials and BAR2 failure
+
+- Built615.71.09 for the actual guest kernel, then tested a mixed-profile candidate and a distinct original-PRAMIN-placement variant.
+- Both CMPs failed the BAR2 self-test after internal64/40-GiB declarations; no CUDA-copy or P2P success. Blackwell remained visible.
+- Recorded the retained experimental state and preserved stock-module/initrd recovery artifacts. No repeated identical reset campaign.
+- Corrected the module-marker method: compressed bytes were insufficient; actual ELF decoding confirmed the same absent markers.
+
 ## 2026-10-17 — Research resumed and first P2P matrix
 
 - Reactivated the existing recurring research task at the owner's request.

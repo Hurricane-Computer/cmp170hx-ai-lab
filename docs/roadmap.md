@@ -25,6 +25,10 @@ The complete ordinary rank accounting and identical partition table do not thems
 
 The first [directed P2P matrix](peer-memory.md) is negative with the current guest build. A pinned opt-in BAR1 implementation for both CMP IDs is a separate source candidate. Prepare it against the exact driver, actual BAR1 resources and physical topology; reproduce the ordinary64-GiB unlock separately. Only checked peer copies plus explicit peer-pointer kernel access count as demonstrated P2P.
 
+## Current driver prerequisite
+
+Two [mixed-profile candidates](driver-candidates.md) failed the same BAR2 self-test. Trace its write mapping and BAR0 readback before another physical trial; do not repeat those modules or the initial-placement-only hypothesis. The retained guest currently exposes only Blackwell through NVML. P2P remains queued behind this usable-driver prerequisite.
+
 ## Useful independent contributions
 
 Matched original firmware versions with hashes and lawful access instructions; exact hardware identities without serial numbers; minimal, bounded topology observations; explicit announced/reported/usable capacity; and negative results with a distinguishable method. An unreproduced screenshot or nominal capacity is retained as a lead, not promoted to a result.

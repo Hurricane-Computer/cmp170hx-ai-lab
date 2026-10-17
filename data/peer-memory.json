@@ -151,5 +151,18 @@
     "A reported peer capability or successful copy API alone would not prove data movement.",
     "CMP64 is a variant label; current8GiB baseline differs from its historical64GiB unlock.",
     "No SM/ECC requalification, capacity sweep, BIOS flash or OTP programming."
-  ]
+  ],
+  "compressed_marker_method_correction": {
+    "evidence_utc": "2026-10-17T09:22:46.254554+00:00",
+    "stage42_scanned_compressed_file": true,
+    "corrected_elf_sha256": "deabe7a3257b6f0798052da510a6671c3fd2dce6a008402df5e0a9278c38b26a",
+    "corrected_elf_markers": {
+      "CMPUNLOCK_P2P": false,
+      "CMPUNLOCK_BAR1P2P": false,
+      "SEC2_DEBUG_LATE_PMA": false,
+      "CMPUNLOCK": false,
+      "SEC2_DEBUG": false
+    },
+    "capability_matrix_unchanged_historical": true
+  }
 }
