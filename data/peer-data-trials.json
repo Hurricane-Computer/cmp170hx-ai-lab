@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_utc": "2026-10-17T19:25:15.980186+00:00",
+  "recorded_utc": "2026-10-17T19:46:47.846062+00:00",
   "evidence_level": "observed",
   "driver_release": "615.71.09",
   "unchanged_G_module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
@@ -473,6 +473,210 @@
           "sha256": "45c9f4ccf54c26aed23480482394019ab17d232e8fc52e0cb37f00ac4590eb22"
         }
       ]
+    },
+    {
+      "stage": 73,
+      "completed_utc": "2026-10-17T19:41:45.793009+00:00",
+      "phase": "completed-independent-mapped-peer-verdict",
+      "explicit_peer_enable_calls": 1,
+      "peer_copy_calls": 0,
+      "peer_kernel_launches": 1,
+      "local_result_publish_kernel_launches": 1,
+      "bytes_in_remote_owner_allocation": 1048576,
+      "accessor_result_VRAM_bytes": 64,
+      "mapped_host_result_bytes": 64,
+      "pairs": [
+        {
+          "accessor": "cmp64",
+          "owner": "cmp40",
+          "can_access_peer": 1,
+          "peer_enable_rc": 0,
+          "outcome": "mapped-verdict-observed",
+          "mapped_verdict": "DATA_ERROR",
+          "mapped_host_changed": true,
+          "mapped_metadata_valid": true,
+          "checked_words": 131072,
+          "bad_words": 131072,
+          "first_bad_word": 0,
+          "mapped_result_sha256": "8e101669a0d1ee58f8589a1e277f2c5e59f439ffbd32852ae807b00e11c8e17d",
+          "D2H_matches_mapped": true,
+          "D2H_host_changed": true,
+          "D2H_result_sha256": "8e101669a0d1ee58f8589a1e277f2c5e59f439ffbd32852ae807b00e11c8e17d",
+          "owner_post_verified": true,
+          "owned_resources_released": true,
+          "source_checks": [
+            {
+              "label": "owner-before-peer",
+              "expected_sha256": "4bae24d48d280b4e27d3bc573d7cfdfaf6495be9c209470e6c810fc6a09a0db8",
+              "actual_sha256": "4bae24d48d280b4e27d3bc573d7cfdfaf6495be9c209470e6c810fc6a09a0db8",
+              "match": true,
+              "host_sentinel_changed": true
+            },
+            {
+              "label": "owner-after-peer",
+              "expected_sha256": "4bae24d48d280b4e27d3bc573d7cfdfaf6495be9c209470e6c810fc6a09a0db8",
+              "actual_sha256": "4bae24d48d280b4e27d3bc573d7cfdfaf6495be9c209470e6c810fc6a09a0db8",
+              "match": true,
+              "host_sentinel_changed": true
+            }
+          ],
+          "capability_is_forced": true,
+          "fresh_nonce_and_phase_validated": true,
+          "checked_word_count_written_by_verifier": true,
+          "cleanup_all_rc_zero": true,
+          "selected_API_results": [
+            {
+              "label": "enable-peer",
+              "rc": 0
+            },
+            {
+              "label": "launch-peer-verify",
+              "rc": 0
+            },
+            {
+              "label": "synchronize-peer-verifier",
+              "rc": 0
+            },
+            {
+              "label": "launch-local-result-publisher",
+              "rc": 0
+            },
+            {
+              "label": "synchronize-system-publication",
+              "rc": 0
+            },
+            {
+              "label": "download-local-verdict",
+              "rc": 0
+            }
+          ],
+          "checked_cleanup_calls": 13
+        }
+      ],
+      "force_option_retained": true,
+      "test_guest_restarts": 1,
+      "exclusive_CMP_bus_resets": 0,
+      "sources": [
+        {
+          "name": "stage73_trial_host.py",
+          "sha256": "155567e096f26a88e15bb890d196782fc1d7e6f7cad11ac96776789705adbef0"
+        },
+        {
+          "name": "stage73_config_guest.py",
+          "sha256": "77352811295b5939bd2d58e20522e4b87126fb4d36e4abbe2b4275379a454090"
+        },
+        {
+          "name": "stage73_peer_guest.py",
+          "sha256": "75b5857c96b6ede64792cd1f01881e31bf319d24dfab05b784784811fd96c848"
+        }
+      ],
+      "verifier_PTX_sha256": "bfc687c72363b2c53e050f4bcb6f9d71d6fde54ee6604a135c94b1511908c4e1"
+    },
+    {
+      "stage": 75,
+      "completed_utc": "2026-10-17T19:46:45.589051+00:00",
+      "phase": "completed-independent-mapped-peer-verdict",
+      "explicit_peer_enable_calls": 1,
+      "peer_copy_calls": 0,
+      "peer_kernel_launches": 1,
+      "local_result_publish_kernel_launches": 1,
+      "bytes_in_remote_owner_allocation": 1048576,
+      "accessor_result_VRAM_bytes": 64,
+      "mapped_host_result_bytes": 64,
+      "pairs": [
+        {
+          "accessor": "cmp64",
+          "owner": "cmp40",
+          "can_access_peer": 1,
+          "peer_enable_rc": 0,
+          "outcome": "mapped-verdict-observed",
+          "mapped_verdict": "DATA_ERROR",
+          "mapped_host_changed": true,
+          "mapped_metadata_valid": true,
+          "checked_words": 131072,
+          "bad_words": 131072,
+          "first_bad_word": 0,
+          "mapped_result_sha256": "d74ebe83845d01e8120d2aeed6a4696e17dad1f298bc761113ac34e0f10bde56",
+          "D2H_matches_mapped": true,
+          "D2H_host_changed": true,
+          "D2H_result_sha256": "d74ebe83845d01e8120d2aeed6a4696e17dad1f298bc761113ac34e0f10bde56",
+          "owner_post_verified": true,
+          "owned_resources_released": true,
+          "source_checks": [
+            {
+              "label": "owner-before-peer",
+              "expected_sha256": "116779850c71543c3333429744866417f6d672b6fc1c3dcd14073cec5b5f730a",
+              "actual_sha256": "116779850c71543c3333429744866417f6d672b6fc1c3dcd14073cec5b5f730a",
+              "match": true,
+              "host_sentinel_changed": true
+            },
+            {
+              "label": "owner-after-peer",
+              "expected_sha256": "116779850c71543c3333429744866417f6d672b6fc1c3dcd14073cec5b5f730a",
+              "actual_sha256": "116779850c71543c3333429744866417f6d672b6fc1c3dcd14073cec5b5f730a",
+              "match": true,
+              "host_sentinel_changed": true
+            }
+          ],
+          "capability_is_forced": true,
+          "fresh_nonce_and_phase_validated": true,
+          "checked_word_count_written_by_verifier": true,
+          "cleanup_all_rc_zero": true,
+          "selected_API_results": [
+            {
+              "label": "enable-peer",
+              "rc": 0
+            },
+            {
+              "label": "launch-peer-verify",
+              "rc": 0
+            },
+            {
+              "label": "synchronize-peer-verifier",
+              "rc": 0
+            },
+            {
+              "label": "launch-local-result-publisher",
+              "rc": 0
+            },
+            {
+              "label": "synchronize-system-publication",
+              "rc": 0
+            },
+            {
+              "label": "download-local-verdict",
+              "rc": 0
+            }
+          ],
+          "checked_cleanup_calls": 13,
+          "ordinary_owner_flush": {
+            "command": "0x2080130e",
+            "flags": "0x38",
+            "meaning": "video-memory write-back, invalidate, full cache",
+            "status": 0,
+            "RM_client_cleanup_status": 0,
+            "direct_MMIO_writes": 0
+          }
+        }
+      ],
+      "force_option_retained": true,
+      "test_guest_restarts": 1,
+      "exclusive_CMP_bus_resets": 0,
+      "sources": [
+        {
+          "name": "stage75_trial_host.py",
+          "sha256": "75bb89ce0928d7db7825ad5aa1885db0235a14124fa3b41481312c6e24006930"
+        },
+        {
+          "name": "stage75_config_guest.py",
+          "sha256": "08fbb226f0a40df402f95396d8aeacc21ad7304a636fd056f6729c71795c8c86"
+        },
+        {
+          "name": "stage75_peer_guest.py",
+          "sha256": "efc4b2cda9964deaa712b85c31b07768606e2b297c0224482c71646e2b02ba89"
+        }
+      ],
+      "verifier_PTX_sha256": "bfc687c72363b2c53e050f4bcb6f9d71d6fde54ee6604a135c94b1511908c4e1"
     }
   ],
   "interpretation": {
@@ -485,7 +689,11 @@
     "one_cause_not_supported": "Activation alone did not reproduce ordinary local transfer corruption in the diagnostic.",
     "additional_usable_memory_or_SM_demonstrated": false,
     "physical_CMP40_capacity_ceiling_established": false,
-    "foreign_75_76_and_77_5_72_reports_remain_open": true
+    "foreign_75_76_and_77_5_72_reports_remain_open": true,
+    "independent_verdict": "Fresh GPU-authored mapped-host verdict and matching separate D2H establish actual wrong remote-read data in Stage73, not merely an unchanged D2H destination. All131072words differ; owner source still matches before/after.",
+    "owner_cache_variation": "One ordinary owner write-back/invalidate/full-cache control returns0, followed by the same valid independent verdict with all131072words wrong. This one flush did not repair this scoped peer read.",
+    "old_negative_limit_preserved": true,
+    "further_peer_test_requires": "An actual peer-address mapping/selected transport difference; no unchanged flag, local controls, or owner-flush replay."
   },
   "latest_state": {
     "force_option_retained_for_diagnosis": true,
@@ -497,6 +705,27 @@
     "model_not_restored": true,
     "last_health_has_no_Xid_lines": true,
     "no_host_reboot": true,
-    "other_guest_process_snapshot_unchanged": true
-  }
+    "other_guest_process_snapshot_unchanged": true,
+    "observed_utc": "2026-10-17T19:46:44.049194+00:00"
+  },
+  "preparation_errors": [
+    {
+      "stage": 72,
+      "classification": "Worker was staged on the host but missing in the guest.",
+      "peer_enable_copy_kernel_calls": 0,
+      "ordinary_owner_flush_executed": false,
+      "test_guest_restarts": 1,
+      "exclusive_CMP_bus_resets": 2,
+      "actual_peer_fault_inferred": false
+    },
+    {
+      "stage": 74,
+      "classification": "Unrecognized nvidia-smi query field before flush or peer activation; replaced by the previously used XML lookup.",
+      "peer_enable_copy_kernel_calls": 0,
+      "ordinary_owner_flush_executed": false,
+      "test_guest_restarts": 1,
+      "exclusive_CMP_bus_resets": 0,
+      "actual_peer_fault_inferred": false
+    }
+  ]
 }

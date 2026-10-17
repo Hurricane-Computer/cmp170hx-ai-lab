@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Independent peer verdict and owner-cache variation
+
+- A GPU-authored mapped-host verdict establishes all 131,072 remote words wrong in a bounded 1-MiB CMP40-to-CMP64 read; separate D2H matches the verdict and owner data stays correct.
+- One ordinary owner full-cache write-back/invalidate does not change that scoped result. Kept both preparation errors and their recovery costs separate from peer failures; no extra capacity or SM.
+
 ## 2026-10-17 — Peer activation, wrong data, and local-transfer controls
 
 - Explicit pair option permits the tested activation, but one 1-MiB peer copy and one separate remote-read kernel produce wrong destination hashes despite API success. Remote write/reverse data direction remains unqualified.
