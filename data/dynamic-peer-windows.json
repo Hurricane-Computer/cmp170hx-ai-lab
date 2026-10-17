@@ -176,7 +176,57 @@
         "sha256": "ce1f1a6d311be10b3d84818407ec0dd65b5fb4f564fcfb36f69fd536e2f59f5b",
         "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv-dmabuf.c"
       }
-    ]
+    ],
+    "evidence_as_of_stage": 80
   },
-  "interpretation": "Bounded owned CPU windows work. I/O registration rejects before a GPU read. No physical capacity ceiling inferred; positive large-memory reports remain open."
+  "interpretation": "Bounded owned CPU windows work. I/O registration rejects before a GPU read. No physical capacity ceiling inferred; positive large-memory reports remain open.",
+  "registration_failure_followup": {
+    "stage": 81,
+    "evidence_level": "observed-and-static-analysis",
+    "recorded_utc": "2026-10-17T20:34:31.657350+00:00",
+    "source_check_utc": "2026-10-17T20:31:01.671335+00:00",
+    "matching_guard_diagnostics": [
+      {
+        "utc": "2026-10-17T20:20:47.775517+00:00",
+        "category": "GPU_FB_OR_BAR2_OVERLAP",
+        "within_stage80_trial_interval": true
+      },
+      {
+        "utc": "2026-10-17T20:20:48.474485+00:00",
+        "category": "GPU_FB_OR_BAR2_OVERLAP",
+        "within_stage80_trial_interval": true
+      }
+    ],
+    "source_function": "osCheckGpuBarsOverlapAddrRange",
+    "source_guard_returns": "NV_ERR_INVALID_ADDRESS",
+    "actual_G_sources": [
+      {
+        "path": "src/nvidia/arch/nvalloc/unix/src/osmemdesc.c",
+        "sha256": "c1cbd0b0bb814d5ca1d0a022d59a4b91ae90ca2663ee5d48621f7527d85cd897",
+        "actual_G_equals_official": true,
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/arch/nvalloc/unix/src/osmemdesc.c"
+      },
+      {
+        "path": "src/nvidia/src/kernel/mem_mgr/os_desc_mem.c",
+        "sha256": "664dcb2a16f97e5493d7b3edce40fe86c9af6998fa9bea31945311655d8ea171",
+        "actual_G_equals_official": true,
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/mem_mgr/os_desc_mem.c"
+      },
+      {
+        "path": "kernel-open/nvidia/os-mlock.c",
+        "sha256": "dcee9c5d88286ab8b07b6a9e991b64da7f125c0c8a387f11ab1aecbf5a0cd15e",
+        "actual_G_equals_official": true,
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/os-mlock.c"
+      }
+    ],
+    "exercised_rejecting_condition_identified": true,
+    "CUDA_error_translation_directly_traced": false,
+    "individual_log_to_direction_directly_tagged": false,
+    "guard_removed_or_forced_success": false,
+    "new_CUDA_or_NVML_calls": 0,
+    "new_GPU_trials": 0,
+    "VM_restarts": 0,
+    "GPU_resets": 0,
+    "interpretation": "Recorded GPU-aperture rejection, distinct from a generic PFN hypothesis. Preserve the normal range check; ordinary allocation-aware GPU mapping remains separate."
+  }
 }

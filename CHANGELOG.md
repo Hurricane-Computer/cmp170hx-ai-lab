@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Identified the I/O registration's GPU-range rejection
+
+- Two recorded kernel diagnostics coincide with Stage80's registrations and identify GPU framebuffer/BAR2 overlap. Three actual G source hashes match upstream, including the rejecting check.
+- Connected the normal import contract and its deadlock rationale; kept the check intact. No new GPU trial, configuration change, restart or capacity claim.
+
 ## 2026-10-17 — Owned DMA-BUF windows and rejected I/O registration
 
 - Default exports permit full1MiB CPU comparisons with zero wrong bytes on both CMPs; explicit PCIe exports return801. Source before/after checks and cleanup pass.
