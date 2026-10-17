@@ -21,6 +21,10 @@ A new writer, latch, ordering condition or access context must be distinguishabl
 
 The complete ordinary rank accounting and identical partition table do not themselves yield an extra-capacity experiment. CMP40 toward 48 GiB is the first geometry hypothesis, not a categorical upper limit. The [77.5-GiB counterevidence and test-method audit](capacity-evidence.md) are an explicit parallel lead: 80/96-GiB hypotheses would require new evidence that changes the presently decoded 8-GiB-per-stack model. Even 48 GiB is not proven physically available. New evidence of other package/channel population, a different normal configuration path or a reproduced external method could reopen a hypothesis.
 
+## Peer communication
+
+The first [directed P2P matrix](peer-memory.md) is negative with the current guest build. A pinned opt-in BAR1 implementation for both CMP IDs is a separate source candidate. Prepare it against the exact driver, actual BAR1 resources and physical topology; reproduce the ordinary64-GiB unlock separately. Only checked peer copies plus explicit peer-pointer kernel access count as demonstrated P2P.
+
 ## Useful independent contributions
 
 Matched original firmware versions with hashes and lawful access instructions; exact hardware identities without serial numbers; minimal, bounded topology observations; explicit announced/reported/usable capacity; and negative results with a distinguishable method. An unreproduced screenshot or nominal capacity is retained as a lead, not promoted to a result.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-17 — Research resumed and first P2P matrix
+
+- Reactivated the existing recurring research task at the owner's request.
+- Queried all six directed pairs among Blackwell and the two CMP variants in one passthrough guest; all returned capability0. No peer transfers or forced capabilities.
+- Recovered CMP64 device readiness with one exclusive reset; recorded its current8-GiB/1728-MHz base state separately from the historical64-GiB unlock. CMP40 remained40GiB/1350MHz.
+- Pinned the separate opt-in BAR1 source candidate and its configuration/topology limits; no test-driver replacement was performed.
+
 ## 2026-10-16 — Capacity counterevidence and executable method example
 
 - Kept CMP40 toward80GiB explicitly open alongside the first48-GiB target and the identity-derived density model.

@@ -36,3 +36,7 @@ Own original-PROM input hashes and vendor image versions are catalogued in[data/
 ## Capacity counterevidence audit
 
 The [pinned 77.5/72-GiB community record](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md) is an attributed report with an unreviewed original checking implementation. Archived `hbm45.cu` is separately identified by its source hash in [capacity evidence](capacity-evidence.md); its previously linked Gist API returned HTTP404 during this audit. The CPU counterexample is original lab code and supplies no hardware capacity measurement.
+
+## Peer memory
+
+[NVIDIA multi-GPU guide](https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html) and [directed peer API](https://docs.nvidia.com/cuda/cuda-runtime-api/cuda_runtime_api/group__CUDART__PEER.html): transfer/context rules and IOMMU scope. The [pinned opt-in fork](https://github.com/admunch888/cmpunlocker/blob/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03/README.md) supplies source and owner reports, not a lab reproduction; [peer-memory.json](../data/peer-memory.json) records exact source hashes and current test limits.

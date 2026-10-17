@@ -23,6 +23,8 @@ Stage40 was a separate requested bounded load follow-up at the unchanged1350MHz 
 
 Stage41 was an offline capacity-evidence audit plus a CPU counterexample. It preserves the external77.5/72-GiB positive lead, audits the archived full-word checker and demonstrates two false-pass methods under a synthetic alias. It does not reproduce a historical GPU run or unlock memory. See [capacity evidence](capacity-evidence.md).
 
+Stage42 resumed research and queried all six directed peer pairs in a passthrough guest. All capabilities were0; no data transfer followed. One exclusive CMP64 reset recovered device readiness, while its current8-GiB report remains separate from the historical64-GiB unlock. See [peer-memory observations](peer-memory.md).
+
 ## Accepted readback versus effective topology
 
 The memory CTRL values are separate from the effective FBP/FBPA/FBIO status. CMP40 retained the observed840/c03000 geometry and10 logicalFBPs; CMP64 retained852/c0330c and8 logicalFBPs in these experiments. Later source work confirmed that the original training paths consume those effective masks.

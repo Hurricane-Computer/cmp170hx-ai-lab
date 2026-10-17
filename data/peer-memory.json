@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-17T09:11:38.399166+00:00",
+  "evidence_level": "observed",
+  "scope": "Directed CUDA peer capability in one Linux passthrough guest; no forced reporting and no actual peer-copy/kernel trial.",
+  "driver_version": "615.71.09",
+  "guest_module_sha256": "3171edbeaea1c43f8b4c9711e45213dd01b986bacc2395fb6d040998a6596881",
+  "peer_query_utc": "2026-10-17T09:08:03.151125+00:00",
+  "pairs": [
+    {
+      "accessor": "blackwell",
+      "memory_owner": "cmp40",
+      "query_result": 0,
+      "can_access_peer": false,
+      "access_supported": 0,
+      "native_atomic_supported": 0,
+      "enable_attempted": false,
+      "copy_integrity_result": null,
+      "peer_kernel_integrity_result": null
+    },
+    {
+      "accessor": "blackwell",
+      "memory_owner": "cmp64",
+      "query_result": 0,
+      "can_access_peer": false,
+      "access_supported": 0,
+      "native_atomic_supported": 0,
+      "enable_attempted": false,
+      "copy_integrity_result": null,
+      "peer_kernel_integrity_result": null
+    },
+    {
+      "accessor": "cmp40",
+      "memory_owner": "blackwell",
+      "query_result": 0,
+      "can_access_peer": false,
+      "access_supported": 0,
+      "native_atomic_supported": 0,
+      "enable_attempted": false,
+      "copy_integrity_result": null,
+      "peer_kernel_integrity_result": null
+    },
+    {
+      "accessor": "cmp40",
+      "memory_owner": "cmp64",
+      "query_result": 0,
+      "can_access_peer": false,
+      "access_supported": 0,
+      "native_atomic_supported": 0,
+      "enable_attempted": false,
+      "copy_integrity_result": null,
+      "peer_kernel_integrity_result": null
+    },
+    {
+      "accessor": "cmp64",
+      "memory_owner": "blackwell",
+      "query_result": 0,
+      "can_access_peer": false,
+      "access_supported": 0,
+      "native_atomic_supported": 0,
+      "enable_attempted": false,
+      "copy_integrity_result": null,
+      "peer_kernel_integrity_result": null
+    },
+    {
+      "accessor": "cmp64",
+      "memory_owner": "cmp40",
+      "query_result": 0,
+      "can_access_peer": false,
+      "access_supported": 0,
+      "native_atomic_supported": 0,
+      "enable_attempted": false,
+      "copy_integrity_result": null,
+      "peer_kernel_integrity_result": null
+    }
+  ],
+  "current_guest_observations": {
+    "blackwell": {
+      "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
+      "reported_memory_mib": 97887,
+      "memory_used_mib": 2,
+      "memory_clock_mhz": 405
+    },
+    "cmp64": {
+      "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
+      "reported_memory_mib": 8192,
+      "memory_used_mib": 0,
+      "memory_clock_mhz": 1728
+    },
+    "cmp40": {
+      "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
+      "reported_memory_mib": 40960,
+      "memory_used_mib": 9725,
+      "memory_clock_mhz": 1350
+    }
+  },
+  "guest_bar1_resource_bytes": {
+    "blackwell": 137438953472,
+    "cmp64": 67108864,
+    "cmp40": 67108864
+  },
+  "guest_driver_config": {
+    "EnableResizableBar": "0",
+    "DmaRemapPeerMmio": "1",
+    "RegistryDwords": "",
+    "RegistryDwordsPerDevice": ""
+  },
+  "known_fork_log_markers_in_loaded_module": {
+    "CMPUNLOCK_P2P": false,
+    "CMPUNLOCK_BAR1P2P": false,
+    "SEC2_DEBUG_LATE_PMA": false,
+    "0x0000001000000000": false
+  },
+  "topology_report": "PHB for every pair; physical cards are under separate CPU root ports.",
+  "initialization": {
+    "initial_cmp64_gsp_start_failed": true,
+    "one_targeted_cmp64_bus_reset": true,
+    "after_reset_cmp64_ready": true,
+    "after_reset_cmp64_reported_mib": 8192,
+    "cmp64_64gib_unlock_reproduced_after_reset": false,
+    "other_running_guests_kept_same_process_ids": true
+  },
+  "explicit_vram_test_allocations": 0,
+  "planned_buffer_bytes_if_supported": 8388608,
+  "actual_peer_copy_executed": false,
+  "actual_peer_kernel_executed": false,
+  "iommu_or_acs_host_changes": false,
+  "driver_replacement": false,
+  "source_audit": {
+    "evidence_level": "static-analysis",
+    "fork_revision": "7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03",
+    "fork_readme_url": "https://github.com/admunch888/cmpunlocker/blob/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03/README.md",
+    "known_opt_in": "--p2p",
+    "covers_cmp_ids": [
+      "10de:20c2",
+      "10de:2082"
+    ],
+    "not_applied_in_this_trial": true,
+    "claim": "Fork documents a BAR1 route, capability overrides and mailbox-preinitialization change. These are source properties, not lab hardware results.",
+    "topology_limit": "Earlier common-switch requirement conflicts with a later cross-switch owner report; validate actual topology rather than applying either statement universally.",
+    "source_hashes": {
+      "admunch888-driver_patches_p2p-bar1.patch": "03ae800cca3660a0a3ee7850d2e836b78adadec0988d53bdc7619a128a223c0b",
+      "admunch888-driver_patches_p2p-caps-override.patch": "ab8af9944f52d8bb4e1cff297e4d69d2b23c98154191ca37798a685d9b011881",
+      "admunch888-driver_patches_p2p-readcap-override.patch": "66b922ffe7cf42fb2b34d541742ccd87adfc26510bc2d2b1f052f376e52584aa",
+      "admunch888-driver_patches_p2p-skip-mailbox-preinit.patch": "149a67413d4a088cfec1dcf4a0acf337f54ea8045819d01937e395c75b2b6fc3"
+    }
+  },
+  "limits": [
+    "No proof that hardware can never supportP2P.",
+    "No matched-model requirement is inferred.",
+    "A reported peer capability or successful copy API alone would not prove data movement.",
+    "CMP64 is a variant label; current8GiB baseline differs from its historical64GiB unlock.",
+    "No SM/ECC requalification, capacity sweep, BIOS flash or OTP programming."
+  ]
+}

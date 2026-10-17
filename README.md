@@ -8,22 +8,24 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 **Our Samsung 40-GiB CMP 170HX (`10de:2082`) now operates at 1350 MHz, up 11.11% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269, 1296, 1323 and 1350 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
 
-**The campaign is paused for now: 1350 MHz is a tested step, not an established maximum.** We have not qualified long-term stability, the full HBM address space, bandwidth gain or LLM speed. The setting is volatile. See the [clock method and results](docs/clocks.md) and [curated trial records](data/clock-trials.json).
+**Research resumed on 17 October: 1350 MHz is a tested step, not an established maximum.** We have not qualified long-term stability, the full HBM address space, bandwidth gain or LLM speed. The setting is volatile. See the [clock method and results](docs/clocks.md) and [curated trial records](data/clock-trials.json).
 
 We do not claim a worldwide first: an [earlier owner's report explicitly describes a 40-GB memory overclock](https://www.reddit.com/r/LocalLLaMA/comments/1wl9amq/reached_189_tbs_memory_bandwidth_overclocking_the/). That external result and its evidence limits are documented separately from our measurements.
 
 A subsequent bounded load observation at 1350 MHz measured **1.53 TB/s** for internal copies and **1.54 TB/s** for an SM streaming kernel, counting reads+writes. All checked outputs matched. See the [90-second load observation and limits](docs/bandwidth-load.md).
 
-## Current status — 16 October 2026
+## Current status — 17 October 2026
 
 This campaign has not demonstrated additional usable memory above the existing 40/64-GiB baselines, or additional working SMs beyond the owner's established 74-SM baseline. It has produced successful CMP40 clock steps, useful negative results and more precise maps of the original initialization paths.
 
-| Lab variant | PCI device ID | Memory identity, observed earlier | Existing reported capacity | Latest clock evidence |
+| Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 1350 MHz operating, 16 Oct 20:09 UTC |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 1836 MHz PLL configuration on an unbound card, 16 Oct 16:24 UTC |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB /1350 MHz, 17 Oct 09:09 UTC |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 8 GiB /1728 MHz after reset, 17 Oct 09:09 UTC |
 
 The two variants must not be treated as identical hardware. A reported capacity is not a full-range integrity test. The small clock checks copied 64 MiB; they do not qualify the complete HBM address space. Timestamps describe observations, not a live hardware inventory.
+
+The first [P2P matrix](docs/peer-memory.md) advertises no route among the two CMP variants and Blackwell with the current guest build. CMP64 is CUDA-visible after a targeted reset but currently reports its 8-GiB base configuration; the historical64-GiB unlock was not reproduced in that boot.
 
 ## What is here
 

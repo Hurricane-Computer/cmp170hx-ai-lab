@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T21:20:03.196733+00:00",
+  "updated_utc": "2026-10-17T09:11:38.399166+00:00",
   "records": [
     {
       "id": "stage3",
@@ -193,6 +193,14 @@
       "result": "Audited archived full-word checker and ran seven synthetic alias cases with two seeds plus four result-channel controls on CPU.",
       "limit": "No new GPU experiment, historical false-pass proof or additional usable capacity; external77.5/72GiB remains an open lead.",
       "interpretation": "docs/capacity-evidence.md"
+    },
+    {
+      "id": "stage42",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "All six directed guest peer capabilities0; one targetedCMP64reset restored readiness, currently8GiB/1728MHz. CMP40retained40GiB/1350MHz.",
+      "limit": "No actualP2Ptransfer/kernelor64GiBunlockproof afterreset; BAR1forkisuntestedsourcelead.",
+      "interpretation": "docs/peer-memory.md"
     }
   ],
   "campaign_result": {

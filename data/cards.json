@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T20:22:59.403021+00:00",
+  "updated_utc": "2026-10-17T09:11:38.399166+00:00",
   "cards": [
     {
       "variant": "cmp40",
@@ -37,6 +37,12 @@
         "stream_effective_gb_s": 1538.1135890031364,
         "full_memory_integrity_qualified": false,
         "long_term_stability_proven": false
+      },
+      "latest_guest_state": {
+        "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
+        "reported_memory_mib": 40960,
+        "memory_used_mib": 9725,
+        "memory_clock_mhz": 1350
       }
     },
     {
@@ -64,7 +70,14 @@
         "kind": "pll_configuration_unbound",
         "bios_reported_maximum_mhz": 1728
       },
-      "short_roundtrip_bytes": null
+      "short_roundtrip_bytes": null,
+      "latest_guest_state": {
+        "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
+        "reported_memory_mib": 8192,
+        "memory_used_mib": 0,
+        "memory_clock_mhz": 1728,
+        "scope": "8-GiB base configuration after targeted reset; historical64-GiB unlock not reproduced in this guest boot."
+      }
     }
   ]
 }
