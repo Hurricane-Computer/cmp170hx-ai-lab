@@ -50,3 +50,5 @@ The cache-command extract now also records a small data-bearing live-CUDA follow
 [cache-alias-trial.json](cache-alias-trial.json) records the paired 80-GiB CMP40 trial: accepted configuration, small lower/upper data comparisons before/after the ordinary flush, cross-window payload matches, a later GSP failure and successful G recovery. It does not qualify extra memory.
 
 [addressing-vs-size.json](addressing-vs-size.json) distinguishes original register-address arithmetic from the separately traced Nouveau non-GSP/GSP size and allocation inputs. Static sources only; no new GPU observation.
+
+[controller-amounts.json](controller-amounts.json) links a native GA100-selected amount consumer to36 read-only active-FBPA observations. Configured sums are separate from physical backing.

@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "source_analysis_utc": "2026-10-17T18:12:34.100593+00:00",
+  "evidence_utc": "2026-10-17T18:13:23.684258+00:00",
+  "source_contract": {
+    "firmware_release": "615.71.09",
+    "firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+    "owner_class_id": "0x174e21",
+    "saved_chip_key": 42,
+    "selected_methods": [
+      {
+        "slot": "0x520",
+        "target": "0x4a58824",
+        "calculation": "4a59000-7dc"
+      },
+      {
+        "slot": "0xbf0",
+        "target": "0x4a0e758",
+        "calculation": "1000-410;4a0e000+758"
+      }
+    ],
+    "caller_owner_connection": "Consumera1 retained ass1; same owner slot520 supplies the register mapper.",
+    "quantity_input": "Mapped unicast FBPA register at90020c+index*4000; selector1, relative20c, word-aligned.",
+    "quantity_low_mask": "0x1ffff",
+    "quantity_byte_formula": "(u32_register &0x1ffff)<<20",
+    "quantity_unit": "MiB, as derived from original unsigned shifts and summation",
+    "aggregation": "Normal method iterates its configured controller mask; per-controller byte quantities contribute to the scalar sum.",
+    "does_not_establish": [
+      "Installed physical stacks or backing integrity",
+      "Register producer or whether quantities derive from configured geometry",
+      "Live execution of this original method"
+    ],
+    "difference_from_Stage65": "That analysis searched a separate MemoryManager selection trace. The actual physical-context trace now statically binds mapper520 and amount consumerbf0 forGA100. This extends the evidence; no new constructor trace."
+  },
+  "saved_constructor_trace_sha256": "c97a4b9b176b348c9d82e80d2f31a1a350b52c9aa6bc7e0c1746785ba5d85b6d",
+  "selection_evidence": "Extraction from an already saved physical-context GA100 trace; no new constructor run or captured production execution.",
+  "observation": {
+    "evidence_level": "observed configured status",
+    "candidate": "G",
+    "core_module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "loaded_srcversion_matches_file": true,
+    "MMIO_reads": 40,
+    "amount_reads": 36,
+    "current_active_mask_reads": 2,
+    "CFG1_reads": 2,
+    "MMIO_writes": 0,
+    "mapping_protection": "PROT_READ",
+    "cards": [
+      {
+        "variant": "cmp40",
+        "disable_mask": "0xc03000",
+        "CFG1_broadcast": "0x2669000",
+        "active_FBPA_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "masked_FBPA_indices_not_accessed": [
+          12,
+          13,
+          22,
+          23
+        ],
+        "amount_rows": [
+          {
+            "fbpa_index": 0,
+            "address": "0x90020c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 1,
+            "address": "0x90420c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 2,
+            "address": "0x90820c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 3,
+            "address": "0x90c20c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 4,
+            "address": "0x91020c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 5,
+            "address": "0x91420c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 6,
+            "address": "0x91820c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 7,
+            "address": "0x91c20c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 8,
+            "address": "0x92020c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 9,
+            "address": "0x92420c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 10,
+            "address": "0x92820c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 11,
+            "address": "0x92c20c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 14,
+            "address": "0x93820c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 15,
+            "address": "0x93c20c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 16,
+            "address": "0x94020c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 17,
+            "address": "0x94420c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 18,
+            "address": "0x94820c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 19,
+            "address": "0x94c20c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 20,
+            "address": "0x95020c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          },
+          {
+            "fbpa_index": 21,
+            "address": "0x95420c",
+            "raw": "0x800",
+            "readable": true,
+            "configured_mib": 2048,
+            "source_derived_bytes": 2147483648
+          }
+        ],
+        "all_amounts_readable": true,
+        "configured_mib_sum": 40960,
+        "configured_gib_sum": 40.0,
+        "unique_configured_mib": [
+          2048
+        ],
+        "matches_driver_report": true,
+        "operating_snapshot": {
+          "reported_mib": 40960,
+          "used_mib": 0,
+          "memory_clock_mhz": 1215
+        }
+      },
+      {
+        "variant": "cmp64",
+        "disable_mask": "0xc0330c",
+        "CFG1_broadcast": "0x2779000",
+        "active_FBPA_indices": [
+          0,
+          1,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "masked_FBPA_indices_not_accessed": [
+          2,
+          3,
+          8,
+          9,
+          12,
+          13,
+          22,
+          23
+        ],
+        "amount_rows": [
+          {
+            "fbpa_index": 0,
+            "address": "0x90020c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 1,
+            "address": "0x90420c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 4,
+            "address": "0x91020c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 5,
+            "address": "0x91420c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 6,
+            "address": "0x91820c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 7,
+            "address": "0x91c20c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 10,
+            "address": "0x92820c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 11,
+            "address": "0x92c20c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 14,
+            "address": "0x93820c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 15,
+            "address": "0x93c20c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 16,
+            "address": "0x94020c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 17,
+            "address": "0x94420c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 18,
+            "address": "0x94820c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 19,
+            "address": "0x94c20c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 20,
+            "address": "0x95020c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          },
+          {
+            "fbpa_index": 21,
+            "address": "0x95420c",
+            "raw": "0x1000",
+            "readable": true,
+            "configured_mib": 4096,
+            "source_derived_bytes": 4294967296
+          }
+        ],
+        "all_amounts_readable": true,
+        "configured_mib_sum": 65536,
+        "configured_gib_sum": 64.0,
+        "unique_configured_mib": [
+          4096
+        ],
+        "matches_driver_report": true,
+        "operating_snapshot": {
+          "reported_mib": 65536,
+          "used_mib": 0,
+          "memory_clock_mhz": 1728
+        }
+      }
+    ],
+    "payload_normalized_text_sha256": "0336e5e971cbdbb83258b3ba7409c8f5f4eeba005f231757f92d29a0bbdbbf5f",
+    "VRAM_allocations": 0,
+    "CUDA_calls": 0,
+    "resets": 0,
+    "service_changes": 0
+  },
+  "interpretation": {
+    "active_configured_amounts_uniform_per_card": true,
+    "mixed_active_amounts_observed": false,
+    "extra_usable_gib_demonstrated": 0,
+    "extra_working_sms_demonstrated": 0,
+    "physical_capacity_ceiling_established": false,
+    "foreign_positive_reports_refuted": false,
+    "scope": "Current active-controller configuration under G, not population or integrity of additional physical HBM."
+  },
+  "limits": [
+    "Masked controllers were not accessed. Their physical population and health remain open.",
+    "These status fields may reflect configured geometry. Their upstream producer and independence from CFG/LMR are not established.",
+    "Sum agrees with the driver report; neither is a dense backing test.",
+    "No H reinstallation, upper-window test, verifier baseline or owner-established SM/ECC requalification.",
+    "No documented new write contract or capacity unlock follows."
+  ]
+}

@@ -468,6 +468,15 @@
       "result": "Original helper computes FBPA register addresses, not high HBM data mapping. Pinned Nouveau GA100 code distinguishes LMR parsing/non-GSP allocation from a GSP constructor importing framebuffer size and regions.",
       "limit": "No native GA100 object binding for the original helper, new physical decoder field, Nouveau execution, GPU access or extra usable capacity. Foreign positive tests remain open.",
       "interpretation": "docs/addressing-vs-size.md"
+    },
+    {
+      "id": "stage66-active-controller-amounts",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T18:13:23.684258+00:00",
+      "result": "Original GA100 physical-context trace binds mapper520 and amount consumerbf0. One40-read observation found uniform configured amounts:20x2048MiB and16x4096MiB, matching40/64GiB reports.",
+      "limit": "No masked-controller access, writes, CUDA, resets, service interruption, extra usable memory/SM, physical ceiling or refutation of foreign positive reports. Configured quantity producer still open.",
+      "interpretation": "docs/controller-amounts.md"
     }
   ],
   "campaign_result": {

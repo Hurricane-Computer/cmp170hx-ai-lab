@@ -37,3 +37,6 @@ The [structured extract](../data/cache-alias-trial.json) contains deliberately s
 
 
 The source follow-up separates a [register-address translator and Nouveau sizing routes](addressing-vs-size.md) from actual HBM data mapping. Neither supplies an independent backing proof or a new hardware experiment.
+
+
+A later [configured amount map](controller-amounts.md) reads the active controllers under G: uniform2/4GiB per FBPA and40/64GiB sums. Masked units and H were not tested again.

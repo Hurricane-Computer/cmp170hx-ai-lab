@@ -12,7 +12,7 @@ An original 615.71.09 helper at `0x4a58824` computes these ordinary success resu
 | 1 | ordinary representable index | `0x900000 + index*0x4000 + (offset & 0x3fff)` |
 | 2 | ordinary representable index | `0x980000 + index*0x4000 + (offset & 0x3fff)` |
 
-The normal success branches return register addresses; they do not write hardware or translate a tensor's high HBM address. Their numerical layout agrees with [NVIDIA's published FBPA MMIO ranges](https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt). The helper's native GA100 object selection is not established. Neither an older architecture's unit-count limit nor its mixed-density programming bit is assumed to apply here.
+The normal success branches return register addresses; they do not write hardware or translate a tensor's high HBM address. Their numerical layout agrees with [NVIDIA's published FBPA MMIO ranges](https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt). The [subsequent per-controller analysis](controller-amounts.md) now binds the helper to the existing physical-context GA100 trace, slot520. That closes the earlier selection gap without changing its register-address semantics. Neither an older architecture's unit-count limit nor its mixed-density programming bit is assumed to apply here.
 
 ## Nouveau has two distinct sizing routes
 

@@ -31,9 +31,19 @@
     "writes_hardware_on_these_success_paths": false,
     "decodes_HBM_data_addresses": false,
     "interpretation": "Register-block selector/index/offset translation. Not a high-VRAM-address decoder, controller enable or capacity program.",
-    "selected_GA100_object_binding_established": false,
-    "selection_limit": "Saved GA100 MemoryManager final-slots do not select this target; adjacent direct-reference search found none. Neither search is exhaustive.",
-    "source_url": "https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt"
+    "selected_GA100_object_binding_established": true,
+    "selection_limit": "Static selection is now bound by the saved physical-context trace, class174e21/key42/slot520. No current runtime-instance or production execution trace.",
+    "source_url": "https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt",
+    "selection_followup": {
+      "analysis_utc": "2026-10-17T18:12:34.100593+00:00",
+      "owner_class_id": "0x174e21",
+      "chip_key": 42,
+      "slot": "0x520",
+      "target": "0x4a58824",
+      "installation_store": "0x5384138",
+      "saved_trace_sha256": "c97a4b9b176b348c9d82e80d2f31a1a350b52c9aa6bc7e0c1746785ba5d85b6d",
+      "interpretation": "docs/controller-amounts.md"
+    }
   },
   "normal_nouveau_size_route": {
     "linux_commit": "c7decec2f2d2ab0366567f9e30c0e1418cece43f",
@@ -108,8 +118,8 @@
   "limits": [
     "A register address translator is not a physical HBM data-address decoder.",
     "No source-contract transfer of GP100 mixed-density bits or unit-count limits to GA100.",
-    "The original helper has no completed native GA100 object selection; no hardware use proposed.",
     "Nouveau was not installed or run. Size parsing and imported allocation regions are not capacity qualification.",
-    "No repeat of the H trial, small verifier controls or owner-established SM/ECC baseline."
+    "No repeat of the H trial, small verifier controls or owner-established SM/ECC baseline.",
+    "Native GA100 static selection was closed by the follow-up; this register translator still is not an HBM data-address decoder."
   ]
 }

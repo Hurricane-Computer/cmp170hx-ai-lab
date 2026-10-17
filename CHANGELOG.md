@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Native GA100 controller amount map
+
+- Closed the earlier register-translator selection gap using the saved physical-context trace; connected its native amount consumer and low17-bit MiB arithmetic.
+- Read36 active FBPA amounts once:20x2048MiB and16x4096MiB, matching40/64GiB.40 total MMIO reads,0 writes or service changes. No hidden-capacity or backing claim.
+
 ## 2026-10-17 — Register addressing versus capacity inputs
 
 - Separated an original register-block address translator from physical HBM data mapping; its native GA100 selection remains unresolved.
