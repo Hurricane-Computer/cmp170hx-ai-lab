@@ -451,6 +451,15 @@
       "result": "Both CMPs passed unflushed/flushed SM-write->CPU-read comparisons with a live CUDA context:524288 words total,0 bad, eight matching hashes, both public flush calls and all owned-resource cleanup successful.",
       "limit": "8MiB allocation/card,1MiB distinct windows/card,2MiB written/card over two phases. No upper-capacity address, direct MMIO, driver/geometry/clock change, extra HBM/SM or cache-causality proof.",
       "interpretation": "docs/ltc-cache-commands.md"
+    },
+    {
+      "id": "stage64-upper-window-cache-alias",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T17:31:24.922178+00:00",
+      "result": "Paired80-GiB H profile initialized and41 GiB allocated. Unflushed windows passed; after ordinary flush 65536 lower words matched the upper payload while the upper self-check passed. Later GSP failure; G recovery succeeded.",
+      "limit": "2.5 MiB distinct data, 5 MiB writes, 655360 checked words over two ordered phases. No dense qualification, physical 40 GiB ceiling, extra usable memory/SM, or refutation of positive foreign reports.",
+      "interpretation": "docs/cache-alias.md"
     }
   ],
   "campaign_result": {

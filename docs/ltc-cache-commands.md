@@ -47,3 +47,6 @@ At **2026-10-17T17:07:01.585034+00:00**, the ordinary cache operation was used w
 | CMP64 | 131072 words,0 bad | 131072 words,0 bad | success | all successful |
 
 Across both cards524288 words were checked with0 differences; expected and returned SHA256 values match for all eight window records. Each card wrote2MiB across the two phases, within1MiB of distinct window locations. This demonstrates data surviving the ordinary flush call with a live CUDA context. It does not trace actual cache residency, establish historical alias causality, test memory above40/64GiB, or qualify additional capacity. Driver, clocks and geometry were unchanged. The existing verifier's fault-injection/control matrix was not repeated. Detailed source fingerprints, hashes, checked-copy flags and cleanup statuses are in the [structured data](../data/ltc-cache-commands.json).
+
+
+The subsequent [upper-window comparison](cache-alias.md) now records a flush-associated alias under a paired 80-GiB profile, followed by a late GSP failure and successful G recovery. The small baseline above remains its own earlier result.

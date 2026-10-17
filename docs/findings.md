@@ -1,6 +1,6 @@
 # Current findings
 
-Updated16 October2026. See[data/](../data/README.md) for the corresponding structured extracts.
+Updated 17 October 2026. See [data/](../data/README.md) for the corresponding structured extracts.
 
 ## Memory and variants
 
@@ -50,3 +50,8 @@ The original GA100 method selection and class metadata now connect a [register-r
 ## Cache-command correction and ordinary flush, 17 October
 
 The follow-up [original GA100 consumers](ltc-cache-commands.md) explain `17e2a0` values `70000300`/`10000300` as completed ALL/LAST cache commands, correcting their use as per-channel capacity labels. One ordinary write-back/invalidate flush succeeded on each idle CMP; `2a4` changed while reported40/64GiB and clocks stayed constant. No new usable HBM or SM. The positive75/76GiB and77.5/72GiB reports remain open.
+
+
+## Upper-window alias and recovery, 17 October
+
+A paired 80-GiB candidate initialized and allocated 41 GiB on CMP40. In a bounded two-phase comparison, both windows passed without an explicit flush; after the ordinary flush, 65536 lower words (512 KiB) matched the upper payload while the upper self-check passed. A later GSP failure was recorded separately and G recovery succeeded. No additional usable capacity or physical 40-GiB ceiling follows. See [the observation and its limits](cache-alias.md).

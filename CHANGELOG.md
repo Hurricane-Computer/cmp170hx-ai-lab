@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Upper-window alias after ordinary cache flush
+
+- CMP40 accepted a paired 80-GiB H profile and a41-GiB allocation. Without an explicit flush the small windows passed; after the ordinary flush 512 KiB of lower data matched the upper payload, whose own check still passed.
+- Recorded a later GSP failure separately from the completed data result, followed by successful G recovery. No additional usable capacity, physical ceiling or refutation of foreign full-word reports claimed.
+
 ## 2026-10-17 — Data across the ordinary cache flush
 
 - Both CMPs retained SM-written tagged data across an ordinary write-back/invalidate call with a live CUDA context;524288 CPU-checked words and eight window hashes matched, with successful cleanup.

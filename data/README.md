@@ -46,3 +46,5 @@ These files are explicit technical projections of the research records, not copi
 [ltc-cache-commands.json](ltc-cache-commands.json) separates original selected cache-command semantics, the corrected third-party density label, and two bounded ordinary flush observations. No capacity test or extra-memory claim.
 
 The cache-command extract now also records a small data-bearing live-CUDA follow-up: complete CPU comparisons across the ordinary flush, without an upper-capacity test.
+
+[cache-alias-trial.json](cache-alias-trial.json) records the paired 80-GiB CMP40 trial: accepted configuration, small lower/upper data comparisons before/after the ordinary flush, cross-window payload matches, a later GSP failure and successful G recovery. It does not qualify extra memory.

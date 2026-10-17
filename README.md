@@ -20,8 +20,8 @@ This campaign has not demonstrated additional usable memory above the existing 4
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz, 17 Oct 14:07 UTC; ordinary geometry query completed |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz, 17 Oct 14:07 UTC; ordinary geometry query completed |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz, 17 Oct 17:39 UTC; G recovered after H trial |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz, 17 Oct 17:39 UTC; G recovered after H trial |
 
 The [new small verifier controls](docs/capacity-followup.md) detected each deliberate single-word error over three fill paths on both CMPs, with two matching checked verdict paths. This tests the checker, not additional capacity.
 
@@ -34,6 +34,8 @@ The two variants must not be treated as identical hardware. A reported capacity 
 The first [P2P matrix](docs/peer-memory.md) advertised no route among the two CMP variants and Blackwell with the earlier guest module. At that point CMP64 was CUDA-visible after a targeted reset and reported its 8-GiB base configuration; the historical 64-GiB unlock was not reproduced in that boot.
 
 The [mixed-driver trials](docs/driver-candidates.md) recovered a working baseline: candidate F disables the fork's BAR1 forcing bundle, initializes both CMPs, and passed checked 8-MiB copies on all three GPUs. This restores the historical 40/64-GiB variants; it adds no capacity, and all six current P2P capabilities remain zero. The subsequent [mailbox candidate G](docs/mailbox-p2p.md) kept that BAR1 policy, passed the small copies and isolated a remaining native guest chipset-discovery refusal; all six peer directions stayed zero.
+
+**New upper-memory result:** A paired 80-GiB profile initialized and allocated 41 GiB, but after an ordinary cache flush 512 KiB of the lower canary contained the upper window's data. The upper self-check still passed. A later GSP fault required recovery to G, which completed successfully. See the [scoped alias result, limits and recovery](docs/cache-alias.md). This establishes no additional usable capacity and does not refute the foreign large-memory reports.
 
 ## What is here
 

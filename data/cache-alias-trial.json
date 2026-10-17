@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-17T17:31:24.922178+00:00",
+  "variant": "cmp40",
+  "device_id": "10de:2082",
+  "candidate": {
+    "name": "H",
+    "base": "G",
+    "driver_version": "615.71.09",
+    "core_module_sha256": "84b8a29637bb400f5a2b1f59f1588b6eb84fb76ab7cdf19096b6f228515c6801",
+    "change_scope": "Exactly three CMP40 profile constants; other initialization, clock, BAR and P2P policies retained.",
+    "profile_changes": [
+      {
+        "field": "CFG",
+        "before": "0x02669000",
+        "after": "0x02779000"
+      },
+      {
+        "field": "LMR",
+        "before": "0x28a",
+        "after": "0x28b"
+      },
+      {
+        "field": "framebuffer_size_bytes",
+        "before": 42949672960,
+        "after": 85899345920
+      }
+    ],
+    "native_initialization_succeeded": true,
+    "loaded_srcversion_matches_file": true,
+    "accepted_profile_readback": {
+      "0x9a0204": "0x2779000",
+      "0x100ce0": "0x28b"
+    },
+    "reported_mib": 81920,
+    "memory_clock_mhz": 1215,
+    "capacity_qualification": false
+  },
+  "method": {
+    "allocation_bytes": 44023414784,
+    "window_offsets_bytes": [
+      536870912,
+      43486543872
+    ],
+    "window_sizes_bytes": [
+      2097152,
+      524288
+    ],
+    "distinct_written_bytes": 2621440,
+    "total_written_bytes_two_phases": 5242880,
+    "total_checked_64bit_words": 655360,
+    "write_order": [
+      "lower_SM_fill",
+      "upper_SM_fill",
+      "CUDA_synchronize"
+    ],
+    "phase_order": [
+      "no_explicit_flush",
+      "ordinary_flush"
+    ],
+    "read_order": [
+      "lower_checked_D2H",
+      "upper_checked_D2H"
+    ],
+    "fresh_seed_and_per_window_tags_each_phase": true,
+    "expected_words_calculated_on_CPU": true,
+    "all_D2H_statuses_checked": true,
+    "ordinary_flush": {
+      "command": "0x2080130e",
+      "flags": "0x38",
+      "status": "0x0",
+      "meaning": "video memory, write back, invalidate, full cache"
+    },
+    "source_bound_profile_reads": 2,
+    "direct_test_MMIO_writes": 0,
+    "source_file_sha256": "3e71daff13b9c3c5c819b59b83bf67fa9625c029155304ff010a9e95f334952f",
+    "executed_normalized_text_sha256": "0a7d9c2e88f08fad28f566c916873711b26e03a72e57acbc3b991611e24041a3",
+    "source_hash_difference": "File uses CRLF; executed read_text content normalizes newlines to LF.",
+    "reused_PTX_sha256": "67b483d2e9b61224e361282d77cf8eae621e611be02e8ae88b47a830d429be86"
+  },
+  "phases": [
+    {
+      "with_cache_flush": false,
+      "seed": "0x4e610de62350afbe",
+      "flush_status": null,
+      "windows": [
+        {
+          "offset_bytes": 536870912,
+          "checked_words": 262144,
+          "bad_words": 0,
+          "first_bad_word": null,
+          "expected_sha256": "7b1d778126ee13f69cbf1b76a3bd848a69bf83904e8ac586800f49c366b3ab34",
+          "returned_sha256": "7b1d778126ee13f69cbf1b76a3bd848a69bf83904e8ac586800f49c366b3ab34",
+          "D2H_return_checked": true,
+          "all_words_compared_on_CPU": true,
+          "cross_window_payload_matches": []
+        },
+        {
+          "offset_bytes": 43486543872,
+          "checked_words": 65536,
+          "bad_words": 0,
+          "first_bad_word": null,
+          "expected_sha256": "510dcb145d7792f28d4f14dfab147cedc96224b277c75df4817503d4d746939b",
+          "returned_sha256": "510dcb145d7792f28d4f14dfab147cedc96224b277c75df4817503d4d746939b",
+          "D2H_return_checked": true,
+          "all_words_compared_on_CPU": true,
+          "cross_window_payload_matches": []
+        }
+      ]
+    },
+    {
+      "with_cache_flush": true,
+      "seed": "0x90c0bf1f66e31d71",
+      "flush_status": "0x0",
+      "windows": [
+        {
+          "offset_bytes": 536870912,
+          "checked_words": 262144,
+          "bad_words": 65536,
+          "first_bad_word": 0,
+          "expected_sha256": "e796bfce384ee53ce892810394c2a1f6852deea43ec686509264febf0c715956",
+          "returned_sha256": "425c6200443f2161148c93844ad760f70033ee473cbb40ca0cf6f6dc2b82275f",
+          "D2H_return_checked": true,
+          "all_words_compared_on_CPU": true,
+          "cross_window_payload_matches": [
+            {
+              "source_minus_destination_bytes": 42949670656,
+              "words": 16384
+            },
+            {
+              "source_minus_destination_bytes": 42949671168,
+              "words": 16384
+            },
+            {
+              "source_minus_destination_bytes": 42949674752,
+              "words": 16384
+            },
+            {
+              "source_minus_destination_bytes": 42949675264,
+              "words": 16384
+            }
+          ]
+        },
+        {
+          "offset_bytes": 43486543872,
+          "checked_words": 65536,
+          "bad_words": 0,
+          "first_bad_word": null,
+          "expected_sha256": "c2f1452034942a92fa149bc58b74556d3bb3d191acc30dbe7ecf7786b414346c",
+          "returned_sha256": "c2f1452034942a92fa149bc58b74556d3bb3d191acc30dbe7ecf7786b414346c",
+          "D2H_return_checked": true,
+          "all_words_compared_on_CPU": true,
+          "cross_window_payload_matches": []
+        }
+      ]
+    }
+  ],
+  "cleanup": [
+    {
+      "op": "module_unload",
+      "rc": 0
+    },
+    {
+      "op": "free_owned_VRAM",
+      "rc": 0
+    },
+    {
+      "op": "destroy_owned_context",
+      "rc": 0
+    },
+    {
+      "op": "free_RM_client",
+      "rc": 0
+    }
+  ],
+  "cleanup_all_zero": true,
+  "interpretation": {
+    "observed": "All 65536 wrong lower words match the independently tagged upper-window payload; the upper window passes its own comparison.",
+    "scoped_alias_demonstrated": true,
+    "cache_masking": "Consistent with clean unflushed windows and an alias visible after the flush in this sequential comparison; cache residency was not traced.",
+    "delta_reference_bytes": 42949672960,
+    "delta_offsets_bytes": [
+      -2304,
+      -1792,
+      1792,
+      2304
+    ],
+    "full_per_word_XOR_mapping_verified": false,
+    "extra_usable_gib_demonstrated": 0,
+    "extra_working_sms_demonstrated": 0,
+    "physical_capacity_ceiling_established": false,
+    "foreign_positive_reports_refuted": false
+  },
+  "late_failure": {
+    "observation_utc": "2026-10-17T17:34:56.315366+00:00",
+    "data_result_preceded_failure": true,
+    "reported_Xid_codes": [
+      119,
+      1,
+      154
+    ],
+    "first_timeout_approximately_seconds_after_data_result": 6,
+    "observation": "After successful data transfer and cleanup, a GSP control timeout and load-access fault appeared; CMP40 clock became unavailable.",
+    "exact_trigger_established": false
+  },
+  "recovery": {
+    "evidence_utc": "2026-10-17T17:39:59.178273+00:00",
+    "candidate": "G",
+    "core_module_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "native_ready": true,
+    "loaded_srcversion_matches_file": true,
+    "cards": [
+      {
+        "variant": "blackwell",
+        "reported_mib": 97887,
+        "memory_clock_mhz": 405
+      },
+      {
+        "variant": "cmp64",
+        "reported_mib": 65536,
+        "memory_clock_mhz": 1728
+      },
+      {
+        "variant": "cmp40",
+        "reported_mib": 40960,
+        "memory_clock_mhz": 1215
+      }
+    ],
+    "small_copy": {
+      "bytes": 8192,
+      "source_sha256": "4ec6ae18231931959f225ca56c2a18ec937d4a99f36d7956996dd5e322364896",
+      "returned_sha256": "4ec6ae18231931959f225ca56c2a18ec937d4a99f36d7956996dd5e322364896",
+      "copy_passed": true,
+      "cleanup_all_zero": true
+    },
+    "new_Xid_in_post_recovery_observation": false,
+    "model_services_automatically_restored": false
+  },
+  "limits": [
+    "One card, one candidate, one two-phase trial. 41 GiB allocation is not41 GiB densely written.",
+    "Only 2.5 MiB distinct locations, 5 MiB total writes. No full-capacity stress or dense qualification.",
+    "Phases used different seeds and a fixed order. Flush-associated contrast is not a complete cache-causality experiment.",
+    "Observed address alias does not inventory physical stacks or exclude a driver/mapping cause.",
+    "Four byte deltas and saved mismatch samples are consistent with an XOR 0x900 swizzle; no full mapping was saved or verified.",
+    "Reported80 GiB, allocation success and upper self-check are not independent backing proof.",
+    "The positive 75/76 GiB and77.5/72 GiB third-party reports stay open; 48 GiB remains a first target, not a ceiling."
+  ]
+}
