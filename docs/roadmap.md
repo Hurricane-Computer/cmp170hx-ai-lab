@@ -27,7 +27,7 @@ The first [directed P2P matrix](peer-memory.md) is negative with the current gue
 
 ## Current driver prerequisite
 
-Two [mixed-profile candidates](driver-candidates.md) failed the same BAR2 self-test. Trace its write mapping and BAR0 readback before another physical trial; do not repeat those modules or the initial-placement-only hypothesis. The retained guest currently exposes only Blackwell through NVML. P2P remains queued behind this usable-driver prerequisite.
+Three [mixed-profile candidates](driver-candidates.md) failed the same BAR2 self-test. Direct four-byte BAR0 prechecks pass. The accepted uncached CPU-aperture request alone did not solve it. Next instrument the ordinary CPU/GSP BAR2 root-entry handoff and its RPC status; do not repeat A/B/C or the placement-only hypothesis. The retained guest currently exposes only Blackwell through NVML. P2P remains queued behind this usable-driver prerequisite.
 
 ## Useful independent contributions
 

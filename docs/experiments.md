@@ -38,3 +38,5 @@ Stage20 deliberately used nonzero CP witnesses. OnCMP40, targets were840 andc030
 The established74-SM baseline and ECC were not requalified. Known unsuccessful CTRL/CP/EN sequences, the sticky additional-disable result and inaccessible memory-ID ports are not repeated without a materially different mechanism. Neither scripts nor generated reports are evidence that a proposed command actually ran.
 
 Static studies, including A100 comparisons and original firmware flow analysis, are tracked separately in[Firmware notes](firmware.md). No LLM performance ranking is inferred from the clock checks.
+
+Stage44 tested a distinct CMP-only uncached CPU BAR2 mapping request. The same-target four-byte BAR0 prechecks passed, but translated BAR2 still failed. No extra usable memory or P2P was proved. The ordinary CPU/GSP page-table join is the next diagnostic lead. See [driver candidates](driver-candidates.md).

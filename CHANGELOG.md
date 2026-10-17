@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Uncached BAR2 request and narrower failure path
+
+- Built and boot-tested a third candidate with a CMP-only uncached CPU BAR2 mapping request; both CMPs still failed initialization.
+- Explicit diagnostics confirmed same-target four-byte BAR0 checks passed before the BAR2 failure. The mapping request fits the actual PCI aperture.
+- Identified the ordinary CPU/GSP BAR2 root-entry handoff as the next source diagnostic; no RPC failure, extra memory or P2P success is claimed.
+
 ## 2026-10-17 — Two concrete driver trials and BAR2 failure
 
 - Built615.71.09 for the actual guest kernel, then tested a mixed-profile candidate and a distinct original-PRAMIN-placement variant.

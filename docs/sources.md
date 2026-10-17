@@ -44,3 +44,5 @@ The [pinned 77.5/72-GiB community record](https://github.com/Consensus-Protocol/
 ## Driver candidates
 
 [NVIDIA615.71.09 source](https://github.com/NVIDIA/open-gpu-kernel-modules/tree/615.71.09) and the [pinned mixed-profile fork](https://github.com/admunch888/cmpunlocker/tree/7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03) supplied the build inputs. Download fingerprints, the exact candidate hashes and limited live failure observations are in [driver-candidates.json](../data/driver-candidates.json). A successful build is not device readiness.
+
+[NVIDIA BAR2 root-entry handoff](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.71.09/src/nvidia/src/kernel/gpu/bus/kern_bus.c#L831) documents the ordinary CPU/GSP table merge. [Linux device-I/O mapping semantics](https://cdn.kernel.org/doc/html/latest/driver-api/device-io.html) distinguish ordinary and write-combined mappings; they motivated C without establishing a root cause.

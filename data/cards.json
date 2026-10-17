@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T09:45:04.866625+00:00",
+  "updated_utc": "2026-10-17T10:03:45.228856+00:00",
   "cards": [
     {
       "variant": "cmp40",
@@ -39,10 +39,10 @@
         "long_term_stability_proven": false
       },
       "latest_guest_state": {
-        "evidence_utc": "2026-10-17T09:40:58.928770+00:00",
+        "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
         "reported_memory_mib": null,
         "memory_clock_mhz": null,
-        "status": "Probe-time BAR2 self-test failed under candidateB; no fresh usable capacity/clock query."
+        "status": "Probe-time BAR2 self-test failed under candidate C; no fresh usable capacity/clock query."
       },
       "last_successful_guest_state": {
         "evidence_utc": "2026-10-17T09:09:01.880565+00:00",
@@ -78,10 +78,10 @@
       },
       "short_roundtrip_bytes": null,
       "latest_guest_state": {
-        "evidence_utc": "2026-10-17T09:40:58.928770+00:00",
+        "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
         "reported_memory_mib": null,
         "memory_clock_mhz": null,
-        "status": "Probe-time BAR2 self-test failed under candidateB; no fresh usable capacity/clock query."
+        "status": "Probe-time BAR2 self-test failed under candidate C; no fresh usable capacity/clock query."
       },
       "last_successful_guest_state": {
         "evidence_utc": "2026-10-17T09:09:01.880565+00:00",

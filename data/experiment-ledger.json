@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T09:45:04.866625+00:00",
+  "updated_utc": "2026-10-17T10:03:45.228856+00:00",
   "records": [
     {
       "id": "stage3",
@@ -208,6 +208,14 @@
       "evidence_level": "observed",
       "result": "Two built mixed-profile variants boot-tested; bothCMPs failedBAR2self-test after64/40GiBconfiguration. OriginalPRAMINplacementalonewasnotafix.",
       "limit": "OnlyBlackwellNVMLready; noCUDAcopyorP2Ptrialreached; capacity/clockofCMPsnotcurrentlyasserted.",
+      "interpretation": "docs/driver-candidates.md"
+    },
+    {
+      "id": "stage44",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "CMP-only uncached CPU BAR2 mapping request accepted, but both CMPs still fail the same BAR2 check. Same-target 4-byte BAR0 prechecks explicitly logged as passed.",
+      "limit": "No extra usable memory, CUDA-copy or P2P proof; actual CPU PAT encoding not independently read. Ordinary CPU/GSP page-table join is a source lead, not a diagnosed RPC failure.",
       "interpretation": "docs/driver-candidates.md"
     }
   ],

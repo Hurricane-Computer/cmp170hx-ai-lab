@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T09:45:04.866625+00:00",
+  "updated_utc": "2026-10-17T10:03:45.228856+00:00",
   "kernel": "6.8.0-147-generic",
   "driver_version": "615.71.09",
   "source_fork_revision": "7d86a7f8f4ac3abbd0f48fa6d6cd09aa6b953f03",
@@ -46,6 +46,32 @@
       "other_running_guests_kept_process_ids": true,
       "extra_usable_memory_proved": false,
       "p2p_proved": false
+    },
+    {
+      "name": "C",
+      "evidence_level": "observed",
+      "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
+      "module_file_sha256": "d26d3b71911937663249375fe3e3ac7a3ab23429bcecbcb1972a0b00be1429e2",
+      "difference": "Requested NV_MEMORY_UNCACHED instead of write-combined CPU BAR2 mapping for CMP IDs only; retained B placement and all self-tests.",
+      "cmp64_exclusive_bus_resets": 1,
+      "cmp40_exclusive_bus_resets": 1,
+      "cmp_initialization_error": "0x24:0x72:1298",
+      "self_test": "kbusVerifyBar2_GM107",
+      "self_test_readback": "0 instead of the test pattern",
+      "ready_gpu_count": 1,
+      "other_running_guests_kept_process_ids": true,
+      "extra_usable_memory_proved": false,
+      "p2p_proved": false,
+      "mapping_request_returned_success": true,
+      "actual_cpu_PAT_type_independently_verified": false,
+      "bar0_same_target_prechecks_passed_log_observed": true,
+      "bar0_precheck_bytes": 4,
+      "bar2_test_descriptor_bytes": 16,
+      "bar2_relative_test_offset": 0,
+      "requested_CPU_aperture_mib": 16,
+      "PCI_BAR2_resource_mib": 32,
+      "CPU_aperture_base_matches_PCI_resource": true,
+      "copy_smoke_reached": false
     }
   ],
   "configured_fb_mib_in_candidate_a_initialization": {
@@ -70,18 +96,20 @@
     "both_cmp_bar1_final_resource_mib": 64
   },
   "latest_guest_status": {
-    "evidence_utc": "2026-10-17T09:40:58.928770+00:00",
+    "evidence_utc": "2026-10-17T10:00:43.797289+00:00",
     "blackwell": "NVMLvisible",
     "cmp40": "probe-timeinitfailed",
     "cmp64": "probe-timeinitfailed",
     "gpu_services_left_stopped": true,
-    "stock_driver_not_automatically_restored": true
+    "stock_driver_not_automatically_restored": true,
+    "retained_candidate": "C"
   },
   "limits": [
     "Configured64/40GiB is not ready or usablememory.",
-    "Neither variant reached the planned smallCUDAcopychecks orP2Ptrial.",
+    "No tested variant reached the planned smallCUDAcopychecks orP2Ptrial.",
     "Removing the PRAMIN placement clamp alone did not solve this initfailure; this does not close every mapping hypothesis.",
-    "Module srcversion was equal across the two variants; it is not a unique identifier for the rebuilt resource-manager core."
+    "Module srcversion was equal across the two variants; it is not a unique identifier for the rebuilt resource-manager core.",
+    "C tests the accepted uncached mapping request; actual CPU PAT encoding was not independently measured. Its negative result is not proof that all ordering hypotheses are impossible."
   ],
   "compressed_module_audit": {
     "evidence_utc": "2026-10-17T09:22:46.254554+00:00",
@@ -117,5 +145,21 @@
         }
       }
     ]
+  },
+  "bar2_control_flow": {
+    "evidence_level": "static analysis plus observed C diagnostic",
+    "bar0_precheck_bytes": 4,
+    "bar2_test_descriptor_bytes": 16,
+    "prechecks": "Write/read first word through BAR0, evict L2, read again; error exits precede the observed BAR2 mismatch.",
+    "result": "BAR0 same-target checks pass before translated BAR2 write/readback fails.",
+    "capacity_integrity_or_alias_proof": false,
+    "ordinary_page_table_join_lead": {
+      "evidence_level": "static analysis",
+      "function": "kbusPatchBar2Pdb_GSPCLIENT",
+      "mechanism": "CPU-RM PDE3[0] is passed through UPDATE_BAR_PDE RPC into the GSP-RM hardware-bound BAR2 root.",
+      "status_gap": "RPC macro assigns status, but function ends with NV_OK and caller does not consume the return.",
+      "actual_RPC_failure_observed": false,
+      "next_diagnostic": "Record both root descriptors, copied entry, level shift and actual RPC return without bypassing the self-test."
+    }
   }
 }
