@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "evidence_level": "static-analysis",
+  "analysis_utc": "2026-10-17T16:30:12.811635+00:00",
+  "firmware": {
+    "release": "615.71.09",
+    "sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909"
+  },
+  "owner": {
+    "class_id": "0x174e21",
+    "class_size": "0x8840",
+    "class_definition": "0x406f9f0",
+    "metadata": "0x4054e00",
+    "neutral_role": "physical-memory-context child",
+    "chip_key": 42,
+    "chip_name": "GA100",
+    "current_runtime_instance_observed": false
+  },
+  "selected_methods": [
+    {
+      "slot": "0xda8",
+      "target": "0x49fa810",
+      "installation_store": "0x553c514",
+      "normal_success_outputs": {
+        "a2": "0x140000",
+        "a3": "0x17e000",
+        "a4": "0x2000"
+      },
+      "writes_to": "caller-provided scalar output buffers, not these GPU MMIO addresses",
+      "success_return": 0,
+      "zero_output_pointer_return": "0x3d"
+    },
+    {
+      "slot": "0xe00",
+      "target": "0x49faa34",
+      "installation_store": "0x553d61c",
+      "return_value": "0x140000"
+    }
+  ],
+  "normal_builder": {
+    "entry": "0x49ec60c",
+    "layout_method_call": "0x49ec70c",
+    "owner_connection": {
+      "class_metadata_entry": "0x4054e00+0x180",
+      "callback": "0x49ecc8c",
+      "direct_call": "0x49ecd00/04 ->0x49ec60c",
+      "object_argument": "a1 is retained unchanged from callback entry to builder call"
+    },
+    "object_argument": "second argument a1 is saved as s1; method load is s1+0xda8",
+    "count_field": "object+0x8768",
+    "range_array_field": "object+0x8760",
+    "range_object_size": "0x90",
+    "constructor": "0x5310360",
+    "constructor_semantics_reference": "Stage54/56 ordinary IoAperture/RegisterAperture work, reused rather than retraced",
+    "last_range": {
+      "offset_argument": "0x17e000",
+      "extent_argument": "0x2000",
+      "range_inclusive": [
+        "0x17e000",
+        "0x17ffff"
+      ]
+    },
+    "preceding_ranges": {
+      "first_offset_argument": "0x140000",
+      "offset_step": "0x2000",
+      "extent_argument": "0x2000"
+    },
+    "positive_connection": "The reported candidate address17e2b4 lies inside the last descriptor, and1402b4 inside the first preceding descriptor.",
+    "no_claim": "The numerical ranges do not define the bits at offset2b4, change a physical decoder, establish runtime execution or enable disabled units."
+  },
+  "source_binding": {
+    "previous_GA100_CPU_constructor_trace_reused": true,
+    "class_metadata_and_direct_calls_checked_in_original": true,
+    "new_CPU_constructor_trace_runs": 0
+  },
+  "limits": [
+    "The tuple describes register-range metadata; it does not define or program the field at relative offset2b4.",
+    "No current runtime execution, extra physical memory, additional SM or effective topology change established.",
+    "Full-address literal matching misses base-relative and interprocedural accesses.",
+    "The adjacent-pair function-pointer scan is incomplete; the selected layout installation was recovered from the existing trace."
+  ],
+  "hardware_accesses": 0,
+  "configuration_changes": 0,
+  "new_usable_memory_gib_demonstrated": 0,
+  "additional_working_sms_demonstrated": 0,
+  "next_source_question": "Follow normal consumers of the specific object+8760 register-range array and base/e00 method, especially an access to relative offset2b4. Prove its GA100 field semantics and actual value producer before proposing a hardware write. Do not repeat generic aperture construction or key42 tracing."
+}

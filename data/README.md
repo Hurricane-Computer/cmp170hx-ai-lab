@@ -40,3 +40,5 @@ These files are explicit technical projections of the research records, not copi
 [legacy-window-evidence.json](legacy-window-evidence.json) separates historical large allocations, actually written windows, checked readback and lower alias corruption; cache masking remains a hypothesis. No historical GPU test was replayed. The additional 75-GiB-cap raster record covers 68 pairs but only 8.5 MiB distinct written locations; its larger-window attempt never reached allocation.
 
 [topology-gates.json](topology-gates.json) separates the complete original debug-wrapper guards from four current read-only observations and their conditional routes; no mask write or new HBM/SM.
+
+[ltc-register-layout.json](ltc-register-layout.json) records original GA100 method selection, the class-owned builder and its register-range descriptors. It does not establish a decoder-bit contract or a new hardware result.

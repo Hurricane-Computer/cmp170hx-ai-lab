@@ -40,3 +40,8 @@ The CMP40 may belong to the40-GB A100 memory family and CMP64 to the80-GB family
 ## Enclosing topology gates, 17 October
 
 The [complete normal topology wrappers](topology-gates.md) distinguish a special literal `0x20b0` block from CMP64's additional source-vector tail. Four source-bound read-only observations resolve the two current inputs without retrying old mask writes. This is a conditional source-routing result, not extra live resources or captured production execution.
+
+
+## Normal register-layout route, 17 October
+
+The original GA100 method selection and class metadata now connect a [register-range builder](ltc-register-layout.md) to the address families discussed in the capacity reports. The builder creates range descriptors; the actual field at relative offset `0x2b4` and its value producer remain open. No new hardware experiment or capacity gain follows yet.

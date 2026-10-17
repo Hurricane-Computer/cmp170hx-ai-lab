@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Normal register-range dataflow
+
+- Connected the original class metadata and saved GA100 selection to a normal builder for the register address families discussed in the capacity reports.
+- Identified address/extent descriptors, with the actual decoder field and value producer still open. No new hardware trial or capacity claim.
+
 ## 2026-10-17 — Normal topology-wrapper gates
 
 - Paired both complete original debug wrappers and separated the special `0x20b0` block from CMP64's additional source-vector tail.

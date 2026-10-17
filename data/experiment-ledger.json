@@ -417,6 +417,14 @@
       "result": "Four read-only observations:2082/1 onCMP40 and20c2/1 onCMP64. Both pass the outer debug gate and miss the special20b0 comparison.",
       "limit": "Host-readable inputs at the recorded time, not early privileged execution. No writes, resets,74SM/ECC requalification or extra HBM/SM.",
       "interpretation": "docs/topology-gates.md"
+    },
+    {
+      "id": "stage61-normal-register-layout",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Connected original class174e21 metadata, saved GA100 method selection and the normal register-range builder. Selected outputs140000/17e000/2000 become range descriptors.",
+      "limit": "No runtime execution or decoder-bit/value producer established. No new constructor trace, GPU access, configuration change or extra usable memory/SM.",
+      "interpretation": "docs/ltc-register-layout.md"
     }
   ],
   "campaign_result": {
