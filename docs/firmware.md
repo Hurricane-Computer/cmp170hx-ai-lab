@@ -47,3 +47,7 @@ Both own originals and their mirrors have the same version1, 36-byte BIT-I recor
 The nonzero Devinit Tables pointer/size identifies exactly the already examined source35 data span, not a new script or geometry input. These findings do not imply firmware-wide absence of initialization code. The source basis is NVIDIA's [BIT_NVINIT_PTRS specification](https://nvidia.github.io/open-gpu-doc/BIOS-Information-Table/BIOS-Information-Table.html#_bit_nvinit_ptrs) and the pinned [envytools list reader](https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/nvbios/nvbios.c#L1282). No loader replay or hardware test follows from the same empty roots.
 
 Hashes and the twelve-image geometry comparison are in[firmware-catalog.json](../data/firmware-catalog.json). Primary references are in[Sources](sources.md).
+
+## Other ordinary App08 command forms
+
+The follow-up [command-contract study](training-commands.md) identifies the two non-MMIO forms, the six ordered selector groups and their existing-disable-mask gate. A separate special-port path is present but lacks an established physical fanout/response contract. No new physical enable or capacity test follows from script completion alone.

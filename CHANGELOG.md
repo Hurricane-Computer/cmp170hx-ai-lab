@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Ordinary training command selection
+
+- Closed the previously unexamined non-MMIO forms of the original App08 late command dispatcher and their normal transfer calls.
+- Recovered the identical six ordered selector pairs in both CMP originals; normal access selects an already active FBP and can return false for a fully disabled group.
+- Separated the special-port path, unchecked helper status and historical-mask calculations from actual population/capacity proof. No hardware action or new usable memory/SM claimed.
+
 ## 2026-10-17 — Normal discovery source and BIOS settings
 
 - Traced the intentional HVM hostbridge-scan policy and a fresh passthrough capability query that does not consume G's cached override; KVM fallback is false. No later runtime response or P2P data path claimed.

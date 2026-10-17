@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T11:32:16.362094+00:00",
+  "updated_utc": "2026-10-17T11:50:17.633366+00:00",
   "records": [
     {
       "id": "stage3",
@@ -257,6 +257,14 @@
       "result": "Read the original-IFR-identified PCI_COMMON variable only; Above4G=enabled and ReBAR=Auto under BIOS1801.",
       "limit": "Stored values do not prove effective resizing. No setting write, NVRAM backup or new GPU measurement.",
       "interpretation": "docs/discovery-and-firmware.md"
+    },
+    {
+      "id": "stage48",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Original App08 non-MMIO command forms use a six-pair selector and existing disable mask for normal ports. A special0x80 path skips that software selection; its physical response contract remains open.",
+      "limit": "No runtime record-instance inventory, hardware query/write, independent extra-stack response or usable memory/SM proof. Ignored helper status is not a demonstrated historical false pass.",
+      "interpretation": "docs/training-commands.md"
     }
   ],
   "campaign_result": {

@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "evidence_utc": "2026-10-17T11:48:55.648404+00:00",
+  "stage": 48,
+  "evidence_level": "static-analysis",
+  "firmware_executed": false,
+  "hardware_operations": 0,
+  "source_scope": "Original App08 late command types outside the Stage31 MMIO-only closure; no loader/authentication/source-lifetime analysis.",
+  "assembly_sha256": "c02db811dfd7321e04c55ecfa5cc44b8c160c31cf46fe33fd1b9f48c5efcd544",
+  "inputs": [
+    {
+      "variant": "cmp40",
+      "DMEM_sha256": "d0449fe04bdcc7b22a6e5077b23d4cc3ca6f9a6f66738bd634df43be12bd5158",
+      "pair_table_offset": "0x15c3",
+      "pair_table_bytes": "0002010403050709060b080a",
+      "ordered_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "format_strings": {
+        "0x17d4": "32w",
+        "0x17d8": "32b64b",
+        "0x17df": "2b1w1b",
+        "0x17e6": "32b1w1b2d80d"
+      }
+    },
+    {
+      "variant": "cmp64",
+      "DMEM_sha256": "99f757cc16c91c1734293c6a913c154267270782eaa550ca35053c37e614deba",
+      "pair_table_offset": "0x15c3",
+      "pair_table_bytes": "0002010403050709060b080a",
+      "ordered_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "format_strings": {
+        "0x17d4": "32w",
+        "0x17d8": "32b64b",
+        "0x17df": "2b1w1b",
+        "0x17e6": "32b1w1b2d80d"
+      }
+    }
+  ],
+  "outer_list": {
+    "entry_pc": "0xc5c2",
+    "commands": "32 expanded words, each originating in a packed16-bit list entry",
+    "opcode_bits": "low2",
+    "payload_bits": "2..15",
+    "type0": "Resolve referenced normal record/command sequence",
+    "type1": "Pass payload*1000 to original0x8df2 timing helper; unit not assigned here",
+    "type2": "Rejected by this dispatch with status0x472",
+    "type3": "Terminate command-list processing",
+    "runtime_record_instance_inventory_complete": false
+  },
+  "inner_record": {
+    "dispatch_pc": "0xc72b",
+    "type_field": "decoded record+0x84, low2bits",
+    "type0": "Previously reviewed constrained MMIO writes; preserve Stage31 cache/allowlist limits",
+    "type1": {
+      "pc": "0xc940..0xc9e3",
+      "max_payload_word_count": 80,
+      "action": "Each selected payload word is passed as command argument to original0x1312, with data-transfer length0"
+    },
+    "type2": {
+      "pc": "0xc9e7..0xca34",
+      "literal_length_upper_bound": 2560,
+      "action": "Pass command byte plus data buffer to0x1312 with write direction; selected length is passed through an8-bit argument",
+      "units_and_large_length_semantics_established": false
+    },
+    "type3": "Rejected with status0x476",
+    "selection_mask": "low24 bits of decoded+0x88; all-ones selects special0x80 path, otherwise only six selector positions are iterated",
+    "normal_transfer_return_checked_by_these_four_calls": false,
+    "transfer_calls": [
+      "0xc995",
+      "0xc9d0",
+      "0xca06",
+      "0xca29"
+    ]
+  },
+  "normal_port_selection": {
+    "helper": "0x12aa",
+    "transfer": "0x1312",
+    "mask_read_pc": "0x1366",
+    "mask_register": "0x820d38",
+    "selection_rule": "For selector0..5, choose first member of its ordered pair whose disable bit is clear; if both set return0xff.",
+    "port_mapping": "2*chosenFBP; original port address family0x903c9c +0x4000*FBPAindex",
+    "selector_ff": "Search the six pairs for an active candidate",
+    "selector_80": "Take special fixed port family beginning0x98bc9c before the normal mask read",
+    "special_path_physical_fanout_or_independent_responses_established": false,
+    "software_mask_skip_is_not_effective_topology_change": true
+  },
+  "calculated_historical_cases": [
+    {
+      "variant": "cmp40",
+      "historical_FBP_disable_mask": "0x840",
+      "kind": "calculated-from-source-and-historical-mask, not a fresh hardware query",
+      "blocked_selectors": [
+        4
+      ],
+      "rows": [
+        {
+          "selector": 0,
+          "ordered_FBP_candidates": [
+            0,
+            2
+          ],
+          "chosen_FBP_under_historical_mask": 0,
+          "chosen_FBPA_index": 0,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 1,
+          "ordered_FBP_candidates": [
+            1,
+            4
+          ],
+          "chosen_FBP_under_historical_mask": 1,
+          "chosen_FBPA_index": 2,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 2,
+          "ordered_FBP_candidates": [
+            3,
+            5
+          ],
+          "chosen_FBP_under_historical_mask": 3,
+          "chosen_FBPA_index": 6,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 3,
+          "ordered_FBP_candidates": [
+            7,
+            9
+          ],
+          "chosen_FBP_under_historical_mask": 7,
+          "chosen_FBPA_index": 14,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 4,
+          "ordered_FBP_candidates": [
+            6,
+            11
+          ],
+          "chosen_FBP_under_historical_mask": null,
+          "chosen_FBPA_index": null,
+          "transfer_function_returns_false_before_port_access": true
+        },
+        {
+          "selector": 5,
+          "ordered_FBP_candidates": [
+            8,
+            10
+          ],
+          "chosen_FBP_under_historical_mask": 8,
+          "chosen_FBPA_index": 16,
+          "transfer_function_returns_false_before_port_access": false
+        }
+      ]
+    },
+    {
+      "variant": "cmp64",
+      "historical_FBP_disable_mask": "0x852",
+      "kind": "calculated-from-source-and-historical-mask, not a fresh hardware query",
+      "blocked_selectors": [
+        1,
+        4
+      ],
+      "rows": [
+        {
+          "selector": 0,
+          "ordered_FBP_candidates": [
+            0,
+            2
+          ],
+          "chosen_FBP_under_historical_mask": 0,
+          "chosen_FBPA_index": 0,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 1,
+          "ordered_FBP_candidates": [
+            1,
+            4
+          ],
+          "chosen_FBP_under_historical_mask": null,
+          "chosen_FBPA_index": null,
+          "transfer_function_returns_false_before_port_access": true
+        },
+        {
+          "selector": 2,
+          "ordered_FBP_candidates": [
+            3,
+            5
+          ],
+          "chosen_FBP_under_historical_mask": 3,
+          "chosen_FBPA_index": 6,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 3,
+          "ordered_FBP_candidates": [
+            7,
+            9
+          ],
+          "chosen_FBP_under_historical_mask": 7,
+          "chosen_FBPA_index": 14,
+          "transfer_function_returns_false_before_port_access": false
+        },
+        {
+          "selector": 4,
+          "ordered_FBP_candidates": [
+            6,
+            11
+          ],
+          "chosen_FBP_under_historical_mask": null,
+          "chosen_FBPA_index": null,
+          "transfer_function_returns_false_before_port_access": true
+        },
+        {
+          "selector": 5,
+          "ordered_FBP_candidates": [
+            8,
+            10
+          ],
+          "chosen_FBP_under_historical_mask": 8,
+          "chosen_FBPA_index": 16,
+          "transfer_function_returns_false_before_port_access": false
+        }
+      ]
+    }
+  ],
+  "conclusion": "These ordinary command forms do not contain a new demonstrated physical-availability writer. A special port path exists, but its fanout/population/independent-response contract is not established. No new write or disabled-port DEVICE_ID repeat is justified.",
+  "limits": [
+    "Six selector groups are not proof of six populated or functional HBM stacks.",
+    "Ignored helper false return means apparent outer-script completion is not proof that a masked group was accessed.",
+    "No inference that80GiB backing on every CMP40 is impossible. External77.5/72GiB report remains positive open counterevidence.",
+    "No dynamic script-instance inventory or semantic names for unexposed opcode bytes assigned.",
+    "No additional usable memory or working SM demonstrated."
+  ]
+}
