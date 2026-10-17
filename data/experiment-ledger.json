@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T11:50:17.633366+00:00",
+  "updated_utc": "2026-10-17T12:07:48.304332+00:00",
   "records": [
     {
       "id": "stage3",
@@ -264,6 +264,14 @@
       "evidence_level": "static-analysis",
       "result": "Original App08 non-MMIO command forms use a six-pair selector and existing disable mask for normal ports. A special0x80 path skips that software selection; its physical response contract remains open.",
       "limit": "No runtime record-instance inventory, hardware query/write, independent extra-stack response or usable memory/SM proof. Ignored helper status is not a demonstrated historical false pass.",
+      "interpretation": "docs/training-commands.md"
+    },
+    {
+      "id": "stage49",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Mapped4/12/50 original command tables and historical profile selection. Special route belongs to a different profile. A10040 tables match; A10080 has real selected CMP40-path differences but no selected CMP64-path difference.",
+      "limit": "No fresh runtime argument/profile/execution observation, known capacity-latch meaning, suitable transplant or hardware trial. No extra usable memory/SM.",
       "interpretation": "docs/training-commands.md"
     }
   ],

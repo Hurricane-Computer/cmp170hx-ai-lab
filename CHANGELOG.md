@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-17 — Stored training records and A100 controls
+
+- Connected the original normal-data header to4 lists,12 sequences and50 command records, identical in both CMP originals.
+- Mapped historical own profiles4/7 to their stored command paths; neither selects the special-port profile10 route.
+- Compared two original A100 controls: PCIe40 tables match; PCIe80 differs outside the old profile matrix. Six consumed CMP40-path records contain72 changed active payload words, while the selected CMP64/Hynix path is identical.
+- Kept the normal toggle and command meanings unresolved; no transplant, firmware execution or extra usable capacity claimed.
+
 ## 2026-10-17 — Ordinary training command selection
 
 - Closed the previously unexamined non-MMIO forms of the original App08 late command dispatcher and their normal transfer calls.
