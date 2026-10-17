@@ -480,5 +480,87 @@
     "novelty": "The amount values were already recorded on15October. Stage66 adds native GA100 method and unit binding plus a current confirmation, not newly discovered capacity or the first reading of these values.",
     "new_hardware_accesses_for_archive_extraction": 0,
     "masked_historical_units_interpreted": false
+  },
+  "configuration_dependence_followup": {
+    "analysis_utc": "2026-10-17T18:30:42.812050+00:00",
+    "evidence_level": "source/report comparison and historical observations",
+    "published_same_card_report": {
+      "commit": "a3ea84b251db490d73a12b3fffbc9e6658e6b0cd",
+      "url": "https://github.com/amoghmunikote/cmpunlocker/commit/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd",
+      "commit_utc": "2026-09-07T00:17:56Z",
+      "evidence_level": "published first-party experiment report; not our independent reproduction",
+      "reported_same_card_pairs": [
+        {
+          "CFG1": "0x22559000",
+          "CSTATUS_mib_per_FBPA": 512
+        },
+        {
+          "CFG1": "0x02779000",
+          "CSTATUS_mib_per_FBPA": 2048
+        }
+      ],
+      "reported_active_FBPA_count": 16,
+      "reported_HBM_CFG0_bit0": 0,
+      "reported_bit0_name": "DUAL_RANK",
+      "reported_result_mib": 32768,
+      "inference": "CSTATUS is configuration-dependent on that reported card. The quantity sum alone is not independent installed/backed capacity proof for our cards."
+    },
+    "historical_own_inputs": {
+      "evidence_utc": "2026-10-15T16:57:25.258974+00:00",
+      "source_artifact_sha256": "7884f19b3dbf95c8ce139e145208d1014884471e36fa2d0b27dcd9f36d482366",
+      "cards": [
+        {
+          "variant": "cmp40",
+          "historical_active_count": 20,
+          "unique_raw_hbm_cfg0": [
+            "0x000000a7"
+          ],
+          "all_active_bit0_already_one": true,
+          "all_active_bit1_already_one": true,
+          "owner_profile_historical_selection": 4,
+          "original_selected_profile_hbm_cfg0": "0xa7"
+        },
+        {
+          "variant": "cmp64",
+          "historical_active_count": 16,
+          "unique_raw_hbm_cfg0": [
+            "0x000000a7"
+          ],
+          "all_active_bit0_already_one": true,
+          "all_active_bit1_already_one": true,
+          "owner_profile_historical_selection": 7,
+          "original_selected_profile_hbm_cfg0": "0xa7"
+        }
+      ],
+      "scope": "Already archived active inputs only; not new measurements or physical rank inventory.",
+      "producer_reference": "The full original23-register/16-profile writer was already analyzed; reuse it, do not count it as a new writer."
+    },
+    "ordinary_read_to_descriptor_branch": {
+      "firmware_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+      "new_branch_function_start": "0x4a0fb24",
+      "register_read": "mapped base +0x9a038c",
+      "bit0_argument": "a1=raw&1",
+      "bit1_argument": "a2=16 if(raw>>1)&1 else8",
+      "under_archived_0xa7": {
+        "a1": 1,
+        "a2": 16
+      },
+      "direct_callee": "0x53e75ec",
+      "callee_classification": "Type-dispatched software descriptor setter; inspected cases use stores relative to a0, not a new MMIO rank setter or capacity calculation.",
+      "callee_scope_limit": "Only the saved first0xc0 bytes inspected; not an exhaustive classification of every switch target.",
+      "native_GA100_selection_for_this_new_branch": "Not established by the saved physical-context trace. No universal/live execution claim."
+    },
+    "limits": [
+      "The published CFG1 before/after is an author report on a different single-rank card, not our independent reproduction.",
+      "Bit0/bit1 being set is configured state, not a physical rank count or integrity qualification.",
+      "The native upstream quantity producer is not fully derived from original hardware logic.",
+      "The newly inspected descriptor branch supplies no new MMIO write or capacity control.",
+      "No physical40GiB ceiling or rejection of foreign positive75/76 and77.5/72GiB reports."
+    ],
+    "hardware_accesses": 0,
+    "configuration_changes": 0,
+    "new_usable_gib": 0,
+    "new_working_sms": 0,
+    "next_question": "A source-bound physical decoder/address-selection or effective enable producer; no unchanged rank-bit, amount-getter or profile replay."
   }
 }

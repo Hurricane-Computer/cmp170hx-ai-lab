@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T14:08:59.860699+00:00",
+  "updated_utc": "2026-10-17T18:34:25.041534+00:00",
   "records": [
     {
       "id": "stage3",
@@ -476,6 +476,16 @@
       "evidence_utc": "2026-10-17T18:13:23.684258+00:00",
       "result": "Original GA100 physical-context trace binds mapper520 and amount consumerbf0. One40-read observation found uniform configured amounts:20x2048MiB and16x4096MiB, matching40/64GiB reports.",
       "limit": "No masked-controller access, writes, CUDA, resets, service interruption, extra usable memory/SM, physical ceiling or refutation of foreign positive reports. Configured quantity producer still open.",
+      "interpretation": "docs/controller-amounts.md"
+    },
+    {
+      "id": "stage67-quantity-origin",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "analysis_utc": "2026-10-17T18:30:42.812050+00:00",
+      "observation_evidence_utc": "2026-10-15T16:57:25.258974+00:00",
+      "result": "Linked published same-card CFG1/CSTATUS variation; archived active HBM_CFG0 bits0/1 already set on both owner cards. New ordinary read-to-descriptor branch is not a new hardware setter.",
+      "limit": "Different-card author report, historical own inputs and bounded source analysis kept separate. No hardware access, capacity gain, new write contract, physical ceiling or refutation of positive reports.",
       "interpretation": "docs/controller-amounts.md"
     }
   ],

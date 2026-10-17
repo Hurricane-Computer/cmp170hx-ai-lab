@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Configured quantity and existing rank inputs
+
+- Connected a pinned author-reported CFG1/CSTATUS before-after result with the original amount interpretation. These status quantities are not independent backing proof.
+- Reused archived active HBM_CFG0 words: bits0/1 already set on both cards. Classified a new ordinary read-to-descriptor branch without claiming a native-selected hardware writer. No new hardware access or capacity.
+
 ## 2026-10-17 — Native GA100 controller amount map
 
 - Closed the earlier register-translator selection gap using the saved physical-context trace; connected its native amount consumer and low17-bit MiB arithmetic.

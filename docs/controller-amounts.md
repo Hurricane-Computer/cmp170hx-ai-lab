@@ -32,4 +32,14 @@ CMP40's skipped indices were12,13,22,23; CMP64 additionally skipped2,3,8,9. The 
 
 No unequal amount was observed among the active controllers. The status producer, whether these fields follow configured geometry, and the population/health of masked controllers remain open. This adds no usable GiB, establishes no physical40-GiB ceiling and does not refute the positive75/76-GiB or77.5/72-GiB reports. No H/profile/cache-window replay or new write experiment follows from these values alone.
 
+## Configuration dependence and the existing rank input
+
+A [pinned upstream author report](https://github.com/amoghmunikote/cmpunlocker/commit/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd) describes a same-card CFG1 comparison on a single-rank variant: changing `0x22559000` to `0x02779000` changed CSTATUS from512 to2048MiB per FBPA. The author reports16 active FBPAs and32GiB after the change. This is published experimental evidence from another card, not our reproduction. It demonstrates reported configuration dependence; summing CSTATUS is not an independent physical-backing test.
+
+Our **15October archive** already has `HBM_CFG0=0xa7` on all36 active FBPAs of the two cards. Its bits0 and1 are both set. Bit0 is called `DUAL_RANK` in that upstream report. The previously analyzed original selected profiles4/7 also program `0xa7`; their writer is already known. Thus an experiment that merely sets these same bits would introduce no new rank-enable difference. The bits are configured inputs and do not prove a physical rank count.
+
+A newly inspected ordinary original-code branch at `0x4a0fb24` reads mapped `0x9a038c`, passes bit0 and an8/16 value selected by bit1 to `0x53e75ec`. The inspected callee cases store these values into a software descriptor. They do not supply a new MMIO setter. Native GA100 selection of this particular new branch and every switch case remain unbound; neither production execution nor a new hardware control is claimed. The previously closed GA100 amount consumer is a separate source result.
+
+This follow-up used only existing files and a targeted primary-source check. **No hardware access, register write, CUDA test, reset or service change.** The open target is an actual physical address-selection or effective-enable producer, with a new source-bound difference before another trial.
+
 The [structured extract](../data/controller-amounts.json) records the selected source contract, all36 deliberately curated amount rows, skipped indices, module/payload fingerprints and limits. Original firmware and private access/run logs remain external.
