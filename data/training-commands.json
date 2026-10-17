@@ -284,7 +284,7 @@
     "No dynamic script-instance inventory or semantic names for unexposed opcode bytes assigned.",
     "No additional usable memory or working SM demonstrated."
   ],
-  "updated_utc": "2026-10-17T12:37:28.965564+00:00",
+  "updated_utc": "2026-10-17T22:15:18.957715+00:00",
   "record_inventory": {
     "stage": 49,
     "evidence_utc": "2026-10-17T12:07:48.304332+00:00",
@@ -934,5 +934,140 @@
     "surrounding_state_operations_still_possible": true,
     "native_runtime_selection_or_execution_observed": false,
     "extra_usable_memory_demonstrated": false
+  },
+  "post_matrix_MRS_followup": {
+    "stage": 86,
+    "evidence_utc": "2026-10-17T22:13:43.385030+00:00",
+    "evidence_level": "static-analysis",
+    "source_scope": "Six additional command stores after the previously reviewed23-row profile block; three selected original card/profile cases only.",
+    "source_fingerprints": [
+      {
+        "variant": "cmp40",
+        "PROM_window_sha256": "7c275b8826d65175919012dc3deb625b00c69fddb187c23d1018fb36b9ac6006",
+        "DMEM_sha256": "d0449fe04bdcc7b22a6e5077b23d4cc3ca6f9a6f66738bd634df43be12bd5158",
+        "assembly_sha256": "c02db811dfd7321e04c55ecfa5cc44b8c160c31cf46fe33fd1b9f48c5efcd544"
+      },
+      {
+        "variant": "cmp64",
+        "PROM_window_sha256": "2b76d99e9ae88100b4524622f9bd51aa810134bc3899f2a6e0747932dcc2fda7",
+        "DMEM_sha256": "99f757cc16c91c1734293c6a913c154267270782eaa550ca35053c37e614deba",
+        "assembly_sha256": "c02db811dfd7321e04c55ecfa5cc44b8c160c31cf46fe33fd1b9f48c5efcd544"
+      }
+    ],
+    "selector": {
+      "cached_DMEM_offset": "0x156c",
+      "consumer_PC": "0x769c",
+      "table_stride_bytes": 4,
+      "intervening_delay_helper_preserves_selector_pointer": true
+    },
+    "additional_stores": [
+      {
+        "attributed_mode_register": 0,
+        "register": "0x9a0300",
+        "source_PC": "0x76fc"
+      },
+      {
+        "attributed_mode_register": 1,
+        "register": "0x9a0330",
+        "source_PC": "0x773b"
+      },
+      {
+        "attributed_mode_register": 2,
+        "register": "0x9a0334",
+        "source_PC": "0x7773"
+      },
+      {
+        "attributed_mode_register": 3,
+        "register": "0x9a0338",
+        "source_PC": "0x77ab"
+      },
+      {
+        "attributed_mode_register": 4,
+        "register": "0x9a033c",
+        "source_PC": "0x77e3"
+      },
+      {
+        "attributed_mode_register": 15,
+        "register": "0x9a034c",
+        "source_PC": "0x7811"
+      }
+    ],
+    "selected_cases": [
+      {
+        "variant": "cmp40",
+        "original_profile_column": 4,
+        "source_profile_CFG1": "0x2449000",
+        "selection_scope": "Conditional original-source case, not a new live selection.",
+        "controller_WR_field": 19,
+        "MRS1_low6": 19,
+        "controller_RAS_field": 42,
+        "MRS3_low6": 42,
+        "all_six_MRS_bits19_18_zero": true,
+        "native_rank_enum_established": false
+      },
+      {
+        "variant": "cmp40",
+        "original_profile_column": 7,
+        "source_profile_CFG1": "0x2779000",
+        "selection_scope": "Conditional original-source case, not a new live selection.",
+        "controller_WR_field": 27,
+        "MRS1_low6": 27,
+        "controller_RAS_field": 47,
+        "MRS3_low6": 47,
+        "all_six_MRS_bits19_18_zero": true,
+        "native_rank_enum_established": false
+      },
+      {
+        "variant": "cmp64",
+        "original_profile_column": 7,
+        "source_profile_CFG1": "0x2449000",
+        "selection_scope": "Conditional original-source case, not a new live selection.",
+        "controller_WR_field": 25,
+        "MRS1_low6": 25,
+        "controller_RAS_field": 43,
+        "MRS3_low6": 43,
+        "all_six_MRS_bits19_18_zero": true,
+        "native_rank_enum_established": false
+      }
+    ],
+    "field_name_corroboration": {
+      "evidence_level": "third-party",
+      "url": "https://tangled.org/clee.sh/cmpunlocker/blob/main/overclocking/timings/reference/hbm2-timings-decoded.md",
+      "retrieval": "Indexed primary-author excerpts; complete blob/raw retrieval returned403. No full-file hash/commit or independent vendor-header audit.",
+      "fields": {
+        "controller_WR": [
+          22,
+          16
+        ],
+        "MRS1_WR": [
+          5,
+          0
+        ],
+        "controller_RAS": [
+          23,
+          17
+        ],
+        "MRS3_RAS": [
+          5,
+          0
+        ],
+        "MRS_RANK": [
+          19,
+          18
+        ]
+      }
+    },
+    "conclusion": "Same-profile initialization includes DRAM mode words whose two payload fields match controller timings. A scalar CFG1 change is not the whole original initialization sequence.",
+    "limits": [
+      "Static stores, not observed execution/acceptance in a new boot.",
+      "WR/RAS names are externally attributed; the numeric correlations and original stores are independently checked.",
+      "No native meaning established for zero MRS RANK encoding; it does not identify only rank0, uninitialized rank1 or physical population.",
+      "No new density/address/effective-enable field or justified profile/MRS write candidate established. No profile/timing transplant.",
+      "No extra usable memory/SM or physical40GiB ceiling; separate positive75/76 and77.5/72GiB reports remain open."
+    ],
+    "hardware_operations": 0,
+    "firmware_executed_or_modified": false,
+    "new_usable_GiB": 0,
+    "new_SM": 0
   }
 }

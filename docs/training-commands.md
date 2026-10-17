@@ -106,3 +106,19 @@ This source follow-up performed no hardware access. The next distinct question i
 The separate SXM4-40 `92.00.48.00.01` case has now been checked in its own App08 consumer, rather than assuming the CMP code is identical. Its record reader uses the same declared length field. A zero length reaches the initial index-versus-length test and skips the payload store; it is not a hidden full-length sentinel in this path.
 
 Conditionally following stored profile 4 selects 29 zero-length records and one FE marker; profile 7 selects one zero-length record without an FE marker. The enclosing prologue/cleanup and any FE marker can still run. This does not establish that the firmware performs no initialization, nor reveal its runtime-selected profile. No firmware was executed and no new capacity mechanism follows. Exact source fingerprints and anchors are in the [structured record](../data/training-commands.json).
+
+## Post-matrix DRAM mode settings
+
+The original App08 continues beyond the known23-row configuration block: the same cached profile selects six further mode-command words at the attributed MR0/1/2/3/4/15 registers. Their store instructions and complete stored DMEM bytes are bound to both original PROM windows. Mirrored occurrences in a PROM window are duplicate data, not additional independent images. This follow-up compares only three selected source cases, not another full profile sweep.
+
+Two numeric correlations connect controller-side and DRAM-side values:
+
+| Original source case | Controller WR / MRS1 low6 | Controller RAS / MRS3 low6 |
+|---|---:|---:|
+| CMP40 profile4 | 19 /19 | 42 /42 |
+| CMP40 profile7, comparison only | 27 /27 | 47 /47 |
+| CMP64 profile7 | 25 /25 | 43 /43 |
+
+These are conditional source values, not new live selections. The WR/RAS names are corroborated by an [author's timing analysis](https://tangled.org/clee.sh/cmpunlocker/blob/main/overclocking/timings/reference/hbm2-timings-decoded.md); only indexed excerpts were accessible, while direct blob/raw reads returned403. The underlying vendor header was not independently audited. Our numeric correlations and store/table bindings come from the original files.
+
+Under that external layout, bits19:18 are zero in all six selected words. The native enum meaning of zero remains unknown: it does not establish “only rank0” or an uninitialized second rank. The extra initialization settings are real, but no new density/address-enable control follows from the demonstrated timing matches. No profile/MRS transplant, devinit replay or hardware test was performed. [Selected source evidence and limits](../data/training-commands.json) preserve this negative decision; raw mode-word tables and assembly remain private.

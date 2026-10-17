@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Original post-matrix DRAM mode settings
+
+- Bound six additional original App08 command stores to the same profile selector; three selected cases correlate two DRAM payload fields with controller timings.
+- Separated those real initialization settings from an unproved rank/density mechanism. No new write candidate, firmware execution or usable-capacity claim.
+
 ## 2026-10-17 — Bounded window allocator component compiled
 
 - Added original owner-budget/resource transaction code and native615.71.09 adapter; CPU fault-injection passes15 scenario groups and10,000 boundary cases under sanitizers.
