@@ -41,3 +41,7 @@ Curated sources, historical limits and reproducible CPU results: [capacity-evide
 A separate [pinned primary report](https://gist.github.com/sekkit/b30da03773768d0cd4e3de18e0619656/2f65500f3c81609f7d46522b1c7df5dea16dd5c6) includes `hbm45.cu`, `hbmh2d.cu` and `hbmstage.cu`. Its kernel checker matches the archived source after newline normalization, retaining the unchecked result-copy return. The attributed 75/76-GiB successes remain positive counterevidence; a historical false pass has not been demonstrated. This is not recovery of the separate original 77.5/72-GiB checker.
 
 Both copy programs allocate every chunk before their first fill copy. Their reported failure during write progress therefore does not isolate an allocation-time threshold. A first-allocated staging buffer also does not establish its physical FB address. No program or CPU counterexample was rerun. [File hashes and scoped observations](../data/capacity-evidence.json) preserve the comparison.
+
+## Matching-version comparison and new small GPU controls
+
+The [next follow-up](capacity-followup.md) checks the principal old configuration against our historical coherent80 trial, maps the repeated fault in matching original 610.43.03 firmware, and records 12 new small GPU verifier controls across both CMPs. The controls distinguish clean from deliberately wrong data and agree over two checked verdict paths. They are not a new high-capacity result.

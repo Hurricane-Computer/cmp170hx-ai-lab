@@ -20,8 +20,10 @@ This campaign has not demonstrated additional usable memory above the existing 4
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz; one exported region, 17 Oct 13:00 UTC |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz; one exported region, 17 Oct 13:00 UTC |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz, 17 Oct 13:27 UTC; small verifier controls passed |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz, 17 Oct 13:27 UTC; small verifier controls passed |
+
+The [new small verifier controls](docs/capacity-followup.md) detected each deliberate single-word error over three fill paths on both CMPs, with two matching checked verdict paths. This tests the checker, not additional capacity.
 
 The latest [ordinary framebuffer-region query](docs/fb-regions.md) returned one exported range per card. It does not inventory hidden physical memory or repeat the earlier copy tests.
 

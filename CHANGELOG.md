@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Matching 610 fault anchor and small verifier controls
+
+- Compared the principal foreign report configuration with our already-tested historical coherent80 fields; did not repeat that capacity ladder.
+- Passed 12 small GPU verifier cases across both CMPs, including intentional errors and two checked matching verdict paths. No new kernel errors after cleanup.
+- Mapped the recurring reported fault in an unchanged, vendor-package-verified 610.43.03 image. Runtime pointer values and cause remain unknown; no new capacity or SM claimed.
+
 ## 2026-10-17 — Native zero lengths, exported regions and recovered checkers
 
 - Checked the exceptional zero-length table in its native consumer; payload stores skip while surrounding operations remain separate.

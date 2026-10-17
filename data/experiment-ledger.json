@@ -313,6 +313,22 @@
       "result": "Recovered three published checker files; kernel source matches the archive after newline normalization.",
       "limit": "No rerun or recovered original77.5/72GiB checker; source limits do not establish a historical false pass.",
       "interpretation": "docs/capacity-evidence.md"
+    },
+    {
+      "id": "stage53-control",
+      "date": "2026-10-17",
+      "evidence_level": "observed",
+      "result": "Both CMPs passed three small fill paths with clean and intentional-error controls; checked D2H and mapped-host verdicts matched in12cases. Cleanup and subsequent readiness succeeded.",
+      "limit": "25MiB-plus64B of VRAM per card, no high-capacity qualification, bandwidth measurement or new SM.",
+      "interpretation": "docs/capacity-followup.md"
+    },
+    {
+      "id": "stage53-fault",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Vendor-hash-verified original610.43.03 image maps the recurring reported fault to a normal RM object-pointer byte load.",
+      "limit": "No runtime trap registers/effective address, named copy-engine function, root cause, firmware execution or patch established.",
+      "interpretation": "docs/capacity-followup.md"
     }
   ],
   "campaign_result": {

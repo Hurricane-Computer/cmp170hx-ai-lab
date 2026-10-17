@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "stage": 53,
+  "small_control": {
+    "evidence_level": "observed",
+    "evidence_utc": "2026-10-17T13:24:32.182242+00:00",
+    "configuration": "Supported40/64GiB under retained candidateG; no geometry change.",
+    "ptx_sha256": "67b483d2e9b61224e361282d77cf8eae621e611be02e8ae88b47a830d429be86",
+    "buffer_count": 3,
+    "buffer_bytes_each": 8388608,
+    "staging_bytes": 1048576,
+    "GPU_result_bytes": 64,
+    "mapped_host_result_bytes": 64,
+    "peak_VRAM_requested_per_card_bytes": 26214464,
+    "method": "Write all three chunks before verification; per-word/chunk pattern, device-local mismatch reduction, checked D2H and system-fenced mapped-host verdicts with fresh nonce/phase/completion.",
+    "controls": "Clean case and one intentional single-bit error per fill path.",
+    "cards": [
+      {
+        "variant": "cmp40",
+        "reported_mib": 40960,
+        "memory_clock_mhz": 1215,
+        "checked_API_calls": 144,
+        "all_owned_resources_released": true,
+        "cases": [
+          {
+            "fill": "kernel-fill",
+            "injected_bad_words": 0,
+            "observed_bad_words": 0,
+            "first_bad_global_word": null,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "d16f4a45dc9b4ff6467da5f3b6c99b27743669913f6006c6de9be69e43d5c3fa"
+          },
+          {
+            "fill": "kernel-fill",
+            "injected_bad_words": 1,
+            "observed_bad_words": 1,
+            "first_bad_global_word": 1048593,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "7bdcc08c74cd56e2e061a04073edaf7485bf7db7617977b6f8a35fd5f4ac5b6b"
+          },
+          {
+            "fill": "host-copy-fill",
+            "injected_bad_words": 0,
+            "observed_bad_words": 0,
+            "first_bad_global_word": null,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "a699b4fbb1f2817f40d6c56cea088a4a64c8fe8e8d29e4d719140b44113e36f8"
+          },
+          {
+            "fill": "host-copy-fill",
+            "injected_bad_words": 1,
+            "observed_bad_words": 1,
+            "first_bad_global_word": 1048593,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "280fd6e25c212c546d79425584348da0356d7d292356d749dec12191dd2562eb"
+          },
+          {
+            "fill": "staged-host-copy-kernel-fill",
+            "injected_bad_words": 0,
+            "observed_bad_words": 0,
+            "first_bad_global_word": null,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "2881256532c4b6f8f2b89744cc55c2a75a948de42dd3941ef82e823ebcef8456"
+          },
+          {
+            "fill": "staged-host-copy-kernel-fill",
+            "injected_bad_words": 1,
+            "observed_bad_words": 1,
+            "first_bad_global_word": 1048593,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "590827c7b43597c6339b06043ec24928fb1b61a28f8e76cfe6110c762271487f"
+          }
+        ]
+      },
+      {
+        "variant": "cmp64",
+        "reported_mib": 65536,
+        "memory_clock_mhz": 1728,
+        "checked_API_calls": 144,
+        "all_owned_resources_released": true,
+        "cases": [
+          {
+            "fill": "kernel-fill",
+            "injected_bad_words": 0,
+            "observed_bad_words": 0,
+            "first_bad_global_word": null,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "d18c155ae7396f98c23f4a61712704c0fbccfa071a43318b17b75dd1251203b8"
+          },
+          {
+            "fill": "kernel-fill",
+            "injected_bad_words": 1,
+            "observed_bad_words": 1,
+            "first_bad_global_word": 1048593,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "86169966a1d8785ef2396472cb7ef88ac720b6f36fff2cf857895a4b4c770638"
+          },
+          {
+            "fill": "host-copy-fill",
+            "injected_bad_words": 0,
+            "observed_bad_words": 0,
+            "first_bad_global_word": null,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "0515cc148b7aee9d26a1c58ef18ee039fadd604549b7586b802dcdef7fceb003"
+          },
+          {
+            "fill": "host-copy-fill",
+            "injected_bad_words": 1,
+            "observed_bad_words": 1,
+            "first_bad_global_word": 1048593,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "713bd1f2c61c31aadf41a24d6ba2ac7b66a9207d090ba1f47780ab6f34ab91ff"
+          },
+          {
+            "fill": "staged-host-copy-kernel-fill",
+            "injected_bad_words": 0,
+            "observed_bad_words": 0,
+            "first_bad_global_word": null,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "2b5a69c8294c43f376d4cfea6ddb345b2f9c44c709b52498cbc77ca45e6b8a82"
+          },
+          {
+            "fill": "staged-host-copy-kernel-fill",
+            "injected_bad_words": 1,
+            "observed_bad_words": 1,
+            "first_bad_global_word": 1048593,
+            "checked_result_D2H_succeeded": true,
+            "mapped_host_matches": true,
+            "fresh_nonce_phase_and_completion_match": true,
+            "result_sha256": "f1d125ce3767fcd94e2d6215e692ea71cd90574a40471781789d7aa6b6d49de0"
+          }
+        ]
+      }
+    ]
+  },
+  "post_cleanup": {
+    "evidence_utc": "2026-10-17T13:27:22.622794+00:00",
+    "NVML_responsive": true,
+    "new_kernel_GPU_error_count": 0
+  },
+  "same_historical_declared_inputs": {
+    "evidence_level": "observed",
+    "historical": true,
+    "own_report_date": "2026-09-20",
+    "own_report_sha256": "344aa85247a8c0f3ce2b413dc6106b216ad0b99836426db80ac50098d7460524",
+    "PCI_device_ID": "10de:2082",
+    "driver_version": "610.43.03",
+    "CFG1": "0x02779000",
+    "LMR": "0x0000028b",
+    "declared_FB_bytes": "0x1400000000",
+    "limit": "Common fields do not establish identical complete patch, runtime state or physical sample."
+  },
+  "matching_fault_image": {
+    "evidence_level": "static-analysis",
+    "release_version": "610.43.03",
+    "original_release_url": "https://download.nvidia.com/XFree86/Linux-x86_64/610.43.03/NVIDIA-Linux-x86_64-610.43.03-no-compat32.run",
+    "vendor_checksum_url": "https://download.nvidia.com/XFree86/Linux-x86_64/610.43.03/NVIDIA-Linux-x86_64-610.43.03-no-compat32.run.sha256sum",
+    "release_sha256": "e084451db730a6df29d3d74f655749c4d236e3c945f7d94b5205e84318fe2f90",
+    "release_vendor_SHA256_matches": true,
+    "firmware_bytes": 29352832,
+    "firmware_sha256": "73065619db9ec921d19fc4e519dd04d91a9199b525eaca9b257b89fb8c5ec52c",
+    "installer_executed": false,
+    "firmware_modified_or_loaded": false,
+    "repeated_reported_PC": "0x5b2ba28",
+    "reported_fault_source": "https://gist.github.com/sekkit/b30da03773768d0cd4e3de18e0619656/2f65500f3c81609f7d46522b1c7df5dea16dd5c6",
+    "mapped_section": ".section_task_rm_elf_text_instance",
+    "operation": "Byte load through an ordinary RM object-pointer chain.",
+    "candidate_frame_start": "0x5b2b788",
+    "runtime_trap_registers_or_effective_fault_address_available": false,
+    "named_copy_engine_function_or_root_cause_proved": false,
+    "other_reported_PCs": [
+      {
+        "PC": "0x4019a48",
+        "mapped_section": ".section_task_init_elf_text_instance"
+      },
+      {
+        "PC": "0x57ba4ac",
+        "mapped_section": ".section_task_rm_elf_text_instance"
+      },
+      {
+        "PC": "0x232164e1ff302e78",
+        "mapped_section": null
+      },
+      {
+        "PC": "0xc658901a90ac03f0",
+        "mapped_section": null
+      },
+      {
+        "PC": "0xaa6e32815f885e90",
+        "mapped_section": null
+      }
+    ],
+    "mapping_limit": "Original file-backed sections and bounded static windows only; no reproduced trap or complete control-flow proof."
+  },
+  "limits": [
+    "Small-control test, not a capacity or bandwidth qualification.",
+    "Two different verdict paths share the platform and are not an independent hardware-capacity proof.",
+    "Foreign75/76 and77.5/72GiB results remain attributed positive counterevidence.",
+    "No new high-memory mapping mechanism was established; unchanged coherent80 declarations were not retried."
+  ],
+  "resets": 0,
+  "geometry_register_writes": 0,
+  "driver_or_service_changes": 0,
+  "extra_usable_memory_demonstrated": false,
+  "new_working_SMs_demonstrated": false
+}
