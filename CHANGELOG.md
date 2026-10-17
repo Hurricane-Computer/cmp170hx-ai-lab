@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-17 — Direct command route and native completion observations
+
+- Connected the manually constructed original commands to a distinct state predicate, unique direct caller and flag clearing.
+- Kept additional command controls and shared scratch fields separate from a capacity mechanism.
+- Read the pinned first-party boot/memory-clear wait implementation: exact equality predicates and no new clear launch. No hardware probe or extra memory/SM result.
+
 ## 2026-10-17 — Expanded vendor command controls
 
 - Compared ten original vendor images on the conditional stored command paths, keeping the zero-length SXM40 case explicit.

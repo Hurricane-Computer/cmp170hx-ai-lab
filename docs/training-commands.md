@@ -80,3 +80,23 @@ The normal FE marker's intervening helper waits on elapsed IO-counter ticks. It 
 [NVIDIA's FBPA relocation note](https://github.com/NVIDIA/open-gpu-doc/blob/master/pascal/gp100-fbpa.txt) establishes the older-to-newer register-family mapping. The bounded [envytools register reference](https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/rnndb/memory/gf100_pbfb.xml) and [Nouveau RAM code](https://github.com/torvalds/linux/blob/v6.12/drivers/gpu/drm/nouveau/nvkm/subdev/fb/ramgf100.c) provide older-family context, without decoding the required GA100 command fields. No claim of global absence of public definitions is made. Reusing older GDDR command meanings for this HBM interface remains an unverified inference.
 
 There was no hardware access or new usable-memory/SM result in this follow-up. The next distinct source control is the manually constructed ordinary command sequence in the same original App08, to help identify the encoded operations before selecting a live experiment. Raw command payloads and firmware-derived assembly remain private.
+
+
+## The manually constructed route has its own state contract
+
+The direct command sequence has one direct caller in the examined original App08. The normal entry first dispatches on bit 0 of `0x12e0`. With that bit clear, the direct route is selected only when bits 10–11 of `0x11823c` equal 2 and bit 30 of `0x118f78` is set. The other branch calls the regular initialization path. At its end, the direct routine clears bit 30 itself. A later clear bit therefore cannot distinguish a route that was never taken from one that consumed the flag.
+
+Its small direct command sequence makes four writes to each of `0x9a0090`, `0x9a0094` and the additional control `0x9a0154`. The values written to `0x9a0094` use more than its low bit. This is a state-specific sequence with additional controls; it does not reveal named constructors for the table's encoded command fields. No isolated replay or route-selector change follows from it.
+
+The pinned [NVIDIA GPU administration source](https://github.com/NVIDIA/gpu-admin-tools/blob/44f261a7ebff96559488230b420e4a3035b30d58/nvidia_gpu_tools.py) uses `0x118f78` as scratch for other after-reset fields. Those fields do not define the original route's bit 30. Sharing the register address does not establish shared field meaning. No ECC or MIG test/change was made.
+
+The same source provides a useful completion contract. Its `clear_memory()` wrapper calls a wait method: that method waits for boot and then polls an existing memory-clear completion state. These methods do not launch a new clear. In the relevant pre-Hopper source branch, the expectations are:
+
+| Observation | Register | Expected full 32-bit value |
+|---|---|---|
+| Boot completed | `0x118234` | `0x000003ff` |
+| Memory clear finished | `0x100b20` | `0x00000001` |
+
+The polling implementation uses the default mask `0xffffffff` at these call sites, so these are equality tests, rather than tests for selected bits being set. They are source-level candidates for a future relevant experiment. Their accessibility on the actual CMP setup has not been tested. A blocked or poison read provides no completion result. Even valid completion would establish initialization status, not an independent physical-memory inventory or usable additional capacity.
+
+This source follow-up performed no hardware access. The next distinct question is the ordinary producer and meaning of the route flag and additional command control; the exact state condition is not itself a capacity mechanism. Original command payloads and derived assembly remain private.

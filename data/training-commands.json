@@ -284,7 +284,7 @@
     "No dynamic script-instance inventory or semantic names for unexposed opcode bytes assigned.",
     "No additional usable memory or working SM demonstrated."
   ],
-  "updated_utc": "2026-10-17T12:25:32.316401+00:00",
+  "updated_utc": "2026-10-17T12:37:28.965564+00:00",
   "record_inventory": {
     "stage": 49,
     "evidence_utc": "2026-10-17T12:07:48.304332+00:00",
@@ -817,6 +817,84 @@
         "bytes": 49888,
         "sha256": "99aa20855f0029918873fe0e598b341a91ad5049834df4b98033f34012fffa45"
       }
+    ],
+    "hardware_operations": 0,
+    "new_capacity_trial_derived": false
+  },
+  "manual_route_followup": {
+    "evidence_utc": "2026-10-17T12:37:28.965564+00:00",
+    "evidence_level": "static-analysis",
+    "assembly_sha256": "c02db811dfd7321e04c55ecfa5cc44b8c160c31cf46fe33fd1b9f48c5efcd544",
+    "entry_dispatch": {
+      "first_decision_pc": "0x1587..0x1598",
+      "condition": "MMIO0x12e0 bit0 nonzero",
+      "true_target": "0x8034",
+      "false_then": "Call0xcae2; nonzero result calls0xcb00 at0x15a4, zero result calls0x7eea at0x15ac."
+    },
+    "manual_route_predicate": {
+      "helper_pc": "0xcae2..0xcafe",
+      "exact_condition": "((MMIO[0x11823c] >> 10) & 3) == 2 AND ((MMIO[0x118f78] >> 30) & 1) == 1; also entryMMIO0x12e0 bit0 == 0.",
+      "field_names_or_operating_mode_established": false,
+      "physical_capacity_input_proved": false
+    },
+    "state_consumption": {
+      "pc": "0xcf6c..0xcf76",
+      "effect": "Read0x118f78 and clear bit30 at the end of0xcb00.",
+      "postboot_read_limit": "A later clear bit30 would not distinguish an untaken route from a route that consumed and cleared the bit."
+    },
+    "direct_command_construction": {
+      "range": "0xcb0e..0xcb67",
+      "port0090_write_count": 4,
+      "port0094_write_count": 4,
+      "interposed0154_write_count": 4,
+      "comparison": "The direct sequence has additional0x9a0154 control writes and0x9a0094 values with bits above0 set. It does not supply named command-field constructors for the table records.",
+      "semantic_names_for_words_established": false,
+      "isolated_replay_justified": false
+    },
+    "first_party_source": {
+      "repository": "NVIDIA/gpu-admin-tools",
+      "commit": "44f261a7ebff96559488230b420e4a3035b30d58",
+      "commit_date": "2026-09-30T03:01:27Z",
+      "path": "nvidia_gpu_tools.py",
+      "bytes": 172543,
+      "sha256": "b50943880a841e6b8880d683ee090c2661c62f5c4d484eb259ebe774ebb73868",
+      "url": "https://github.com/NVIDIA/gpu-admin-tools/blob/44f261a7ebff96559488230b420e4a3035b30d58/nvidia_gpu_tools.py"
+    },
+    "separate_scratch_fields": {
+      "official_source_usage": "NVIDIA source uses0x118f78 as scratch for separate after-reset ECC/MIG fields. Its published methods do not define the original App08 bit30 route selector.",
+      "original_additional_consumer": "Original0x7de4..0x7e25 reads bits12..13 and selects two normal helper calls; this is a separate field from the manual-route bit30.",
+      "bit30_named_by_source": false,
+      "ECC_or_MIG_changed_or_requalified": false
+    },
+    "ordinary_completion_contract": {
+      "clear_memory_line": 4130,
+      "clear_memory_operation": "Assert supported, then call wait_for_memory_clear. That method waits for boot and polls an already-existing completion state; no memory-clear launch is present in these methods.",
+      "boot_wait_line": 4082,
+      "memory_wait_line": 4135,
+      "boot_candidate": {
+        "address": "0x118234",
+        "expected_value": "0x3ff",
+        "mask_default": "0xffffffff",
+        "timeout_seconds": 5
+      },
+      "memory_clear_candidate": {
+        "address": "0x100b20",
+        "expected_value": "0x1",
+        "mask_default": "0xffffffff",
+        "timeout_seconds": 5
+      },
+      "poll_implementation_line": 1213,
+      "ready_predicate_checked_in_source": true,
+      "predicate": "poll_register compares (read_value & mask) == expected_value. These call sites supply no mask, so they require full32-bit equality, not merely a set-bit test.",
+      "new_reading_or_poll_performed": false,
+      "capacity_or_physical_inventory_test": false,
+      "invalid_read_limit": "A blocked, poison or unsupported read cannot establish the state and must not be promoted to a completed initialization."
+    },
+    "limits": [
+      "No native execution trace, capacity parameter or command-field definition established from the manual route.",
+      "The official completion predicates are source-level candidates for future relevant tests, not fresh observations or a trigger to repeat baseline qualification.",
+      "Register read permission and sentinel handling must be preserved; an invalid read is not initialization completion.",
+      "No isolated manual command, route-selector change, ECC/MIG change, memory-clear launch or hardware probe was performed."
     ],
     "hardware_operations": 0,
     "new_capacity_trial_derived": false

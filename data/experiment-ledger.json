@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T12:24:32.097630+00:00",
+  "updated_utc": "2026-10-17T12:37:28.965564+00:00",
   "records": [
     {
       "id": "stage3",
@@ -280,6 +280,14 @@
       "evidence_level": "static-analysis",
       "result": "Expanded original command controls to ten images. Five 80-GB controls share the same six-record profile4 delta; four 40-GB controls match CMP and one has zero stored lengths. Profile7 matches in nine controls. Identified MMIO submission and counter-wait completion limits.",
       "limit": "Conditional stored-data projections, not native A100 profile/execution observations or proof of a capacity switch. Command fields and a reversible capacity trial remain unresolved; no hardware access or extra usable memory/SM.",
+      "interpretation": "docs/training-commands.md"
+    },
+    {
+      "id": "stage51",
+      "date": "2026-10-17",
+      "evidence_level": "static-analysis",
+      "result": "Traced the manual original command route to its unique direct caller, state predicate and consumed flag. Identified extra command controls and a separate first-party boot/memory-clear wait contract with exact equality predicates.",
+      "limit": "Route field names and capacity effects remain unresolved. The NVIDIA clear_memory wrapper waits without starting a clear. No new hardware reading, route override, capacity trial, extra memory or SM.",
       "interpretation": "docs/training-commands.md"
     }
   ],
