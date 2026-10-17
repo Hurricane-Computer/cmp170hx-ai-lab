@@ -450,5 +450,35 @@
     "Sum agrees with the driver report; neither is a dense backing test.",
     "No H reinstallation, upper-window test, verifier baseline or owner-established SM/ECC requalification.",
     "No documented new write contract or capacity unlock follows."
-  ]
+  ],
+  "historical_correspondence": {
+    "evidence_level": "historical observation, reinterpreted under the closed GA100 contract",
+    "evidence_utc": "2026-10-15T16:57:25.258974+00:00",
+    "source_artifact_sha256": "7884f19b3dbf95c8ce139e145208d1014884471e36fa2d0b27dcd9f36d482366",
+    "cards": [
+      {
+        "variant": "cmp40",
+        "selected_active_row_count": 20,
+        "selected_active_amounts_all_match_current": true,
+        "current_disable_mask_matches_historical": true,
+        "current_CFG1_matches_historical": true,
+        "unique_selected_configured_mib": [
+          2048
+        ]
+      },
+      {
+        "variant": "cmp64",
+        "selected_active_row_count": 16,
+        "selected_active_amounts_all_match_current": true,
+        "current_disable_mask_matches_historical": true,
+        "current_CFG1_matches_historical": true,
+        "unique_selected_configured_mib": [
+          4096
+        ]
+      }
+    ],
+    "novelty": "The amount values were already recorded on15October. Stage66 adds native GA100 method and unit binding plus a current confirmation, not newly discovered capacity or the first reading of these values.",
+    "new_hardware_accesses_for_archive_extraction": 0,
+    "masked_historical_units_interpreted": false
+  }
 }

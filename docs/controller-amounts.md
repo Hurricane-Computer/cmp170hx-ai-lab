@@ -2,6 +2,8 @@
 
 At **2026-10-17T18:13:23.684258+00:00**, one bounded read-only observation found uniform configured amounts on each card: **20 active FBPAs at2048MiB on CMP40, and16 at4096MiB on CMP64**. Their sums match the40/64-GiB driver reports. This describes the active configuration; it is not an inventory of extra physical HBM or a full-capacity integrity test.
 
+The same active-controller amounts, disable masks and CFG1 words were already recorded on **15October**. An offline archive extraction matches all36 current active rows. The new result is the native GA100 method/unit binding; the current read confirms the earlier values. This is not a newly discovered hardware property or additional capacity.
+
 ## Original GA100 source contract
 
 The saved original GA100/key42 constructor trace for physical-memory context class `0x174e21` installs:
