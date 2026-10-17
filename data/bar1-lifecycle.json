@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "stage": 83,
+  "recorded_utc": "2026-10-17T21:11:54.371994+00:00",
+  "evidence_level": "static-analysis",
+  "official_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "source_comparison": {
+    "evidence_level": "observed",
+    "evidence_utc": "2026-10-17T21:08:40.007330+00:00",
+    "files_compared": 10,
+    "whole_file_matches": 9,
+    "remaining_file": "src/nvidia/src/kernel/gpu/bus/arch/maxwell/kern_bus_gm107.c",
+    "remaining_difference": "Retained CMP BAR2 CPU cache policy and diagnostics, outside the three examined BAR1 functions.",
+    "initial_all_equal_assumption_failed": true,
+    "unmodified_BAR1_functions": [
+      {
+        "name": "kbusMapFbAperture_GM107",
+        "body_sha256": "e19ac006c475a850352feead3fd5f9fc7ca4c8dfcac94372daa67c22c1b6eb8d",
+        "actual_G_equals_pinned": true
+      },
+      {
+        "name": "kbusUnmapFbAperture_GM107",
+        "body_sha256": "57546a58a09137b9d1a9c512b12773920664c8e77cad2a586471c7b76410c700",
+        "actual_G_equals_pinned": true
+      },
+      {
+        "name": "_kbusMapAperture_GM107",
+        "body_sha256": "62600ba245fd0c529ca24206cd95818f93739976ca21ef569684ac0090c3519d",
+        "actual_G_equals_pinned": true
+      }
+    ],
+    "sources": [
+      {
+        "path": "src/nvidia/generated/g_kern_bus_nvoc.h",
+        "pinned_sha256": "544010136bb19dd5e708a9013037f8eca332e07386747423780686207d0a285c",
+        "retained_sha256": "544010136bb19dd5e708a9013037f8eca332e07386747423780686207d0a285c",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_kern_bus_nvoc.h"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/bus/arch/turing/kern_bus_tu102.c",
+        "pinned_sha256": "908dbd61e1319d00adc61cf200978bf095b7882a8c0fc8059c5b9431d69933ef",
+        "retained_sha256": "908dbd61e1319d00adc61cf200978bf095b7882a8c0fc8059c5b9431d69933ef",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/arch/turing/kern_bus_tu102.c"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/bus/arch/ampere/kern_bus_ga100.c",
+        "pinned_sha256": "13c5c945c485370f9b1aa6761304ea1ad8cad3398927acaef3ed3bc6a0210d85",
+        "retained_sha256": "13c5c945c485370f9b1aa6761304ea1ad8cad3398927acaef3ed3bc6a0210d85",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/arch/ampere/kern_bus_ga100.c"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/mem_mgr/arch/maxwell/virt_mem_allocator_gm107.c",
+        "pinned_sha256": "53def3b7166754a952dcb83494ac213726c8ae6acd4118502206ab7300e96a1c",
+        "retained_sha256": "53def3b7166754a952dcb83494ac213726c8ae6acd4118502206ab7300e96a1c",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/arch/maxwell/virt_mem_allocator_gm107.c"
+      },
+      {
+        "path": "src/nvidia/src/kernel/rmapi/mapping_list.c",
+        "pinned_sha256": "26bd148fbfc73913d6ebbea18ece60e89a6303c46f72d7205eb59e5c20085d23",
+        "retained_sha256": "26bd148fbfc73913d6ebbea18ece60e89a6303c46f72d7205eb59e5c20085d23",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/rmapi/mapping_list.c"
+      },
+      {
+        "path": "src/nvidia/inc/kernel/rmapi/mapping_list.h",
+        "pinned_sha256": "29e368b650a6068e5de36b6a05d49edee95508bdd126b6fe4c5919a98835b1e2",
+        "retained_sha256": "29e368b650a6068e5de36b6a05d49edee95508bdd126b6fe4c5919a98835b1e2",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/inc/kernel/rmapi/mapping_list.h"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/mem_mgr/mem_desc.c",
+        "pinned_sha256": "ea2c53aafb5fcf1b6237a7ae46044cf0ed14a57da1eb3bc012dab2142b83d454",
+        "retained_sha256": "ea2c53aafb5fcf1b6237a7ae46044cf0ed14a57da1eb3bc012dab2142b83d454",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/mem_desc.c"
+      },
+      {
+        "path": "src/nvidia/src/kernel/gpu/bus/arch/maxwell/kern_bus_gm107.c",
+        "pinned_sha256": "2c941c50358cf7708b0259ff058f636fb13dd609fa9a72621b9a85335b92f098",
+        "retained_sha256": "804de68e776618e77fb23bb45c4a6652ac8ee095782a47ba5175746c0b4c2e7d",
+        "whole_file_equal": false,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/arch/maxwell/kern_bus_gm107.c"
+      },
+      {
+        "path": "src/nvidia/arch/nvalloc/unix/src/os.c",
+        "pinned_sha256": "057b50fcb738be90a073b60f63e70559706864ddcec3bf703282563173e3dce4",
+        "retained_sha256": "057b50fcb738be90a073b60f63e70559706864ddcec3bf703282563173e3dce4",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/arch/nvalloc/unix/src/os.c"
+      },
+      {
+        "path": "kernel-open/nvidia/nv-dma.c",
+        "pinned_sha256": "7912d6cf000450848b9c54b20b580958e7698f91fc6107c10b4e0fc502cd8942",
+        "retained_sha256": "7912d6cf000450848b9c54b20b580958e7698f91fc6107c10b4e0fc502cd8942",
+        "whole_file_equal": true,
+        "pinned_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/nv-dma.c"
+      }
+    ]
+  },
+  "address_contract": [
+    {
+      "domain": "allocation-relative offset",
+      "use": "Select actual owner subrange; encode only offsets within the acquired window."
+    },
+    {
+      "domain": "owner BAR1 VAS address",
+      "use": "Save returned range and descriptor for exact aperture unmap."
+    },
+    {
+      "domain": "CPU BAR physical address",
+      "use": "Owner BAR physical base plus returned aperture address; identify owner BAR resource."
+    },
+    {
+      "domain": "accessor DMA address",
+      "use": "Successful ordinary peer DMA mapping for accessor; accessor-specific PTE plus relative offset."
+    }
+  ],
+  "source_findings": {
+    "single_wrappers_add_unmanaged_area": true,
+    "dynamic_unmap_uses_saved_VAS_range_without_BAR_base_subtraction": true,
+    "GH100_normal_free_and_error_cleanup_supply_different_address_expressions": true,
+    "GH100_runtime_free_failure_demonstrated": false,
+    "peer_DMA_mapping_resolves_root_owner_BAR": true,
+    "PTE_lookup_can_fall_back_to_physical_array_without_IOVA_map": true,
+    "native_peer_partial_unmap_rejected_before_free": true,
+    "native_BAR1_free_hook_precedes_accessor_dmaFreeMap": true,
+    "runtime_race_demonstrated": false,
+    "tracking_list_free_is_window_destructor": false
+  },
+  "unbuilt_port": {
+    "built": false,
+    "installed": false,
+    "ready_for_hardware": false,
+    "required_state": [
+      "Owner and actual source subrange/reference",
+      "Returned BAR1 range and explicit acquired state",
+      "Accessor identity and successful DMA-map state",
+      "Reader PTE installed/retired state",
+      "Lease references and charged owner-aperture budget"
+    ],
+    "release_requirement": "Retire reader PTEs/invalidation, release accessor DMA references, then release owner window and budget. Review every normal and partial-failure path.",
+    "partial_unmap_policy": "Keep first candidate limited to native full peer unmap.",
+    "open_before_build": [
+      "Actual CUDA/UVM consumer and honest pair admission",
+      "Reader retirement/RPC error paths and lease ownership",
+      "Actual available contiguous aperture, lock order and GA100 PTE-kind contract"
+    ],
+    "preserved": [
+      "IOMEM GPU-range overlap guard",
+      "Native aperture reserve",
+      "Topology/error results",
+      "Host IOMMU/ACS configuration",
+      "Unrelated GPU families"
+    ]
+  },
+  "scope": {
+    "GPU_API_calls": 0,
+    "direct_MMIO_accesses": 0,
+    "driver_builds": 0,
+    "GPU_allocations_or_kernels": 0,
+    "VM_restarts": 0,
+    "GPU_resets": 0,
+    "host_reboots": 0,
+    "configuration_changes": 0,
+    "extra_usable_GiB": 0,
+    "additional_SM": 0,
+    "bandwidth_measured": false
+  },
+  "limits": "No GH100 runtime defect or internal CUDA101 producer established. No additional physical memory or40GiB ceiling. Foreign positive75/76 and77.5/72GiB reports remain open."
+}

@@ -22,3 +22,22 @@ Four actual G files match pinned NVIDIA615.71.09 source. Its [virtual-memory map
 The [GH100 allocator](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_mgr/arch/hopper/virt_mem_allocator_gh100.c#L45) maps an owner subrange and supplies a memory descriptor for the resulting BAR1 window. Its [pair prerequisite](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/arch/hopper/kern_bus_gh100.c#L1442) includes static BAR1 on both cards and excludes an existing mailbox connection. Switching a support value alone supplies neither those resources nor a working GA100 allocator.
 
 A possible CMP port remains unbuilt. It needs actual owner-window/DMA mapping, bounded aperture admission and paired allocation/free handling, including address-domain and partial-failure cleanup checks. No native check is removed or forced to return success. The original capacity/FWSEC investigation and positive large-memory reports remain open; this small allocation test establishes no additional HBM or physical40-GiB limit.
+
+## Address and lifetime follow-up, 17 October 2026
+
+This follow-up is static analysis with source-file reads only. Nine of ten examined files match pinned NVIDIA source. The remaining file contains the retained CMP BAR2 cache-policy and diagnostic changes; its three relevant BAR1 map/unmap function bodies still match. [Structured source results and unbuilt contract](../data/bar1-lifecycle.json) retain that distinction.
+
+| Value | Meaning | Correct use |
+|---|---|---|
+| Allocation offset | Position within the owner's actual allocation | Select the source subrange |
+| BAR1 VAS address | Returned aperture window address | Save unchanged for matching aperture unmap |
+| CPU BAR physical address | Owner BAR base plus aperture address | Describe the owner's BAR resource |
+| Accessor DMA address | Result of mapping that resource for the reading GPU | Encode reader PTEs with allocation-relative offsets |
+
+The [Single wrappers](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/kern_bus.c#L1078) add the unmanaged-area flag. The [dynamic unmap](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/arch/maxwell/kern_bus_gm107.c#L3211) passes that saved range to the BAR1 VAS allocator; these functions do not subtract a physical BAR base. The newer GH100 helper's normal free reads its CPU-physical descriptor address, whereas its error cleanup uses the saved aperture value. That difference blocks copying it unchanged into a dynamic CMP allocator. No actual GH100 free failure or leak has been demonstrated.
+
+The existing [OS peer-DMA path](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/arch/nvalloc/unix/src/os.c#L3817) identifies the memory owner's BAR and maps it for the accessor. The descriptor must retain the owner as its root GPU. An accessor-specific PTE lookup can fall back to the physical array when no IOVA mapping exists, so a plausible address alone is insufficient: successful mapping and its matching release must be tracked explicitly.
+
+Native peer unmap [rejects partial unmaps](https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/mem_mgr/virtual_mem.c#L1724) and calls its BAR1-free hook before `dmaFreeMap`. A dynamic port needs reviewed reader-PTE retirement and error cleanup before its aperture window becomes reusable. The source order does not establish a runtime race. The tracking-list free function alone releases no new window resources.
+
+The candidate remains unbuilt. Pair admission and the actual user-library/UVM consumer, full error-path ordering, aperture accounting/locks and GA100 PTE-kind selection remain open. Existing guards and the native aperture reserve stay intact. No new GPU trial, capacity claim or limit follows from this source work.

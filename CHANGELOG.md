@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — BAR1 address domains and teardown contract
+
+- Traced the actual dynamic aperture map/free path and ordinary peer-DMA translation; separated returned aperture, CPU-physical and accessor-DMA addresses.
+- Nine whole source files and three BAR1 function bodies in the retained differing file match upstream. Documented full-unmap policy and remaining lifetime/admission gaps; no driver build or GPU trial.
+
 ## 2026-10-17 — Ordinary VMM owner allocations and peer-admission rejection
 
 - Both CMPs create/map2MiB device allocations and pass full1MiB source comparisons before and after foreign read-access requests. Both requests return101; no remote kernel runs.
