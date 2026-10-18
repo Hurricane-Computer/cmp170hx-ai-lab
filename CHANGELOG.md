@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Record later H initialization failure and separate boot-file recovery
+
+- Captured later native CMP40 initialization/GSP/ECC error classes before any expanded-data test. No new upper-memory verdict, capacity gain or physical-damage conclusion.
+- Verified the owned G boot files; the subsequent runtime recovery remains unconfirmed. [Observed failure and recovery limits](docs/cache-alias.md#later-h-startup-failure-and-partial-recovery).
+
 ## 2026-10-18 — Separate the SM read verdict from large D2H
 
 - Confirmed that the two executed expanded-H programs used SM fills with D2H/CPU verdicts; verifier definitions had not been launched there.

@@ -328,6 +328,46 @@
       "physical_capacity_ceiling_established": false,
       "foreign_positive_reports_refuted": false,
       "next_step": "Recover supported access and known driver state before considering the still-unexecuted bounded SM comparison. No unchanged baseline, geometry or mask replay follows."
+    },
+    "later_native_start_and_recovery": {
+      "evidence_level": "observed native-start failure and verified boot-file restoration; runtime recovery incomplete",
+      "native_log_observation_utc": "2026-10-18T09:44:16.348207+00:00",
+      "scope": "A later guest boot while the same preserved H modules were installed; no new geometry values or CUDA data trial.",
+      "native_CMP40_initialization_failed": true,
+      "native_error_classes": {
+        "RmInitAdapter": "0x62:0x65:2130",
+        "Xid_codes": [
+          119,
+          140
+        ],
+        "GSP_initialization_timeout": true,
+        "DRAM_ECC_error_messages_present": true
+      },
+      "physical_damage_or_exact_failure_cause_established": false,
+      "upper_SM_comparison_executed": false,
+      "new_CUDA_allocation_or_copy_executed": false,
+      "G_boot_file_restore": {
+        "five_module_backup_hashes_matched": true,
+        "fixed_G_core_pin_matched": true,
+        "owned_G_modules_and_initrd_restored": true,
+        "depmod_and_sync_completed": true,
+        "all_target_hashes_verified": true,
+        "independent_historical_initrd_and_config_hash_pins": false,
+        "live_G_driver_health_proven_by_file_restore": false
+      },
+      "G_runtime_recovery": {
+        "guest_stop_completed": true,
+        "guest_start_attempted": true,
+        "guest_start_completion_confirmed": false,
+        "native_G_readiness_confirmed": false,
+        "manual_PCI_resets": 0,
+        "host_reboots_commanded": 0,
+        "observation": "Management command channels stopped answering during the recovery start; last confirmed job phase was the start request. No second writer or retry was dispatched."
+      },
+      "CMP64_new_capacity_trial": false,
+      "extra_usable_GiB_demonstrated": 0,
+      "foreign_positive_reports_refuted": false,
+      "next_step": "Finish supported runtime recovery and revalidate the existing job and locks before any further GPU test."
     }
   }
 }
