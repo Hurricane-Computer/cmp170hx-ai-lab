@@ -1,6 +1,29 @@
 # Normal CPU-RM geometry adoption and CUDA admission
 
-## New CMP-only result: both cards pass small CPU-RM copies
+## Larger geometry reaches stock CPU-RM, but the data ranges still alias
+
+On 18 October 2026 at 00:29 UTC, a healthy cold start of the preserved Open H build was followed by normal complete unload and the unchanged stock CPU core plus its matching stock UVM. **CMP40 retained CFG1 `0x02779000` / LMR `0x28b`, and native CPU-RM reported 81920 MiB with GSP disabled.** No CPU size/export patch was applied. CMP64 retained its existing `0x02779000` / `0x20b` profile and 65536-MiB report. This closes the previously unexecuted larger-geometry manager comparison.
+
+A native 41-GiB CMP40 allocation succeeded. One bounded phase filled only 2 MiB at logical offset 512 MiB and 512 KiB at 40.5 GiB with a fresh seed and different window tags. After successful native full-cache write-back/invalidate (`0x2080130e`, flags `0x38`, status 0), both checked D2H transfers were compared word by word on the CPU:
+
+| Logical window | Checked 64-bit words | Wrong words | Wrong words matching the other window's payload |
+|---|---:|---:|---:|
+| Lower, 512 MiB |262144|32768|32768|
+| Upper, 40.5 GiB |65536|32768|32768|
+
+Each direction contains four delta groups of 8192 wrong words near 40 GiB with `±0x700/0x900` offsets. The scoped evidence establishes cross-window corruption; the exact counts differ from the earlier GSP result. All explicit CUDA/RM cleanup calls returned 0. API success and a large allocation did not establish independent additional storage. **Zero additional usable GiB is demonstrated.** Only 2.5 MiB of patterns was written; this was not a dense 41-GiB stress test.
+
+The new distinction is that the failure also occurs with native CPU-RM and GSP disabled during data access. Active GSP data management is therefore not required for this result. H's prior custom initialization and the larger geometry remain shared inputs: a common mapping/initialization defect and physical address decoding are still not distinguished. No general physical XOR formula, physical 40-GiB ceiling, or rejection of the attributed 75/76 and 77.5/72-GiB positive reports follows.
+
+**A later health fault is recorded separately.** The first CMP40 Xid was 62 at 32.193 seconds after boot, after the completed comparison; later diagnostics also contained 45/51/25/154, and its native memory-clock query became not-ready. The exact cause is unproved. A necessary return to the preserved working Open G boot restored native 40/64-GiB reports, clocks 1215/1728 MHz, and temperatures 31/28 °C at 00:34:40 UTC. One 8-KiB CMP40 random H2D/D2H comparison and cleanup passed, followed by a short native-ready observation without a new Xid. This is a recovery snapshot, not long-term qualification. The experiment and recovery required two guest restarts and two exclusive bus resets per CMP; no host reboot, firmware flash, or IOMMU/ACS change.
+
+The earlier reverse warm CPU→H transition did fail before readiness: normal CPU unload succeeded, H exceeded its 55-second load timeout with Falcon/Booter status `0x65`, and the interim CPU return recognized only CMP64. No upper data test ran in that failed phase. The cold comparison and completed recovery above supersede that temporary state. Parent direct MMIO writes were zero, but H's custom geometry initialization did execute; driver writes are not silently counted as zero. An Open modeset companion autoloaded in CPU mode; the exact stock identities apply to the core and UVM.
+
+For CMP64, separate static analysis of the original App08 narrows the missing availability input. The `0x7ffd → 0x2fd3 → 0x4de3` call thunk supplies no mask; initialization overwrites the candidate register directly from effective status `0x820c14` before caching it at DMEM `0x1570`. One specific preceding helper consumes fixed firmware bytes and supplies no mask either. Its target's enable semantics are unproved, and other earlier producers are not globally excluded. This gives no new CMP64 write candidate.
+
+The next capacity step needs a different source-bound normal mapping/initialization input for CMP40, or a real producer of different effective backing/availability for CMP64. Repeating this H geometry and CPU window trial unchanged adds no mechanism. [Selected observed data and separately labelled inference/static analysis](../data/cpu-rm-larger-geometry.json). Original firmware and private operational logs remain external.
+
+## Earlier CMP-only result: both cards pass small CPU-RM copies
 
 On 17 October 2026 at 23:48 UTC, **both CMPs initialized CUDA and passed bounded H2D/D2D/D2H copies under the unchanged proprietary 615.71.09 CPU-RM driver with GSP disabled**. This closes the ordinary CPU-RM admission obstacle for this configuration. It establishes a working allocator and small data path, with zero additional usable GiB demonstrated so far.
 
@@ -17,7 +40,7 @@ Native `GPU_GET_INFO` queries and cleanup also succeeded on both cards under bot
 
 The prior error 101 was replaced by success in the combined fresh-kernel, Blackwell-unbound, matched-UVM, single-CMP-visible configuration. These simultaneous changes do not isolate one sole cause. NVIDIA emitted the expected unprobed-device warning for the deliberately unbound Blackwell; it was not silently counted as another initialized device.
 
-CPU-RM remains active for the next capacity work; Blackwell remains unbound and the normally stopped RTX cooling service's full-fan stop policy remains in effect. Installed Open modules and the frozen rollback were preserved; the model was not restarted. The next proposed comparison is a normal larger-geometry initialization followed by this now-working manager, with small independently tagged lower/upper data windows. It has not yet run. CMP64 still separately needs an applicable additional-controller or larger-region producer; no unsupported mask writes follow from this admission result.
+At the end of that earlier admission trial, CPU-RM remained active, Blackwell was unbound and the normally stopped RTX cooling service's full-fan stop policy was in effect. Installed Open modules and the frozen rollback were preserved; the model was not restarted. That result enabled the larger-geometry comparison now documented above; it had not run at the time of this earlier snapshot. CMP64 still separately needs an applicable additional-controller or larger-region producer; no unsupported mask writes follow from this admission result.
 
 [Selected native call statuses, exact module identities, hashes and limits](../data/cpu-rm-admission.json).
 

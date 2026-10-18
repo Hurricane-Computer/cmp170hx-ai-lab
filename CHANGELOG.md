@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 — Larger geometry reaches CPU-RM; independent data still fails
+
+- Native stock CPU-RM adopts CMP40's 80-GiB report and larger geometry after normal H initialization. A bounded post-flush comparison finds cross-window payload corruption despite successful allocation, API calls and cleanup; zero extra usable GiB claimed.
+- Recorded the earlier warm-load failure and later CPU-mode health fault separately. Necessary G recovery restores 40/64-GiB reports and passes one 8-KiB control copy; retained rollback and exact scope are explicit.
+- Narrowed CMP64's original App08 caller gap without inventing an enable parameter or another mask write. [Data, inference and limits](docs/cpu-rm-capacity.md).
+
 ## 2026-10-18 — Both CMPs pass bounded copies under stock CPU-RM
 
 - Fresh-kernel CMP-only operation with Blackwell normally unbound, matched stock core/UVM and per-process device selection passed CUDA admission and 8-MiB H2D/D2D/D2H checks on both cards; all cleanup succeeded.

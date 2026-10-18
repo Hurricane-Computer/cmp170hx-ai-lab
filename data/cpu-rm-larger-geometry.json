@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "stage": 91,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-18T00:29:29.303882+00:00",
+  "driver_version": "615.71.09",
+  "mechanism": {
+    "normal_cold_Open_H_initialization": true,
+    "H_core_sha256": "84b8a29637bb400f5a2b1f59f1588b6eb84fb76ab7cdf19096b6f228515c6801",
+    "normal_complete_H_unload": true,
+    "H_unload_stack_cache_or_kernel_fault_in_recorded_window": false,
+    "unchanged_stock_CPU_core_sha256": "07b44a821e04408acb375417a99f10832fb1678d04ac087c3ae508be2581323a",
+    "unchanged_stock_UVM_sha256": "913628080481eb654d61ff4f73ad83a2cf7464bff46f026ea2ae203fd96806ff",
+    "CPU_loaded_srcversions": {
+      "nvidia": "A1B9C1CB149D84B5D35F8C7",
+      "nvidia_uvm": "33A31B862B1F12EE634326B"
+    },
+    "GSP_active_during_data_phase": false,
+    "Blackwell_normally_unbound_before_CPU_load": true,
+    "no_live_handles_or_allocations_retained_across_manager_change": true,
+    "CPU_software_capacity_override": false,
+    "native_profiles": {
+      "cmp40": {
+        "CFG1": "0x2779000",
+        "LMR": "0x28b",
+        "same_before_and_after_normal_transition": true,
+        "CPU_reported_mib": 81920,
+        "GSP_firmware": "N/A"
+      },
+      "cmp64": {
+        "CFG1": "0x2779000",
+        "LMR": "0x20b",
+        "same_before_and_after_normal_transition": true,
+        "CPU_reported_mib": 65536,
+        "GSP_firmware": "N/A"
+      }
+    },
+    "companion_limit": "An Open modeset companion also autoloaded; exact stock identities apply to core and UVM."
+  },
+  "bounded_comparison": {
+    "variant": "cmp40",
+    "allocation_bytes": 44023414784,
+    "distinct_pattern_written_bytes": 2621440,
+    "window_sizes_bytes": [
+      2097152,
+      524288
+    ],
+    "window_offsets_bytes": [
+      536870912,
+      43486543872
+    ],
+    "phase_count": 1,
+    "seed": "0x7668fd243af17489",
+    "distinct_window_tags": [
+      32,
+      33
+    ],
+    "PTX_sha256": "67b483d2e9b61224e361282d77cf8eae621e611be02e8ae88b47a830d429be86",
+    "checker_sha256": "5ae9874308344d824a716eaee286715cab49bffeaa4ec436876a1174c7512bea",
+    "ordinary_flush": {
+      "control": "0x2080130e",
+      "flags": "0x38",
+      "status": "0x0"
+    },
+    "windows": [
+      {
+        "offset_bytes": 536870912,
+        "checked_words": 262144,
+        "bad_words": 32768,
+        "first_bad_word": 32768,
+        "expected_sha256": "04574f44bd5799df83faf3f82e64761e0a13aef40ec4298edeb6f2de0775111d",
+        "returned_sha256": "d45d7b6cbb574a8439f19f6a5bc9b23b3e84eb28de3c92b64fc24628959916f9",
+        "D2H_return_checked": true,
+        "all_words_compared_on_CPU": true,
+        "cross_window_payload_matches": [
+          {
+            "source_minus_destination_bytes": 42949670656,
+            "words": 8192
+          },
+          {
+            "source_minus_destination_bytes": 42949671168,
+            "words": 8192
+          },
+          {
+            "source_minus_destination_bytes": 42949674752,
+            "words": 8192
+          },
+          {
+            "source_minus_destination_bytes": 42949675264,
+            "words": 8192
+          }
+        ]
+      },
+      {
+        "offset_bytes": 43486543872,
+        "checked_words": 65536,
+        "bad_words": 32768,
+        "first_bad_word": 0,
+        "expected_sha256": "9642171b4a1df1ea3f82a581cb980f0e209927e62c24669787f74f187b333123",
+        "returned_sha256": "ef7402b5dd784c243714006fcac4242cf3928497fd1cd3e37f65c9e2902f81b1",
+        "D2H_return_checked": true,
+        "all_words_compared_on_CPU": true,
+        "cross_window_payload_matches": [
+          {
+            "source_minus_destination_bytes": -42949675264,
+            "words": 8192
+          },
+          {
+            "source_minus_destination_bytes": -42949674752,
+            "words": 8192
+          },
+          {
+            "source_minus_destination_bytes": -42949671168,
+            "words": 8192
+          },
+          {
+            "source_minus_destination_bytes": -42949670656,
+            "words": 8192
+          }
+        ]
+      }
+    ],
+    "native_API_errors_before_verdict": false,
+    "cleanup": [
+      {
+        "op": "module_unload",
+        "rc": 0
+      },
+      {
+        "op": "free_owned_VRAM",
+        "rc": 0
+      },
+      {
+        "op": "destroy_owned_context",
+        "rc": 0
+      },
+      {
+        "op": "free_RM_client",
+        "rc": 0
+      }
+    ],
+    "cleanup_all_zero": true,
+    "data_result_received": true,
+    "outcome": "Cross-window payload corruption; the two sampled logical ranges are not independent under this profile.",
+    "extra_usable_gib_demonstrated": 0
+  },
+  "inference": {
+    "evidence_level": "inference",
+    "manager_comparison": "Cross-window corruption exists with native CPU-RM and GSP disabled during data access, as well as the earlier GSP-mode result. Active GSP data management is not required for this scoped failure.",
+    "residual_uncertainty": "The shared H initialization and geometry remain; this does not distinguish a common mapping/initialization defect from physical address decoding.",
+    "delta_limit": "Four groups in each direction lie near 40 GiB with +/-0x700/0x900 offsets. The published counts do not establish a general physical XOR formula."
+  },
+  "later_health_fault": {
+    "evidence_level": "observed",
+    "recorded_after_completed_verdict": true,
+    "first_Xid": 62,
+    "first_Xid_seconds_since_boot": 32.192898,
+    "later_Xids": [
+      45,
+      51,
+      25,
+      154
+    ],
+    "later_native_memory_clock_not_ready": true,
+    "healthy_retained_80GiB_state_proven": false,
+    "exact_fault_cause_proven": false
+  },
+  "necessary_G_recovery": {
+    "evidence_utc": "2026-10-18T00:34:40.513402+00:00",
+    "completed": true,
+    "core_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "loaded_srcversion_matches_file": true,
+    "reported_memory_mib": {
+      "cmp40": 40960,
+      "cmp64": 65536
+    },
+    "memory_clock_mhz": {
+      "cmp40": 1215,
+      "cmp64": 1728
+    },
+    "gpu_temperature_c": {
+      "cmp40": 31,
+      "cmp64": 28
+    },
+    "recovery_copy": {
+      "bytes": 8192,
+      "source_sha256": "1c9f9b3c47ea92f354414f1315b1929574e909f965bc63138ab1be37ab93ca6d",
+      "returned_sha256": "1c9f9b3c47ea92f354414f1315b1929574e909f965bc63138ab1be37ab93ca6d",
+      "full_buffer_matches": true,
+      "cleanup": [
+        {
+          "op": "free",
+          "rc": 0
+        },
+        {
+          "op": "destroy",
+          "rc": 0
+        }
+      ]
+    },
+    "delayed_native_ready": true,
+    "no_Xid_in_short_recovery_observation": true,
+    "long_term_stability_qualified": false,
+    "models_explicitly_restarted": false
+  },
+  "earlier_warm_failure": {
+    "evidence_level": "observed",
+    "H_load_timeout_seconds": 55,
+    "H_loader_not_immediately_reaped": true,
+    "Falcon_Booter_Load_status": "0x65",
+    "normal_CPU_unload_statuses": [
+      0,
+      0,
+      0
+    ],
+    "no_larger_allocation_or_data_test_in_that_failed_phase": true,
+    "interim_CPU_return_only_CMP64_ready": true,
+    "later_cold_comparison_supersedes_incomplete_recovery_state": true
+  },
+  "operations": {
+    "guest_restarts": 2,
+    "bus_resets_per_CMP": 2,
+    "host_reboots": 0,
+    "parent_direct_MMIO_writes": 0,
+    "H_custom_geometry_initialization_writes_executed": true,
+    "ordinary_driver_writes_not_counted_as_zero": true,
+    "dense_41GiB_write": false,
+    "intensive_VRAM_stress": false,
+    "OTP_writes": 0,
+    "firmware_flash": false,
+    "host_IOMMU_or_ACS_changes": false,
+    "unchanged_GSP_upper_test_replay": false
+  },
+  "CMP64_separate_static_analysis": {
+    "evidence_level": "static-analysis",
+    "original_App08_IMEM_sha256": "7b30aca9fd83958ea50b989961a5e9c4dd13938ed3b80b71828594e5f08cc3f5",
+    "same_IMEM_does_not_mean_same_DMEM": true,
+    "caller": "0x7ffd -> 0x2fd3 -> 0x4de3",
+    "thunk_supplies_no_availability_mask": true,
+    "capture": "Direct 0x820c14 load replaces r1, then stores DMEM 0x1570",
+    "specific_prior_helper": "0x2072 consumes four fixed DMEM bytes and writes two targets; no mask argument supplied",
+    "preceding_target_enable_semantics_proven": false,
+    "normal_effective_availability_producer_still_unbound": true,
+    "new_hardware_write_candidate": false
+  },
+  "limits": [
+    "An 80-GiB report and 41-GiB allocation are not proof of physical backing.",
+    "Only 2.5 MiB of tagged patterns were written and independently compared; no full-capacity qualification.",
+    "Mismatch counts differ from the earlier GSP sample; no bit-for-bit identical failure or general decoder map is claimed.",
+    "No additional usable GiB, physical memory ceiling, or refutation of attributed 75/76 and 77.5/72-GiB positives follows.",
+    "Do not repeat this H geometry/CPU data trial unchanged. A different source-bound normal address mapping or effective backing producer is required."
+  ]
+}
