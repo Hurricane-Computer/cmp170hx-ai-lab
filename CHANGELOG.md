@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Qualify normal fixed/range placement and upper-request refusals
+
+- Place owned 64-KiB buffers exactly at 1 and 2 GiB through ordinary user-RM fixed/range requests; check CPU data and returned cleanup statuses.
+- Separate fixed upper requests refused with `INVALID_STATE` from PMA range requests refused with `NO_MEMORY` on both CMPs. No upper data access, driver change or additional usable GiB; no physical ceiling inferred. [Methods and limits](docs/physical-offset-diagnostics.md#follow-up-normal-fixed-and-range-requests).
+
 ## 2026-10-18 — Validate a small physical-offset diagnostic
 
 - Obtain physical offsets for two owned 64-KiB buffers per CMP and pass five complete CPU-mapped comparisons per card. Separate normal device-file/registration entry requirements from memory results.

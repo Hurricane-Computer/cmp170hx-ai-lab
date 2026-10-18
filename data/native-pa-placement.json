@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed normal RM allocation controls and refusals, with separate pinned source analysis",
+  "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "driver_candidate": "G",
+  "method": {
+    "normal_user_RM": true,
+    "kernel_helper_loaded": false,
+    "allocation_class": "NV01_MEMORY_LOCAL_USER",
+    "fixed_flag": "NVOS32_ALLOC_FLAGS_FIXED_ADDRESS_ALLOCATE",
+    "range_flag": "NVOS32_ALLOC_FLAGS_USE_BEGIN_END",
+    "native_ABI_sizes_bytes": {
+      "alloc_bytes": 32,
+      "control_bytes": 32,
+      "free_bytes": 16,
+      "memory_bytes": 128,
+      "map_bytes": 48,
+      "map_fd_bytes": 56,
+      "unmap_bytes": 32
+    },
+    "range_input": "rangeLo=P; rangeHi=P+65536",
+    "PMA_consumer_limit": "ALIGN_DOWN(rangeHi,pageSize)-1",
+    "CPU_mapping": "NVOS33 with Linux FD wrapper; mmap offset0 from validated owned FD context; RM token checked within BAR1",
+    "maximum_owned_bytes_per_control": 131072,
+    "written_bytes_per_successful_control": 196608,
+    "compared_read_bytes_per_successful_control": 327680,
+    "posted_flush_read_bytes_per_successful_control": 12,
+    "fresh_nonce_patterns": true,
+    "CUDA_calls": 0,
+    "GPU_kernel_launches": 0
+  },
+  "successful_baseline_controls": [
+    {
+      "variant": "cmp40",
+      "method": "fixed",
+      "followup_evidence_utc": "2026-10-18T21:00:54.662775+00:00",
+      "requested_physical_offsets_bytes": [
+        1073741824,
+        2147483648
+      ],
+      "returned_physical_offsets_bytes": [
+        1073741824,
+        2147483648
+      ],
+      "allocation_bytes_each": 65536,
+      "returned_surface_limit_each": 65535,
+      "complete_comparisons": 5,
+      "words_per_comparison": 16384,
+      "mismatched_words_per_comparison": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "data_checked": true,
+      "checked_cleanup": {
+        "munmap_return_codes": [
+          0,
+          0
+        ],
+        "RM_unmap_status": [
+          0,
+          0
+        ],
+        "FB_free_status": [
+          0,
+          0
+        ],
+        "subdevice_device_client_free_status": [
+          0,
+          0,
+          0
+        ],
+        "final_FD_close_aggregate_passed": true
+      }
+    },
+    {
+      "variant": "cmp64",
+      "method": "fixed",
+      "followup_evidence_utc": "2026-10-18T21:00:54.662775+00:00",
+      "requested_physical_offsets_bytes": [
+        1073741824,
+        2147483648
+      ],
+      "returned_physical_offsets_bytes": [
+        1073741824,
+        2147483648
+      ],
+      "allocation_bytes_each": 65536,
+      "returned_surface_limit_each": 65535,
+      "complete_comparisons": 5,
+      "words_per_comparison": 16384,
+      "mismatched_words_per_comparison": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "data_checked": true,
+      "checked_cleanup": {
+        "munmap_return_codes": [
+          0,
+          0
+        ],
+        "RM_unmap_status": [
+          0,
+          0
+        ],
+        "FB_free_status": [
+          0,
+          0
+        ],
+        "subdevice_device_client_free_status": [
+          0,
+          0,
+          0
+        ],
+        "final_FD_close_aggregate_passed": true
+      }
+    },
+    {
+      "variant": "cmp40",
+      "method": "range",
+      "followup_evidence_utc": "2026-10-18T21:14:02.521832+00:00",
+      "requested_physical_offsets_bytes": [
+        1073741824,
+        2147483648
+      ],
+      "returned_physical_offsets_bytes": [
+        1073741824,
+        2147483648
+      ],
+      "allocation_bytes_each": 65536,
+      "returned_surface_limit_each": 65535,
+      "complete_comparisons": 5,
+      "words_per_comparison": 16384,
+      "mismatched_words_per_comparison": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "data_checked": true,
+      "checked_cleanup": {
+        "munmap_return_codes": [
+          0,
+          0
+        ],
+        "RM_unmap_status": [
+          0,
+          0
+        ],
+        "FB_free_status": [
+          0,
+          0
+        ],
+        "subdevice_device_client_free_status": [
+          0,
+          0,
+          0
+        ],
+        "final_FD_close_aggregate_passed": true
+      }
+    }
+  ],
+  "upper_requests": [
+    {
+      "variant": "cmp40",
+      "method": "fixed",
+      "followup_evidence_utc": "2026-10-18T21:07:31.043390+00:00",
+      "lower_physical_offset_bytes": 536870912,
+      "requested_upper_physical_offset_bytes": 43486543872,
+      "requested_allocation_bytes": 65536,
+      "lower_object_and_CPU_mapping_accepted": true,
+      "upper_allocation_accepted": false,
+      "constructor_status": 64,
+      "constructor_status_name": "NV_ERR_INVALID_STATE",
+      "upper_CPU_mapping_created": false,
+      "test_data_written_bytes": 0,
+      "data_comparisons": 0,
+      "checked_owned_cleanup_all_zero": true
+    },
+    {
+      "variant": "cmp64",
+      "method": "fixed",
+      "followup_evidence_utc": "2026-10-18T21:07:31.043390+00:00",
+      "lower_physical_offset_bytes": 536870912,
+      "requested_upper_physical_offset_bytes": 69256347648,
+      "requested_allocation_bytes": 65536,
+      "lower_object_and_CPU_mapping_accepted": true,
+      "upper_allocation_accepted": false,
+      "constructor_status": 64,
+      "constructor_status_name": "NV_ERR_INVALID_STATE",
+      "upper_CPU_mapping_created": false,
+      "test_data_written_bytes": 0,
+      "data_comparisons": 0,
+      "checked_owned_cleanup_all_zero": true
+    },
+    {
+      "variant": "cmp40",
+      "method": "range",
+      "followup_evidence_utc": "2026-10-18T21:14:30.612049+00:00",
+      "lower_physical_offset_bytes": 536870912,
+      "requested_upper_physical_offset_bytes": 43486543872,
+      "requested_allocation_bytes": 65536,
+      "lower_object_and_CPU_mapping_accepted": true,
+      "upper_allocation_accepted": false,
+      "constructor_status": 81,
+      "constructor_status_name": "NV_ERR_NO_MEMORY",
+      "upper_CPU_mapping_created": false,
+      "test_data_written_bytes": 0,
+      "data_comparisons": 0,
+      "checked_owned_cleanup_all_zero": true
+    },
+    {
+      "variant": "cmp64",
+      "method": "range",
+      "followup_evidence_utc": "2026-10-18T21:14:30.612049+00:00",
+      "lower_physical_offset_bytes": 536870912,
+      "requested_upper_physical_offset_bytes": 69256347648,
+      "requested_allocation_bytes": 65536,
+      "lower_object_and_CPU_mapping_accepted": true,
+      "upper_allocation_accepted": false,
+      "constructor_status": 81,
+      "constructor_status_name": "NV_ERR_NO_MEMORY",
+      "upper_CPU_mapping_created": false,
+      "test_data_written_bytes": 0,
+      "data_comparisons": 0,
+      "checked_owned_cleanup_all_zero": true
+    }
+  ],
+  "initial_caller_error": {
+    "owner_field_was_zero": true,
+    "constructor_status": 57,
+    "constructor_status_name": "NV_ERR_INVALID_OWNER",
+    "test_memory_allocations_before_refusal": 0,
+    "correction": "Ordinary nonzero application tag outside the reserved RM scratch interval; internalflags remain0 and normal checks remain active."
+  },
+  "source_analysis": {
+    "fixed_only_heapIsPmaManaged_selector": true,
+    "nearby_non_PMA_scrub_guard_can_return_INVALID_STATE": true,
+    "exact_runtime_return_site_of_fixed_refusal_bound": false,
+    "selected_constructor_journal_query_had_no_matches": true,
+    "range_selector_has_PMA_constraints": true,
+    "native_checks_overridden": false
+  },
+  "latest_followup": {
+    "evidence_utc": "2026-10-18T21:14:30.612049+00:00",
+    "delay_seconds": 12,
+    "reported_GiB": {
+      "cmp40": 40,
+      "cmp64": 64
+    },
+    "memory_clock_MHz": {
+      "cmp40": 1215,
+      "cmp64": 1728
+    },
+    "reported_used_MiB_each": 0,
+    "reported_clients_each": 0,
+    "matching_Xid_initialization_failure_BUG_Oops_records": false,
+    "driver_reloads": 0,
+    "firmware_changes": 0,
+    "clock_changes": 0
+  },
+  "interpretation": {
+    "new_usable_GiB": 0,
+    "upper_memory_data_access_executed": false,
+    "allocator_refusal_is_physical_capacity_proof": false,
+    "physical_density_measured": false,
+    "physical_ceiling_inferred": false,
+    "prior_alias_fault_or_foreign_positive_reports_resolved": false,
+    "next_step": "Use the qualified small PA-aware method only in a new source-grounded backing/geometry experiment; do not repeat these unchanged G requests or the old large H allocation."
+  }
+}

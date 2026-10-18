@@ -2,6 +2,7 @@
 
 These files are explicit technical projections of the research records, not copies of raw logs or private checkpoints.
 
+- [native-pa-placement.json](native-pa-placement.json): exact normal fixed/range placements, checked CPU access and cleanup, and separate upper-constructor refusals; no upper-memory data verdict or physical ceiling.
 - [physical-offset-control.json](physical-offset-control.json): small owned contiguous allocations, returned physical offsets, checked CPU access and the low-placement limit of a grows-down hint; no extra-capacity result.
 - [capacity-evidence.json](capacity-evidence.json): external77.5/72-GiB lead, archived full-word test audit, historical47-GiB alias and CPU method counterexamples; no new GPU capacity result.
 - [peer-memory.json](peer-memory.json): historical Stage42/F and later G directed matrices, exact module fingerprints, separate 8/64-GiB CMP64 observations and the scoped native-discovery refusal.
