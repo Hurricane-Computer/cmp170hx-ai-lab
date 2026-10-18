@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Complete the direct SM verdict with Blackwell removed
+
+- One CMP-only H trial observes 65536 wrong lower words and 0 upper words through valid mapped-host SM records **before any large D2H**. No added usable GiB or physical-capacity ceiling is claimed.
+- Separate the later H GSP/reset fault, correct identical-srcversion ambiguity with distinct loaded build IDs, and verify the necessary G 40/64-GiB return. [Data, recovery and limits](docs/cache-alias.md#cmp-only-follow-up-the-sm-observes-the-mismatch-before-large-d2h).
+
 ## 2026-10-18 — Preserve the outage evidence without reproducing it
 
 - Find the same Blackwell reset wait during both guest stop/start sequences and capture a retained fatal processor record; separate the native CPER label from the AMD Execution Unit watchdog interpretation.

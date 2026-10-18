@@ -509,6 +509,161 @@
         "extra_usable_GiB_demonstrated": 0,
         "raw_record_or_logs_published": false
       }
+    },
+    "CMP_only_upper_SM_trial": {
+      "evidence_level": "observed bounded data trial and captured later fault; mapping cause remains unresolved",
+      "explicit_owner_requested_CMP_only_isolation": true,
+      "Blackwell_absent": true,
+      "prior_isolation_G_observation_utc": "2026-10-18T12:32:54.930410+00:00",
+      "prior_isolation_only_removed_Blackwell_assignment": true,
+      "first_CMP_only_transition_and_two_G_8KiB_copies_passed": true,
+      "one_transition_does_not_prove_previous_outage_cured": true,
+      "trial_start_utc": "2026-10-18T12:46:52.609326+00:00",
+      "trial_finish_utc": "2026-10-18T12:46:53.431083+00:00",
+      "module_identity": {
+        "H_file_sha256": "84b8a29637bb400f5a2b1f59f1588b6eb84fb76ab7cdf19096b6f228515c6801",
+        "G_file_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+        "H_GNU_build_id": "f0266c09ef95a7856744db8d44d1d6face3d2183",
+        "G_GNU_build_id": "ca31f32a78925bd2e09e378dfe06ac371fdda921",
+        "loaded_H_build_id_matched_preserved_H": true,
+        "loaded_G_build_id_matched_preserved_G_after_recovery": true,
+        "H_and_G_srcversion_identical": true,
+        "srcversion_alone_distinguishes_H": false,
+        "loaded_whole_binary_hash_independently_measured": false
+      },
+      "G_boot_recovery_files_restored_and_all_seven_hash_verified_before_first_H_native_query": true,
+      "native_H_reported_mib": {
+        "cmp40": 81920,
+        "cmp64": 65536
+      },
+      "PTX_sha256": "17fd6d0b308c65abfe98f70736d9ffd32db067a575cc682ac2100c245e3dcd58",
+      "PTX_and_algorithm_unchanged_from_passed_small_control": true,
+      "small_control_repeated": false,
+      "allocation_bytes": 44023414784,
+      "window_offsets_bytes": [
+        536870912,
+        43486543872
+      ],
+      "window_bytes": [
+        2097152,
+        524288
+      ],
+      "distinct_GPU_write_bytes": 2621440,
+      "mapped_host_result_bytes": 8192,
+      "ordinary_flush_command": "0x2080130e",
+      "ordinary_flush_flags": "0x38",
+      "ordinary_flush_status": 0,
+      "result": "SM-data-mismatch-before-any-large-D2H",
+      "checked_words": [
+        262144,
+        65536
+      ],
+      "SM_bad_words": [
+        65536,
+        0
+      ],
+      "valid_thread_records": 128,
+      "each_thread_checked_words": [
+        2048,
+        512
+      ],
+      "each_thread_bad_words": [
+        512,
+        0
+      ],
+      "nonce_identity_coverage_complement_completion_checks_passed": true,
+      "mapped_records_sha256": "0278eb79b72704e745b1f1fd288f047bee23d8bcf643018d3d7537c176785a94",
+      "independent_offline_record_reparse_passed": true,
+      "all_checked_CUDA_returns_zero": true,
+      "all_owned_resource_cleanup_returns_zero": true,
+      "large_D2H_performed": false,
+      "actual_wrong_payload_words_saved_by_this_verifier": false,
+      "physical_cause_or_full_XOR_map_established": false,
+      "explanation_confined_to_omitted_large_D2H_sufficient": false,
+      "late_fault": {
+        "first_selected_Xid_utc": "2026-10-18T12:47:06.789937+00:00",
+        "Xid_classes": [
+          119,
+          154
+        ],
+        "GSP_timeout": true,
+        "GPU_requires_reset": true,
+        "observed_during_later_native_status_query": true,
+        "query_cause_established": false,
+        "delayed_wrapper_raised_on_NA_clock": true,
+        "one_raw_diagnostic_confirmed_fault": true,
+        "data_and_cleanup_completed_before_fault": true,
+        "fault_occurred_without_Blackwell": true
+      },
+      "recovery": {
+        "reason": "Necessary recovery after captured reset-required H fault",
+        "one_graceful_shutdown_and_start": true,
+        "isolated_CMP_bus_resets_each": 1,
+        "Blackwell_still_absent": true,
+        "G_build_id_matched": true,
+        "postcheck_utc": "2026-10-18T12:51:58.886265+00:00",
+        "small_copies": [
+          {
+            "label": "CMP64",
+            "utc": "2026-10-18T12:51:45.628596+00:00",
+            "bytes": 8192,
+            "source_sha256": "afb79cc5cbff24910cadf8d1426d448ef973209dcd50864a96eb4e917891c086",
+            "returned_sha256": "afb79cc5cbff24910cadf8d1426d448ef973209dcd50864a96eb4e917891c086",
+            "copy_passed": true,
+            "cleanup_all_zero": true
+          },
+          {
+            "label": "CMP40",
+            "utc": "2026-10-18T12:51:46.235235+00:00",
+            "bytes": 8192,
+            "source_sha256": "4b404563510d44c6b90a1fcd606b2a456bd8095a2bc23fd2d7cb95e1399990b9",
+            "returned_sha256": "4b404563510d44c6b90a1fcd606b2a456bd8095a2bc23fd2d7cb95e1399990b9",
+            "copy_passed": true,
+            "cleanup_all_zero": true
+          }
+        ],
+        "delayed_observation_utc": "2026-10-18T12:51:58.588476+00:00",
+        "delay_seconds": 12,
+        "cards": [
+          {
+            "variant": "cmp64",
+            "reported_mib": 65536,
+            "memory_clock_mhz": 1728,
+            "temperature_c": 28,
+            "used_mib": 0,
+            "compute_clients": 0
+          },
+          {
+            "variant": "cmp40",
+            "reported_mib": 40960,
+            "memory_clock_mhz": 1215,
+            "temperature_c": 32,
+            "used_mib": 0,
+            "compute_clients": 0
+          }
+        ],
+        "new_Xid_or_RmInitAdapter_in_selected_current_boot_log": false,
+        "other_guest_processes_unchanged": true,
+        "host_boot_unchanged": true,
+        "full_capacity_or_sustained_health_qualification": false
+      },
+      "CMP64_clock_note": {
+        "observed_mhz": 1728,
+        "existing_1836_startup_service_guard_failed": true,
+        "policy_or_guard_modified": false
+      },
+      "operations": {
+        "H_trial_CMP_bus_resets_each": 1,
+        "G_fault_recovery_CMP_bus_resets_each": 1,
+        "H_trial_upper_SM_invocations": 1,
+        "host_reboots_commanded": 0,
+        "firmware_updates": 0,
+        "IOMMU_ACS_changes": 0
+      },
+      "extra_usable_GiB_demonstrated": 0,
+      "foreign_positive_reports_still_open": true,
+      "next_step": "Original FWSEC initialization/address-backing and complete foreign positive startup contract; no unchanged H/flush/SM replay.",
+      "private_records_raw_logs_identifiers_or_firmware_published": false
     }
   }
 }

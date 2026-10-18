@@ -77,3 +77,29 @@ At **2026-10-18T12:06:43.388947+00:00**, preserved logs from both affected host 
 The next boot also reported one retained **fatal IA32/X64 processor error** through ACPI BERT. Its selected fields agree between the saved 348-byte record and the native Linux CPER interpretation: uncorrected error, processor context corrupt, MCA bank 5, status `0xbea0000001000108`, IPID `0x000500b000000000`. The generic CPER structure calls it a cache error. The AMD-specific `(HWID 0xb0, MCATYPE 5)` [Linux mapping](https://github.com/torvalds/linux/blob/master/arch/x86/kernel/cpu/mce/amd.c) identifies the Execution Unit; extended error code 0 maps to **Watchdog Timeout error** in the [AMD decoder table](https://code.googlesource.com/linux/torvalds/linux/+/b8910630c967ffee582289451ddb5f9f19c26872/drivers/edac/mce_amd.c). This is a source-derived interpretation of a captured error, not a newly induced fault.
 
 The record has no valid occurrence timestamp. Its next-boot reporting time must not be assigned to the original failure. A fatal processor record and two temporally associated reset hangs strengthen the platform-stall lead, but do not establish which caused which, a defective CPU/GPU, or the cause of the separate management-network interruption. The BMC's old critical-stop entries have unusable 2012 dates and do not settle that chain. No power action or reset workaround was tested. The H native-start errors and the missing expanded-memory verdict retain their previous scope; **zero additional usable GiB** is demonstrated.
+
+
+## CMP-only follow-up: the SM observes the mismatch before large D2H
+
+The owner requested removal of RTX PRO6000 Blackwell from the guest before continuing the tests. Only that assignment was removed. One graceful shutdown/start returned to G with both CMPs, and each passed a small 8-KiB copy. The first successful transition does not establish that the earlier outage was cured. The now irrelevant RTX-only fan helper was disabled; CMP cooling was unchanged.
+
+The previously unexecuted upper SM discriminator then ran **once**, with Blackwell absent. It reused the preserved H profile and the control-tested PTX, without repeating the small control or introducing new geometry values. A graceful shutdown, one verified exclusive bus reset per CMP and a normal start completed. All seven saved G boot files were restored and hash-checked **before** the first native H status query; live H remained loaded.
+
+There is an identity correction worth preserving: G and H have **identical `srcversion` strings**, so matching that string alone cannot distinguish them. Their ELF GNU build IDs differ. The loaded kernel note matched preserved H during this trial, and preserved G after recovery; file hashes and selected build IDs are in the structured extract. A whole loaded-binary hash was not independently measured.
+
+At **2026-10-18T12:46:52.609326+00:00**, H reported 80/64 GiB and the direct SM comparison used one 41-GiB allocation. It wrote 2 MiB at 512 MiB and 512 KiB at 40.5 GiB, then applied the same ordinary successful flush. Only 2.5 MiB of distinct GPU data was written. Before any large D2H, 128 SM threads compared global loads against independently generated expected words and published 8192 bytes directly to mapped host memory.
+
+| SM comparison | Lower window | Upper window |
+|---|---:|---:|
+| Words checked | 262144 | 65536 |
+| Wrong words | **65536** | **0** |
+| Words checked per thread | 2048 | 512 |
+| Wrong words per thread | **512** | **0** |
+
+Every record passed the fresh nonce, thread identity, exact coverage, complement and completion checks. A separate offline parser rechecked the saved 8192 bytes and their hash. All checked CUDA and owned-resource cleanup returns were 0, with the result saved at **2026-10-18T12:46:53.431083+00:00**. **No large D2H was performed.** A cause confined to that omitted operation is therefore insufficient. The equal mismatch count agrees with the earlier CPU/D2H result, but this new verifier saved counts, not the actual wrong payload words; it does not establish a complete XOR mapping or identify the faulty physical/mapping layer.
+
+The later status probe encountered an unavailable clock; its wrapper incorrectly assumed an integer and raised on `N/A`. One subsequent raw diagnostic confirmed CMP40 GSP timeouts, Xid 119/154 and a reset-required state. The first selected Xid 119 was **2026-10-18T12:47:06.789937+00:00**, about 13.36 seconds after the completed data result and cleanup, while a native status query was active. That temporal observation does not prove the query caused the fault. This H failure occurred **without Blackwell**, independently of the earlier Blackwell reset-path lead.
+
+One necessary CMP-only G recovery followed: a graceful shutdown/start with one exclusive bus reset per CMP. Both cards passed an 8192-byte random recovery copy with complete comparison and cleanup. At **2026-10-18T12:51:58.588476+00:00**, after a 12-second delay, CMP40 reported 40 GiB at 1215 MHz and CMP64 reported 64 GiB at 1728 MHz; both were idle, with no selected new Xid/RmInitAdapter entries. Host boot and other guest processes were unchanged. The existing CMP64 1836-MHz startup helper had failed its readiness guard, and the final observed clock was 1728 MHz; its policy and guard were not modified. No firmware update, host reboot, IOMMU/ACS change or automatic model restart was performed.
+
+**Zero additional usable GiB** is demonstrated. The bounded SM result closes the missing D2H-only discriminator for this configuration; it does not establish a physical 40-GiB ceiling, full 41-GiB independence or sustained G health. Foreign positive reports stay open. Continue with original FWSEC initialization/address backing and the complete positive-run startup contract; do not repeat this unchanged H/flush/SM trial.
