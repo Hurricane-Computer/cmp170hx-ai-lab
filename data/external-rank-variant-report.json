@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "evidence_level": "third-party",
+  "review_utc": "2026-10-18T18:05:06.171348+00:00",
+  "source": "https://github.com/PixelML/club-170hx/issues/48",
+  "related_documentation_PR": "https://github.com/PixelML/club-170hx/pull/50",
+  "reported_variant": "Originally8GB; authors describe single-rank32GB and dual-rank64GB variants.",
+  "physical_rank_count_independently_bound": false,
+  "report": {
+    "author": "kha84",
+    "claimed_cards": 4,
+    "claimed_64GB_cards": 3,
+    "claimed_32GB_cards": 1,
+    "physical_capacity_ceiling_established": false
+  },
+  "displayed_32GiB_record": {
+    "source": "https://github.com/PixelML/club-170hx/issues/48#issuecomment-5740475872",
+    "image_source": "https://github.com/user-attachments/assets/cb6ad6af-0bb3-420a-8eb3-daaa25aac826",
+    "visually_inspected": true,
+    "displayed_time": "Thu Sep17 22:14:44 2026",
+    "displayed_driver": "610.43.03",
+    "total_MiB": 32768,
+    "used_MiB": 0,
+    "logged_function": "_kgspBootGspRm",
+    "logged_variant_label": "single-rank",
+    "logged_fbpaDisable": "0x00000cf3",
+    "logged_selected_geometry_GB": 32,
+    "displayed_size_or_log_is_independent_rank_measurement": false
+  },
+  "positive_counter_report": {
+    "author": "snapo",
+    "source": "https://github.com/PixelML/club-170hx/issues/48#issuecomment-5740629144",
+    "claimed_cards": 4,
+    "claimed_CUDA_memtest_limit_as_written": "63.5GB",
+    "exact_checker_version_source_and_checked_result_transfer_bound": false,
+    "screenshot": {
+      "image_source": "https://github.com/user-attachments/assets/6b61bff4-f3cb-49af-9192-219a98c2db51",
+      "visually_inspected": true,
+      "displayed_time": "Sat Sep19 08:54:56 2026",
+      "displayed_driver": "610.57.04",
+      "GPUs_displayed": 4,
+      "total_MiB_per_GPU": 65536,
+      "selected_GPU_used_MiB": 64022,
+      "selected_process": "VLLM::EngineCore",
+      "selected_process_used_MiB": 64010,
+      "calculated_GPU_used_GiB": 62.521484375,
+      "calculated_process_used_GiB": 62.509765625,
+      "CUDA_memtest_execution_or_results_visible": false
+    }
+  },
+  "source_lookup": {
+    "selected_historical_patch_revisions": [
+      "ee41902f86f97c3ad099c0c58344f767f1e82e8a",
+      "360acd7ac1d83d1024ce4b91ae3cf797f148d4f2"
+    ],
+    "exact_logged_detector_bound": false,
+    "other_sources_globally_excluded": false
+  },
+  "Vulkan_checker_limitation_is_author_claim_not_audited_tool_contract": true,
+  "historical_false_pass_demonstrated": false,
+  "physical_rank_label_or_capacity_ceiling_inferred": false,
+  "foreign_positive_48_and_75_76_and_77_5_72_GiB_reports_remain_open": true,
+  "hardware_operations": 0,
+  "foreign_code_executed": false,
+  "additional_usable_GiB_in_this_lab": 0
+}

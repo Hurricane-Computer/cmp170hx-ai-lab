@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Qualify the original 32GB variant report
+
+- Separate a displayed 32-GiB geometry choice, the authors' rank labels, a positive 63.5GB CUDA-test statement and the attached vLLM accounting image. The image does not show the claimed checker run.
+- Preserve the unresolved detector/checker contracts and positive counterevidence; no new hardware trial, usable GiB or physical-capacity ceiling. [Sources and limits](docs/capacity-evidence.md#original-32gb-variant-report-rank-and-checker-contracts-remain-open).
+
 ## 2026-10-18 — Qualify the original 40-to-48 announcement
 
 - Attribute the original 48-GiB screenshot and 43.50-GiB reported use to its author, preserving it as positive workload evidence while separating independent-data qualification and the missing patch attribution.

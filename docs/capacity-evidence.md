@@ -25,6 +25,12 @@ This is concrete positive allocation/accounting and workload evidence on a card 
 
 Keep this separate from a [different historical report](https://www.reddit.com/r/LocalLLM/comments/1w2x0lp/comment/p6x2l0b/) of approximately 48GB initially usable on a card reporting 64GB. A concrete 48GB change set or original checked run would be useful next evidence. No hardware trial or additional usable capacity resulted from this source audit. [Selected fields and limits](../data/external-48gb-announcement.json).
 
+## Original 32GB variant report: rank and checker contracts remain open
+
+The [original owner discussion](https://github.com/PixelML/club-170hx/issues/48) reports a card limited to 32GB alongside successful 64GB cards. Its attached image shows 32768 MiB and a patched `_kgspBootGspRm` message selecting 32GB geometry with `fbpaDisable=0x00000cf3`. This binds a displayed size and software message; the physical rank label and exact detector condition remain unverified here. The related [PR50](https://github.com/PixelML/club-170hx/pull/50) changes documentation only.
+
+A [second owner](https://github.com/PixelML/club-170hx/issues/48#issuecomment-5740629144) reports clean CUDA tests to “63.5GB” on four cards. The attached image shows four 65536-MiB cards and 64022 MiB used on one, with vLLM accounting for 64010 MiB. It shows workload accounting, not the checker execution or verdict. Keep the positive report while leaving its exact test source and result-transfer contract open. No historical false pass or physical ceiling follows. [Selected image fields and bounded source lookup](../data/external-rank-variant-report.json). No hardware was tested or additional GiB unlocked in this audit.
+
 ## A small executable counterexample
 
 Run `python scripts/capacity_method_demo.py`. It uses only the CPU and models 80 logical 4-KiB pages over 40 backing pages. The upper view changes the within-page offset by XOR0x900. This is a synthetic example consistent with one observed offset, **not a reconstruction of the complete GPU decoder**. Each case runs with two seeds.
