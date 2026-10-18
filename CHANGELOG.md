@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Preserve the outage evidence without reproducing it
+
+- Find the same Blackwell reset wait during both guest stop/start sequences and capture a retained fatal processor record; separate the native CPER label from the AMD Execution Unit watchdog interpretation.
+- Keep causal direction, physical-defect attribution and the management-network interruption unresolved. No firmware update, new reset or memory trial. [Evidence and limits](docs/cache-alias.md#read-only-outage-follow-up-repeated-reset-waits-and-a-fatal-processor-record).
+
 ## 2026-10-18 — Bound the platform PCI executable differences
 
 - Compare 14 protocol-selected executable bodies across the retained 1801/1901 capsules: 12 identical, two different. The body containing AMI PCI Bus Driver and the other both-protocol candidate are unchanged.
