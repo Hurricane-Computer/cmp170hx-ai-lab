@@ -130,5 +130,89 @@
     "Do not replay the request, change its selector, or treat the13-byte block as a memory-enable parameter without native semantics.",
     "Do not infer H was necessarily before/after all original training merely from its host hook or numeric PC order.",
     "Do not repeat old masks, profiles, MRS, cached-vector inventories or the completed CPU/GSP alias comparison."
-  ]
+  ],
+  "GFW_before_H_source_followup": {
+    "evidence_level": "static-analysis",
+    "evidence_utc": "2026-10-18T13:08:54.006435+00:00",
+    "official_version": "615.71.09",
+    "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "scope": "Normal non-VF GA100 host gate; no new live execution assertion",
+    "ordinary_call_order": [
+      "kgspInitRm_IMPL: required kgspWaitForGfwBootOk_HAL, failure to done",
+      "kgspWaitForGfwBootOk_TU102: gpuWaitForGfwBootComplete_HAL",
+      "gpuWaitForGfwBootComplete_TU102: halt success and readable completed GFW status",
+      "kgspInitRm_IMPL: later _kgspBootGspRm call",
+      "_kgspBootGspRm: normal bootstrap preparation, then preserved H geometry block"
+    ],
+    "GA100_normal_HAL_selection": [
+      {
+        "file": "g_kernel_gsp_nvoc.c",
+        "method": "kgspWaitForGfwBootOk",
+        "condition": "non-VF; chipHal index42, index>>5=1 and mask01f0ffe0 contains bit10",
+        "selected": "kgspWaitForGfwBootOk_TU102",
+        "source_line": 1727
+      },
+      {
+        "file": "g_kernel_gsp_nvoc.c",
+        "method": "kgspPrepareForBootstrap",
+        "condition": "non-VF; chipHal index42, index>>5=1 and mask01f0ffe0 contains bit10",
+        "selected": "kgspPrepareForBootstrap_TU102",
+        "source_line": 730
+      },
+      {
+        "file": "g_gpu_nvoc.c",
+        "method": "gpuWaitForGfwBootComplete",
+        "condition": "non-VF; chipHal index42, index>>5=1 and mask01f0ffe0 contains bit10",
+        "selected": "gpuWaitForGfwBootComplete_TU102",
+        "source_line": 2769
+      }
+    ],
+    "required_progress_bits": "7:0",
+    "required_progress": "0xff",
+    "normal_status_helper_byte_equal_to_earlier_cache": true,
+    "exact_source_files": [
+      {
+        "bytes": 272591,
+        "sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+        "URL": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"
+      },
+      {
+        "bytes": 47956,
+        "sha256": "df312262254d712e8340c2d428bb5869354756f41b7a5758aac2f1825fdf2550",
+        "URL": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c"
+      },
+      {
+        "bytes": 139651,
+        "sha256": "3efc3c328576587dd34924829c9d607ad8515f9ca455ee5ce1e4d6ffafb45673",
+        "URL": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_kernel_gsp_nvoc.c"
+      },
+      {
+        "bytes": 138198,
+        "sha256": "9910a7d3f3a788c9440ada7f590f291d89171ebe1e3f67879f69bb1dd9070f83",
+        "URL": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_gpu_nvoc.c"
+      },
+      {
+        "bytes": 20339,
+        "sha256": "3531fec9953940b8bff58772ab330b149fdfd15eb063cb65bba9fdfab27d8bb6",
+        "URL": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/arch/turing/kern_gpu_tu102.c"
+      },
+      {
+        "bytes": 2395,
+        "sha256": "192415f7fc931441531dda6705700480b6e0715ed25ab07ed86a04a0588183f5",
+        "URL": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/turing/tu102/dev_gc6_island_addendum.h"
+      }
+    ],
+    "preserved_H_C_file_sha256": "fcf40feb7b7f550f886983876f5c38d48bdacc007b345a6d8ca2622f5de358f0",
+    "H_caller_and_official_caller_both_retain_gate": true,
+    "all_currently_loaded_helper_objects_rehashed": false,
+    "whole_runtime_chain_newly_proven": false,
+    "fresh_App08_execution_proven": false,
+    "decoder_latch_or_training_phase_proven": false,
+    "earlier_identical_geometry_write_success_predicted": false,
+    "bootstrap_preparer_is_SB_execution": false,
+    "new_physical_capacity_input": null,
+    "new_hardware_trial": false,
+    "additional_usable_GiB": 0,
+    "foreign_positive_reports_still_open": true
+  }
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Bind the ordinary GFW status gate before H
+
+- Connect the matching GA100 HAL selection and mandatory GFW completion gate to the preserved H source hook. Keep completion status separate from fresh App08/HBM training or decoder-latch evidence.
+- No hardware action, new geometry input or additional usable GiB. [Source contract and limits](docs/firmware.md#normal-ga100-gfw-status-gate-before-the-h-hook).
+
 ## 2026-10-18 — Complete the direct SM verdict with Blackwell removed
 
 - One CMP-only H trial observes 65536 wrong lower words and 0 upper words through valid mapped-host SM records **before any large D2H**. No added usable GiB or physical-capacity ceiling is claimed.
