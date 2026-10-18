@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "stage": 94,
+  "evidence_level": "static-analysis",
+  "evidence_utc": "2026-10-18T01:29:14.843525+00:00",
+  "scope": "Original lane-state capture and data-lane controller mirror on both CMP variants; no hardware execution.",
+  "original_sources": {
+    "shared_IMEM_sha256": "7b30aca9fd83958ea50b989961a5e9c4dd13938ed3b80b71828594e5f08cc3f5",
+    "CMP40_DMEM_sha256": "d0449fe04bdcc7b22a6e5077b23d4cc3ca6f9a6f66738bd634df43be12bd5158",
+    "CMP64_DMEM_sha256": "99f757cc16c91c1734293c6a913c154267270782eaa550ca35053c37e614deba",
+    "raw_firmware_disassembly_or_reply_data_distributed": false
+  },
+  "standard": {
+    "document": "JESD235C, January2020",
+    "url": "https://studylib.net/doc/28046328/hbm2",
+    "access": "Original standard text on a third-party mirror; no official download or full copy retained.",
+    "references": [
+      "Table84, printed page165",
+      "Section13.2.3.19, printed pages189-190"
+    ],
+    "instruction": "0x12",
+    "name": "SOFT_LANE_REPAIR",
+    "WDR_bits": 72,
+    "address_lane_bits": "39:32",
+    "data_lane_bits": [
+      "31:0",
+      "71:40"
+    ],
+    "capture_reads_existing_state": true,
+    "update_is_separate": true
+  },
+  "original_call": {
+    "call_pc": "0x7d53",
+    "helper_pc": "0x1312",
+    "instruction": "0x12",
+    "direction": "read",
+    "bit_length": 72,
+    "local_buffer_bytes": 12,
+    "prezeroed_buffer_is_not_write_payload": true,
+    "previous_DEVICE_ID_call_is_different": "0x0e /82bits",
+    "existing_active_pair_filter_preserved": true
+  },
+  "original_consumer": {
+    "pc_range": "0x143d..0x14d4",
+    "decoded_halves": [
+      "w0[15:0]",
+      "w0[31:16]",
+      "w1[23:8]",
+      "w1[31:24] | (w2[31:24] <<8)"
+    ],
+    "omitted_reply_bits": "w1[7:0]",
+    "interpretation": "The omitted byte structurally matches the standard address-lane fields; the four halves match data lanes.",
+    "WDR_alignment_evidence_level": "inference",
+    "WDR_alignment_limit": "No new72bit packet measurement; the standard does not define NVIDIA port packing.",
+    "target_index_source": "DMEM0x15cf +8*group +channel",
+    "existing_effective_disable_guard": "0x820c14",
+    "skipped_half_value": "0xffff",
+    "target_formula": "0x9011b4 +0x4000*p +0x10*(channel&1) +4*slot",
+    "store_values": [
+      "h",
+      "h |0x10000"
+    ],
+    "full_stores_not_read_modify_write": true,
+    "bit16_native_name_proven": false,
+    "address_lane_bits_programmed_by_this_consumer": false
+  },
+  "distinction": {
+    "evidence_level": "inference",
+    "real_controller_data_routing_producer_bound": true,
+    "additional_memory_enable_or_cell_backing_bound": false,
+    "effect_on_the_saved_larger_geometry_alias_proven": false,
+    "actual_current_lane_reply_observed": false,
+    "routing_effect_runtime_verified": false,
+    "new_hardware_candidate": false,
+    "reported_capacity_changed": false,
+    "extra_usable_gib": 0,
+    "physical_capacity_ceiling_claimed": false,
+    "foreign_positive_capacity_reports_remain_open": true
+  },
+  "operations": {
+    "hardware_access": 0,
+    "register_writes": 0,
+    "CUDA_tests": 0,
+    "driver_builds": 0,
+    "firmware_execution": 0,
+    "repair_updates": 0,
+    "OTP_programming": 0
+  },
+  "limits": [
+    "Do not interpret the original receive-buffer zero fill as an all-zero repair update.",
+    "Do not replace the effective availability guard or replay masked DEVICE_ID/repair operations.",
+    "The named physical routing concerns data lanes, not a demonstrated density, rank or stack enable.",
+    "No guessed lane payload or repeat of the completed larger-geometry data trial follows."
+  ]
+}

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Original lane capture reaches a data-routing consumer
+
+- Bound the normal72-bit reply to its four controller data-lane fields; the intervening address-lane byte is omitted. Distinguished a receive-buffer zero fill from a repair update.
+- Retained the original active-unit guards and the gap to additional memory backing. No repair, hardware trial or extra usable GiB. [Source interpretation](docs/training-commands.md#original-lane-state-capture-and-its-controller-mirror).
+
 ## 2026-10-18 — Earlier original request and its unchecked poll
 
 - Bound one ROM-fed App08 configuration/request before effective-mask capture; its completion return is discarded. Kept unknown register semantics separate from an unproved memory-enable effect.
