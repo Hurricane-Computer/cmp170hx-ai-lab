@@ -24,6 +24,18 @@ At4dfc..4e0e, the CMP original reads820c14 intoD1570. The early configuration ha
 
 Two24-unit completion polls at5597..55bc and6985..69ad use the same cache. A later constrained MMIO-table path also skips a disabled-unit record before its write loop; it does not supply a new physical-mask setter. The previously tested CTRL-before-Devinit timing is not made novel merely by naming this cache point.
 
+## An earlier App08 request has an unchecked completion result
+
+A bounded follow-up connects one real earlier path: the normal cold caller at `0x7f68` invokes `0x8257` before the existing effective-mask capture chain. It consumes 13 original bytes at DMEM `0xfe9` and forms selected fields at MMIO targets `0x20340`, `0x20414` and `0x2042c`. The two own original DMEMs contain the same input slice; their full DMEM images are different. These are static field outputs, not measured complete register words or an identified host parameter.
+
+The routine then selects 0 and calls `0x80cd`, which preserves the other bits while requesting bit 0 at `0x2033c`. Its ordinary finite poll asks for that bit to read back as 0. The poll returns 1 for a match or 0 when its counter expires, but **neither caller checks that return**; the outer caller immediately overwrites it with −1 at `0x7f6c`. Reaching the later mask capture therefore does not by itself establish that this request completed.
+
+The hardware block name and enable meaning of these targets remain unbound. Other calls lie before the later `0x820c14` capture; no semantic edge from this request to additional memory availability is established. Shared code and the 13-byte original input do not prove that a disabled pair can be enabled or that additional healthy cells exist. No request replay, selector change or memory-capacity write follows.
+
+The same review keeps the H timing boundary precise: its host CFG1/LMR hook is after `kgspPrepareForBootstrap_HAL(KGSP_BOOT_MODE_NORMAL)` in `_kgspBootGspRm`. This does not establish a continuous execution order relative to the original FWSEC-SB/App08 HBM training. FRTS is a separate operation. Moving the failed geometry values earlier is not a new source-bound mechanism.
+
+[Selected original-source relationships and limits](../data/normal-init-inputs.json) retain source hashes and the exact missing edge. Three small pinned public GA100 control headers did not name these literal targets; that limited lookup is not a whole-driver absence claim. No hardware access, firmware execution, build or new usable GiB occurred.
+
 ## A separate App01 finalization path
 
 A newly bounded ordinary App01 path at `0x25e..0x298` conditionally clears bit5 of `0x9a3c80` and `0x9a3c7c`, then checks the cleared values. Its sole record gate is TypeE+6 bit0, already set in both original images; this differs from the TypeE+8 request word. The path follows the end-callback list within this App01 invocation. Its absolute order relative to a separate App08 invocation is not established. The hardware meaning of bit5 and any connection to memory geometry remain open; no size, stack or interleave input is demonstrated. No hardware write was derived.

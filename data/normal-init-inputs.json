@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "stage": 92,
+  "evidence_level": "static-analysis",
+  "evidence_utc": "2026-10-18T00:46:32.956764+00:00",
+  "scope": "One earlier normal App08 request path; no live execution, field changes or capacity test.",
+  "original_sources": {
+    "shared_IMEM_sha256": "7b30aca9fd83958ea50b989961a5e9c4dd13938ed3b80b71828594e5f08cc3f5",
+    "CMP40_DMEM_sha256": "d0449fe04bdcc7b22a6e5077b23d4cc3ca6f9a6f66738bd634df43be12bd5158",
+    "CMP64_DMEM_sha256": "99f757cc16c91c1734293c6a913c154267270782eaa550ca35053c37e614deba",
+    "raw_firmware_or_disassembly_distributed": false
+  },
+  "earlier_path": {
+    "call_pc": "0x7f68",
+    "callee_pc": "0x8257",
+    "input_DMEM": "0xfe9",
+    "input_bytes": 13,
+    "original_input_sha256": "cff37ff0001636549043fd6d741f4766cb028dded8c01a6d36cc30e1e2e88d54",
+    "same_original_input_on_both_CMPs": true,
+    "runtime_input_measured": false,
+    "selected_field_outputs": [
+      {
+        "store_pc": "0x82be",
+        "target": "0x20340",
+        "replaced_mask": "0x7f008fff",
+        "preserve_old_mask": "0x80ff7000",
+        "original_replaced_field_value": "0xa0"
+      },
+      {
+        "store_pc": "0x82e6",
+        "target": "0x20414",
+        "replaced_mask": "0xfff",
+        "preserve_old_mask": "0xfffff000",
+        "original_replaced_field_value": "0x48"
+      },
+      {
+        "store_pc": "0x8351",
+        "target": "0x2042c",
+        "replaced_mask": "0xffffffff",
+        "preserve_old_mask": "0",
+        "original_replaced_field_value": "0x0"
+      }
+    ],
+    "full_live_register_words_known": false
+  },
+  "request": {
+    "selector_set_pc": "0x834f",
+    "selector_value": 0,
+    "call_pc": "0x8353",
+    "helper_pc": "0x80cd",
+    "target": "0x2033c",
+    "store_pc": "0x80fb",
+    "selected_bit": 0,
+    "other_bits_preserved": true,
+    "poll_helper_pc": "0x8e0a",
+    "poll_mask": "0x1",
+    "poll_expected": "0x0",
+    "poll_returns": {
+      "match": 1,
+      "finite_counter_expiry": 0
+    },
+    "caller_checks_poll_result": false,
+    "caller_overwrites_result_pc": "0x7f6c",
+    "caller_replacement_value": -1,
+    "hardware_block_name_and_enable_meaning_bound": false
+  },
+  "later_capture": {
+    "existing_chain": "0x7ffd -> 0x2fd3 -> 0x4de3 -> 0x4e01",
+    "effective_status_target": "0x820c14",
+    "cache_DMEM": "0x1570",
+    "intervening_calls_exist": true,
+    "semantic_request_to_availability_edge_proven": false,
+    "mere_later_capture_does_not_prove_poll_matched": true
+  },
+  "H_ordering_limit": {
+    "evidence_level": "static-analysis",
+    "H_source_sha256": "fcf40feb7b7f550f886983876f5c38d48bdacc007b345a6d8ca2622f5de358f0",
+    "G_source_sha256": "41ce2b5af39d4483d2fb8b65a47590a1654ffc0fe6db61c15a2b1a04c10cb799",
+    "exact_host_hook": "_kgspBootGspRm after kgspPrepareForBootstrap_HAL(KGSP_BOOT_MODE_NORMAL)",
+    "continuous_H_vs_original_SB_HBM_training_order_proven": false,
+    "FRTS_is_original_cold_training": false,
+    "same_geometry_earlier_is_new_candidate": false,
+    "already_known_early_vector": "DMEM0x429+4*n -> 0x900050+0x4000*n under existing cached mask; no different valid input/field meaning supplied"
+  },
+  "primary_name_lookup": {
+    "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "files": [
+      {
+        "name": "dev_ctrl.h",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga100/dev_ctrl.h",
+        "git_blob_sha1": "d5ff9fb49b11bec90e4c2da11412e35888ceb3ca",
+        "sha256": "0f645009af929669c6c0763a1954e99b47c285398a2deb03fc873fda0dccd9f5"
+      },
+      {
+        "name": "dev_pmc.h",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga100/dev_pmc.h",
+        "git_blob_sha1": "62c4ce46859da6e27656163b92f72f983a954665",
+        "sha256": "1a94f10638282cdeeda449636c3fb1b06475df79dfe6a4ba84aaed533335425a"
+      },
+      {
+        "name": "dev_top_addendum.h",
+        "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga100/dev_top_addendum.h",
+        "git_blob_sha1": "f7b06d40473c8c16affe0dcfd7f49628d929ffc2",
+        "sha256": "77f55ae1bd89e8670d6b5dfa44536e99a5e3fbbd2ef53d9a7ea7af3d06b82690"
+      }
+    ],
+    "four_literal_targets_named_in_these_three_headers": false,
+    "whole_driver_or_firmware_absence_claim": false,
+    "scope": "Three small pinned GA100 headers only; a failed web retrieval was not treated as absence evidence."
+  },
+  "conclusion": {
+    "evidence_level": "inference",
+    "result": "A real earlier ROM-fed configuration/request path is bound, but its effect on effective memory availability is unproved.",
+    "next_required_edge": "Native meaning and ordinary effect of the0x2033c bit0 request, connected to effective availability before0x4e01, or evidence it belongs to another initialization function.",
+    "new_hardware_candidate": false,
+    "extra_usable_gib": 0,
+    "physical_capacity_ceiling_claimed": false,
+    "foreign_positive_75_76_and_77_5_72_reports_remain_open": true
+  },
+  "operations": {
+    "hardware_access": 0,
+    "SSH_sessions": 0,
+    "driver_builds": 0,
+    "firmware_execution_or_mutation": 0,
+    "register_writes": 0,
+    "CUDA_tests": 0,
+    "guest_or_host_restarts": 0
+  },
+  "do_not_repeat": [
+    "Do not replay the request, change its selector, or treat the13-byte block as a memory-enable parameter without native semantics.",
+    "Do not infer H was necessarily before/after all original training merely from its host hook or numeric PC order.",
+    "Do not repeat old masks, profiles, MRS, cached-vector inventories or the completed CPU/GSP alias comparison."
+  ]
+}

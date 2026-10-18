@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Earlier original request and its unchecked poll
+
+- Bound one ROM-fed App08 configuration/request before effective-mask capture; its completion return is discarded. Kept unknown register semantics separate from an unproved memory-enable effect.
+- Clarified the H host-hook versus original-training ordering gap. No replay, new hardware candidate or capacity gain. [Original-source findings](docs/firmware.md).
+
 ## 2026-10-18 — Larger geometry reaches CPU-RM; independent data still fails
 
 - Native stock CPU-RM adopts CMP40's 80-GiB report and larger geometry after normal H initialization. A bounded post-flush comparison finds cross-window payload corruption despite successful allocation, API calls and cleanup; zero extra usable GiB claimed.
