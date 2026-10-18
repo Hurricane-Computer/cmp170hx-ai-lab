@@ -40,3 +40,15 @@ The source follow-up separates a [register-address translator and Nouveau sizing
 
 
 A later [configured amount map](controller-amounts.md) reads the active controllers under G: uniform2/4GiB per FBPA and40/64GiB sums. Masked units and H were not tested again.
+
+## Direct SM read follow-up: small control passes, expanded verdict pending
+
+The actual original Open-GSP H program and later stock CPU-RM H program both launch the SM fill kernel, then obtain their word verdict through checked `cuMemcpyDtoH_v2` and a CPU comparison. Their embedded verifier/publisher definitions are not execution evidence: neither data program launches those kernels. This is a finding about those two executed programs, not every historical test. The API call does not identify a particular physical copy engine.
+
+A new bounded discriminator compares the two patterns with SM global loads **before any large D2H**, then publishes per-thread records directly to mapped host memory. It uses no GPU-local error counter or host atomic. Poisoned records, a fresh nonce, exact per-thread coverage, a complement and a final completion value guard the result after successful CUDA synchronization.
+
+At **2026-10-18T02:21:50.361025+00:00**, one new small G control on CMP40 allocated64 KiB and checked two8-KiB windows. A real injected one-bit error produced exactly one wrong lower word in thread0; all upper words and all other threads were clean. All128 records, checked CUDA returns and cleanup passed. No large D2H was performed. This qualifies that bounded result path, not extra capacity.
+
+The expanded H comparison was prepared for the same41-GiB allocation and2.5-MiB total payload used previously, with an ordinary flush before SM reads and no new geometry values. It **did not execute**. Native warm module insertion stalled; one necessary cold-start attempt then timed out before GPU readiness or the data callback, and normal management became unavailable. Recovery was not verified at this cutoff. This startup failure is not an upper-memory data failure, a diagnosed physical fault or a capacity verdict. CMP64 received no new capacity trial.
+
+The data question therefore remains open. Valid SM mismatches before D2H would rule out an explanation confined to that omitted large D2H operation. An SM pass alone would prove neither additional GiB nor a D2H defect; only then would a same-payload D2H comparison be meaningful, with its sequential cache-state limitation retained. Restore supported access and a known driver state first. The structured follow-up records observed, static and unexecuted parts separately; zero extra usable GiB is claimed.

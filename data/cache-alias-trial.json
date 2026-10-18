@@ -245,5 +245,89 @@
     "Four byte deltas and saved mismatch samples are consistent with an XOR 0x900 swizzle; no full mapping was saved or verified.",
     "Reported80 GiB, allocation success and upper self-check are not independent backing proof.",
     "The positive 75/76 GiB and77.5/72 GiB third-party reports stay open; 48 GiB remains a first target, not a ceiling."
-  ]
+  ],
+  "SM_read_followup": {
+    "evidence_level": "mixed: static source finding, observed small control, observed startup failure; expanded comparison unexecuted",
+    "control_evidence_utc": "2026-10-18T02:21:50.361025+00:00",
+    "source_finding": {
+      "scope": "The actual two named expanded H data programs: original Open-GSP run and later stock CPU-RM run.",
+      "SM_fill_executed": true,
+      "SM_verifier_executed_in_those_programs": false,
+      "data_verdict_path": "Checked cuMemcpyDtoH_v2 followed by complete CPU word comparison.",
+      "PTX_definitions_do_not_prove_kernel_execution": true,
+      "specific_physical_copy_engine_identified": false
+    },
+    "new_result_path": {
+      "SM_global_load_compare_before_large_D2H": true,
+      "per_thread_mapped_host_records": 128,
+      "mapped_result_bytes": 8192,
+      "device_local_counter": false,
+      "host_atomic": false,
+      "fresh_nonce_and_completion": true,
+      "per_thread_exact_coverage": true,
+      "result_integrity": "Poisoned records; per-thread nonce, ID, exact visit counts, complement and completion checked after successful CUDA synchronization.",
+      "python_source_sha256": "92a0fffbd09f21add34e7db012c6e16e01ea7dd06326e58e408bd5f172b66647",
+      "PTX_sha256": "17fd6d0b308c65abfe98f70736d9ffd32db067a575cc682ac2100c245e3dcd58"
+    },
+    "small_control": {
+      "candidate": "G",
+      "variant": "cmp40",
+      "allocation_bytes": 65536,
+      "window_bytes": [
+        8192,
+        8192
+      ],
+      "checked_64bit_words": [
+        1024,
+        1024
+      ],
+      "real_injected_low_bit_errors": 1,
+      "observed_bad_words": [
+        1,
+        0
+      ],
+      "only_nonzero_thread": 0,
+      "all_128_records_valid": true,
+      "all_called_CUDA_and_cleanup_returns_zero": true,
+      "large_D2H_performed": false,
+      "records_sha256": "998036eef88715694c666c9099d00836614e2e72cd46eb11674a61fc803815df",
+      "control_passed": true,
+      "capacity_qualification": false
+    },
+    "expanded_comparison": {
+      "status": "not executed: native admission/start failure before data",
+      "same_preserved_H_candidate": true,
+      "new_geometry_or_mask_values": false,
+      "planned_allocation_bytes": 44023414784,
+      "planned_window_offsets_bytes": [
+        536870912,
+        43486543872
+      ],
+      "planned_window_bytes": [
+        2097152,
+        524288
+      ],
+      "planned_payload_written_bytes": 2621440,
+      "ordinary_flush_before_SM_read": {
+        "command": "0x2080130e",
+        "flags": "0x38"
+      },
+      "warm_module_insertion_completed": false,
+      "cold_start_readiness_obtained": false,
+      "upper_data_started": false,
+      "SM_bad_words": null,
+      "D2H_bad_words": null,
+      "recovery_verified_at_this_cutoff": false,
+      "failure_scope": "Warm native module insertion stalled. One necessary cold-start attempt then timed out before readiness or the expanded-data callback; normal management became unavailable.",
+      "physical_fault_or_exact_hang_cause_established": false
+    },
+    "interpretation": {
+      "D2H_only_hypothesis_resolved": false,
+      "extra_usable_gib_demonstrated": 0,
+      "CMP64_new_capacity_trial": false,
+      "physical_capacity_ceiling_established": false,
+      "foreign_positive_reports_refuted": false,
+      "next_step": "Recover supported access and known driver state before considering the still-unexecuted bounded SM comparison. No unchanged baseline, geometry or mask replay follows."
+    }
+  }
 }

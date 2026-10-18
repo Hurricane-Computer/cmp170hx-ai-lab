@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Separate the SM read verdict from large D2H
+
+- Confirmed that the two executed expanded-H programs used SM fills with D2H/CPU verdicts; verifier definitions had not been launched there.
+- A new64-KiB direct mapped-host control correctly catches one real injected bit error across128 valid thread records. Native admission and cold-start failures prevent the expanded comparison; no upper-data verdict or extra usable GiB. [Method, startup failure and limits](docs/cache-alias.md#direct-sm-read-follow-up-small-control-passes-expanded-verdict-pending).
+
 ## 2026-10-18 — Compare complete known capacity mechanisms on both variants
 
 - Verified the entire H/G source-file delta and separated the coherent 80-GiB inputs already tested from the incomplete original positive-run startup contract.
