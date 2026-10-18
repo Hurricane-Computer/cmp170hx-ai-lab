@@ -40,4 +40,22 @@ This was an offline source result, with no hardware access or new capacity/SM te
 
 A later [ordinary CPU-RM comparison](cpu-rm-capacity.md) retained both cards' geometry and reported 40/64 GiB without GSP, but CUDA initialization returned 101 before the first allocation. This is a distinct admission boundary, not another upper-memory data result.
 
-The subsequent fresh-kernel CMP-only configuration passed small CPU-RM allocation/copy checks on **both** cards. Stock CPU-RM returned `CMP_SKU=YES` while CUDA succeeded. The [updated comparison](cpu-rm-capacity.md) separates this real admission/data result from the still-unexecuted larger-geometry test and the unresolved cause of the earlier error 101.
+The subsequent fresh-kernel CMP-only configuration passed small CPU-RM allocation/copy checks on **both** cards. Stock CPU-RM returned `CMP_SKU=YES` while CUDA succeeded. The [updated comparison](cpu-rm-capacity.md) records both this admission result and the subsequently completed larger-geometry data trial; the cause of the earlier error 101 remains unresolved.
+
+## Whole-mechanism comparison on both variants
+
+The entire retained H `kernel_gsp.c` is now checked: reversing exactly its three capacity constants reproduces G's complete file hash. H introduces no fourth change in that file. This establishes the H/G delta; it does not establish byte-identical drivers or startup conditions with either foreign positive run.
+
+| Variant and configuration | CFG1 | LMR | Logical export |
+|---|---|---|---|
+| CMP40 / G | `0x02669000` | `0x28a` |40 GiB|
+| CMP40 / H | `0x02779000` | `0x28b` |80 GiB|
+| CMP64 / G and H | `0x02779000` | `0x20b` |64 GiB|
+
+Both normal profiles already include the shared stores `0x82381c=0x88888888` and `0x823820=0x8`; this audit does not establish a new native field meaning for them. The later logical export also conditionally changes the last region's limit, reserved length and attributes. A larger allowed range remains separate from independent backing.
+
+The [later original owner report](https://gist.github.com/sekkit/b30da03773768d0cd4e3de18e0619656/2f65500f3c81609f7d46522b1c7df5dea16dd5c6) describes the same three coherent CMP40 values under 610.43.03 Open/GSP; its two additional build-check literals are not extra runtime geometry writes. The distinct [July 77.5/72-GiB account](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md) remains a maintainer-attributed account without the complete original initialization script or checker. Its broad manager handoff resembles the completed H-to-CPU trial, but the original ordinary ordering and side conditions are not fully known. Our observed alias therefore neither validates nor refutes those foreign results.
+
+For CMP64, the [original ES/g250 report](https://github.com/amoghmunikote/cmpunlocker/commit/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd) explicitly concerns 20c2, but describes **8 to 32 GiB on a single-rank variant**. It does not show 32 to 64 GiB on that same card or 20c2 to 80/96 GiB. Our archived CFG0 bits 0/1 are already set; repeating them supplies no new input. The inspected normal public path and H retain the known 64-GiB profile.
+
+No additional ordinary physical address/backing or availability input was identified, so no unchanged geometry, rank-bit or CPU-handoff trial follows. The useful missing evidence is the complete ordinary positive-run initialization contract, or a separately sourced physical mechanism with a different effect. This source comparison adds **zero usable GiB** and sets no physical ceiling. [Hashes, scoped source relations and decisions](../data/capacity-followup.json) preserve the result.

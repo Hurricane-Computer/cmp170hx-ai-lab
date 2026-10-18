@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Compare complete known capacity mechanisms on both variants
+
+- Verified the entire H/G source-file delta and separated the coherent 80-GiB inputs already tested from the incomplete original positive-run startup contract.
+- Attributed the 20c2 ES report as 8→32 GiB on a different native organization; retained CMP64's separate 80/96-GiB gap and all positive foreign reports. No new hardware trial or usable GiB. [Comparison](docs/capacity-followup.md#whole-mechanism-comparison-on-both-variants).
+
 ## 2026-10-18 — Original lane capture reaches a data-routing consumer
 
 - Bound the normal72-bit reply to its four controller data-lane fields; the intervening address-lane byte is omitted. Distinguished a receive-buffer zero fill from a repair update.

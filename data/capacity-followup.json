@@ -264,5 +264,89 @@
         "sha256": "1e6259cf27e2c4499b5239ef987ad016a8cd9e4a6679b018038ac89e70a3dd16"
       }
     ]
+  },
+  "whole_mechanism_audit": {
+    "stage": 95,
+    "analysis_utc": "2026-10-18T01:48:12.460206+00:00",
+    "evidence_level": "static comparison and attributed reports",
+    "scope": "Known ordinary capacity geometry and logical handoff on both variants, not complete driver equivalence.",
+    "full_H_file_control": {
+      "H_sha256": "fcf40feb7b7f550f886983876f5c38d48bdacc007b345a6d8ca2622f5de358f0",
+      "G_sha256": "41ce2b5af39d4483d2fb8b65a47590a1654ffc0fe6db61c15a2b1a04c10cb799",
+      "file_bytes": 304087,
+      "reverse_three_constants_matches_entire_G_hash": true,
+      "complete_foreign_positive_driver_equivalence": false
+    },
+    "known_profiles": [
+      {
+        "variant": "cmp40",
+        "PCI_device_id": "2082",
+        "candidate": "G",
+        "CFG1": "0x02669000",
+        "LMR": "0x28a",
+        "exported_GiB": 40
+      },
+      {
+        "variant": "cmp40",
+        "PCI_device_id": "2082",
+        "candidate": "H",
+        "CFG1": "0x02779000",
+        "LMR": "0x28b",
+        "exported_GiB": 80
+      },
+      {
+        "variant": "cmp64",
+        "PCI_device_id": "20c2",
+        "candidate": "G and H",
+        "CFG1": "0x02779000",
+        "LMR": "0x20b",
+        "exported_GiB": 64
+      }
+    ],
+    "shared_normal_writes_present_in_both_profiles": [
+      "0x82381c=0x88888888",
+      "0x823820=0x8"
+    ],
+    "common_store_native_field_meaning_newly_established": false,
+    "logical_handoff": "fb_length plus conditional final-region limit, reserved length and existing region attributes; not independent cell-backing evidence.",
+    "external_groups": [
+      {
+        "source_url": "https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md",
+        "source_type": "maintainer compilation",
+        "result": "Separate July77.5/72GiB positive claims; original full initialization script and checker not recovered.",
+        "relation": "Known coherent geometry and broad GSP-to-CPU transition resemble H, but complete ordering/side effects are unbound."
+      },
+      {
+        "source_url": "https://gist.github.com/sekkit/b30da03773768d0cd4e3de18e0619656/2f65500f3c81609f7d46522b1c7df5dea16dd5c6",
+        "source_type": "original owner report",
+        "internal_date": "2026-08-09",
+        "result": "Later75/76GiB positive reports under610.43.03 Open/GSP.",
+        "relation": "Three geometry/export values match H; two build-check literals are not additional runtime geometry writes.",
+        "exact_full_positive_driver_commit_stated": false
+      }
+    ],
+    "CMP64_author_case": {
+      "source_url": "https://github.com/amoghmunikote/cmpunlocker/commit/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd",
+      "PCI_device_id": "20c2",
+      "source_label": "single-rank ES/g250",
+      "reported_change": "8GiB to32GiB",
+      "reported_CFG1": "0x02779000",
+      "reported_LMR": "0x20a",
+      "same_card_32_to_64_demonstrated": false,
+      "card_80_or_96_demonstrated": false,
+      "own_archived_CFG0": "0xa7",
+      "own_archived_bits0_and1_already_set": true,
+      "physical_rank_count_from_config_bits_claimed": false
+    },
+    "decision": {
+      "known_coherent_CMP40_constants_already_exercised": true,
+      "new_20c2_80_96_normal_mechanism_identified": false,
+      "new_source_bound_hardware_candidate": false,
+      "new_GPU_trial": false,
+      "extra_usable_GiB": 0,
+      "foreign_positive_reports_remain_open": true,
+      "physical_capacity_ceiling_claimed": false,
+      "remaining_gap": "Complete ordinary positive-run initialization conditions, or a distinct applicable physical address/backing/availability producer."
+    }
   }
 }
