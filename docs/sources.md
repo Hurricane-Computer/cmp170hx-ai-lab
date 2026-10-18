@@ -68,3 +68,8 @@ The [discovery/firmware note](discovery-and-firmware.md) reports facts derived f
 
 - [ropuls operator guide](https://gist.github.com/ropuls/d2978531ba3a1a183e70f62f3de2eb84/8eb8b88e6bcb76c2e3766aafa178d94882200be5) and [its sekkit fork](https://gist.github.com/sekkit/e83c16d1eeeb1e16e08d67b28901a66c/8eb8b88e6bcb76c2e3766aafa178d94882200be5): one report lineage; combined patched configuration, no isolated option-only result.
 - [Consensus artifact catalogue](https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/appendix/artifacts.md): named out-of-band checker leads; source code not recovered here.
+
+## Relocation-aware capsule comparison
+
+- [Microsoft PE/COFF format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format): section extents/flags, ImageBase and declared base-relocation types.
+- [TianoCore EDK II PeImage.h](https://github.com/tianocore/edk2/blob/master/MdePkg/Include/IndustryStandard/PeImage.h): TE header and stripped-header size. These format references do not attribute a vendor PCI or AGESA behavior change.

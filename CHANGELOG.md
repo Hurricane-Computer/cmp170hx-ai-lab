@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Separate capsule rebasing from remaining code differences
+
+- Classify the 101 previously different generic UEFI bodies: 70 fully explained by declared base fixups/selected headers, eight further code-equal pairs with other differences, and 23 retaining code differences.
+- Preserve changed layouts, both unresolved root-bridge-I/O candidates and incomplete AMD coverage; no BAR/FLR fix, flash or extra usable GiB. [Method and limits](docs/discovery-and-firmware.md#relocation-aware-capsule-follow-up).
+
 ## 2026-10-18 — Qualify normal fixed/range placement and upper-request refusals
 
 - Place owned 64-KiB buffers exactly at 1 and 2 GiB through ordinary user-RM fixed/range requests; check CPU data and returned cleanup statuses.

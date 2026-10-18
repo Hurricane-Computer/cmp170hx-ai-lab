@@ -325,6 +325,85 @@
       "additional_usable_GiB_demonstrated": 0,
       "settings_changed_or_firmware_flashed": false,
       "interpretation": "The reviewed AMI PCI Bus executable and other both-protocol candidate are unchanged. Two root-bridge-reference candidates differ in executable bytes, but their causal role and changed behavior are unbound. No concrete benefit for the observed Blackwell FLR failure or CMP capacity has been established; this does not exclude changes elsewhere in firmware."
+    },
+    "relocation_aware_followup": {
+      "evidence_level": "static-analysis",
+      "evidence_utc": "2026-10-18T23:49:44.569037+00:00",
+      "stage": 122,
+      "scope": "Only 101 previously byte-different generic UEFI executable pairs from the retained 1801/1901 extraction. The earlier 366 whole-body equal pairs are inherited, not newly analyzed.",
+      "processed_pairs": 101,
+      "all_selected_pairs_parsed": true,
+      "raw_code_identical_pairs": 10,
+      "code_identical_after_declared_fixups_pairs": 78,
+      "whole_images_equal_after_selected_normalization_pairs": 70,
+      "code_equal_other_bytes_differ_pairs": 8,
+      "code_differences_remaining_pairs": 23,
+      "layout_different_pairs_with_remaining_code_differences": 14,
+      "normalization": {
+        "sections": "Headers mark code or execute with 0x20/0x20000000.",
+        "fixups": "Only declared type 3 HIGHLOW and 10 DIR64 slots subtract ImageBase in memory; type 0 skipped.",
+        "header_fields_zeroed_for_whole_image_comparison": [
+          "ImageBase",
+          "PE COFF TimeDateStamp",
+          "PE optional CheckSum"
+        ],
+        "other_bytes_masked": false,
+        "normalized_firmware_image_saved": false
+      },
+      "selected_vendor_modules": [
+        {
+          "vendor_file_GUID": "79AA6086-035A-4AD9-A89A-A6D5AA27F0E2",
+          "classification": "only_declared_base_fixups_and_selected_header_metadata",
+          "code_identical_after_declared_fixups": true,
+          "whole_image_identical_after_selected_normalization": true,
+          "section_layout_changed": false,
+          "code_section_bytes": [
+            {
+              "section": ".text",
+              "BIOS1801": 1888,
+              "BIOS1901": 1888
+            }
+          ]
+        },
+        {
+          "vendor_file_GUID": "8F4B8F82-9B91-4028-86E6-F4DB7D4C1DFF",
+          "classification": "layout_changed_code_differences_remain",
+          "code_identical_after_declared_fixups": false,
+          "whole_image_identical_after_selected_normalization": false,
+          "section_layout_changed": true,
+          "code_section_bytes": [
+            {
+              "section": ".text",
+              "BIOS1801": 78720,
+              "BIOS1901": 78752
+            }
+          ]
+        },
+        {
+          "vendor_file_GUID": "A062CF1F-8473-4AA3-8793-600BC4FFE9A8",
+          "classification": "layout_changed_code_differences_remain",
+          "code_identical_after_declared_fixups": false,
+          "whole_image_identical_after_selected_normalization": false,
+          "section_layout_changed": true,
+          "code_section_bytes": [
+            {
+              "section": ".text",
+              "BIOS1801": 43616,
+              "BIOS1901": 43744
+            }
+          ]
+        }
+      ],
+      "limits": [
+        "No whole-firmware/AMD/AGESA semantic equivalence.",
+        "Code-byte equality does not establish identical data-driven behavior or runtime configuration.",
+        "Both previously changed root-bridge-I/O candidates retain code differences; no semantic BAR/FLR fix attributed.",
+        "No firmware/setting/GPU action or additional usable GiB."
+      ],
+      "format_references": [
+        "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format",
+        "https://github.com/tianocore/edk2/blob/master/MdePkg/Include/IndustryStandard/PeImage.h"
+      ]
     }
   },
   "hardware_experiments_this_stage": 0,

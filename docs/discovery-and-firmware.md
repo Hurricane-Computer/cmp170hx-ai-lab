@@ -44,3 +44,21 @@ A later offline check of the same pinned capsules extends the equal-form observa
 |A062CF1F-8473-4AA3-8793-600BC4FFE9A8|53,504→53,664|Different executable-section bytes; changed behavior unresolved|
 
 The two changed candidates reference root-bridge I/O, but neither a semantic reset change nor a link to the observed Blackwell FLR timeout has been established. The retained generic inventories and capsule pins were rechecked; unsupported AMD-specific regions remain outside this selection. This does not exclude changes elsewhere in firmware. **No verified FLR/BAR fix or additional usable CMP memory follows**, and no setting, firmware, VM or GPU change was made. The comparison does not justify an immediate restart, flash or unchanged H replay; the capacity investigation still needs a distinct initialization/address-backing mechanism.
+
+## Relocation-aware capsule follow-up
+
+A later static comparison examines only the **101 previously byte-different** generic UEFI executable pairs from the saved 1801/1901 extraction. It distinguishes changes in executable code bytes from declared load-address fixups and selected header metadata. The earlier 366 equal whole bodies are inherited evidence, not a repeated discovery.
+
+| Result after the defined comparison | Pairs |
+|---|---:|
+| Whole extracted body equal after declared fixups and selected header normalization | 70 |
+| Code sections equal after fixups, with other bytes still different | 8 |
+| Code bytes still different | 23 |
+
+All 101 pairs were parsed. Fourteen of the 23 remaining code-different pairs also change section layout; those changes remain recorded. Ten code-section pairs were already raw-byte equal. This is a byte comparison, not proof that the remaining differences change a particular behavior.
+
+The reader follows the primary [PE/COFF section and base-relocation format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format) and [EDK II TE header definition](https://github.com/tianocore/edk2/blob/master/MdePkg/Include/IndustryStandard/PeImage.h). It subtracts ImageBase only at declared HIGHLOW/DIR64 fixup slots, skips ABSOLUTE padding, and zeros only ImageBase, the PE COFF timestamp and the PE optional checksum for whole-image comparison. Other bytes are retained. Temporary comparison copies stay in memory; no normalized firmware image or flash payload is produced.
+
+The small `PCI_COMMON`-referencing PEI body `79AA6086-035A-4AD9-A89A-A6D5AA27F0E2` is fully explained by those fixups/header fields. Both previously changed root-bridge-I/O candidates, `8F4B8F82-9B91-4028-86E6-F4DB7D4C1DFF` and `A062CF1F-8473-4AA3-8793-600BC4FFE9A8`, retain code differences. Their reset/resource semantics remain unresolved.
+
+Code-byte equality does not establish identical data-driven behavior, effective BAR allocation or complete AMD/AGESA coverage. **No verified BAR/FLR fix, firmware action or additional usable CMP memory results.** [Structured counts, method and selected vendor-module fields](../data/discovery-and-firmware.json) preserve this scope.
