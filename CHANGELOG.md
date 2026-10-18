@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Qualify the original 40-to-48 announcement
+
+- Attribute the original 48-GiB screenshot and 43.50-GiB reported use to its author, preserving it as positive workload evidence while separating independent-data qualification and the missing patch attribution.
+- Follow the actual reply-chain repository suggestion; distinguish a partial 48GB report from a card reporting 64GB. No new hardware trial or additional usable GiB. [Source and limits](docs/capacity-evidence.md#original-40-to-48-announcement-a-positive-workload-lead).
+
 ## 2026-10-18 — Foreign alias examples decoded without assuming physical routing
 
 - Pinned the published verifier, decoder and two reports; independently reconstructed five logical source offsets, each 35 GiB plus 0x900 above its damaged target.

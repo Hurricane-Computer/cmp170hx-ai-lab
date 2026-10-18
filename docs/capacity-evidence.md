@@ -17,6 +17,14 @@ The archived `hbm45.cu`, SHA256 `b0dece433f94394c5a730637dc9ffe09e95e1c3970f5faf
 
 Our earlier coherent-geometry run allocated 47 GiB, leaving 39–41 GiB untouched. The 41–47-GiB view read its own data correctly, while 1–7 GiB had 805,306,368 wrong 64-bit words. Selected low words contained the corresponding upper pattern at word288, byte offset0x900. This proves an alias in that experiment. It does not prove every possible configuration lacks 80 GiB. No GPU run was repeated for this audit.
 
+## Original 40-to-48 announcement: a positive workload lead
+
+The [original chemist_slime announcement](https://www.reddit.com/r/LocalLLaMA/comments/1x0rjzb/attn_cmp170hx_10gb_card_owners_unlock_from_40gb/) includes a visually inspected NVIDIA-SMI screenshot showing **49,152 MiB total**, **44,542 MiB used** and `VLLM::EngineCore` using **44,530 MiB**, with 80% GPU utilization. The image displays 7 October 2026 and driver/KMD 615.71.09. These are attributed screenshot values, not this lab's measurements or independently verified post time. The used total is **43.50 GiB**, about 3.50 GiB above 40 GiB; the screenshot does not show all 48 GiB in use.
+
+This is concrete positive allocation/accounting and workload evidence on a card the author describes as originally 10GB. The examined material supplies no generated model output, independently checked expanded-data comparison, exact initialization recipe or named 48GB patch. Neither correctness of the entire allocation nor a false pass is established. The [author's follow-up](https://www.reddit.com/r/LocalLLaMA/comments/1x0rjzb/comment/pene17u/) still describes 48GB as hoped-for. Another commenter suggests the generic cmpunlocker repository; its [pinned README](https://github.com/amoghmunikote/cmpunlocker/blob/2d10f891a58824f0591c3332c4eccf37ff36b086/README.md) documents 40GB/64GB profiles and does not bind that screenshot to a 48GB implementation. This README scope is not a repository-wide absence claim.
+
+Keep this separate from a [different historical report](https://www.reddit.com/r/LocalLLM/comments/1w2x0lp/comment/p6x2l0b/) of approximately 48GB initially usable on a card reporting 64GB. A concrete 48GB change set or original checked run would be useful next evidence. No hardware trial or additional usable capacity resulted from this source audit. [Selected fields and limits](../data/external-48gb-announcement.json).
+
 ## A small executable counterexample
 
 Run `python scripts/capacity_method_demo.py`. It uses only the CPU and models 80 logical 4-KiB pages over 40 backing pages. The upper view changes the within-page offset by XOR0x900. This is a synthetic example consistent with one observed offset, **not a reconstruction of the complete GPU decoder**. Each case runs with two seeds.

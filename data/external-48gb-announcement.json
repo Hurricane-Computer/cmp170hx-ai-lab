@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "evidence_level": "third-party",
+  "review_utc": "2026-10-18T16:30:11.742001+00:00",
+  "source": "https://www.reddit.com/r/LocalLLaMA/comments/1x0rjzb/attn_cmp170hx_10gb_card_owners_unlock_from_40gb/",
+  "author": "chemist_slime",
+  "source_kind": "Original announcement and attached NVIDIA-SMI screenshot, visually inspected in the original post lightbox.",
+  "claimed_variant": "Originally sold as 10GB; author describes a 40GB-to-48GB expansion.",
+  "physical_card_or_ROM_identity_independently_bound": false,
+  "screenshot": {
+    "displayed_local_time": "Wed Oct 7 10:06:41 2026",
+    "displayed_time_is_not_independently_verified_post_time": true,
+    "displayed_NVIDIA_SMI_version": "615.71.09",
+    "displayed_KMD_version": "615.71.09",
+    "displayed_CUDA_UMD_version": "13.4",
+    "GPU_name": "NVIDIA CMP 170HX",
+    "total_MiB": 49152,
+    "used_MiB": 44542,
+    "process_name": "VLLM::EngineCore",
+    "process_used_MiB": 44530,
+    "GPU_util_percent": 80,
+    "calculated_total_GiB": 48.0,
+    "calculated_used_GiB": 43.498046875,
+    "calculated_process_used_GiB": 43.486328125,
+    "calculated_used_above_40GiB_MiB": 3582
+  },
+  "positive_evidence": "Reported allocation/accounting and workload activity above 40GiB on a claimed 10GB-origin card; retain as a concrete positive lead.",
+  "independently_usable_capacity_demonstrated_by_this_record": false,
+  "not_supplied_in_examined_material": [
+    "A named 48GB patch/commit or complete initialization and configuration recipe.",
+    "Model identity/configuration and generated-output verification.",
+    "A checked independent-data comparison across the expanded allocation, including lower data after upper writes.",
+    "The exact verifier and checked completion/error-result transfer used in that run."
+  ],
+  "author_followup": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1x0rjzb/comment/pene17u/",
+    "meaning": "Author still describes 48GB as hoped-for; recommends the existing 8GB-origin 64GB variant for context headroom."
+  },
+  "repository_pointer": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1x0rjzb/comment/pene17u/",
+    "repository": "https://github.com/amoghmunikote/cmpunlocker",
+    "attribution": "Another commenter suggests the generic repository. This is not a patch attribution by the author.",
+    "examined_README": "https://github.com/amoghmunikote/cmpunlocker/blob/2d10f891a58824f0591c3332c4eccf37ff36b086/README.md",
+    "commit": "2d10f891a58824f0591c3332c4eccf37ff36b086",
+    "scope": "README lines 65-66 and 81 only, not a whole-repository absence proof.",
+    "documented_profiles": {
+      "original_8GB": "64GB",
+      "original_10GB": "40GB"
+    },
+    "README_binds_a_specific_48GB_implementation": false
+  },
+  "distinct_from_64GB_card_partial_48GB_report": true,
+  "separate_historical_partial_48GB_report": "https://www.reddit.com/r/LocalLLM/comments/1w2x0lp/comment/p6x2l0b/",
+  "no_false_pass_or_physical_capacity_ceiling_claimed": true,
+  "hardware_operations": 0,
+  "foreign_code_executed": false,
+  "additional_usable_GiB_in_this_lab": 0
+}
