@@ -1,7 +1,12 @@
 {
   "schema_version": 1,
   "evidence_level": "third-party",
-  "review_utc": "2026-10-18T18:05:06.171348+00:00",
+  "evidence_levels": [
+    "third-party",
+    "static-public-source-analysis",
+    "historical-owner-observation"
+  ],
+  "review_utc": "2026-10-18T18:19:26.779938+00:00",
   "source": "https://github.com/PixelML/club-170hx/issues/48",
   "related_documentation_PR": "https://github.com/PixelML/club-170hx/pull/50",
   "reported_variant": "Originally8GB; authors describe single-rank32GB and dual-rank64GB variants.",
@@ -53,8 +58,47 @@
       "ee41902f86f97c3ad099c0c58344f767f1e82e8a",
       "360acd7ac1d83d1024ce4b91ae3cf797f148d4f2"
     ],
-    "exact_logged_detector_bound": false,
-    "other_sources_globally_excluded": false
+    "exact_logged_detector_bound": true,
+    "other_sources_globally_excluded": false,
+    "binding_scope": "Corresponding public log format and selector; screenshot exact binary identity remains unbound.",
+    "detector_source": {
+      "commit": "a3ea84b251db490d73a12b3fffbc9e6658e6b0cd",
+      "commit_source": "https://github.com/amoghmunikote/cmpunlocker/commit/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd",
+      "path": "driver/patches/floorsweep-guard.patch",
+      "source": "https://github.com/amoghmunikote/cmpunlocker/blob/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd/driver/patches/floorsweep-guard.patch",
+      "patch_sha256": "15d5df6d28e9ef665256c1604b3c68ac70a947784a505e996ba518d297962e90",
+      "patch_git_blob": "7ae7dcbe8f97c1829584447cc9ae365c63a2001a",
+      "corresponding_log_format_found": true,
+      "selector_register": "0x00820368",
+      "selector_exact_value": "0x00000cf3",
+      "CFG1": "0x02779000",
+      "LOCAL_MEMORY_RANGE": "0x0000020a",
+      "target_fb_bytes": 34359738368,
+      "separate_native_rank_read": false,
+      "classifier": "Read-only BAR0 profile classifier matches the same exact mask; no rank or data-integrity test.",
+      "screenshot_exact_binary_build_bound": false,
+      "owner_historical_register_evidence_date": "2026-10-15",
+      "owner_historical_masks": [
+        {
+          "label": "CMP64",
+          "OPT_FBPA_DISABLE_0x00820368": "0x00c0330c",
+          "observed_same_value_at_0x00820c14": true,
+          "matches_selected_32GiB_or_standard_guard_case": false,
+          "historical_only": true
+        },
+        {
+          "label": "CMP40",
+          "OPT_FBPA_DISABLE_0x00820368": "0x00c03000",
+          "observed_same_value_at_0x00820c14": true,
+          "matches_selected_32GiB_or_standard_guard_case": false,
+          "historical_only": true
+        }
+      ],
+      "owner_current_hardware_state_refreshed": false,
+      "arbitrary_mask_or_rank_override_proposed": false,
+      "original_checker_and_complete_run_contract_recovered": false
+    },
+    "previous_two_file_lookup_remains_bounded": "The earlier two revisions concern a different patch file, not this profiling-branch guard."
   },
   "Vulkan_checker_limitation_is_author_claim_not_audited_tool_contract": true,
   "historical_false_pass_demonstrated": false,

@@ -27,9 +27,15 @@ Keep this separate from a [different historical report](https://www.reddit.com/r
 
 ## Original 32GB variant report: rank and checker contracts remain open
 
-The [original owner discussion](https://github.com/PixelML/club-170hx/issues/48) reports a card limited to 32GB alongside successful 64GB cards. Its attached image shows 32768 MiB and a patched `_kgspBootGspRm` message selecting 32GB geometry with `fbpaDisable=0x00000cf3`. This binds a displayed size and software message; the physical rank label and exact detector condition remain unverified here. The related [PR50](https://github.com/PixelML/club-170hx/pull/50) changes documentation only.
+The [original owner discussion](https://github.com/PixelML/club-170hx/issues/48) reports a card limited to 32GB alongside successful 64GB cards. Its attached image shows 32768 MiB and a patched `_kgspBootGspRm` message selecting 32GB geometry with `fbpaDisable=0x00000cf3`. This binds a displayed size and software message; the physical rank label remains unverified here. The corresponding source selector is now bound below, while the screenshot’s exact binary build remains unbound. The related [PR50](https://github.com/PixelML/club-170hx/pull/50) changes documentation only.
 
 A [second owner](https://github.com/PixelML/club-170hx/issues/48#issuecomment-5740629144) reports clean CUDA tests to “63.5GB” on four cards. The attached image shows four 65536-MiB cards and 64022 MiB used on one, with vLLM accounting for 64010 MiB. It shows workload accounting, not the checker execution or verdict. Keep the positive report while leaving its exact test source and result-transfer contract open. No historical false pass or physical ceiling follows. [Selected image fields and bounded source lookup](../data/external-rank-variant-report.json). No hardware was tested or additional GiB unlocked in this audit.
+
+### Corresponding 32GB detector source recovered
+
+The original author's [pinned profiling-branch guard](https://github.com/amoghmunikote/cmpunlocker/blob/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd/driver/patches/floorsweep-guard.patch) supplies the matching log format. It compares the value read at `0x00820368` exactly with `0x00000cf3`, selects CFG1 `0x02779000` and LOCAL_MEMORY_RANGE `0x20a`, and separately exports 32 GiB. Its added reads use the mask register; they do not independently measure physical rank. The paired [read-only profile classifier](https://github.com/amoghmunikote/cmpunlocker/blob/a3ea84b251db490d73a12b3fffbc9e6658e6b0cd/tools/detect-variant.py) selects the ES label from the same exact mask rule. The earlier lookup examined a different patch file; the corresponding source condition is now established.
+
+Our retained 15 October register capture contains `0x00c03000` for CMP40 and `0x00c0330c` for CMP64 at that exact register. Both miss this guard's `0x003fc000` and `0x00000cf3` cases. These are historical observations, not fresh reads. The author's whitelist is therefore not a general classifier for our working 40-/64-GiB cards. No mask override or new hardware trial follows. Physical rank, the pictured binary's source identity and the original checked-capacity runs remain separate open contracts.
 
 ## A small executable counterexample
 

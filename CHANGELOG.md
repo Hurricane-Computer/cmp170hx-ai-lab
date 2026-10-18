@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Recover the source of the 32GB detector message
+
+- Bind the original profiling-branch log to an exact mask selector, ordinary geometry values and a separate 32-GiB export; distinguish this classifier from a native rank measurement.
+- Compare the selector with the same register in the preserved owner snapshot. Neither card matches the author's two exact guard cases; no new hardware input or usable GiB results. [Source and scope](docs/capacity-evidence.md#corresponding-32gb-detector-source-recovered).
+
 ## 2026-10-18 — Qualify the original 32GB variant report
 
 - Separate a displayed 32-GiB geometry choice, the authors' rank labels, a positive 63.5GB CUDA-test statement and the attached vLLM accounting image. The image does not show the claimed checker run.
