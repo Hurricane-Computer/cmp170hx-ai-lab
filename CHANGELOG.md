@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Foreign alias examples decoded without assuming physical routing
+
+- Pinned the published verifier, decoder and two reports; independently reconstructed five logical source offsets, each 35 GiB plus 0x900 above its damaged target.
+- Separated checked host comparisons from cleanup/baseline verdict limits and an unmeasured physical routing model. No new hardware trial or additional usable GiB. [Source contract](docs/cache-alias.md#separate-foreign-alias-decoder-logical-offsets-are-established).
+
 ## 2026-10-18 — Bind the ordinary GFW status gate before H
 
 - Connect the matching GA100 HAL selection and mandatory GFW completion gate to the preserved H source hook. Keep completion status separate from fresh App08/HBM training or decoder-latch evidence.
