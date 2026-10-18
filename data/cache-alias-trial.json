@@ -327,10 +327,10 @@
       "CMP64_new_capacity_trial": false,
       "physical_capacity_ceiling_established": false,
       "foreign_positive_reports_refuted": false,
-      "next_step": "Recover supported access and known driver state before considering the still-unexecuted bounded SM comparison. No unchanged baseline, geometry or mask replay follows."
+      "next_step": "Preserve the now-verified G runtime. A new capacity trial requires a concrete initialization/address-backing discriminator; the unexecuted Blackwell isolation is preparation for an independently needed start."
     },
     "later_native_start_and_recovery": {
-      "evidence_level": "observed native-start failure and verified boot-file restoration; runtime recovery incomplete",
+      "evidence_level": "chronological observations: native H startup failure, G boot-file restore, initial incomplete runtime cutoff and later verified G return",
       "native_log_observation_utc": "2026-10-18T09:44:16.348207+00:00",
       "scope": "A later guest boot while the same preserved H modules were installed; no new geometry values or CUDA data trial.",
       "native_CMP40_initialization_failed": true,
@@ -362,12 +362,95 @@
         "native_G_readiness_confirmed": false,
         "manual_PCI_resets": 0,
         "host_reboots_commanded": 0,
-        "observation": "Management command channels stopped answering during the recovery start; last confirmed job phase was the start request. No second writer or retry was dispatched."
+        "observation": "Management command channels stopped answering during the recovery start; last confirmed job phase was the start request. No second writer or retry was dispatched.",
+        "observation_is_initial_historical_cutoff": true
       },
       "CMP64_new_capacity_trial": false,
       "extra_usable_GiB_demonstrated": 0,
       "foreign_positive_reports_refuted": false,
-      "next_step": "Finish supported runtime recovery and revalidate the existing job and locks before any further GPU test."
+      "next_step": "Preserve the now-verified G runtime. A new capacity trial requires a concrete initialization/address-backing discriminator; the unexecuted Blackwell isolation is preparation for an independently needed start.",
+      "runtime_return_after_later_boot": {
+        "evidence_level": "observed; bounded recovery checks",
+        "native_observation_utc": "2026-10-18T10:19:22.490126+00:00",
+        "delayed_observation_utc": "2026-10-18T10:21:15.239179+00:00",
+        "prior_G_start_command_timed_out_after_seconds": 90,
+        "later_host_boot_observed": true,
+        "later_host_boot_cause_established": false,
+        "host_reboot_commanded_by_this_work": false,
+        "prior_job_cgroup_empty_and_locks_free_before_new_checks": true,
+        "fresh_guest_boot_and_all_saved_G_target_hashes_match": true,
+        "G_core_module_file_sha256": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+        "loaded_binary_hash_independently_measured": false,
+        "native_G_ready": true,
+        "cards": [
+          {
+            "variant": "cmp40",
+            "reported_mib": 40960,
+            "temperature_c": 37,
+            "memory_clock_mhz": 1215,
+            "memory_used_mib": 0,
+            "process_count": 0
+          },
+          {
+            "variant": "cmp64",
+            "reported_mib": 65536,
+            "temperature_c": 30,
+            "memory_clock_mhz": 1728,
+            "memory_used_mib": 0,
+            "process_count": 0
+          }
+        ],
+        "small_copies": [
+          {
+            "label": "CMP40",
+            "utc": "2026-10-18T10:21:01.857210+00:00",
+            "bytes": 8192,
+            "source_sha256": "20ca0ed94e3954b038f127a5e21174692bdf6d4a58d9ae1b95a1814338aa22d0",
+            "returned_sha256": "20ca0ed94e3954b038f127a5e21174692bdf6d4a58d9ae1b95a1814338aa22d0",
+            "copy_passed": true,
+            "cleanup_all_zero": true
+          },
+          {
+            "label": "CMP64",
+            "utc": "2026-10-18T10:21:02.660306+00:00",
+            "bytes": 8192,
+            "source_sha256": "f052f54e88d5694ae53f7619979a1db74a807149be397564cbb63703116513d5",
+            "returned_sha256": "f052f54e88d5694ae53f7619979a1db74a807149be397564cbb63703116513d5",
+            "copy_passed": true,
+            "cleanup_all_zero": true
+          }
+        ],
+        "comparison": "One random 8192-byte H2D/D2H buffer per CMP, complete CPU comparison, checked API returns and resource cleanup.",
+        "common_copy_source_sha256": "21fa71ac8a7722c8c73d75f697101b76920c93be20703b044af733dea6aca2d9",
+        "complete_inline_wrapper_retained": false,
+        "delayed_observation_seconds": 12,
+        "new_Xid_or_RmInitAdapter_in_selected_current_boot_log": false,
+        "full_capacity_or_sustained_health_qualification": false,
+        "expanded_memory_trial_executed": false,
+        "extra_usable_GiB_demonstrated": 0,
+        "manual_PCI_reset_or_reset_policy_change": false,
+        "model_automatically_restarted": false,
+        "common_copy_source_hash_normalization": "UTF-8 text after universal-newline decoding; this is not the original raw Windows file hash."
+      },
+      "separate_reset_path_observation": {
+        "evidence_level": "observed kernel timeout plus later PCI identity; causal interpretation unresolved",
+        "kernel_extract_observation_utc": "2026-10-18T10:24:30.571576+00:00",
+        "identity_observation_utc": "2026-10-18T10:25:30.568705+00:00",
+        "device": "RTX PRO6000 Blackwell",
+        "vendor_device": "10de:2bb4",
+        "previous_boot_FLR_not_ready_and_giving_up": true,
+        "largest_logged_wait_ms": 65535,
+        "current_reset_method_order": [
+          "flr",
+          "bus"
+        ],
+        "reset_method_ABI": "https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-bus-pci",
+        "reset_method_readback_proves_successful_reset": false,
+        "exact_outage_or_reboot_cause_established": false,
+        "separate_CMP40_H_native_failure_explained_away": false,
+        "next_needed_start_CMP_only_isolation": "Prepared, unexecuted; preserve both CMP assignments and G. Releasing the current GPU assignment may itself trigger a reset, so next-start removal is not a proven workaround.",
+        "immediate_restart_or_unchanged_H_replay_justified": false
+      }
     }
   }
 }

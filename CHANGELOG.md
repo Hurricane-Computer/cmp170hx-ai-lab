@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Verify the later G return and identify a separate reset timeout
+
+- Both CMPs pass one 8-KiB recovery copy after a later boot; native 40/64-GiB reports persist through a 12-second follow-up. No additional usable GiB or sustained-health claim.
+- Attribute the previous-boot FLR timeout to RTX PRO6000 Blackwell, preserving uncertainty about the outage and H's separate native CMP40 errors. [Runtime return and reset-path limits](docs/cache-alias.md#later-g-runtime-return-and-a-separate-blackwell-reset-timeout).
+
 ## 2026-10-18 — Record later H initialization failure and separate boot-file recovery
 
 - Captured later native CMP40 initialization/GSP/ECC error classes before any expanded-data test. No new upper-memory verdict, capacity gain or physical-damage conclusion.
