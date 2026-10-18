@@ -14,6 +14,14 @@
     "url": "https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/frontier/80gb.md",
     "repository_commit": "d923a25fb2ecb6ee3d62654983f453194b66485f",
     "document_sha256": "c8530a784c5c720f6ccecf022c6bedfc737ae432aafe39b88e5de9bf98c4a5eb",
+    "reported_starting_variant": {
+      "original_capacity_GB_as_described": 10,
+      "ordinary_unlocked_GiB": 40,
+      "device_id_as_described": "10de:2082",
+      "source_scope": "The document explicitly describes the 80GB attempts on original 10GB cards, whose ordinary unlock is 40GiB.",
+      "physical_identity_independently_bound_by_this_lab": false,
+      "is_a_64_to_80_report": false
+    },
     "reported_gib": 77.5,
     "reported_blocks": 310,
     "reported_block_mib": 256,

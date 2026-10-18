@@ -37,6 +37,11 @@
     "source": "https://github.com/PixelML/club-170hx/issues/48#issuecomment-5740629144",
     "claimed_cards": 4,
     "claimed_CUDA_memtest_limit_as_written": "63.5GB",
+    "starting_variant_context": "The discussion concerns original 8GB cards and 32GB/64GB unlocks; this commenter already reports four cards showing 64GB.",
+    "commenter_original_variant_independently_bound": false,
+    "demonstrated_40_to_64_extension": false,
+    "demonstrated_extension_above_64GiB": false,
+    "additional_capacity_progress_beyond_this_lab_40_64_baselines": false,
     "exact_checker_version_source_and_checked_result_transfer_bound": false,
     "screenshot": {
       "image_source": "https://github.com/user-attachments/assets/6b61bff4-f3cb-49af-9192-219a98c2db51",

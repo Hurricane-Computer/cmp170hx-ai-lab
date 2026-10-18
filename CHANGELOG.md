@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Clarify the starting variants in capacity reports
+
+- Attribute the 77.5/72-GiB report explicitly to original 10GB cards with an ordinary 40-GiB unlock; preserve the unresolved checker and lifecycle limits.
+- Separate the 63.5GB statement on already-64GB cards from extensions beyond the established 40/64-GiB baselines. No new hardware trial, physical-capacity conclusion or usable GiB. [Variant attribution](docs/capacity-evidence.md#different-records-different-limits).
+
 ## 2026-10-18 — Recover the source of the 32GB detector message
 
 - Bind the original profiling-branch log to an exact mask selector, ordinary geometry values and a separate 32-GiB export; distinguish this classifier from a native rank measurement.
