@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed bounded diagnostic control plus separately attributed source analysis",
+  "evidence_utc": "2026-10-18T20:32:38.619172+00:00",
+  "driver_candidate": "G",
+  "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "method": {
+    "allocation_api": "nvUvmInterfaceMemoryAllocFB",
+    "physically_contiguous_requested": true,
+    "buffers_per_card": 2,
+    "buffer_bytes": 65536,
+    "maximum_owned_bytes_per_card": 131072,
+    "written_bytes_per_card": 196608,
+    "compared_read_bytes_per_card": 327680,
+    "posted_write_flush_read_bytes_per_card": 12,
+    "fresh_nonce_patterns": true,
+    "complete_word_comparisons_per_card": 5,
+    "words_per_comparison": 16384,
+    "first_allocation_grows_down": false,
+    "second_allocation_grows_down": true,
+    "explicit_physical_range_requested": false,
+    "access_path": "CPU mapping of each owned RM allocation",
+    "CUDA_calls": 0,
+    "GPU_kernel_launches": 0
+  },
+  "cards": [
+    {
+      "variant": "cmp40",
+      "reported_GiB": 40,
+      "returned_GPU_physical_offsets_bytes": [168886272, 169017344],
+      "returned_GPU_physical_offsets_hex": ["0x0a110000", "0x0a130000"],
+      "mismatched_words_per_comparison": [0, 0, 0, 0, 0],
+      "control_passed": true,
+      "upper_memory_window_selected": false
+    },
+    {
+      "variant": "cmp64",
+      "reported_GiB": 64,
+      "returned_GPU_physical_offsets_bytes": [269025280, 269156352],
+      "returned_GPU_physical_offsets_hex": ["0x10090000", "0x100b0000"],
+      "mismatched_words_per_comparison": [0, 0, 0, 0, 0],
+      "control_passed": true,
+      "upper_memory_window_selected": false
+    }
+  ],
+  "entry_failures_before_memory_allocation": {
+    "attempts": 2,
+    "failed_call": "nvUvmInterfaceGetGpuInfo",
+    "status_decimal": 27,
+    "status_name": "NV_ERR_INSUFFICIENT_PERMISSIONS",
+    "first_attempt_also_omitted_required_GPU_registration": true,
+    "registration_alone_resolved_refusal": false,
+    "same_corrected_module_succeeded_with_matching_open_GPU_device_fd": true,
+    "permission_check_bypassed": false,
+    "test_memory_allocations_before_these_failures": 0
+  },
+  "cleanup_per_card": {
+    "CPU_unmaps_issued": 2,
+    "memory_frees_issued": 2,
+    "GPU_unregisters_issued": 1,
+    "VA_and_device_destroy_issued": true,
+    "void_cleanup_apis_supply_return_status": false,
+    "session_destroy_return_status": 0,
+    "helper_module_removal_checked": true
+  },
+  "followup": {
+    "delay_seconds": 12,
+    "both_cards_reported_used_MiB": 0,
+    "both_cards_reported_clients": 0,
+    "native_Xid_initialization_failure_BUG_Oops_query_had_no_matches": true,
+    "helper_module_present": false,
+    "driver_reloads": 0,
+    "firmware_changes": 0,
+    "clock_setting_changes": 0
+  },
+  "source_contract": {
+    "contiguous_physical_offset_is_separate_from_GPU_VA": true,
+    "grows_down_translates_to": "NVOS32_ALLOC_FLAGS_FORCE_MEM_GROWS_DOWN",
+    "PMA_reverse_flag_is_separate": "NVOS32_ALLOC_FLAGS_FORCE_REVERSE_ALLOC",
+    "explicit_fixed_or_range_inputs_have_a_normal_RM_consumer": true,
+    "explicit_range_forwarded_by_tested_UVM_FB_wrapper": false,
+    "exact_range_user_RM_allocation_or_mapping_executed": false,
+    "PMA_implementation_alignment_check": "physBegin and physEnd + 1 must align to pageSize"
+  },
+  "interpretation": {
+    "new_usable_GiB": 0,
+    "expanded_profile_loaded_for_this_control": false,
+    "distinct_HBM_cells_proven": false,
+    "installed_density_measured": false,
+    "full_capacity_qualified": false,
+    "physical_capacity_ceiling_inferred": false,
+    "foreign_positive_reports_refuted": false,
+    "next_step": "Qualify normal RM allocation with an explicit physical placement constraint and its owned mapping/cleanup, first within the established baseline."
+  }
+}

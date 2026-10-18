@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Validate a small physical-offset diagnostic
+
+- Obtain physical offsets for two owned 64-KiB buffers per CMP and pass five complete CPU-mapped comparisons per card. Separate normal device-file/registration entry requirements from memory results.
+- Observe that the grows-down hint still returns low offsets on both variants; it does not select an upper-memory test. Preserve the explicit-range allocation path as a source-qualified next step, with no additional usable GiB. [Method, results and limits](docs/physical-offset-diagnostics.md).
+
 ## 2026-10-18 — Clarify the starting variants in capacity reports
 
 - Attribute the 77.5/72-GiB report explicitly to original 10GB cards with an ordinary 40-GiB unlock; preserve the unresolved checker and lifecycle limits.

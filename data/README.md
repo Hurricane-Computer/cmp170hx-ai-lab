@@ -2,6 +2,7 @@
 
 These files are explicit technical projections of the research records, not copies of raw logs or private checkpoints.
 
+- [physical-offset-control.json](physical-offset-control.json): small owned contiguous allocations, returned physical offsets, checked CPU access and the low-placement limit of a grows-down hint; no extra-capacity result.
 - [capacity-evidence.json](capacity-evidence.json): external77.5/72-GiB lead, archived full-word test audit, historical47-GiB alias and CPU method counterexamples; no new GPU capacity result.
 - [peer-memory.json](peer-memory.json): historical Stage42/F and later G directed matrices, exact module fingerprints, separate 8/64-GiB CMP64 observations and the scoped native-discovery refusal.
 - [bar2-root-observations.json](bar2-root-observations.json): normalized D/E RPC statuses and actual eight-byte root comparisons; no private addresses or logs.
