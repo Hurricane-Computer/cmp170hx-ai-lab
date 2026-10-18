@@ -1,6 +1,6 @@
 # Normal guest discovery and the mainboard BAR settings
 
-**The source exposes two separate discovery boundaries; the relevant mainboard switches are already selected.** Stage47 traced the normal 615.71.09 driver and compared BIOS 1801/1901 offline. It made no driver, clock, resource, firmware or VM change. The last GPU and peer measurements remain those of [candidate G](mailbox-p2p.md).
+**The source exposes two separate discovery boundaries; the relevant mainboard switches are already selected.** Stage47 traced the normal 615.71.09 driver and compared BIOS 1801/1901 offline. It made no driver, clock, resource, firmware or VM change. The GPU and peer values quoted in that historical section are the archived [candidate G](mailbox-p2p.md) snapshot; a [later runtime recovery](cache-alias.md#later-g-runtime-return-and-a-separate-blackwell-reset-timeout) is documented separately.
 
 ## Why an uninitialized chipset flag is not a physical-board diagnosis
 
@@ -30,3 +30,17 @@ No unrelated variables or authentication material were collected. Stored setting
 Do not repeat G unchanged or treat a BIOS update as an established BAR repair. Continue from the actual normal passthrough-approval and mapping contract. The primary capacity investigation remains separate: CMP40 toward 48 GiB is a first target, the external 77.5/72-GiB counterevidence keeps 80 GiB open, and CMP64 toward 80/96 GiB remains a hypothesis.
 
 [Curated hashes, source anchors, tool fingerprints, settings and limits](../data/discovery-and-firmware.json). Original firmware payloads and raw extraction logs stay outside this repository. Source references are listed in [sources](sources.md).
+
+
+## PCI-protocol executable follow-up after the reset timeout
+
+A later offline check of the same pinned capsules extends the equal-form observation. Literal GUID references from the primary [PCI host-bridge resource-allocation](https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciHostBridgeResourceAllocation.h) and [root-bridge I/O](https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciRootBridgeIo.h) declarations select 14 generic executable bodies in each image. Twelve whole bodies are byte-identical; two differ. Both modules referencing both protocols are unchanged, including the 81,664-byte body containing the name **AMI PCI Bus Driver**. A protocol reference is not proof of a producer, a called reset routine or a particular upstream implementation.
+
+| Focused vendor file GUID | Whole-body bytes, 1801→1901 | Comparison |
+|---|---:|---|
+|3C1DE39F-D207-408A-AACC-731CFB7F1DD7|81,664→81,664|Identical; contains AMI PCI Bus Driver name|
+|80E66E0A-CCD1-43FA-A7B1-2D5EE0F13910|43,520→43,520|Identical; references both protocols|
+|8F4B8F82-9B91-4028-86E6-F4DB7D4C1DFF|100,288→100,352|Different executable-section bytes; changed behavior unresolved|
+|A062CF1F-8473-4AA3-8793-600BC4FFE9A8|53,504→53,664|Different executable-section bytes; changed behavior unresolved|
+
+The two changed candidates reference root-bridge I/O, but neither a semantic reset change nor a link to the observed Blackwell FLR timeout has been established. The retained generic inventories and capsule pins were rechecked; unsupported AMD-specific regions remain outside this selection. This does not exclude changes elsewhere in firmware. **No verified FLR/BAR fix or additional usable CMP memory follows**, and no setting, firmware, VM or GPU change was made. The comparison does not justify an immediate restart, flash or unchanged H replay; the capacity investigation still needs a distinct initialization/address-backing mechanism.

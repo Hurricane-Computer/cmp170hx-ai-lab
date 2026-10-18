@@ -204,7 +204,128 @@
     ],
     "settings_changed": false,
     "firmware_flashed": false,
-    "interpretation": "Above4G and ReBAR Auto were already selected. No new setting definition or verified BAR fix was found in the reviewed forms. Other firmware behavior was not exhaustively analyzed."
+    "interpretation": "Above4G and ReBAR Auto were already selected. No new setting definition or verified BAR fix was found in the reviewed forms. Other firmware behavior was not exhaustively analyzed.",
+    "PCI_protocol_module_followup": {
+      "evidence_level": "static analysis of retained official capsules; no firmware execution or live hardware observation",
+      "evidence_utc": "2026-10-18T10:56:03.701087+00:00",
+      "versions": [
+        "1801",
+        "1901"
+      ],
+      "selector": "Literal little-endian bytes of two primary-defined protocol GUIDs in generic executable bodies; EDK2 file GUID was an alternative selector with no match.",
+      "protocol_definitions": [
+        {
+          "url": "https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciHostBridgeResourceAllocation.h",
+          "role": "PCI host-bridge resource-allocation protocol GUID",
+          "guid": "CF8034BE-6768-4D8B-B739-7CCE683A9FBE"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciRootBridgeIo.h",
+          "role": "PCI root-bridge I/O protocol GUID",
+          "guid": "2F707EBB-4A1A-11D4-9A38-0090273FC14D"
+        }
+      ],
+      "retained_inventory_body_hashes_checked": 934,
+      "selected_modules_each_image": 14,
+      "whole_bodies_identical": 12,
+      "whole_bodies_different": 2,
+      "modules_referencing_both_protocols": 2,
+      "both_protocol_modules_byte_identical": true,
+      "four_focused_modules": [
+        {
+          "file_guid": "3C1DE39F-D207-408A-AACC-731CFB7F1DD7",
+          "protocol_references": [
+            "PCI_HOST_BRIDGE_RESOURCE_ALLOCATION",
+            "PCI_ROOT_BRIDGE_IO"
+          ],
+          "bytes_1801_1901": [
+            81664,
+            81664
+          ],
+          "whole_executable_body_identical": true,
+          "body_sha256_1801_1901": [
+            "15886b11d63e0569ac22b0480485ae54a847ecaf548081f3475917f696204ab3",
+            "15886b11d63e0569ac22b0480485ae54a847ecaf548081f3475917f696204ab3"
+          ],
+          "text_virtual_bytes_1801_1901": [
+            72768,
+            72768
+          ],
+          "text_bytes_identical": true,
+          "AMI_PCI_Bus_Driver_string_present": true
+        },
+        {
+          "file_guid": "80E66E0A-CCD1-43FA-A7B1-2D5EE0F13910",
+          "protocol_references": [
+            "PCI_HOST_BRIDGE_RESOURCE_ALLOCATION",
+            "PCI_ROOT_BRIDGE_IO"
+          ],
+          "bytes_1801_1901": [
+            43520,
+            43520
+          ],
+          "whole_executable_body_identical": true,
+          "body_sha256_1801_1901": [
+            "bcf47f4d1e8b9bc57e5429a4bfda9caa1c1d0659f6ea41228ce57b6e5cc3c50f",
+            "bcf47f4d1e8b9bc57e5429a4bfda9caa1c1d0659f6ea41228ce57b6e5cc3c50f"
+          ],
+          "text_virtual_bytes_1801_1901": [
+            37918,
+            37918
+          ],
+          "text_bytes_identical": true,
+          "AMI_PCI_Bus_Driver_string_present": false
+        },
+        {
+          "file_guid": "8F4B8F82-9B91-4028-86E6-F4DB7D4C1DFF",
+          "protocol_references": [
+            "PCI_ROOT_BRIDGE_IO"
+          ],
+          "bytes_1801_1901": [
+            100288,
+            100352
+          ],
+          "whole_executable_body_identical": false,
+          "body_sha256_1801_1901": [
+            "76688b2115121cc149cd1f2c9d57b83aa308118662b841c2f1acdba9f5f2be5a",
+            "a9da34815d5ef8bff722d62ec51bcc75f71bf94ac40f9824eb8840e6c52ec767"
+          ],
+          "text_virtual_bytes_1801_1901": [
+            78714,
+            78730
+          ],
+          "text_bytes_identical": false,
+          "AMI_PCI_Bus_Driver_string_present": false
+        },
+        {
+          "file_guid": "A062CF1F-8473-4AA3-8793-600BC4FFE9A8",
+          "protocol_references": [
+            "PCI_ROOT_BRIDGE_IO"
+          ],
+          "bytes_1801_1901": [
+            53504,
+            53664
+          ],
+          "whole_executable_body_identical": false,
+          "body_sha256_1801_1901": [
+            "270c11fd5915aa9e14d047fd8f5ca7cbe5842d81b5e9b9573364eea7a6af1d50",
+            "9b6cc32eb7e0f507c8137057219cdce1fa6b6d160e7ceab50d477491eba8e3aa"
+          ],
+          "text_virtual_bytes_1801_1901": [
+            43616,
+            43744
+          ],
+          "text_bytes_identical": false,
+          "AMI_PCI_Bus_Driver_string_present": false
+        }
+      ],
+      "semantic_change_or_reset_call_proven_by_GUID_or_text_difference": false,
+      "AMD_specific_regions_exhaustively_parsed": false,
+      "verified_FLR_or_BAR_fix": false,
+      "additional_usable_GiB_demonstrated": 0,
+      "settings_changed_or_firmware_flashed": false,
+      "interpretation": "The reviewed AMI PCI Bus executable and other both-protocol candidate are unchanged. Two root-bridge-reference candidates differ in executable bytes, but their causal role and changed behavior are unbound. No concrete benefit for the observed Blackwell FLR failure or CMP capacity has been established; this does not exclude changes elsewhere in firmware."
+    }
   },
   "hardware_experiments_this_stage": 0,
   "additional_usable_GiB_or_working_SMs_demonstrated": false,

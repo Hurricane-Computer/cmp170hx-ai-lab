@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 — Bound the platform PCI executable differences
+
+- Compare 14 protocol-selected executable bodies across the retained 1801/1901 capsules: 12 identical, two different. The body containing AMI PCI Bus Driver and the other both-protocol candidate are unchanged.
+- Preserve the two unresolved code-byte differences and incomplete AMD-region coverage; no reset/BAR fix, firmware action or extra usable GiB is established. [Scope and limits](docs/discovery-and-firmware.md#pci-protocol-executable-follow-up-after-the-reset-timeout).
+
 ## 2026-10-18 — Verify the later G return and identify a separate reset timeout
 
 - Both CMPs pass one 8-KiB recovery copy after a later boot; native 40/64-GiB reports persist through a 12-second follow-up. No additional usable GiB or sustained-health claim.
