@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "evidence_level": "observed",
+  "ordinary_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "implementation": {
+    "separate_experimental_core_and_consumer": true,
+    "consumer_ABI_bytes": 320,
+    "public_full_cache_command": "NV2080_CTRL_CMD_FB_FLUSH_GPU_CACHE",
+    "command": "0x2080130e",
+    "flags": "0x38",
+    "actual_full_cache_controls_per_epoch": 4,
+    "original_external_device_access_and_lock_checks_preserved": true,
+    "actual_physical_RMAPI_GSP_route_observed": true,
+    "every_actual_returned_status_checked": true,
+    "ordinary_previous_route_unchanged": true,
+    "all_full_CPU_hashes_and_guards_preserved": true,
+    "local_done": 0,
+    "imports_pages_aliases_retirement_poison_lifetime_checks_preserved": true,
+    "source_restores_after_explicit_mapping": {
+      "native_files": 4,
+      "qualification_user_files": 14,
+      "comparison_data_files_identical_to_qualification": 13
+    },
+    "formal_runtime_equivalence": false
+  },
+  "support_probe": {
+    "actual_cache_calls": 2,
+    "successful_returned_statuses": 2,
+    "actual_GSP_wrapper_calls": 2,
+    "payload_bytes": 0,
+    "models_started": 0,
+    "successful_session_close": true,
+    "retained": 0
+  },
+  "source_analysis": {
+    "evidence_level": "static-analysis",
+    "method_metadata_alone_was_not_support_proof": true,
+    "normal_GPU_access_requires_actual_open_device_files": true,
+    "physical_control_keeps_same_public_full_cache_policy": true,
+    "internal_firmware_SYS_L2_operations_separately_measured": false
+  },
+  "qualification": {
+    "directed_raw_inputs": 20,
+    "raw_payload_bytes": 10955592,
+    "maximum_input_bytes": 3145728,
+    "independent_full_GPU_comparisons": 64,
+    "source_guard_verdicts": 70,
+    "non_root_None_results": 6,
+    "intentional_result_errors_detected": 4,
+    "requests": 68,
+    "actual_completions": 74,
+    "epochs": 34,
+    "actual_full_cache_controls": 136,
+    "metadata_array_comparisons": 16,
+    "metadata_GPU_unchanged_guard_comparisons": 16,
+    "expected_pre_copy_alias_rejections": 1,
+    "fresh_producer_events": 20,
+    "damaged_completed_trace_cases_rejected": 6,
+    "payload_replayed_to_test_verifier": false
+  },
+  "diagnostic_pilot": {
+    "collective_pairs": 1301,
+    "directed_inputs": 2602,
+    "payload_bytes": 473600000,
+    "requests": 2862,
+    "actual_completions": 2864,
+    "actual_cache_controls": 5724,
+    "maximum_output_tokens": 8,
+    "actual_output_tokens": 4,
+    "all_input_and_shared_result_hashes_match": true
+  },
+  "measured_direct_model_proof": {
+    "collective_pairs": 18331,
+    "operations": {
+      "all-reduce-sum": 18189,
+      "all-gather": 142
+    },
+    "directed_inputs": 36662,
+    "payload_bytes": 2125583360,
+    "requests": 37180,
+    "actual_completions": 37182,
+    "actual_full_cache_controls": 74360,
+    "native_contexts": 2,
+    "uses_per_context": [
+      18590,
+      18590
+    ],
+    "maximum_actual_input_bytes": 1986560,
+    "all_full_input_hashes_match": true,
+    "shared_result_hash_pairs": 18331,
+    "all_shared_result_hashes_match": true,
+    "native_small_control_broadcasts": 0,
+    "CPU_activation_payload_fallback": false,
+    "public_application_cache_controls": 0
+  },
+  "comparison": {
+    "fresh_same_core_SHM": true,
+    "actual_commands_equal_except_port": true,
+    "selected_environment_equal": true,
+    "eleven_installed_runtime_sources_and_model_config_pinned": true,
+    "TP": 2,
+    "PP": 1,
+    "dtype": "bfloat16",
+    "max_output_tokens": 32,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 4,
+    "max_model_len": 8192,
+    "KV_bytes_per_GPU": 2147483648,
+    "CPU_threads": 4,
+    "eager": true,
+    "FlashAttention": true,
+    "drafting": false,
+    "thinking": false,
+    "prefix_cache": false,
+    "sequential_requests": 3,
+    "simultaneous_requests": 4,
+    "pilot_excluded": true,
+    "direct": {
+      "median_sequential_decode_tps_estimate": 2.0380523281486003,
+      "median_sequential_ttft_s": 1.256482810000307,
+      "four_request_aggregate_tps": 5.948879703878152
+    },
+    "SHM": {
+      "median_sequential_decode_tps_estimate": 16.577326924338855,
+      "median_sequential_ttft_s": 0.10606253100559115,
+      "four_request_aggregate_tps": 56.268932001012395
+    },
+    "SHM_over_direct_decode_ratio": 8.133906423981747,
+    "answer_hash_matches_of_7": 6,
+    "quality_or_logit_equivalence": false,
+    "statistically_repeated_study": false,
+    "historical_direct_1_78586_is_a_fresh_controlled_baseline": false
+  },
+  "cleanup": {
+    "successful_native_sessions": 12,
+    "channel_destructor_API_calls": 12,
+    "payload_requests": 40110,
+    "actual_completions": 40122,
+    "successful_epochs": 20055,
+    "actual_full_cache_controls": 80220,
+    "standalone_support_cache_calls": 2,
+    "total_observed_full_cache_route_calls": 80222,
+    "cache_status_errors": 0,
+    "phase_errors": 0,
+    "live_contexts": 0,
+    "consumer_module_references": 0,
+    "actual_GPUs_idle": true,
+    "selected_current_window_kernel_errors": 0,
+    "completed_evidence_rechecked_read_only": true,
+    "recovery_files_preserved": true
+  },
+  "conclusion": {
+    "custom_direct_transport_data_proven": true,
+    "practical_speed_advantage_over_SHM": false,
+    "further_optimization_paused": true,
+    "full_validation_not_removed": true
+  },
+  "limitations": [
+    "One short finite paired comparison; no repeated statistical study, general quality/logit equivalence or reboot/endurance claim.",
+    "Explicit synchronous out-of-place CE application backend; ordinary CUDA peer capabilities remain false. Normal setup/control/output SHM can remain.",
+    "Full CPU readback/hash/source/scratch validation and synchronization remain in timings. No native CUDA/NCCL peer backend or generic remote-SM pointer.",
+    "Actual full-cache API statuses and GSP-wrapper hits are software observations, not additional hardware acknowledgements or counts of firmware-internal SYS/L2 work.",
+    "Four documented full-cache controls remain per epoch. No inferred physical pointer mapping, omitted barriers, silently bypassed errors, registration cache or GPU digest substitution.",
+    "Pre-shutdown Python channel-close lines are absent; actual process-FD release, successful native session destruction and zero refs verify cleanup. Destructor counts are API calls.",
+    "No new PP performance measurement, extra capacity/SM, intensive VRAM stress, firmware/boot/BIOS or host-IOMMU/ACS change."
+  ]
+}

@@ -610,6 +610,31 @@ def check_inner_cache_profile():
         error(path,'unmeasured RPC/firmware/speed or future candidate overstated')
 
 
+def check_full_cache_route_transport():
+    d=load('full-cache-route-transport.json');path=ROOT/'data/full-cache-route-transport.json'
+    if d['ordinary_CUDA_peer_capabilities'] != [False,False] or any(d[k] for k in ['native_NCCL_backend','extra_usable_GiB','extra_SM']):
+        error(path,'full-cache candidate overstates CUDA peers, capacity or SMs')
+    i=d['implementation'];q=d['qualification'];p=d['measured_direct_model_proof'];c=d['comparison'];end=d['cleanup']
+    if (i['consumer_ABI_bytes'],i['command'],i['flags'],i['actual_full_cache_controls_per_epoch'],i['local_done']) != (320,'0x2080130e','0x38',4,0) or not all(i[k] for k in ['original_external_device_access_and_lock_checks_preserved','actual_physical_RMAPI_GSP_route_observed','every_actual_returned_status_checked','ordinary_previous_route_unchanged','all_full_CPU_hashes_and_guards_preserved','imports_pages_aliases_retirement_poison_lifetime_checks_preserved']) or i['formal_runtime_equivalence']:
+        error(path,'cache API, barrier, access, data or lifetime contract overstated')
+    probe=d['support_probe']
+    if (probe['actual_cache_calls'],probe['successful_returned_statuses'],probe['actual_GSP_wrapper_calls'],probe['payload_bytes'],probe['models_started'],probe['retained']) != (2,2,2,0,0,0) or not probe['successful_session_close']:
+        error(path,'no-payload support probe confused with data proof or retention')
+    if (q['independent_full_GPU_comparisons'],q['source_guard_verdicts'],q['intentional_result_errors_detected'],q['requests'],q['actual_completions'],q['actual_full_cache_controls']) != (64,70,4,68,74,136) or q['payload_replayed_to_test_verifier']:
+        error(path,'finite independent qualification scope inconsistent')
+    if p['collective_pairs'] != sum(p['operations'].values()) or p['directed_inputs'] != 2*p['collective_pairs'] or p['shared_result_hash_pairs'] != p['collective_pairs'] or p['requests'] != 2*p['uses_per_context'][0] or p['uses_per_context'][0] != p['uses_per_context'][1] or p['actual_completions'] != p['requests']+2 or p['actual_full_cache_controls'] != 2*p['requests'] or not p['all_full_input_hashes_match'] or not p['all_shared_result_hashes_match'] or p['CPU_activation_payload_fallback'] or p['public_application_cache_controls']:
+        error(path,'actual direct model, cache or full-hash counts disagree')
+    if not all(c[k] for k in ['fresh_same_core_SHM','actual_commands_equal_except_port','selected_environment_equal','eleven_installed_runtime_sources_and_model_config_pinned','pilot_excluded']) or (c['TP'],c['PP'],c['max_output_tokens'],c['max_num_batched_tokens'],c['sequential_requests'],c['simultaneous_requests']) != (2,1,32,128,3,4):
+        error(path,'fresh matching comparison or workload scope misrepresented')
+    ratio=c['SHM']['median_sequential_decode_tps_estimate']/c['direct']['median_sequential_decode_tps_estimate']
+    if ratio <= 1 or abs(ratio-c['SHM_over_direct_decode_ratio']) > 1e-12 or not 0 <= c['answer_hash_matches_of_7'] <= 7 or c['quality_or_logit_equivalence'] or c['statistically_repeated_study'] or c['historical_direct_1_78586_is_a_fresh_controlled_baseline']:
+        error(path,'speed ratio or finite quality/statistical conclusion overstated')
+    if end['actual_completions'] != end['payload_requests']+end['successful_native_sessions'] or end['actual_full_cache_controls'] != 4*end['successful_epochs'] or end['total_observed_full_cache_route_calls'] != end['actual_full_cache_controls']+end['standalone_support_cache_calls'] or any(end[k] for k in ['cache_status_errors','phase_errors','live_contexts','consumer_module_references','selected_current_window_kernel_errors']) or not end['actual_GPUs_idle']:
+        error(path,'actual completion/cache/cleanup counters disagree')
+    if d['conclusion']['practical_speed_advantage_over_SHM'] or not d['conclusion']['further_optimization_paused']:
+        error(path,'bounded negative practical conclusion contradicted')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -640,6 +665,7 @@ def main():
         check_cache_epoch_transport()
         check_native_cache_epoch()
         check_inner_cache_profile()
+        check_full_cache_route_transport()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:

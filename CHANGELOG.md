@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Final full-cache route qualifies; fresh SHM remains faster
+
+- Qualify the supported physical/GSP full-cache command with all four barriers and full GPU/hash/guard/lifetime checks; complete the actual18,331-pair TP model proof.
+- Measure a fresh same-core comparison: direct2.03805 versus SHM16.57733tok/s, SHM8.13times faster. Preserve finite-sample and answer-hash limits; pause further optimization after the bounded attempt. [Method](docs/cuda-application-transport.md#final-full-cache-physical-route-correct-data-shm-still-faster), [data](data/full-cache-route-transport.json).
+
 ## 2026-10-19 — Actual inner cache route and bounded cost attribution
 
 - Establish actual VIDEO/EVICT, SYS/L2 physical and GSP-control wrapper routes on both GPUs with zero observed inner failures/no-op branches. Keep the qualified transport and all data/barrier/lifetime checks; independent qualification and one actual1,301-pair TP pilot pass.
