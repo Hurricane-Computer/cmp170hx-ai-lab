@@ -159,6 +159,48 @@ def check_data():
     final_tp = tp['final_state']
     if final_tp['native_sessions_created'] != final_tp['native_session_destroy_ok'] or final_tp['native_channels_created'] != final_tp['native_channel_destroy_calls'] or final_tp['contexts_live'] or final_tp['module_reference_count'] or not final_tp['actual_idle_both_cards'] or final_tp['selected_GPU_kernel_errors']:
         error(tp_path, 'actual TP native cleanup and idle claims disagree')
+    poll = load('completion-poll-transport.json')
+    poll_path = ROOT / 'data/completion-poll-transport.json'
+    if poll['native_NCCL_backend'] or poll['native_CUDA_peer_capabilities'] != [False, False] or poll['extra_usable_GiB'] or poll['extra_SM']:
+        error(poll_path, 'bounded waiting does not establish native peer capability or added hardware')
+    policy = poll['wait_policy']
+    if policy['maximum_busy_delays_per_copy'] != 50 or policy['busy_delay_us'] != 1 or policy['fallback_sleep_us'] != [500, 1000] or policy['timeout_ms'] != 3000 or policy['hard_50us_wall_bound_claimed']:
+        error(poll_path, 'iteration, fallback, timeout or elapsed-time claim disagrees with scope')
+    for field in ['actual_fresh_semaphore_and_FIFO_retirement_required', 'native_errors_and_backing_lifetime_preserved', 'need_resched_enters_sleep_fallback', 'full_CPU_validation_preserved']:
+        if not policy[field]:
+            error(poll_path, 'required completion/lifetime/validation contract is missing: ' + field)
+    qual = poll['tensor_qualification']
+    if not qual['passed'] or len(qual['cases']) != qual['directed_tensors'] or sum(c['bytes'] for c in qual['cases']) != qual['payload_bytes'] or qual['independent_GPU_data_verdicts'] != 2 * qual['directed_tensors'] or qual['outside_view_guard_verdicts'] != 2 * qual['directed_tensors']:
+        error(poll_path, 'independent data/guard proof totals disagree')
+    if any(not c['full_GPU_expected_equal_both'] or not c['outside_view_guards_unchanged_both'] or c['source_view_offset'] == c['destination_view_offset'] for c in qual['cases']) or {c['source'] for c in qual['cases']} != {'CMP40', 'CMP64'}:
+        error(poll_path, 'both-direction random data/offset qualification is incomplete')
+    proof = poll['model_proof']
+    if any(not proof[k] for k in ['passed', 'full_sender_receiver_hashes_match', 'all_shared_result_hashes_match', 'all_real_completions_and_lifecycle_checks_pass']) or proof['CPU_activation_payload_fallback']:
+        error(poll_path, 'bounded-poll model lacks full input/result/lifetime proof')
+    if sum(proof['operations'].values()) != proof['collective_pairs'] or proof['shared_result_hash_pairs'] != proof['collective_pairs'] or proof['directed_input_tensors'] != 2 * proof['collective_pairs'] or sum(poll['model_context_uses']) != proof['native_requests'] or proof['native_completions'] != proof['native_requests'] + proof['native_contexts']:
+        error(poll_path, 'bounded-poll model operation/context/completion totals disagree')
+    if poll['model_counter_delta']['payload_requests'] != proof['native_requests']:
+        error(poll_path, 'model trace and real native request counter disagree')
+    for counters, completions in [(qual['poll_counter_delta'], qual['real_completions']), (poll['model_counter_delta'], proof['native_completions'])]:
+        if counters['retire_early'] + counters['retire_after_sleep'] != completions or not 0 <= counters['busy_delay_calls'] <= 50 * completions or not 0 <= counters['early_poll_checks'] <= 51 * completions or counters['sleep_calls'] < counters['retire_after_sleep']:
+            error(poll_path, 'real-retirement classification or bounded polling arithmetic disagrees')
+    if abs(poll['model_counter_delta']['retire_early'] / proof['native_completions'] - poll['early_retirement_fraction']) > 1e-12:
+        error(poll_path, 'early-retirement fraction differs from actual observations')
+    reuse = poll['reference_reuse']
+    if reuse['unchanged_SHM_replayed'] or any(not reuse[k] for k in ['actual_commands_equal_ignoring_only_loopback_port', 'matching_runtime_sources_model_core_boot_and_memory_clocks', 'matching_measured_request_hashes']):
+        error(poll_path, 'matching earlier-reference qualification is incomplete')
+    poll_sets = []
+    for run in poll['variants']:
+        if run['status'] != 'completed' or len(run['sequential']) != 3 or len(run['parallel']) != 4 or any(not 0 < row['output_tokens'] <= 32 for row in run['sequential'] + run['parallel']):
+            error(poll_path, 'missing bounded TP speed requests')
+        poll_sets.append([row['request_sha256'] for row in run['sequential'] + run['parallel']])
+        if abs(statistics.median(row['stream_decode_tps_estimate'] for row in run['sequential']) - run['median_sequential_decode_tps_estimate']) > 1e-8 or abs(sum(row['output_tokens'] for row in run['parallel']) / run['parallel_wall_s'] - run['parallel_total_tps']) > 1e-8:
+            error(poll_path, 'bounded-poll speed arithmetic differs from selected request data')
+    if len(poll_sets) != 3 or any(rows != poll_sets[0] for rows in poll_sets) or sum(r['new_measurement_in_this_package'] for r in poll['variants']) != 1:
+        error(poll_path, 'expected exactly one new variant and two matching retained references')
+    final_poll = poll['final_state']
+    if final_poll['native_sessions_created'] != final_poll['native_session_destroy_ok'] or final_poll['native_channels_created'] != final_poll['native_channel_destroy_calls'] or final_poll['contexts_live'] or final_poll['module_reference_count'] or not final_poll['actual_idle_both_cards'] or final_poll['selected_GPU_kernel_errors']:
+        error(poll_path, 'bounded-poll close/idle claims disagree')
     model_runs = load('model-parallel-trials.json')
     model_path = ROOT / 'data/model-parallel-trials.json'
     variants = model_runs['variants']

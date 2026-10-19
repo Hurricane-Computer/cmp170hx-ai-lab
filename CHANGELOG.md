@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Bounded real-completion polling with full TP data checks
+
+- Qualify the separate wait-policy change in both directions, then complete the actual TP2 input/result audit with 37,182 real GPU completions; 92.29% are observed before sleep. Preserve all backing/error/guard/hash checks and unchanged recovery artifacts.
+- Observe 1.56 tok/s decode versus the previous 1.12, still below the reused matching 17.11 tok/s SHM reference; TTFT does not improve. Record actual cleanup, corrected administrative failures and a concrete residual-cost profiling hypothesis. [Method and limits](docs/cuda-application-transport.md#bounded-early-completion-polling-measured-benefit-substantial-residual-cost), [selected data](data/completion-poll-transport.json).
+
 ## 2026-10-19 — Actual direct TP2 model and short matched SHM comparison
 
 - Qualify root/axis/int64/finite-floating extensions, then verify every actual TP model input transfer and shared result across18,331 collective pairs. Preserve the exact TP2/PP1 source/operation scope.
