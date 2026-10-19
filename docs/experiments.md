@@ -4,6 +4,7 @@ Dates are campaign dates in UTC. The stage numbers are stable notebook reference
 
 | Notebook | Method | Result | What it does not prove |
 |---|---|---|---|
+| [Stage132,19 Oct](window-ce-proof.md) | Native allocation-specific BAR1/DMA lease, local CE control, actual1MiB peer read per direction | Both directed GPU completions and all262,144 peer words per direction passed;64MiB BAR1, no BIOS change | Application CUDA P2P, SM remote access, repeated/long stability, boot persistence, performance or extra HBM |
 | Stage3,15 Oct | HBM DEVICE_ID on available ports | Samsung8-GiB-stack organization onCMP40, Hynix16-GiB onCMP64 | Hidden/disabled package population or health |
 | Stage5,15 Oct | Direct host writes to known disable fields, with a separate writable control | Requested raw memory mask changes rejected onCMP64; active topology unchanged | Every privileged or earlier-init method is impossible |
 | Stages7–10,15 Oct | CTRL/EN order and initialization-phase experiments | Some CTRL/EN values accepted; no new physical availability | Accepted values imply enabled memory |

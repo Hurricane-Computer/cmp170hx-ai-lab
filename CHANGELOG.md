@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Actual peer reads through small owned BAR1 windows
+
+- Acquire/map/release native 1 MiB windows on both CMP variants, then pass one actual CE peer read per direction with fresh GPU completion, full nonuniform data checks and local CE controls. Both BAR1 apertures remain64MiB; no BIOS/IOMMU/ACS change or reboot.
+- Publish the bounded kernel consumer, lease hook and explicitly selected measurements. Preserve corrected build/selection errors and earlier negative routes. Application CUDA P2P, SM remote access, stability, persistence, performance and extra HBM remain unproved. [Results and limits](docs/window-ce-proof.md).
+
 ## 2026-10-19 — Bound ordinary FWSEC control and finalizer effects
 
 - Qualify four selected CMP40 debug-App45 bodies: existing TPC-disable grouping, a filtered control consumer and its indexed address helpers.

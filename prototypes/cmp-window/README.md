@@ -1,6 +1,8 @@
 # Bounded external-window allocator prototype
 
-Status, 17 October 2026: **CPU resource tests passed; native adapter compiled; no runtime integration or GPU trial.** This is an implementation component, not a working P2P driver or a capacity unlock.
+Latest, 19 October 2026: the separate [Stage132 kernel-owned CE consumer](ce132/README.md) acquired real windows and passed one actual1MiB peer read in each CMP direction. It supplies a bounded runtime caller; general CUDA/UVM external-PTE and lifetime integration remains unfinished. [Data and limitations](../../docs/window-ce-proof.md).
+
+Historical Stage85 status, 17 October 2026: **CPU resource tests passed; native adapter compiled; no runtime integration or GPU trial at that stage.** The original component and its measurements below are retained.
 
 `cmp_window_lease.h` implements the resource transaction independently of hardware. `cmp_window_native.inc` adapts it to NVIDIA615.71.09's real owner-aperture and accessor-DMA APIs. The initial adapter accepts only the CMP2082/20c2 pair and at most2MiB per allocation. Its budget is global per owner across client sessions, retains a36MiB reserve and still requires the native allocator to find an exact contiguous range. A64MiB aperture minus36MiB is a nominal bound, not measured free space.
 

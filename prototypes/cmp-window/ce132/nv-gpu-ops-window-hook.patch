@@ -1,0 +1,28 @@
+--- a/src/nvidia/src/kernel/rmapi/nv_gpu_ops.c
++++ b/src/nvidia/src/kernel/rmapi/nv_gpu_ops.c
+@@ -3669,6 +3669,9 @@
+     return status;
+ }
+
++#include "cmp_window_native.inc"
++#include "cmp_window_probe.inc"
++
+ static GMMU_APERTURE nvGpuOpsGetExternalAllocAperture(struct gpuSession *session,
+                                                       PMEMORY_DESCRIPTOR pMemDesc,
+                                                       NvBool isIndirectPeerSupported,
+@@ -4736,6 +4739,15 @@
+             goto done;
+     }
+
++    /* Diagnostic is resource-backed, unpublished, and kernel-call-only. */
++    if (pGpuExternalPhysAddrInfo != NULL &&
++        cmpWindowIsDiagnostic(pGpuExternalPhysAddrInfo->mappingType))
++    {
++        status = cmpWindowProbe(vaSpace, hMemory, pMappingGpu, pAdjustedMemDesc,
++                                offset, size, pGpuExternalPhysAddrInfo);
++        goto freeGpaMemdesc;
++    }
++
+     // Check if P2P supported
+     if (
+         (memdescGetAddressSpace(pAdjustedMemDesc) == ADDR_FABRIC_MC) ||

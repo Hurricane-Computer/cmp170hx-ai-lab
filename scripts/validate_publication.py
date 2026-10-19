@@ -9,6 +9,10 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[1]
 ERRORS = []
 ALLOWED_SUFFIXES = {'.md', '.json', '.py', '.c', '.h', '.inc', ''}
+ALLOWED_TEXT_FILES = {
+    'prototypes/cmp-window/ce132/LICENSE.NVIDIA',
+    'prototypes/cmp-window/ce132/nv-gpu-ops-window-hook.patch',
+}
 BLOCKED = {
     'private key': r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',
     'credential token': r'\b(?:gh[pousr]_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9_-]{25,})\b',
@@ -60,6 +64,29 @@ def check_text(path, text):
 
 
 def check_data():
+    windows = load('window-ce-trials.json')
+    window_path = ROOT / 'data/window-ce-trials.json'
+    if {(r['owner'], r['accessor']) for r in windows['directions']} != {('CMP40', 'CMP64'), ('CMP64', 'CMP40')}:
+        error(window_path, 'expected the two actual directed CE trials')
+    for row in windows['directions']:
+        if row['peer_copy_bytes'] != 1048576 or row['local_control_bytes'] != 65536:
+            error(window_path, 'trial size differs from qualified bounded scope')
+        if len(row['completions']) != 2 or any(not c['GPU_completion_observed'] or not c['fresh_payload_matches'] or c['channel_error'] for c in row['completions']):
+            error(window_path, 'missing independent GPU completion')
+        checks = {c['label']: c for c in row['checks']}
+        for label in ['owner_before', 'peer_destination', 'owner_after']:
+            if checks[label]['words'] != 262144 or checks[label]['wrong_words']:
+                error(window_path, 'incomplete or failed full peer-data comparison')
+        if row['lease_release']['status'] or row['lease_release']['retained'] or row['session_destroy_status'] or row['test_module_unload_status']:
+            error(window_path, 'recorded cleanup is not complete')
+    if windows['extra_usable_GiB'] or windows['extra_SM'] or not all(windows['unresolved'].values()):
+        error(window_path, 'small CE copies do not qualify broader results')
+    import hashlib
+    for source in windows['published_sources']:
+        content = (ROOT / source['path']).read_bytes().replace(b'\r\n', b'\n')
+        if hashlib.sha256(content).hexdigest() != source['sha256']:
+            error(window_path, 'published source hash differs: ' + source['path'])
+
     cards = load('cards.json')['cards']
     variants = {v['variant'] for v in cards}
     if variants != {'cmp40', 'cmp64'}:
@@ -145,7 +172,7 @@ def main():
         if not path.is_file():
             continue
         files.append(path)
-        if path.suffix not in ALLOWED_SUFFIXES and path.name != '.gitignore':
+        if path.suffix not in ALLOWED_SUFFIXES and path.name != '.gitignore' and path.relative_to(ROOT).as_posix() not in ALLOWED_TEXT_FILES:
             error(path, 'unexpected publication file type')
             continue
         if path.stat().st_size > 1_000_000:

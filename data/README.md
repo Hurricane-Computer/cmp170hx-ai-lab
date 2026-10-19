@@ -2,6 +2,8 @@
 
 These files are explicit technical projections of the research records, not copies of raw logs or private checkpoints.
 
+- [window-ce-trials.json](window-ce-trials.json): native small-window resources and two actual directed CE peer reads, separate GPU completion/full data checks, platform facts and the limits of application P2P, stability and persistence.
+
 - [native-pa-placement.json](native-pa-placement.json): exact normal fixed/range placements, checked CPU access and cleanup, and separate upper-constructor refusals; no upper-memory data verdict or physical ceiling.
 - [physical-offset-control.json](physical-offset-control.json): small owned contiguous allocations, returned physical offsets, checked CPU access and the low-placement limit of a grows-down hint; no extra-capacity result.
 - [capacity-evidence.json](capacity-evidence.json): external77.5/72-GiB lead, archived full-word test audit, historical47-GiB alias and CPU method counterexamples; no new GPU capacity result.

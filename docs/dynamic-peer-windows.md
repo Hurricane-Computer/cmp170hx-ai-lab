@@ -1,5 +1,7 @@
 # Owned memory windows: CPU reads work, GPU registration rejects
 
+**Later result, 19 October:** A separate [native kernel-owned window/CE route](window-ce-proof.md) passed actual1MiB peer reads in both directions. The I/O-registration failures below remain specific to their original API path; its overlap guard was retained.
+
 On 17 October 2026, each CMP successfully exported and CPU-mapped an owned **1-MiB** device allocation. Every byte matched, with the original device data checked before and after. Registering those windows for the other CMP subsequently returned `CUDA_ERROR_INVALID_VALUE` in both directions. No remote GPU kernel ran. These are separate outcomes, recorded in the [structured measurements](../data/dynamic-peer-windows.json).
 
 ## Observed, unchanged driver G

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-17T18:34:25.041534+00:00",
+  "updated_utc": "2026-10-19T11:57:35.288513+00:00",
   "records": [
     {
       "id": "stage3",
@@ -487,6 +487,14 @@
       "result": "Linked published same-card CFG1/CSTATUS variation; archived active HBM_CFG0 bits0/1 already set on both owner cards. New ordinary read-to-descriptor branch is not a new hardware setter.",
       "limit": "Different-card author report, historical own inputs and bounded source analysis kept separate. No hardware access, capacity gain, new write contract, physical ceiling or refutation of positive reports.",
       "interpretation": "docs/controller-amounts.md"
+    },
+    {
+      "id": "stage132",
+      "date": "2026-10-19",
+      "evidence_level": "observed",
+      "result": "Two native 1-MiB owned windows and two directed CE peer reads; fresh completion and full distinct-data checks passed.",
+      "limit": "Bounded kernel-owned explicit CE route; no application CUDA P2P, SM read, reboot, performance or extra-capacity qualification.",
+      "interpretation": "docs/window-ce-proof.md"
     }
   ],
   "campaign_result": {

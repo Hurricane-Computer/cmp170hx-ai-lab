@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "stage": 132,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-19T11:57:35.288513+00:00",
+  "result": "One explicit 1-MiB CE read through an owned BAR1 window passed in each direction.",
+  "driver_version": "615.71.09",
+  "native_source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "environment": "Linux PCI passthrough guest; CMP2082 and CMP20c2; Blackwell not assigned to this guest.",
+  "reported_GiB": {
+    "CMP40": 40,
+    "CMP64": 64
+  },
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "BAR1_MiB": {
+    "CMP40": 64,
+    "CMP64": 64
+  },
+  "owner_reserve_bytes": 37748736,
+  "mechanism": "Native owned BAR1 allocation plus accessor DMA mapping; physical coherent-system source to local virtual FB destination on a native CE channel.",
+  "consumer_scope": "Kernel-owned session retains both GPUs, devices, VA spaces and allocations until CE retirement; no general userspace P2P integration.",
+  "data": {
+    "pattern": "Fresh 32-bit nonce with index-dependent nonuniform words; different local-control and owner tags.",
+    "CPU_activity": "Fill source and sentinel, read back all words. No CPU source-to-destination copy.",
+    "destination_initialized_to_sentinel_before_each_copy": true
+  },
+  "directions": [
+    {
+      "owner": "CMP40",
+      "accessor": "CMP64",
+      "local_control_bytes": 65536,
+      "peer_copy_bytes": 1048576,
+      "checks": [
+        {
+          "label": "owner_before",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "local_before",
+          "words": 16384,
+          "wrong_words": 0
+        },
+        {
+          "label": "sentinel_before",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "local_destination",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "local_after",
+          "words": 16384,
+          "wrong_words": 0
+        },
+        {
+          "label": "peer_destination",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "owner_after",
+          "words": 262144,
+          "wrong_words": 0
+        }
+      ],
+      "completions": [
+        {
+          "system_aperture_source": false,
+          "bytes": 65536,
+          "GPU_completion_observed": true,
+          "fresh_payload_matches": true,
+          "channel_error": 0
+        },
+        {
+          "system_aperture_source": true,
+          "bytes": 1048576,
+          "GPU_completion_observed": true,
+          "fresh_payload_matches": true,
+          "channel_error": 0
+        }
+      ],
+      "lease_acquire": {
+        "status": 0,
+        "flags": 23,
+        "bytes": 1048576
+      },
+      "lease_release": {
+        "status": 0,
+        "retained": false
+      },
+      "session_destroy_status": 0,
+      "test_module_unload_status": 0
+    },
+    {
+      "owner": "CMP64",
+      "accessor": "CMP40",
+      "local_control_bytes": 65536,
+      "peer_copy_bytes": 1048576,
+      "checks": [
+        {
+          "label": "owner_before",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "local_before",
+          "words": 16384,
+          "wrong_words": 0
+        },
+        {
+          "label": "sentinel_before",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "local_destination",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "local_after",
+          "words": 16384,
+          "wrong_words": 0
+        },
+        {
+          "label": "peer_destination",
+          "words": 262144,
+          "wrong_words": 0
+        },
+        {
+          "label": "owner_after",
+          "words": 262144,
+          "wrong_words": 0
+        }
+      ],
+      "completions": [
+        {
+          "system_aperture_source": false,
+          "bytes": 65536,
+          "GPU_completion_observed": true,
+          "fresh_payload_matches": true,
+          "channel_error": 0
+        },
+        {
+          "system_aperture_source": true,
+          "bytes": 1048576,
+          "GPU_completion_observed": true,
+          "fresh_payload_matches": true,
+          "channel_error": 0
+        }
+      ],
+      "lease_acquire": {
+        "status": 0,
+        "flags": 23,
+        "bytes": 1048576
+      },
+      "lease_release": {
+        "status": 0,
+        "retained": false
+      },
+      "session_destroy_status": 0,
+      "test_module_unload_status": 0
+    }
+  ],
+  "native_guest_errors_absent": true,
+  "selected_host_IOMMU_VFIO_AER_errors_absent": true,
+  "changes": {
+    "temporary_core_loaded": true,
+    "boot_G_unchanged": true,
+    "F_preserved": true,
+    "host_IOMMU_or_ACS_changes": 0,
+    "BIOS_changes": 0,
+    "firmware_flashes": 0,
+    "VM_restarts": 0,
+    "GPU_resets": 0,
+    "additional_global_P2P_capability_override": false
+  },
+  "motherboard": {
+    "vendor": "ASUS",
+    "model": "Pro WS WRX80E-SAGE SE WIFI",
+    "BIOS": "1801",
+    "stored_Above4G_enabled": true,
+    "stored_ReBAR_enabled": true,
+    "host_CMP_advertised_ReBAR_sizes_MiB": [
+      64
+    ],
+    "interpretation": "No BIOS change was needed for this bounded route; this does not exclude platform effects on other routes."
+  },
+  "module_hashes": {
+    "boot_G": "e020919bb8d6048a1f58a9994947b80576125335365906bb33b0ff40318ab6fe",
+    "frozen_F": "29c491f1c02b0d11d9b314c299094f61c834d3a4079846df30ffa92ca715f229",
+    "resource_core": "74d62e284536b454c8a4c57cf0ee29a07ba589e83e4e851f423dff92fabb888e",
+    "CE_core": "fdd4ea22c56124c38d8305417a787ef69cd792aeed109519987bb2a95c76435b",
+    "CE_consumer": "89b5b45592bc7e37c6e51ebe52494a7c3afd5b35c9744285e26fe3a6260be557"
+  },
+  "published_sources": [
+    {
+      "path": "prototypes/cmp-window/ce132/cmp_ce132.c",
+      "sha256": "7459a0d8ccc32cbd5906e0314e067a5e664e2a7cc2f88e4df001edde44839702"
+    },
+    {
+      "path": "prototypes/cmp-window/ce132/cmp_ce_abi.h",
+      "sha256": "6b9832ecf16be41aa4acf704a63c3d77df1269fe3d5c4642b2b17ec20720c07a"
+    },
+    {
+      "path": "prototypes/cmp-window/ce132/cmp_rm_abi.h",
+      "sha256": "1a41692404995cf81b9e4a1cf3ea97ded252f0274a16d1cbd200606d9a56e4ce"
+    },
+    {
+      "path": "prototypes/cmp-window/ce132/cmp_window_ce_lease.inc",
+      "sha256": "25399e14e8e78e819ffcdeef874477995790ef7c348607a2ce40fa6ea1e99a32"
+    },
+    {
+      "path": "prototypes/cmp-window/ce132/cmp_window_native.inc",
+      "sha256": "a7b508afc7905cc91bb046d9877f772c9c3f636a03802dc714f6db9acd95485a",
+      "tested_source_sha256": "4f13afa025047dffb19c1247f4866243c34b76e03367e152e72bb12f4b95dcec",
+      "difference": "Leading comment only; transaction and three diagnostic messages unchanged."
+    }
+  ],
+  "unresolved": {
+    "legacy_CUDA_peer_enable": true,
+    "generic_CUDA_peer_copy": true,
+    "SM_remote_pointer_access": true,
+    "CUDA_or_NCCL_application_use": true,
+    "repeated_or_long_term_stability": true,
+    "performance": true,
+    "boot_persistence": true,
+    "large_or_concurrent_windows": true,
+    "Blackwell_peer_route": true
+  },
+  "limits": [
+    "Two directed peer copies total, each 1 MiB; not a stress or capacity test.",
+    "Jiffies-based polling elapsed times are not a latency/bandwidth benchmark.",
+    "No external PTE publication or client/fatal teardown integration is implemented.",
+    "Native void unmap/free APIs do not supply independent hardware cleanup acknowledgement.",
+    "The temporary core inherits G; its prior firmware capability adjustments are documented separately.",
+    "Earlier forced-capability data failures remain valid for those distinct paths."
+  ],
+  "corrected_preparation_errors": [
+    "Native passthrough virtualization is UVM_VIRT_MODE_NONE, not a nonexistent HVM enum.",
+    "Coarse jiffies timing replaces an unneeded GPL-only time symbol; caller built before loading.",
+    "UVM autoload raced explicit insertion; verify already-loaded module and continue, no extra core reload.",
+    "Initial CE selection wrongly required sysmemRead. Native header defines it as enhanced performance; real sysmem support is required. That attempt sent no copy command."
+  ],
+  "source_hash_encoding": "UTF-8, Git LF line endings; native tested-source hash remains the original tested bytes."
+}

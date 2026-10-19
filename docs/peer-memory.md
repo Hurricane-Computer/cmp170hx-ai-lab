@@ -1,5 +1,7 @@
 # Peer memory: mixed GPUs and the first directed matrix
 
+**19 October follow-up:** [Explicit CE reads through native small BAR1 windows](window-ce-proof.md) passed1MiB in each CMP direction, with full data and fresh GPU completion checks. This separate kernel-owned route does not change the historical CUDA capability matrix below or establish application P2P, SM access, persistence or performance.
+
 **Identical cards are not a general CUDA P2P prerequisite.** Support depends on the actual device pair, driver and interconnect. Check each direction independently. Our first matrix advertises no supported route, so it is a baseline for further work, not an impossibility claim.
 
 The latest [working driver candidate F](driver-candidates.md) restores CMP readiness and the 40/64-GiB reports. Its fresh six-direction query still advertises no P2P route. The first matrix below remains tied to its original module and timestamp; the later F observation is separate.

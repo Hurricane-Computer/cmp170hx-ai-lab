@@ -4,6 +4,10 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 [Deutsch](README.de.md) · [Current findings](docs/findings.md) · [Experiments](docs/experiments.md) · [Open questions](docs/roadmap.md) · [Sources](docs/sources.md)
 
+## New P2P data result — 19 October 2026
+
+**Actual 1 MiB Copy Engine reads passed in both directions between CMP40 and CMP64, with 64 MiB BAR1 on each card.** Fresh GPU completion and full data comparisons passed; no BIOS change was needed. This is a bounded allocation-specific window experiment. CUDA/NCCL application P2P, SM remote-pointer access, performance, stability and reboot persistence remain unqualified. See the [method and limits](docs/window-ce-proof.md), [structured results](data/window-ce-trials.json) and [test sources](prototypes/cmp-window/ce132/README.md).
+
 ## CMP40 memory overclock: 1215 → 1350 MHz
 
 **The highest recorded operating clock of our Samsung 40-GiB CMP 170HX (`10de:2082`) is 1350 MHz, up 11.11% from its original 1215 MHz.** We established the clock input from the card's original cold-initialization code and reached 1242, 1269, 1296, 1323 and 1350 MHz. A short random-data copy check passed at each step. No BIOS flash was involved.
@@ -14,14 +18,14 @@ We do not claim a worldwide first: an [earlier owner's report explicitly describ
 
 A subsequent bounded load observation at 1350 MHz measured **1.53 TB/s** for internal copies and **1.54 TB/s** for an SM streaming kernel, counting reads+writes. All checked outputs matched. See the [90-second load observation and limits](docs/bandwidth-load.md).
 
-## Current status — 17 October 2026
+## Current status — 19 October 2026
 
 This campaign has not demonstrated additional usable memory above the existing 40/64-GiB baselines, or additional working SMs beyond the owner's established 74-SM baseline. It has produced successful CMP40 clock steps, useful negative results and more precise maps of the original initialization paths.
 
 | Lab variant | PCI device ID | Memory identity, observed earlier | Historical unlocked capacity | Latest guest observation |
 |---|---|---|---:|---|
-| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz, 17 Oct 18:13 UTC; active-controller amount sum agrees |
-| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz, 17 Oct 18:13 UTC; active-controller amount sum agrees |
+| CMP40 | `10de:2082` | Samsung, density4, 8-High | 40 GiB | 40 GiB / 1215 MHz, 19 Oct 11:57 UTC |
+| CMP64 | `10de:20c2` | SK Hynix, densityA, 8-High | 64 GiB | 64 GiB / 1728 MHz, 19 Oct 11:57 UTC |
 
 The [new small verifier controls](docs/capacity-followup.md) detected each deliberate single-word error over three fill paths on both CMPs, with two matching checked verdict paths. This tests the checker, not additional capacity.
 

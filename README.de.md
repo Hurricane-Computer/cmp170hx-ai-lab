@@ -1,5 +1,7 @@
 # CMP 170HX AI Research Lab
 
+**Neuer P2P-Datenbefund, 19. Oktober 2026:** Beide CMPs haben jeweils 1 MiB direkt aus dem Speicher der anderen Karte gelesen. GPU-Abschlussmeldungen und vollständige Datenvergleiche bestanden, bei unverändert 64 MiB BAR1 pro Karte und ohne BIOS-Änderung. Das belegt den kleinen Kopierweg über tatsächlich zugeordnete Speicherfenster. CUDA/NCCL für Anwendungen, Fernzugriff aus SMs, Leistung, Dauerstabilität und Neustartfestigkeit bleiben offen. [Methode, Messungen und Grenzen](docs/window-ce-proof.md).
+
 Unser öffentliches Forschungstagebuch zu Speicher, Recheneinheiten, Firmware und KI-Einsatz der CMP 170HX. Die Arbeit wird mit KI-Unterstützung durchgeführt; entscheidend sind nachvollziehbare Belege.
 
 [English](README.md) · [Erkenntnisse](docs/findings.md) · [Versuche](docs/experiments.md) · [Offene Fragen](docs/roadmap.md)
