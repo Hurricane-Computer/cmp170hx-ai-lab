@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Bound ordinary FWSEC control and finalizer effects
+
+- Qualify four selected CMP40 debug-App45 bodies: existing TPC-disable grouping, a filtered control consumer and its indexed address helpers.
+- Retain the known OR-helper mirror exception and unresolved table/field/runtime identities. No new hardware trial or usable GiB. [Source scope and limits](docs/firmware.md#bounded-app45-control-and-finalizer-paths).
+
 ## 2026-10-19 — Qualify bounded root-bridge consumer calls
 
 - Trace four selected call blocks to ordinary handle lookup, controller connection and Configuration query consumers through typed UEFI tables.

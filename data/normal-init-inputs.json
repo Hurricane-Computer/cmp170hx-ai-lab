@@ -214,5 +214,132 @@
     "new_hardware_trial": false,
     "additional_usable_GiB": 0,
     "foreign_positive_reports_still_open": true
+  },
+  "fwsec_control_and_finalizer_followup": {
+    "publication_stage": 130,
+    "analysis_stages": [
+      128,
+      129
+    ],
+    "evidence_level": "static-analysis",
+    "analysis_evidence_utc": [
+      "2026-10-19T01:45:22.383538+00:00",
+      "2026-10-19T02:01:45.977958+00:00"
+    ],
+    "source_scope": "Retained decoded CMP40 debug App45 only; no new firmware execution or live GPU measurement.",
+    "production_App85_or_CMP64_mapping_established": false,
+    "original_input": {
+      "IMEM_sha256": "97e8d42c8df8630446cd432d8129d8f90ba92c43062f40d5d67f09d89ee346ad",
+      "assembly_sha256": "ebc243c0c9ac956a394b5b2261102d42f004a5ea8d30af77bf05f829876d60d9",
+      "binary_or_disassembly_distributed": false
+    },
+    "verified_body_totals": {
+      "bodies": 4,
+      "instructions": 340,
+      "bytes": 1021
+    },
+    "selected_bodies": [
+      {
+        "role": "finalizer",
+        "start": "0x66cf",
+        "end_exclusive": "0x6762",
+        "instructions": 50,
+        "bytes": 147,
+        "sha256": "d2f401876363b5ce3062e4b13bb8888af0897f10077dad757a4a09065dae186a"
+      },
+      {
+        "role": "control-consumer",
+        "start": "0x6b55",
+        "end_exclusive": "0x6ea7",
+        "instructions": 282,
+        "bytes": 850,
+        "sha256": "a60f79f18ebbbd6e255a3351877783f1b08b15897bb4ed98afeb24932cc31720"
+      },
+      {
+        "role": "indexed-read-address",
+        "start": "0x7302",
+        "end_exclusive": "0x730e",
+        "instructions": 4,
+        "bytes": 12,
+        "sha256": "7c04c24d75f265187b45194b0940d0273b2b922ba0e835e92e7fbe77daa46975"
+      },
+      {
+        "role": "indexed-write-address",
+        "start": "0x730e",
+        "end_exclusive": "0x731a",
+        "instructions": 4,
+        "bytes": 12,
+        "sha256": "25648f5f2dde383f2c7fb7a3ccbf4fa9d8bf9cc72f95ae47f21bec19a64962a9"
+      }
+    ],
+    "caller_sites_byte_verified": [
+      "0x454f -> 0x66cf",
+      "0x4543 -> 0x6b55"
+    ],
+    "finalizer": {
+      "reused_input_contract": "Existing TPC-disable vectors from the previously qualified 0x6636 helper.",
+      "reader_selector": 2,
+      "fixed_DWORD_slots": 8,
+      "skip_loop_if_reader_return_unsigned_le": 1,
+      "zero_slot_skips_OR_helper": true,
+      "low_byte_groups": [
+        "0x07",
+        "0x38",
+        "0xc0"
+      ],
+      "output_rule": "Set output bit i only if every bit of input group i is set.",
+      "target_base": "0x8209bc",
+      "target_stride_bytes": 4,
+      "write_helper_contract": "Previous target value OR supplied group bits.",
+      "static_low_byte_cases_checked": 256,
+      "static_one_bit_monotonic_relations_checked": 2048,
+      "setup_helper_0x109d": "Pointer, zero and length 32 arguments observed; callee semantics not newly audited."
+    },
+    "control_consumer": {
+      "gate": "D3349; zero exits before the main body. Runtime value unmeasured.",
+      "input_table_family_bound": false,
+      "input_table_not_assigned_to_RRL_or_BIT_M_partition_data": true,
+      "direct_OR_helper_sites": [
+        {
+          "pc": "0x6c0a",
+          "target": "Decoded address accepted by existing filters; nonzero value required."
+        },
+        {
+          "pc": "0x6cc2",
+          "target": "0x82081c"
+        },
+        {
+          "pc": "0x6e17",
+          "target": "0x820970 + 4*index"
+        },
+        {
+          "pc": "0x6e3f",
+          "target": "0x820800"
+        }
+      ],
+      "indexed_slots": 12,
+      "indexed_read_base": "0x820d70",
+      "indexed_write_base": "0x820970",
+      "indexed_stride_bytes": 4,
+      "native_indexed_field_names_bound": false,
+      "local_growth_rule": "x OR (x+1): for x below 0xffffffff, preserve old set bits and add the lowest zero bit.",
+      "all_ones_input_traps_in_selected_path": true,
+      "representative_trailing_ones_cases_checked": 32,
+      "existing_resource_limiting_helpers_reused": [
+        "0x6762",
+        "0x7438"
+      ]
+    },
+    "known_mirror_exception_retained": "The shared OR helper also copies the 0x820814 result to 0x820818 without reading the latter; the destination can lose its own old bits. This is existing evidence, not a new enable method.",
+    "limits": [
+      "Selected contiguous bodies and caller bytes were checked; runtime input values and execution are not established.",
+      "Helper/filter contracts are reused; this does not exhaust all transitive firmware behavior.",
+      "No new typed BIT-M+0x0d consumer or distinct effective physical-memory backing input is bound.",
+      "No inferred native target field names, production-App85 identity, cross-card same-PC identity or physical-capacity ceiling.",
+      "No gate, table, mode, CTRL, mirror, SM or unchanged H experiment follows from these findings."
+    ],
+    "new_hardware_trial": false,
+    "additional_usable_GiB": 0,
+    "foreign_positive_reports_still_open": true
   }
 }
