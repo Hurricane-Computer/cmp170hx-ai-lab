@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-19T17:31:05.061106+00:00",
+  "scope": "Single-coordinator batched two-direction actual CUDA tensor descriptors over unchanged native consumer, full TP2 model verification",
+  "native_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "native_changes": false,
+  "source_pins": {
+    "native_consumer_sha256": "ec8d6e7355f5cb1a3de1a73ea21f3768b09ddf3d8b3902f8b4bf598b1f0d925a",
+    "native_C_sha256": "51997004a5e23a1eb48ab37e5b0cf9a71566610286378ad8386aafc33763189d",
+    "unchanged_core_sha256": "6652c11777b2d82a774d9815cde301acbc46c9f2d0f54fde040020d40f180ade",
+    "transport_sha256": "99c7b238f9fe19284f0dc89ff392971783068d10044735a9c78152cedcef337a",
+    "metadata_protocol_sha256": "c42e742ad20c3b23d1f5bb1361c09afc9480e494103da8b722597f36dec04391",
+    "collectives_sha256": "ad689e5f6425b616adec6fbb23e3b126274df576272453143ea589633a7b2df8"
+  },
+  "bounds": {
+    "input_bytes_per_rank": 3145728,
+    "export_bytes": 1048576,
+    "windows_per_buffer": 4,
+    "local_export_FDs_per_rank": 8,
+    "original_export_objects": 16,
+    "additional_received_FDs_on_coordinator": 8,
+    "total_userspace_FD_references": 24,
+    "native_internal_duplicates_additional": true
+  },
+  "protocol": {
+    "native_coordinator_rank": 0,
+    "native_device_FDs": 1,
+    "both_directions_serial": true,
+    "actual_device_context_contract_qualified": true,
+    "strict_sequence_shape_dtype_axis_root_bytes_digest": true,
+    "multi_FD_exact_count_order_type_bounds": true,
+    "peer_credentials_and_CLOEXEC": true,
+    "reject_truncation": true,
+    "real_virtual_pointers_stay_local": true,
+    "actual_cache_stream_semaphore_FIFO_retirement_preserved": true,
+    "all_exports_held_until_mutual_full_hash_guard_confirmation": true,
+    "uncertainty_retains_backing_FDs_module_and_locks": true,
+    "full_CPU_validation_preserved": true,
+    "registration_cache": false,
+    "GPU_digest_substitution": false,
+    "CPU_activation_payload_fallback": false
+  },
+  "static_protocol_analysis": {
+    "evidence_level": "static-analysis",
+    "receives_per_rank_per_exchange": 4,
+    "previous_small_sum_receives_per_rank": 7,
+    "independent_of_window_count": true,
+    "phase_savings_not_claimed": true
+  },
+  "offline": {
+    "window_plan_cases": 69536,
+    "negative_metadata_cases_detected": 14,
+    "ordered_Linux_received_FDs": 8,
+    "CLOEXEC": true,
+    "negative_Linux_packets_detected": 4,
+    "rejected_packet_FD_leaks": 0,
+    "corrupt_actual_trace_copies_detected": 4,
+    "GPU_work_replayed": false
+  },
+  "qualification": {
+    "full_independent_GPU_comparisons": 64,
+    "source_and_guard_verdicts": 70,
+    "intentional_result_errors_detected": 4,
+    "non_root_None_contracts": 6,
+    "raw": {
+      "exchange_pairs": 10,
+      "directed_tensors": 20,
+      "payload_bytes": 10955592,
+      "native_requests": 30,
+      "real_completions": 32,
+      "native_contexts": 2,
+      "uses_per_context": [
+        15,
+        15
+      ],
+      "native_coordinator_processes": 1,
+      "full_sender_receiver_hashes_match": true,
+      "all_mutual_hash_guard_confirmations": true,
+      "max_export_objects": 16,
+      "max_userspace_FD_references": 24,
+      "serial_direction_order_verified": true,
+      "channel_closes": 2
+    },
+    "extended_collectives": {
+      "exchange_pairs": 12,
+      "directed_tensors": 24,
+      "payload_bytes": 13842436,
+      "native_requests": 32,
+      "real_completions": 34,
+      "native_contexts": 2,
+      "uses_per_context": [
+        16,
+        16
+      ],
+      "native_coordinator_processes": 1,
+      "full_sender_receiver_hashes_match": true,
+      "all_mutual_hash_guard_confirmations": true,
+      "max_export_objects": 12,
+      "max_userspace_FD_references": 18,
+      "serial_direction_order_verified": true,
+      "channel_closes": 2
+    },
+    "extra_int32_BF16": {
+      "exchange_pairs": 3,
+      "directed_tensors": 6,
+      "payload_bytes": 13324,
+      "native_requests": 6,
+      "real_completions": 8,
+      "native_contexts": 2,
+      "uses_per_context": [
+        3,
+        3
+      ],
+      "native_coordinator_processes": 1,
+      "full_sender_receiver_hashes_match": true,
+      "all_mutual_hash_guard_confirmations": true,
+      "max_export_objects": 4,
+      "max_userspace_FD_references": 6,
+      "serial_direction_order_verified": true,
+      "channel_closes": 2
+    }
+  },
+  "model_settings": {
+    "dtype": "bfloat16",
+    "TP": 2,
+    "PP": 1,
+    "max_num_batched_tokens": 128,
+    "max_output_tokens": 32,
+    "pilot_max_output_tokens": 8,
+    "max_num_seqs": 4,
+    "max_model_len": 8192,
+    "KV_bytes_per_GPU": 2147483648,
+    "eager": true,
+    "flash_attention": true,
+    "CPU_threads": 4,
+    "drafting": false,
+    "thinking": false,
+    "prefix_cache": false
+  },
+  "pilot": {
+    "output_token_cap": 8,
+    "actual_output_tokens": 4,
+    "full_TP_input_result_audit_before_measurement": true,
+    "normal_stop": true
+  },
+  "model_proof": {
+    "collective_pairs": 18331,
+    "operations": {
+      "all-reduce-sum": 18189,
+      "all-gather": 142
+    },
+    "rank_operation_verdicts": 36662,
+    "directed_input_tensors": 36662,
+    "peer_payload_bytes": 2125583360,
+    "native_requests": 37180,
+    "native_completions": 37182,
+    "native_contexts": 2,
+    "shared_result_hash_pairs": 18331,
+    "full_sender_receiver_hashes_match": true,
+    "all_shared_result_hashes_match": true,
+    "all_real_completions_and_lifecycle_checks_pass": true,
+    "maximum_input_bytes_per_rank": 1986560,
+    "root_gather_contracts": 0,
+    "native_small_control_broadcasts": 0,
+    "uses_per_context": [
+      18590,
+      18590
+    ],
+    "native_coordinator_processes": 1,
+    "max_export_objects": 8,
+    "max_userspace_FD_references": 12,
+    "model_Python_explicit_close_records_before_shutdown": 0
+  },
+  "comparison": {
+    "measured_sequential_requests": 3,
+    "measured_concurrent_requests": 4,
+    "new_variant": {
+      "median_sequential_decode_tps_estimate": 1.7587483587681212,
+      "median_sequential_ttft_s": 1.3775554340099916,
+      "parallel_total_tps": 5.245638688160166
+    },
+    "earlier_variants": [
+      {
+        "name": "tp2-ce-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.118229321257287,
+        "median_sequential_ttft_s": 1.5777916809893213,
+        "parallel_total_tps": 3.576760855911706
+      },
+      {
+        "name": "tp2-shm-b128-o32",
+        "median_sequential_decode_tps_estimate": 17.114239226277334,
+        "median_sequential_ttft_s": 0.1087294210010441,
+        "parallel_total_tps": 54.95450945137648
+      },
+      {
+        "name": "tp2-ce-earlypoll-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.5550903184269083,
+        "median_sequential_ttft_s": 1.6182827230077237,
+        "parallel_total_tps": 4.580496679512375
+      }
+    ],
+    "actual_commands_match_ignoring_only_port": true,
+    "actual_runtime_config_core_boot_clocks_requests_match": true,
+    "unchanged_SHM_replayed": false,
+    "formal_quality_or_logit_equivalence": false,
+    "repeated_statistical_speed_study": false,
+    "answer_hash_matches": [
+      {
+        "reference": "tp2-ce-b128-o32",
+        "matches": 6,
+        "requests": 7
+      },
+      {
+        "reference": "tp2-shm-b128-o32",
+        "matches": 7,
+        "requests": 7
+      },
+      {
+        "reference": "tp2-ce-earlypoll-b128-o32",
+        "matches": 7,
+        "requests": 7
+      }
+    ]
+  },
+  "small_input_readonly_timing": [
+    {
+      "operation_or_native": "all-reduce-sum",
+      "rank_or_source": 0,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.003704145499796141
+    },
+    {
+      "operation_or_native": "all-reduce-sum",
+      "rank_or_source": 1,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.0036875554942525923
+    },
+    {
+      "operation_or_native": "native",
+      "rank_or_source": 0,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.0009455654944758862
+    },
+    {
+      "operation_or_native": "native",
+      "rank_or_source": 1,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.0008956959936767817
+    }
+  ],
+  "cleanup": {
+    "additional_successful_native_session_closes": 8,
+    "additional_channel_destructor_API_calls": 8,
+    "cumulative_successful_native_session_closes": 16,
+    "cumulative_channel_destructor_API_calls": 16,
+    "live_contexts": 0,
+    "module_references": 0,
+    "actual_GPUs_idle": true,
+    "selected_current_window_notice_or_more_severe_GPU_kernel_patterns_clean": true,
+    "framework_shutdown_warnings_separate": true,
+    "destructor_API_calls_are_not_extra_hardware_acknowledgement": true
+  },
+  "next_candidate": {
+    "evidence_level": "hypothesis",
+    "name": "Separate consumer with successful native diagnostic logs conditionalized",
+    "implemented": false,
+    "logging_cost_measured": false,
+    "data_error_retirement_lifetime_checks_must_remain": true
+  },
+  "limits": [
+    "Own synchronous out-of-place two-rank application backend; ordinary CUDA peer capability remains false. No native NCCL, generic remote SM pointers, asynchronous or fused/variable/reduce-scatter operations.",
+    "Full CPU input/result readbacks, whole hashes and guards remain in timing. Metadata carries no activation payload; native control/setup/output channels may still exist.",
+    "One short capped run, not a repeated statistical or formal quality/logit study. Keep earlier larger-output PP data and instrumented phase-pilot timing separate.",
+    "Inclusive local rank/native intervals overlap; do not add/subtract medians as independent cost or bandwidth.",
+    "Sixteen original export objects plus eight received FD duplicates make twenty-four userspace references, with additional native duplicates. No registration caching or digest substitution.",
+    "The pre-shutdown model audit contains no explicit Python channel-close records; later actual FD release and native session/counter/zero-reference checks establish cleanup.",
+    "No capacity/SM, firmware/BIOS, host-IOMMU/ACS, clock, reset, long-term or reboot-stability change/proof."
+  ]
+}

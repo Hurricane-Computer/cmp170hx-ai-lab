@@ -359,6 +359,50 @@ def check_data():
             error(ROOT / 'data/experiment-ledger.json', 'missing interpretation')
 
 
+def check_batched_transport():
+    d = load('batched-collective-transport.json')
+    path = ROOT / 'data/batched-collective-transport.json'
+    if d['native_CUDA_peer_capabilities'] != [False, False] or d['native_NCCL_backend'] or d['native_changes']:
+        error(path, 'batched application observation misstates unchanged native capability')
+    b = d['bounds']
+    if (b['input_bytes_per_rank'], b['export_bytes'], b['windows_per_buffer']) != (3 * 2**20, 2**20, 4):
+        error(path, 'batched window bounds changed without separate qualification')
+    if b['local_export_FDs_per_rank'] * 2 != b['original_export_objects'] or b['original_export_objects'] + b['additional_received_FDs_on_coordinator'] != b['total_userspace_FD_references'] or b['total_userspace_FD_references'] != 24:
+        error(path, 'original exports and received FD references are conflated')
+    protocol = d['protocol']
+    if protocol['native_coordinator_rank'] != 0 or protocol['native_device_FDs'] != 1 or not protocol['both_directions_serial'] or not protocol['full_CPU_validation_preserved'] or protocol['registration_cache'] or protocol['GPU_digest_substitution'] or protocol['CPU_activation_payload_fallback']:
+        error(path, 'batched protocol scope/verification changed')
+    q = d['qualification']
+    if (q['full_independent_GPU_comparisons'], q['source_and_guard_verdicts'], q['intentional_result_errors_detected'], q['non_root_None_contracts']) != (64, 70, 4, 6):
+        error(path, 'batched independent result/guard qualification count disagrees')
+    packages = [q[k] for k in ['raw', 'extended_collectives', 'extra_int32_BF16']]
+    if sum(x['native_requests'] for x in packages) != 68 or sum(x['real_completions'] for x in packages) != 74:
+        error(path, 'batched qualification requests/real completions disagree')
+    if any(x['max_export_objects'] > 16 or x['max_userspace_FD_references'] > 24 or x['channel_closes'] != 2 or not x['full_sender_receiver_hashes_match'] for x in packages):
+        error(path, 'batched qualification bounds/full verification/close disagrees')
+    p = d['model_proof']
+    if p['collective_pairs'] != sum(p['operations'].values()) or p['collective_pairs'] != p['shared_result_hash_pairs'] or p['directed_input_tensors'] != 2 * p['collective_pairs']:
+        error(path, 'batched model pair/input/result counts disagree')
+    if (p['native_requests'], p['native_completions'], p['native_contexts'], p['uses_per_context']) != (37180, 37182, 2, [18590, 18590]):
+        error(path, 'batched model native request/retirement/lifecycle counts disagree')
+    if p['maximum_input_bytes_per_rank'] > b['input_bytes_per_rank'] or not all(p[k] for k in ['full_sender_receiver_hashes_match', 'all_shared_result_hashes_match', 'all_real_completions_and_lifecycle_checks_pass']):
+        error(path, 'batched model full data/retirement proof missing')
+    pilot = d['pilot']
+    if not 0 < pilot['actual_output_tokens'] <= pilot['output_token_cap'] == 8 or not pilot['full_TP_input_result_audit_before_measurement']:
+        error(path, 'batched pilot cap and actual tokens conflated')
+    compare = d['comparison']
+    if compare['unchanged_SHM_replayed'] or not compare['actual_runtime_config_core_boot_clocks_requests_match'] or (compare['measured_sequential_requests'], compare['measured_concurrent_requests']) != (3, 4):
+        error(path, 'batched short matched comparison scope disagrees')
+    for row in compare['answer_hash_matches']:
+        if not 0 <= row['matches'] <= row['requests'] == 7:
+            error(path, 'batched answer hash count invalid')
+    cleanup = d['cleanup']
+    if cleanup['live_contexts'] or cleanup['module_references'] or not cleanup['actual_GPUs_idle'] or cleanup['additional_successful_native_session_closes'] != 8:
+        error(path, 'batched actual cleanup missing')
+    if d['next_candidate']['evidence_level'] != 'hypothesis' or d['next_candidate']['implemented'] or d['next_candidate']['logging_cost_measured']:
+        error(path, 'unimplemented native-log hypothesis presented as measured work')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -383,6 +427,7 @@ def main():
             error(path, 'not valid UTF-8 text/JSON: ' + str(exc))
     try:
         check_data()
+        check_batched_transport()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:

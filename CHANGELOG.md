@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Batched descriptors and one real two-direction coordinator
+
+- Independently qualify one native FD/current-context coordinator, bounded multi-FD ownership, full random GPU values, collective type/root/axis cases and deliberate verifier errors; preserve all validation and unchanged kernel modules.
+- Complete the actual18,331-pair TP audit and short matched comparison:1.76tok/s versus previous1.56, SHM17.11. Correct export-object versus FD-reference accounting, verify cleanup and retain native success-log cost as an untested next hypothesis. [Methods](docs/cuda-application-transport.md#batched-descriptors-and-one-native-coordinator), [selected data](data/batched-collective-transport.json).
+
 ## 2026-10-19 — Preserved-data host phase profile and a concrete coordination candidate
 
 - Verify bounded nested/exclusive timing spans against independent tensor data and one actual max8-token TP pilot (four output tokens): 1,301 full collective-pair proofs and 2,602 matched profile roots, unchanged native backend.
