@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-19",
+  "evidence_type": "owner_observation",
+  "result": "Small simultaneous address-separation matrix passes inside already reported capacity; no additional usable GiB established.",
+  "method": "Normal user-RM USE_BEGIN_END allocations with exact returned physical offsets and owned CPU BAR1 mappings. Allocate/map every window before test writes. Fill all with different slot/nonce-dependent patterns, compare all, then rewrite one window at a time and fully compare every window after each rewrite.",
+  "maximum_simultaneous_owned_bytes_per_card": 589824,
+  "buffer_bytes": 65536,
+  "cards": [
+    {
+      "variant": "CMP40",
+      "reported_GiB": 40,
+      "simultaneous_owned_windows": 6,
+      "window_bytes": 65536,
+      "requested_and_returned_GPU_physical_offsets_GiB": [
+        0.5,
+        8.5,
+        16.5,
+        24.5,
+        32.5,
+        39.0
+      ],
+      "full_CPU_word_comparisons": 42,
+      "words_per_comparison": 16384,
+      "wrong_words": 0,
+      "comparison_bytes": 2752512,
+      "writes_bytes": 786432,
+      "successful_reported_cleanup_calls": 21,
+      "power_limit_W": 100,
+      "HBM_MHz": 1215,
+      "CUDA_kernel_reads_of_these_objects": false
+    },
+    {
+      "variant": "CMP64",
+      "reported_GiB": 64,
+      "simultaneous_owned_windows": 9,
+      "window_bytes": 65536,
+      "requested_and_returned_GPU_physical_offsets_GiB": [
+        0.5,
+        8.5,
+        16.5,
+        24.5,
+        32.5,
+        40.5,
+        48.5,
+        56.5,
+        63.0
+      ],
+      "full_CPU_word_comparisons": 90,
+      "words_per_comparison": 16384,
+      "wrong_words": 0,
+      "comparison_bytes": 5898240,
+      "writes_bytes": 1179648,
+      "successful_reported_cleanup_calls": 30,
+      "power_limit_W": 100,
+      "HBM_MHz": 1728,
+      "CUDA_kernel_reads_of_these_objects": false
+    }
+  ],
+  "total_full_comparisons": 132,
+  "total_comparison_bytes": 8650752,
+  "total_write_bytes": 1966080,
+  "CPU_checker_controls": {
+    "correct_data_wrong_words": 0,
+    "one_deliberately_wrong_word_detected": 1,
+    "deliberately_wrong_window_pattern_wrong_words": 16384,
+    "controls_in_CPU_memory_only": true
+  },
+  "source_integrity": "Native allocation/control/map/unmap/status and cleanup helpers remain unchanged from the qualified two-window test; bounded window selection, count, comparison sweeps and a CPU-only checker control are added.",
+  "state": "Both GPUs returned to zero reported used MiB and zero clients,100W limits, unchanged HBM clocks and unchanged research modules; selected test-window kernel error query empty.",
+  "limitations": [
+    "All sampled addresses are within existing40/64GiB. No access beyond those capacities.",
+    "Only64KiB per address was tested; no whole-memory, sustained-stability or individual-DRAM-cell proof.",
+    "These exact native objects were tested through CPU BAR1 mappings, not CUDA kernels.",
+    "No assumption about partition selection, native address hashing or physical installed capacity follows from the samples.",
+    "No new driver geometry, firmware, register, power increase, clock change or reset.",
+    "No inference-speed or acoustic measurement."
+  ],
+  "new_usable_GiB": 0
+}

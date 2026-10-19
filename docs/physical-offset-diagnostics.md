@@ -53,3 +53,18 @@ The fixed/range difference has a concrete source discriminator. [The allocator s
 At the last 12-second follow-up, 18 October 21:14:30 UTC, both cards still reported 40/64 GiB, zero used MiB and zero clients at 1215/1728 MHz. The selected native error query had no matches. No driver reload, firmware change or clock change occurred. No CUDA kernel or transfer was executed.
 
 **Additional usable GiB remain zero.** The native allocator did not supply the requested upper pages through either tested route. This does not establish the installed HBM density, a physical capacity ceiling or the cause of the earlier expanded-profile alias. Further upper-memory work needs a new backing/geometry experiment using the now-qualified small PA-aware method; these unchanged G requests and the previous large H allocation should not be replayed as new evidence.
+
+## Simultaneous sparse address-separation matrix at 100 W
+
+On 19 October 2026, a new finite test held six ordinary owned 64-KiB windows on CMP40 and nine on CMP64 simultaneously. Native `USE_BEGIN_END` requests returned the exact requested GPU physical offsets; ownership, bounds and checked cleanup remained intact. The distinction from the earlier two-buffer control is the simultaneous multi-address set and a complete partner sweep after every isolated rewrite.
+
+| Variant | Tested GPU physical offsets (GiB) | Simultaneous owned memory | Full 64-KiB comparisons | Wrong words |
+|---|---|---:|---:|---:|
+| CMP40 | 0.5, 8.5, 16.5, 24.5, 32.5, 39 | 384 KiB | 42 | 0 |
+| CMP64 | 0.5, 8.5, 16.5, 24.5, 32.5, 40.5, 48.5, 56.5, 63 | 576 KiB | 90 | 0 |
+
+All objects and CPU BAR1 mappings existed before the first test write. Each slot received a distinct nonce-dependent word pattern. After the initial full comparison, each window was rewritten once while every held window was compared in full. The test wrote 1.875 MiB and compared 8.25 MiB across both cards. CPU-only controls correctly detected one changed word and 16,384 wrong words when the entire wrong-window pattern was substituted. These controls did not inject errors into either GPU.
+
+Both cards retained 100 W power limits and unchanged HBM clocks, 1215/1728 MHz. No driver/module, geometry, register, firmware, clock, service or VM change was made for the matrix. All 51 reported OS/RM cleanup calls succeeded; afterwards both cards had zero reported used MiB and zero clients, and the selected current test-window kernel error query was empty. This is a timestamped finite observation, not long-duration qualification. [Curated measurements](../data/owned-address-matrix.json).
+
+The samples are entirely inside already reported 40/64 GiB. In particular, 48.5/56.5/63 GiB on CMP64 are ordinary baseline addresses, not an expansion. Only 64 KiB at each offset was tested, and these particular native objects were accessed through CPU BAR1 mappings rather than CUDA kernels. No whole-range integrity, partition identity, distinct installed HBM-cell population, additional usable capacity, throughput or sound-level claim follows. The old rejected upper allocations and expanded-profile alias test were not replayed. A new actual physical initialization/backing mechanism is still needed for a meaningful expansion attempt.

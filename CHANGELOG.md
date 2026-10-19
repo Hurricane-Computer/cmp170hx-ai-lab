@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Sparse physical address separation under the quiet profile
+
+- Hold six/nine actual owned windows simultaneously and pass 132 complete comparisons after isolated rewrites, including 39 GiB on CMP40 and 63 GiB on CMP64, at 100 W. Preserve checked native ownership and cleanup.
+- Keep this current-capacity baseline separate from expansion, full-memory stability and CUDA access to those particular objects. Additional usable GiB remain zero. [Method and limits](docs/physical-offset-diagnostics.md#simultaneous-sparse-address-separation-matrix-at-100-w), [data](data/owned-address-matrix.json).
+
 ## 2026-10-19 — Final full-cache route qualifies; fresh SHM remains faster
 
 - Qualify the supported physical/GSP full-cache command with all four barriers and full GPU/hash/guard/lifetime checks; complete the actual18,331-pair TP model proof.
