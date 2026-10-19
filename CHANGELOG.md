@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Native cost attribution before cache changes
+
+- Preserve every native data/cache/lifetime operation and qualify bounded disjoint timing with independent GPU and full 1,301-pair TP pilot proof; no repeated speed matrix.
+- Measure three page/cache operations at 79–81% of small-request native time; larger requests split cost between those operations and CE/wait. Keep exact accounting, timer/observer limits and the static finding that the allocation argument is not a range flush. A separate two-direction cache epoch is still an unimplemented hypothesis. [Method](docs/cuda-application-transport.md#native-component-timing-page-and-cache-operations-dominate-small-requests), [selected data](data/native-cost-profile.json).
+
 ## 2026-10-19 — Native success-log guards, no established material speed gain
 
 - Preserve the exact native data operations and completion MMIO diagnostic while separately gating five healthy log sites; pass compiled CPU error-predicate controls, independent GPU qualification and the full 18,331-pair TP audit.

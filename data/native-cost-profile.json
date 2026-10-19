@@ -1,0 +1,700 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-19T18:11:17.934111+00:00",
+  "scope": "Bounded native component timing with exact previous data operations and full user verification",
+  "native_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "new_inference_speed_claim": false,
+  "memory_or_SM_test": false,
+  "native_data_operations_changed": false,
+  "native_logging_policy_changed": false,
+  "source_pins": {
+    "native_C_sha256": "69400358a5b25911bb7b27362c23457993040ad5e41786a35f931dc91e04a503",
+    "native_ABI_sha256": "782e75b2b88641c974a4fd54cad0633c90434d621865fc9cce2a4e00d2592199",
+    "profile_helper_sha256": "c3143dffee9a94ca21eec75ddd0fb3e9d1807c79378f906a4267790906bd5e5f",
+    "module_sha256": "47573c59e3a8194290a1cc9788916edeefc52e96278e463b22d80cbe9bca01eb",
+    "module_build_id": "aafeffab85c1ceb53d877ef5a5acdb8ca2333012",
+    "unchanged_core_sha256": "6652c11777b2d82a774d9815cde301acbc46c9f2d0f54fde040020d40f180ade",
+    "preserved_previous_consumer_sha256": "e52c82ca206bb7f5b8cda866a99c8c5fe6ecc407adc3839102b68964d46366e7",
+    "user_transport_sha256": "f5442bba936578f081b4036f59227c3d0f56e11877c753e2c0f6a1eb80e68a10",
+    "aggregate_checker_sha256": "887af5cb7f2b4e7163fa0fc578fe923d54550871915ace78e3110e69a63bfd55"
+  },
+  "instrumentation": {
+    "evidence_level": "static-analysis",
+    "timer": "ktime_get_raw_ts64",
+    "clock": "CLOCK_MONOTONIC_RAW",
+    "units": "ns",
+    "actual_timer_export": "EXPORT_SYMBOL",
+    "MIT_module_license_unchanged": true,
+    "first_GPL_only_helper_rejected_before_build_load": true,
+    "source_after_namespace_and_timing_erasure_exact": true,
+    "ten_user_verification_files_exact_after_ABI_mapping": true,
+    "formal_runtime_equivalence": false,
+    "groups": 4,
+    "phases_including_root_per_group": 15,
+    "count_and_ns_entries_each": 60,
+    "bounded": true,
+    "updates_under_existing_mutex": true,
+    "snapshot_only_quiescent": true,
+    "read_only_parameter_mode": "0400",
+    "new_per_operation_logs": false,
+    "setup_and_local_qualification_excluded": true,
+    "ioctl_lock_wait_and_user_copies_excluded": true,
+    "only_disjoint_top_level_children": true,
+    "root_equals_children_plus_exclusive_remainder": true,
+    "CE_phase_includes_existing_completion_diagnostic_and_MMIO": true,
+    "timing_values_used_as_completion": false,
+    "observer_and_scheduler_cost_included": true
+  },
+  "CPU_fixture": {
+    "passed": true,
+    "known_root_ns": 100,
+    "known_children_ns": [
+      20,
+      40
+    ],
+    "known_remainder_ns": 40,
+    "deliberate_bad_or_error_cases_detected": 7
+  },
+  "offline_aggregate_controls": {
+    "known_root_ns": 1000,
+    "known_children_ns": 140,
+    "known_remainder_ns": 860,
+    "deliberately_damaged_cases_rejected": 5
+  },
+  "qualification": {
+    "full_independent_GPU_comparisons": 64,
+    "source_and_guard_verdicts": 70,
+    "intentional_result_errors_detected": 4,
+    "non_root_None_contracts": 6,
+    "raw_directed_tensors": 20,
+    "raw_payload_bytes": 10955592,
+    "native_requests": 68,
+    "real_completions": 74,
+    "local_qualifications_excluded_from_phase_counters": 6,
+    "payload_profile_completions": 68,
+    "successful_context_closes": 6,
+    "offsets_multiwindow_reuse_and_all_full_checks": true
+  },
+  "model_settings": {
+    "dtype": "bfloat16",
+    "TP": 2,
+    "PP": 1,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 4,
+    "max_model_len": 8192,
+    "KV_bytes_per_GPU": 2147483648,
+    "eager": true,
+    "flash_attention": true,
+    "CPU_threads": 4,
+    "drafting": false,
+    "thinking": false,
+    "prefix_cache": false,
+    "pilot_output_token_cap": 8,
+    "diagnostic_only": true,
+    "measured_speed_requests": 0
+  },
+  "pilot": {
+    "actual_output_tokens": 4,
+    "normal_stop": true,
+    "original_pilot_request_and_answer_hashes_match": true
+  },
+  "model_proof": {
+    "collective_pairs": 1301,
+    "operations": {
+      "all-reduce-sum": 1290,
+      "all-gather": 11
+    },
+    "rank_operation_verdicts": 2602,
+    "directed_input_tensors": 2602,
+    "peer_payload_bytes": 473600000,
+    "native_requests": 2862,
+    "native_completions": 2864,
+    "native_contexts": 2,
+    "shared_result_hash_pairs": 1301,
+    "full_sender_receiver_hashes_match": true,
+    "all_shared_result_hashes_match": true,
+    "all_real_completions_and_lifecycle_checks_pass": true,
+    "maximum_input_bytes_per_rank": 1986560,
+    "root_gather_contracts": 0,
+    "native_small_control_broadcasts": 0,
+    "uses_per_context": [
+      1431,
+      1431
+    ],
+    "native_coordinator_processes": 1,
+    "full_CPU_input_incoming_result_hashes_and_guards_preserved": true,
+    "activation_CPU_payload_fallback": false,
+    "registration_cache": false,
+    "GPU_digest_substitution": false
+  },
+  "model_profile": {
+    "groups": [
+      {
+        "source_index": 0,
+        "native_request_size_bin": "up_to65536",
+        "requests": 903,
+        "payload_completions": 903,
+        "total_root_ns": 861441214,
+        "remainder_ns": 1364742,
+        "phases": [
+          {
+            "name": "source_pin",
+            "calls": 903,
+            "total_ns": 288002,
+            "mean_ns": 318.9390919158361,
+            "share_of_root": 0.0003343257732732532
+          },
+          {
+            "name": "source_duplicate",
+            "calls": 903,
+            "total_ns": 25131787,
+            "mean_ns": 27831.436323366557,
+            "share_of_root": 0.0291741172718026
+          },
+          {
+            "name": "destination_pin",
+            "calls": 903,
+            "total_ns": 314612,
+            "mean_ns": 348.4075304540421,
+            "share_of_root": 0.00036521586718510547
+          },
+          {
+            "name": "destination_duplicate",
+            "calls": 903,
+            "total_ns": 13609518,
+            "mean_ns": 15071.44850498339,
+            "share_of_root": 0.01579854525047138
+          },
+          {
+            "name": "source_pages",
+            "calls": 903,
+            "total_ns": 232096874,
+            "mean_ns": 257028.6533776301,
+            "share_of_root": 0.26942856950422156
+          },
+          {
+            "name": "destination_pages_before",
+            "calls": 903,
+            "total_ns": 237814939,
+            "mean_ns": 263360.95127353264,
+            "share_of_root": 0.2760663584874638
+          },
+          {
+            "name": "destination_pages_after",
+            "calls": 903,
+            "total_ns": 224436264,
+            "mean_ns": 248545.14285714287,
+            "share_of_root": 0.2605357862527344
+          },
+          {
+            "name": "source_window_acquire",
+            "calls": 903,
+            "total_ns": 46160924,
+            "mean_ns": 51119.517165005534,
+            "share_of_root": 0.0535856924997322
+          },
+          {
+            "name": "CE_build_submit_retire_and_diagnostic",
+            "calls": 903,
+            "total_ns": 24256885,
+            "mean_ns": 26862.552602436324,
+            "share_of_root": 0.028158491381397966
+          },
+          {
+            "name": "source_window_release",
+            "calls": 903,
+            "total_ns": 27017300,
+            "mean_ns": 29919.490586932447,
+            "share_of_root": 0.03136290620987168
+          },
+          {
+            "name": "destination_free_duplicate",
+            "calls": 903,
+            "total_ns": 16082620,
+            "mean_ns": 17810.210409745294,
+            "share_of_root": 0.018669434128095942
+          },
+          {
+            "name": "source_free_duplicate",
+            "calls": 903,
+            "total_ns": 12661338,
+            "mean_ns": 14021.415282392027,
+            "share_of_root": 0.014697854936854693
+          },
+          {
+            "name": "destination_unpin",
+            "calls": 903,
+            "total_ns": 130732,
+            "mean_ns": 144.7751937984496,
+            "share_of_root": 0.0001517596301121483
+          },
+          {
+            "name": "source_unpin",
+            "calls": 903,
+            "total_ns": 74677,
+            "mean_ns": 82.69878183831672,
+            "share_of_root": 8.668844581192745e-05
+          }
+        ]
+      },
+      {
+        "source_index": 0,
+        "native_request_size_bin": "over65536",
+        "requests": 528,
+        "payload_completions": 528,
+        "total_root_ns": 878269259,
+        "remainder_ns": 906495,
+        "phases": [
+          {
+            "name": "source_pin",
+            "calls": 528,
+            "total_ns": 190154,
+            "mean_ns": 360.1401515151515,
+            "share_of_root": 0.00021650991202459927
+          },
+          {
+            "name": "source_duplicate",
+            "calls": 528,
+            "total_ns": 14455271,
+            "mean_ns": 27377.407196969696,
+            "share_of_root": 0.01645881471071732
+          },
+          {
+            "name": "destination_pin",
+            "calls": 528,
+            "total_ns": 181040,
+            "mean_ns": 342.8787878787879,
+            "share_of_root": 0.00020613268441859467
+          },
+          {
+            "name": "destination_duplicate",
+            "calls": 528,
+            "total_ns": 7825740,
+            "mean_ns": 14821.477272727272,
+            "share_of_root": 0.008910410924447488
+          },
+          {
+            "name": "source_pages",
+            "calls": 528,
+            "total_ns": 129571320,
+            "mean_ns": 245400.22727272726,
+            "share_of_root": 0.14753029173254942
+          },
+          {
+            "name": "destination_pages_before",
+            "calls": 528,
+            "total_ns": 135741637,
+            "mean_ns": 257086.43371212122,
+            "share_of_root": 0.15455583308762946
+          },
+          {
+            "name": "destination_pages_after",
+            "calls": 528,
+            "total_ns": 131068649,
+            "mean_ns": 248236.07765151514,
+            "share_of_root": 0.14923515500159387
+          },
+          {
+            "name": "source_window_acquire",
+            "calls": 528,
+            "total_ns": 29830679,
+            "mean_ns": 56497.49810606061,
+            "share_of_root": 0.03396530015631573
+          },
+          {
+            "name": "CE_build_submit_retire_and_diagnostic",
+            "calls": 528,
+            "total_ns": 396126135,
+            "mean_ns": 750238.8920454546,
+            "share_of_root": 0.4510303997785718
+          },
+          {
+            "name": "source_window_release",
+            "calls": 528,
+            "total_ns": 16424756,
+            "mean_ns": 31107.492424242424,
+            "share_of_root": 0.018701276210784466
+          },
+          {
+            "name": "destination_free_duplicate",
+            "calls": 528,
+            "total_ns": 8672053,
+            "mean_ns": 16424.342803030304,
+            "share_of_root": 0.009874025432558149
+          },
+          {
+            "name": "source_free_duplicate",
+            "calls": 528,
+            "total_ns": 7117968,
+            "mean_ns": 13481.0,
+            "share_of_root": 0.008104539612492573
+          },
+          {
+            "name": "destination_unpin",
+            "calls": 528,
+            "total_ns": 88892,
+            "mean_ns": 168.3560606060606,
+            "share_of_root": 0.0001012126965495897
+          },
+          {
+            "name": "source_unpin",
+            "calls": 528,
+            "total_ns": 68470,
+            "mean_ns": 129.6780303030303,
+            "share_of_root": 7.796014638831848e-05
+          }
+        ]
+      },
+      {
+        "source_index": 1,
+        "native_request_size_bin": "up_to65536",
+        "requests": 903,
+        "payload_completions": 903,
+        "total_root_ns": 818175663,
+        "remainder_ns": 1349723,
+        "phases": [
+          {
+            "name": "source_pin",
+            "calls": 903,
+            "total_ns": 375466,
+            "mean_ns": 415.7984496124031,
+            "share_of_root": 0.00045890634124129404
+          },
+          {
+            "name": "source_duplicate",
+            "calls": 903,
+            "total_ns": 20978396,
+            "mean_ns": 23231.889258028794,
+            "share_of_root": 0.025640454670918265
+          },
+          {
+            "name": "destination_pin",
+            "calls": 903,
+            "total_ns": 224821,
+            "mean_ns": 248.97120708748616,
+            "share_of_root": 0.00027478328941690853
+          },
+          {
+            "name": "destination_duplicate",
+            "calls": 903,
+            "total_ns": 19088699,
+            "mean_ns": 21139.201550387595,
+            "share_of_root": 0.023330807628776904
+          },
+          {
+            "name": "source_pages",
+            "calls": 903,
+            "total_ns": 219161711,
+            "mean_ns": 242703.99889258028,
+            "share_of_root": 0.26786632860283455
+          },
+          {
+            "name": "destination_pages_before",
+            "calls": 903,
+            "total_ns": 215006441,
+            "mean_ns": 238102.37098560354,
+            "share_of_root": 0.2627876270624295
+          },
+          {
+            "name": "destination_pages_after",
+            "calls": 903,
+            "total_ns": 211989251,
+            "mean_ns": 234761.07530454043,
+            "share_of_root": 0.25909992265316256
+          },
+          {
+            "name": "source_window_acquire",
+            "calls": 903,
+            "total_ns": 46631204,
+            "mean_ns": 51640.31450719823,
+            "share_of_root": 0.05699412254456168
+          },
+          {
+            "name": "CE_build_submit_retire_and_diagnostic",
+            "calls": 903,
+            "total_ns": 25209187,
+            "mean_ns": 27917.150609080843,
+            "share_of_root": 0.03081146035017177
+          },
+          {
+            "name": "source_window_release",
+            "calls": 903,
+            "total_ns": 26686182,
+            "mean_ns": 29552.803986710962,
+            "share_of_root": 0.03261669004202585
+          },
+          {
+            "name": "destination_free_duplicate",
+            "calls": 903,
+            "total_ns": 16831366,
+            "mean_ns": 18639.38648947951,
+            "share_of_root": 0.020571824317389895
+          },
+          {
+            "name": "source_free_duplicate",
+            "calls": 903,
+            "total_ns": 14439425,
+            "mean_ns": 15990.503875968992,
+            "share_of_root": 0.01764831887941404
+          },
+          {
+            "name": "destination_unpin",
+            "calls": 903,
+            "total_ns": 118088,
+            "mean_ns": 130.77297895902547,
+            "share_of_root": 0.00014433086357886447
+          },
+          {
+            "name": "source_unpin",
+            "calls": 903,
+            "total_ns": 85703,
+            "mean_ns": 94.9091915836102,
+            "share_of_root": 0.00010474889913707932
+          }
+        ]
+      },
+      {
+        "source_index": 1,
+        "native_request_size_bin": "over65536",
+        "requests": 528,
+        "payload_completions": 528,
+        "total_root_ns": 854095687,
+        "remainder_ns": 885269,
+        "phases": [
+          {
+            "name": "source_pin",
+            "calls": 528,
+            "total_ns": 209064,
+            "mean_ns": 395.95454545454544,
+            "share_of_root": 0.0002447781942727455
+          },
+          {
+            "name": "source_duplicate",
+            "calls": 528,
+            "total_ns": 10816811,
+            "mean_ns": 20486.384469696968,
+            "share_of_root": 0.012664636017533244
+          },
+          {
+            "name": "destination_pin",
+            "calls": 528,
+            "total_ns": 156536,
+            "mean_ns": 296.469696969697,
+            "share_of_root": 0.00018327688850628746
+          },
+          {
+            "name": "destination_duplicate",
+            "calls": 528,
+            "total_ns": 8696863,
+            "mean_ns": 16471.33143939394,
+            "share_of_root": 0.010182539418443404
+          },
+          {
+            "name": "source_pages",
+            "calls": 528,
+            "total_ns": 127479950,
+            "mean_ns": 241439.29924242425,
+            "share_of_root": 0.14925722251071383
+          },
+          {
+            "name": "destination_pages_before",
+            "calls": 528,
+            "total_ns": 121045165,
+            "mean_ns": 229252.20643939395,
+            "share_of_root": 0.14172318961727762
+          },
+          {
+            "name": "destination_pages_after",
+            "calls": 528,
+            "total_ns": 124614014,
+            "mean_ns": 236011.39015151514,
+            "share_of_root": 0.1459017015267986
+          },
+          {
+            "name": "source_window_acquire",
+            "calls": 528,
+            "total_ns": 33669864,
+            "mean_ns": 63768.681818181816,
+            "share_of_root": 0.03942165323216297
+          },
+          {
+            "name": "CE_build_submit_retire_and_diagnostic",
+            "calls": 528,
+            "total_ns": 394828104,
+            "mean_ns": 747780.5,
+            "share_of_root": 0.4622761945875509
+          },
+          {
+            "name": "source_window_release",
+            "calls": 528,
+            "total_ns": 16769391,
+            "mean_ns": 31760.210227272728,
+            "share_of_root": 0.019634089312524534
+          },
+          {
+            "name": "destination_free_duplicate",
+            "calls": 528,
+            "total_ns": 8359624,
+            "mean_ns": 15832.621212121212,
+            "share_of_root": 0.009787690216962774
+          },
+          {
+            "name": "source_free_duplicate",
+            "calls": 528,
+            "total_ns": 6443486,
+            "mean_ns": 12203.57196969697,
+            "share_of_root": 0.007544220276574234
+          },
+          {
+            "name": "destination_unpin",
+            "calls": 528,
+            "total_ns": 78438,
+            "mean_ns": 148.5568181818182,
+            "share_of_root": 9.183748518331997e-05
+          },
+          {
+            "name": "source_unpin",
+            "calls": 528,
+            "total_ns": 43108,
+            "mean_ns": 81.64393939393939,
+            "share_of_root": 5.047209657669188e-05
+          }
+        ]
+      }
+    ],
+    "setup_qualifications_excluded": 2,
+    "payload_completions": 2862,
+    "accounting_errors": 0,
+    "payload_errors": 0,
+    "unprofiled_errors": 0,
+    "damaged_aggregate_copies_rejected": 5,
+    "group_scope": "Per source and native request bytes <=65536 or >65536; includes startup/profile/pilot, not pure decode or an isolated10KiB sample."
+  },
+  "summary": [
+    {
+      "source_index": 0,
+      "native_request_size_bin": "up_to65536",
+      "requests": 903,
+      "root_mean_us": 953.9769811738649,
+      "page_query_share": 0.8060307142444197,
+      "page_query_mean_us": 768.9347475083056,
+      "CE_share": 0.028158491381397966,
+      "CE_mean_us": 26.862552602436324
+    },
+    {
+      "source_index": 0,
+      "native_request_size_bin": "over65536",
+      "requests": 528,
+      "root_mean_us": 1663.3887481060606,
+      "page_query_share": 0.4513212798217727,
+      "page_query_mean_us": 750.7227386363636,
+      "CE_share": 0.4510303997785718,
+      "CE_mean_us": 750.2388920454546
+    },
+    {
+      "source_index": 1,
+      "native_request_size_bin": "up_to65536",
+      "requests": 903,
+      "root_mean_us": 906.0638571428572,
+      "page_query_share": 0.7897538783184266,
+      "page_query_mean_us": 715.5674451827243,
+      "CE_share": 0.03081146035017177,
+      "CE_mean_us": 27.917150609080842
+    },
+    {
+      "source_index": 1,
+      "native_request_size_bin": "over65536",
+      "requests": 528,
+      "root_mean_us": 1617.6054678030303,
+      "page_query_share": 0.43688211365479007,
+      "page_query_mean_us": 706.7028958333334,
+      "CE_share": 0.4622761945875509,
+      "CE_mean_us": 747.7805
+    }
+  ],
+  "cache_source_analysis": {
+    "evidence_level": "static-analysis",
+    "function": "kmemsysCacheOp_GM200",
+    "source_sha256": "6dbf8fbbbcd0e5fe7eee6ecb2f164006041129a98b33bf4db1e2407ec63cd936",
+    "generated_dispatch_sha256": "b9f736913243f187c1479d930891c9ee5e31c59992bfd671351287d555af2988",
+    "descriptor_mentions": 3,
+    "descriptor_only_selects_memory_target": true,
+    "allocation_argument_not_a_range_flush": true,
+    "video_eviction_flags": [
+      "ALL",
+      "CLEAN"
+    ],
+    "separate_eviction_subcost_measured": false,
+    "raw_local_mapping_sha256": "e51e1afe2e8eab6cd19bfa08e747150ca15493179415520cb5af169a991bf0c6",
+    "cache_evictions_per_raw_page_query": 1,
+    "native_eviction_and_page_lookup_subcost_separated": false,
+    "cache_barrier_removal_safety_established": false
+  },
+  "cleanup": {
+    "successful_native_sessions": 8,
+    "channel_destructor_API_calls": 8,
+    "payload_requests": 2930,
+    "actual_completions": 2938,
+    "local_qualifications": 8,
+    "live_contexts": 0,
+    "module_references": 0,
+    "actual_GPUs_idle": true,
+    "preserved_consumers": [
+      {
+        "version": 144,
+        "successful_sessions": 8,
+        "payload_requests": 37248
+      },
+      {
+        "version": 141,
+        "successful_sessions": 16,
+        "payload_requests": 77338
+      },
+      {
+        "version": 138,
+        "successful_sessions": 9,
+        "payload_requests": 39962
+      }
+    ],
+    "selected_current_window_kernel_GPU_patterns_clean": true,
+    "destructor_calls_not_hardware_ack": true
+  },
+  "next_candidate": {
+    "evidence_level": "hypothesis",
+    "name": "One explicit two-direction native cache epoch over four held disjoint buffers",
+    "implemented": false,
+    "qualified": false,
+    "proposed_pre_evictions": 2,
+    "proposed_post_evictions": 2,
+    "previous_evictions_per_two_direction_window": 6,
+    "no_saving_established": true,
+    "full_page_bounds_hash_guard_retirement_lifetime_checks_required": true,
+    "dirty_source_destination_and_alias_generation_controls_required": true
+  },
+  "sources": [
+    {
+      "title": "Linux kernel timekeeping accessors",
+      "url": "https://cdn.kernel.org/doc/html/latest/core-api/timekeeping.html"
+    },
+    {
+      "title": "Pinned NVIDIA cache operation source",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_sys/arch/maxwell/kern_mem_sys_gm200.c"
+    }
+  ],
+  "limits": [
+    "Raw monotonic elapsed host intervals include scheduler, timer/observer and nested native/GPU waits; units are nanoseconds, not a timing-accuracy claim. No isolated GPU-kernel time, causal saving forecast or PCIe bandwidth.",
+    "Only disjoint top-level children are summed under each local root. Root excludes setup/first local qualification, ioctl mutex waiting and user copies. Native time overlaps with user-space/rank intervals; never add rank times or subtract medians.",
+    "The CE phase includes command building, real retirement waiting, existing completion diagnostic and its extra gpGet MMIO read. This is not pure copy-engine hardware time or pure printk cost.",
+    "Three raw-local-page operations each include a native cache eviction in the pinned core source, plus physical-page lookup and wrapper work. Their separate eviction/query/locking costs and redundant-cache-barrier safety have NOT been measured or established.",
+    "Quiescent aggregates use source direction and native request-size bins <=65536/>65536, not an exact10KiB-only or pure decode sample. They include startup/profile/pilot. Small bin contains10,20,40KiB model inputs. Large bin mixes startup tensors and multiwindow chunks.",
+    "Full CPU byte readbacks/input/result hashes, source/scratch guards, cache/stream ordering, real nonce/semaphore/GET/PUT retirement, timeouts/poison/held backing/destruction all remain. No registration cache, staging reuse or GPU-digest substitution.",
+    "One actual cap8-token diagnostic pilot normally generated4tokens. No repeated seven-request benchmark or new inference speed conclusion. Historical144 versus143 near1percent logging result and140SHM baseline retain their original scope.",
+    "Model Python traces lack explicit channel-close before shutdown; later process-FD release, successful native session destruction and zero contexts/module refs establish cleanup. Channel-destructor counts are APIcalls, not independent hardware acknowledgements.",
+    "Stock CUDA peer capabilities remain false, own synchronous out-of-place application backend. No native CUDA/NCCL peer backend, generic remote SM pointer, capacity/SM/firmware/BIOS/IOMMU/ACS/clock/reset or long/reboot stability claim."
+  ]
+}

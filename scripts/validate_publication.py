@@ -448,6 +448,53 @@ def check_native_log_transport():
         error(path, 'unimplemented native timing diagnostic overstated')
 
 
+def check_native_cost_profile():
+    d = load('native-cost-profile.json')
+    path = ROOT / 'data/native-cost-profile.json'
+    if d['native_CUDA_peer_capabilities'] != [False, False] or d['native_NCCL_backend'] or d['new_inference_speed_claim'] or d['native_data_operations_changed'] or d['native_logging_policy_changed']:
+        error(path, 'native diagnostic overstates data/capability/performance changes')
+    ins = d['instrumentation']
+    if ins['timer'] != 'ktime_get_raw_ts64' or ins['clock'] != 'CLOCK_MONOTONIC_RAW' or ins['actual_timer_export'] != 'EXPORT_SYMBOL' or ins['timing_values_used_as_completion']:
+        error(path, 'timer compatibility or completion scope disagrees')
+    if (ins['groups'], ins['phases_including_root_per_group'], ins['count_and_ns_entries_each']) != (4, 15, 60) or not ins['only_disjoint_top_level_children'] or not ins['snapshot_only_quiescent'] or ins['read_only_parameter_mode'] != '0400':
+        error(path, 'native aggregate bounds/accounting/readonly scope disagrees')
+    q = d['qualification']
+    if (q['full_independent_GPU_comparisons'], q['source_and_guard_verdicts'], q['intentional_result_errors_detected'], q['non_root_None_contracts'], q['native_requests'], q['real_completions'], q['successful_context_closes']) != (64, 70, 4, 6, 68, 74, 6):
+        error(path, 'native timing independent qualification count disagrees')
+    if q['payload_profile_completions'] + q['local_qualifications_excluded_from_phase_counters'] != q['real_completions']:
+        error(path, 'local qualification silently mixed with payload timing')
+    p = d['model_proof']
+    if p['collective_pairs'] != sum(p['operations'].values()) or p['shared_result_hash_pairs'] != p['collective_pairs'] or p['directed_input_tensors'] != 2 * p['collective_pairs']:
+        error(path, 'native timing model input/result pair counts disagree')
+    if (p['collective_pairs'], p['native_requests'], p['native_completions'], p['uses_per_context']) != (1301, 2862, 2864, [1431, 1431]) or not p['full_CPU_input_incoming_result_hashes_and_guards_preserved'] or p['registration_cache'] or p['GPU_digest_substitution']:
+        error(path, 'native timing actual pilot proof or unchanged verification disagrees')
+    pilot = d['pilot']
+    if not 0 < pilot['actual_output_tokens'] <= d['model_settings']['pilot_output_token_cap'] == 8 or not pilot['normal_stop'] or d['model_settings']['measured_speed_requests'] != 0:
+        error(path, 'diagnostic pilot cap/actual/speed scope disagrees')
+    profile = d['model_profile']
+    if profile['accounting_errors'] or profile['payload_errors'] or profile['unprofiled_errors'] or profile['damaged_aggregate_copies_rejected'] != 5:
+        error(path, 'native timing accounting/error controls missing')
+    if sum(x['requests'] for x in profile['groups']) != p['native_requests'] or profile['payload_completions'] + profile['setup_qualifications_excluded'] != p['native_completions']:
+        error(path, 'native timing counters do not match actual trace replies')
+    for group in profile['groups']:
+        phases = group['phases']
+        if len(phases) != 14 or len({x['name'] for x in phases}) != 14 or group['total_root_ns'] != sum(x['total_ns'] for x in phases) + group['remainder_ns']:
+            error(path, 'disjoint native phases/root/remainder do not reconcile')
+        for phase in phases:
+            expected = group['payload_completions'] if phase['name'] == 'CE_build_submit_retire_and_diagnostic' else group['requests']
+            if phase['calls'] != expected or phase['total_ns'] < 0 or abs(phase['mean_ns'] - phase['total_ns'] / expected) > 1e-6 or abs(phase['share_of_root'] - phase['total_ns'] / group['total_root_ns']) > 1e-12:
+                error(path, 'native phase count, units or normalized share disagrees')
+    cache = d['cache_source_analysis']
+    if cache['evidence_level'] != 'static-analysis' or not cache['allocation_argument_not_a_range_flush'] or cache['native_eviction_and_page_lookup_subcost_separated'] or cache['cache_barrier_removal_safety_established']:
+        error(path, 'static cache attribution overstated as measured subcost or safe omission')
+    nxt = d['next_candidate']
+    if nxt['evidence_level'] != 'hypothesis' or nxt['implemented'] or nxt['qualified'] or not nxt['no_saving_established'] or (nxt['proposed_pre_evictions'], nxt['proposed_post_evictions'], nxt['previous_evictions_per_two_direction_window']) != (2, 2, 6):
+        error(path, 'unimplemented cache epoch presented as a qualified result')
+    cleanup = d['cleanup']
+    if (cleanup['successful_native_sessions'], cleanup['payload_requests'], cleanup['actual_completions']) != (8, 2930, 2938) or cleanup['live_contexts'] or cleanup['module_references'] or not cleanup['actual_GPUs_idle']:
+        error(path, 'native diagnostic cleanup/counters disagree')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -474,6 +521,7 @@ def main():
         check_data()
         check_batched_transport()
         check_native_log_transport()
+        check_native_cost_profile()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:
