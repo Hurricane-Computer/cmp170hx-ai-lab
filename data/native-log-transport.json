@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-19T17:51:17.023252+00:00",
+  "scope": "Separate consumer with five pure native success-log guards; all original data operations and full TP verification retained",
+  "native_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "native_logging_changed": true,
+  "native_data_operations_changed": false,
+  "source_pins": {
+    "native_C_sha256": "a97c52bfaa52a66f1c7b45ecb234c1960f66f6e4a406ddd74415bbed806416f7",
+    "native_ABI_sha256": "345c37200ad0376eb37609eda27dfdacf8bbc8eec68caaf94761ddf64e533fb6",
+    "module_sha256": "e52c82ca206bb7f5b8cda866a99c8c5fe6ecc407adc3839102b68964d46366e7",
+    "module_build_id": "b9b7a545b63fb6b7c953176beaac4644de17e24f",
+    "unchanged_core_sha256": "6652c11777b2d82a774d9815cde301acbc46c9f2d0f54fde040020d40f180ade",
+    "preserved_previous_consumer_sha256": "ec8d6e7355f5cb1a3de1a73ea21f3768b09ddf3d8b3902f8b4bf598b1f0d925a",
+    "user_transport_sha256": "2dfa681dabd705a7f059a46e4d8a7a1e207999bb4aa8facd204f4d1c7e20e504",
+    "CPU_fixture_sha256": "93ef4cdfdf977c283039c425726a0250acdc4e40a4953e125ebb55a94c98a0d4"
+  },
+  "logging_change": {
+    "evidence_level": "static-analysis",
+    "total_info_call_sites": 11,
+    "guarded_success_call_sites": [
+      "lease",
+      "import_pin",
+      "import_dup",
+      "local_pages",
+      "finish"
+    ],
+    "unconditional_info_call_sites": 6,
+    "success_option": {
+      "default": false,
+      "observed": false,
+      "sysfs_mode": "0400",
+      "runtime_write_allowed": false
+    },
+    "completion_record_and_extra_MMIO_argument_unchanged": true,
+    "all_original_failure_log_calls_retained": true,
+    "predicates_only_read_CPU_metadata": true,
+    "repeated_CPU_UUID_comparison": true,
+    "native_MMIO_API_call_order_and_arguments_unchanged": true,
+    "native_original_text_restored_after_namespace_and_logging_erasure": true,
+    "exact_user_data_files_restored_after_native_namespace_mapping": 10,
+    "formal_runtime_equivalence_claimed": false,
+    "global_kernel_logging_changed": false,
+    "other_core_logging_changed": false
+  },
+  "CPU_predicate_fixture": {
+    "passed": true,
+    "quiet_success_cases": 5,
+    "verbose_success_cases": 5,
+    "failure_metadata_cases_visible": 36,
+    "healthy_release_quiet": true,
+    "GPU_faults_injected": false
+  },
+  "qualification": {
+    "full_independent_GPU_comparisons": 64,
+    "source_and_guard_verdicts": 70,
+    "intentional_result_errors_detected": 4,
+    "non_root_None_contracts": 6,
+    "raw_directed_tensors": 20,
+    "raw_payload_bytes": 10955592,
+    "native_requests": 68,
+    "real_completions": 74,
+    "successful_native_context_closes": 6,
+    "source_offsets_multiwindow_guards_reuse": true,
+    "actual_completion_and_lifetime_checks_preserved": true
+  },
+  "model_settings": {
+    "dtype": "bfloat16",
+    "TP": 2,
+    "PP": 1,
+    "max_num_batched_tokens": 128,
+    "max_output_tokens": 32,
+    "pilot_max_output_tokens": 8,
+    "max_num_seqs": 4,
+    "max_model_len": 8192,
+    "KV_bytes_per_GPU": 2147483648,
+    "eager": true,
+    "flash_attention": true,
+    "CPU_threads": 4,
+    "drafting": false,
+    "thinking": false,
+    "prefix_cache": false
+  },
+  "pilot": {
+    "output_token_cap": 8,
+    "actual_output_tokens": 4,
+    "normal_stop": true,
+    "full_TP_audit_before_measurement": true
+  },
+  "model_proof": {
+    "collective_pairs": 18331,
+    "operations": {
+      "all-reduce-sum": 18189,
+      "all-gather": 142
+    },
+    "rank_operation_verdicts": 36662,
+    "directed_input_tensors": 36662,
+    "peer_payload_bytes": 2125583360,
+    "native_requests": 37180,
+    "native_completions": 37182,
+    "native_contexts": 2,
+    "shared_result_hash_pairs": 18331,
+    "full_sender_receiver_hashes_match": true,
+    "all_shared_result_hashes_match": true,
+    "all_real_completions_and_lifecycle_checks_pass": true,
+    "maximum_input_bytes_per_rank": 1986560,
+    "root_gather_contracts": 0,
+    "native_small_control_broadcasts": 0,
+    "uses_per_context": [
+      18590,
+      18590
+    ],
+    "native_coordinator_processes": 1,
+    "full_CPU_verification_and_guards_preserved": true,
+    "registration_cache": false,
+    "GPU_digest_substitution": false,
+    "activation_CPU_payload_fallback": false
+  },
+  "comparison": {
+    "measured_sequential_requests": 3,
+    "measured_concurrent_requests": 4,
+    "new_variant": {
+      "median_sequential_decode_tps_estimate": 1.7771997138991233,
+      "median_sequential_ttft_s": 1.3491391010029474,
+      "parallel_total_tps": 5.300083679726883
+    },
+    "earlier_variants": [
+      {
+        "name": "tp2-shm-b128-o32",
+        "median_sequential_decode_tps_estimate": 17.114239226277334,
+        "median_sequential_ttft_s": 0.1087294210010441,
+        "parallel_total_tps": 54.95450945137648
+      },
+      {
+        "name": "tp2-ce-batch-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.7587483587681212,
+        "median_sequential_ttft_s": 1.3775554340099916,
+        "parallel_total_tps": 5.245638688160166
+      }
+    ],
+    "decode_ratio_to_previous_batched": 1.010491185415477,
+    "material_gain_established": false,
+    "logging_bottleneck_proven": false,
+    "actual_runtime_config_core_boot_clocks_requests_match": true,
+    "actual_commands_match_ignoring_only_port": true,
+    "unchanged_SHM_or_previous_batched_replayed": false,
+    "repeated_statistical_speed_study": false,
+    "formal_quality_or_logit_equivalence": false,
+    "answer_hash_matches": [
+      {
+        "reference": "tp2-ce-b128-o32",
+        "matches": 6,
+        "requests": 7
+      },
+      {
+        "reference": "tp2-shm-b128-o32",
+        "matches": 7,
+        "requests": 7
+      },
+      {
+        "reference": "tp2-ce-earlypoll-b128-o32",
+        "matches": 7,
+        "requests": 7
+      },
+      {
+        "reference": "tp2-ce-batch-b128-o32",
+        "matches": 7,
+        "requests": 7
+      }
+    ]
+  },
+  "selected_journal": {
+    "scope": "Current consumer, bounded experiment window including tensor qualification and model",
+    "counts": {
+      "completion": 37256,
+      "context_create": 8,
+      "context_close": 8,
+      "guarded_lease": 0,
+      "guarded_import_pin": 0,
+      "guarded_import_dup": 0,
+      "guarded_local_pages": 0,
+      "guarded_finish": 0
+    },
+    "log_counts_are_not_hardware_completion_verdicts": true,
+    "coverage_limited_by_journal_retention_and_rate_limits": true
+  },
+  "small_input_readonly_timing": [
+    {
+      "operation_or_native": "all-reduce-sum",
+      "rank_or_source": 0,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.0036482604991761036
+    },
+    {
+      "operation_or_native": "all-reduce-sum",
+      "rank_or_source": 1,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.0036326909976196475
+    },
+    {
+      "operation_or_native": "native",
+      "rank_or_source": 0,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.000917122008104343
+    },
+    {
+      "operation_or_native": "native",
+      "rank_or_source": 1,
+      "input_bytes": 10240,
+      "count": 12900,
+      "median_inclusive_s": 0.0008669724993524142
+    }
+  ],
+  "cleanup": {
+    "successful_native_session_closes": 8,
+    "channel_destructor_API_calls": 8,
+    "payload_requests": 37248,
+    "live_contexts": 0,
+    "module_references": 0,
+    "actual_GPUs_idle": true,
+    "previous_consumer_sessions_unchanged": 16,
+    "previous_consumer_requests_unchanged": 77338,
+    "selected_current_window_GPU_kernel_patterns_clean": true,
+    "framework_shutdown_warnings_separate": true,
+    "destructor_calls_not_extra_hardware_acknowledgements": true
+  },
+  "next_candidate": {
+    "evidence_level": "hypothesis",
+    "name": "Bounded native component timing before changing imports or leases",
+    "implemented": false,
+    "new_speed_claim_planned": false,
+    "full_data_and_lifetime_checks_required": true
+  },
+  "limits": [
+    "Five success-log sites were guarded; the completion diagnostic including its extra MMIO read and other core logging remain. This is not a test of removing all kernel logs.",
+    "One approximately one-percent decode difference does not establish a useful improvement, a causal latency attribution or a logging-bottleneck conclusion.",
+    "Full CPU readbacks/hashes, all source/scratch guards, actual native error/retirement/lifetime checks and normal data operations remain. No import/lease cache, staging change or GPU-digest replacement.",
+    "CPU metadata controls establish predicate behavior without injecting unsafe live GPU faults. Static source restoration is not formal runtime equivalence.",
+    "Inclusive local native/rank intervals overlap and cannot be summed/subtracted as phase cost or converted to bandwidth.",
+    "Own synchronous application backend; no stock CUDA/NCCL peer capability, generic remote SM pointers, async/fused/variable operations, extra capacity/SM or long/reboot stability proof."
+  ]
+}

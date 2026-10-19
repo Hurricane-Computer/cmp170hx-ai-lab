@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-19 — Native success-log guards, no established material speed gain
+
+- Preserve the exact native data operations and completion MMIO diagnostic while separately gating five healthy log sites; pass compiled CPU error-predicate controls, independent GPU qualification and the full 18,331-pair TP audit.
+- Record the narrow negative performance result: 1.78 versus 1.76 tok/s in one matching short run, with SHM still 17.11. Verify logging behavior/cleanup and propose native component timing before another optimization. [Method and limits](docs/cuda-application-transport.md#native-success-logging-no-established-material-speed-benefit), [selected data](data/native-log-transport.json).
+
+
 ## 2026-10-19 — Batched descriptors and one real two-direction coordinator
 
 - Independently qualify one native FD/current-context coordinator, bounded multi-FD ownership, full random GPU values, collective type/root/axis cases and deliberate verifier errors; preserve all validation and unchanged kernel modules.

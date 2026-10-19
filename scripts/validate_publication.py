@@ -403,6 +403,51 @@ def check_batched_transport():
         error(path, 'unimplemented native-log hypothesis presented as measured work')
 
 
+def check_native_log_transport():
+    d = load('native-log-transport.json')
+    path = ROOT / 'data/native-log-transport.json'
+    if d['native_CUDA_peer_capabilities'] != [False, False] or d['native_NCCL_backend'] or d['native_data_operations_changed'] or not d['native_logging_changed']:
+        error(path, 'quiet logging record misstates native data/capability scope')
+    logs = d['logging_change']
+    if logs['guarded_success_call_sites'] != ['lease', 'import_pin', 'import_dup', 'local_pages', 'finish'] or logs['total_info_call_sites'] != 11 or logs['unconditional_info_call_sites'] != 6:
+        error(path, 'quiet logging sites differ from the qualified scope')
+    option = logs['success_option']
+    if option['default'] or option['observed'] or option['runtime_write_allowed'] or option['sysfs_mode'] != '0400':
+        error(path, 'quiet logging option is not the qualified read-only state')
+    if not logs['completion_record_and_extra_MMIO_argument_unchanged'] or not logs['native_original_text_restored_after_namespace_and_logging_erasure'] or logs['exact_user_data_files_restored_after_native_namespace_mapping'] != 10:
+        error(path, 'quiet logging source/MMIO preservation evidence missing')
+    cpu = d['CPU_predicate_fixture']
+    if (cpu['quiet_success_cases'], cpu['verbose_success_cases'], cpu['failure_metadata_cases_visible']) != (5, 5, 36) or cpu['GPU_faults_injected']:
+        error(path, 'CPU log-predicate controls misrepresented')
+    q = d['qualification']
+    if (q['full_independent_GPU_comparisons'], q['source_and_guard_verdicts'], q['intentional_result_errors_detected'], q['non_root_None_contracts'], q['native_requests'], q['real_completions'], q['successful_native_context_closes']) != (64, 70, 4, 6, 68, 74, 6):
+        error(path, 'quiet consumer independent data/guard/close counts disagree')
+    p = d['model_proof']
+    if p['collective_pairs'] != sum(p['operations'].values()) or p['shared_result_hash_pairs'] != p['collective_pairs'] or p['directed_input_tensors'] != 2 * p['collective_pairs']:
+        error(path, 'quiet consumer model pair/input/hash counts disagree')
+    if (p['native_requests'], p['native_completions'], p['native_contexts'], p['uses_per_context']) != (37180, 37182, 2, [18590, 18590]):
+        error(path, 'quiet consumer actual native lifetime counts disagree')
+    if not p['full_CPU_verification_and_guards_preserved'] or p['registration_cache'] or p['GPU_digest_substitution'] or p['activation_CPU_payload_fallback']:
+        error(path, 'quiet consumer verification/fallback scope changed')
+    if not 0 < d['pilot']['actual_output_tokens'] <= d['pilot']['output_token_cap'] == 8 or not d['pilot']['full_TP_audit_before_measurement']:
+        error(path, 'quiet consumer pilot cap/actual/proof disagree')
+    compare = d['comparison']
+    if compare['material_gain_established'] or compare['logging_bottleneck_proven'] or compare['unchanged_SHM_or_previous_batched_replayed'] or not compare['actual_runtime_config_core_boot_clocks_requests_match']:
+        error(path, 'single narrow negative result overstated or mismatched')
+    previous = next(x for x in compare['earlier_variants'] if x['name'] == 'tp2-ce-batch-b128-o32')
+    ratio = compare['new_variant']['median_sequential_decode_tps_estimate'] / previous['median_sequential_decode_tps_estimate']
+    if abs(ratio - compare['decode_ratio_to_previous_batched']) > 1e-10:
+        error(path, 'quiet consumer descriptive decode ratio disagrees')
+    counts = d['selected_journal']['counts']
+    if counts['completion'] != p['native_completions'] + q['real_completions'] or any(counts[k] for k in counts if k.startswith('guarded_')) or not d['selected_journal']['log_counts_are_not_hardware_completion_verdicts']:
+        error(path, 'quiet consumer selected diagnostic-log counts/scope disagree')
+    cleanup = d['cleanup']
+    if cleanup['successful_native_session_closes'] != 8 or cleanup['live_contexts'] or cleanup['module_references'] or not cleanup['actual_GPUs_idle'] or cleanup['previous_consumer_requests_unchanged'] != 77338:
+        error(path, 'quiet consumer actual close/old-consumer preservation missing')
+    if d['next_candidate']['implemented'] or d['next_candidate']['new_speed_claim_planned'] or d['next_candidate']['evidence_level'] != 'hypothesis':
+        error(path, 'unimplemented native timing diagnostic overstated')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -428,6 +473,7 @@ def main():
     try:
         check_data()
         check_batched_transport()
+        check_native_log_transport()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:
