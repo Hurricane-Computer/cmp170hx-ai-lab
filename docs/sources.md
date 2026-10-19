@@ -73,3 +73,8 @@ The [discovery/firmware note](discovery-and-firmware.md) reports facts derived f
 
 - [Microsoft PE/COFF format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format): section extents/flags, ImageBase and declared base-relocation types.
 - [TianoCore EDK II PeImage.h](https://github.com/tianocore/edk2/blob/master/MdePkg/Include/IndustryStandard/PeImage.h): TE header and stripped-header size. These format references do not attribute a vendor PCI or AGESA behavior change.
+
+## Bounded root-bridge consumer typing
+
+- [TianoCore EDK II UefiSpec.h](https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Uefi/UefiSpec.h): standard SystemTable, BootServices and image-entry declarations.
+- [TianoCore EDK II PciRootBridgeIo.h](https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciRootBridgeIo.h): protocol GUID, method order and Configuration query. Observed content hashes are retained; no exact vendor-source identity is inferred.

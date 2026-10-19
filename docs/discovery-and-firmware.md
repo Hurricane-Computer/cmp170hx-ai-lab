@@ -62,3 +62,18 @@ The reader follows the primary [PE/COFF section and base-relocation format](http
 The small `PCI_COMMON`-referencing PEI body `79AA6086-035A-4AD9-A89A-A6D5AA27F0E2` is fully explained by those fixups/header fields. Both previously changed root-bridge-I/O candidates, `8F4B8F82-9B91-4028-86E6-F4DB7D4C1DFF` and `A062CF1F-8473-4AA3-8793-600BC4FFE9A8`, retain code differences. Their reset/resource semantics remain unresolved.
 
 Code-byte equality does not establish identical data-driven behavior, effective BAR allocation or complete AMD/AGESA coverage. **No verified BAR/FLR fix, firmware action or additional usable CMP memory results.** [Structured counts, method and selected vendor-module fields](../data/discovery-and-firmware.json) preserve this scope.
+
+## Bounded root-bridge consumer calls
+
+The two changed vendor bodies were followed to four selected code blocks. Table-pointer provenance starts with the image entry-point SystemTable argument and its BootServices field; the primary [UEFI declarations](https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Uefi/UefiSpec.h) and [root-bridge I/O declaration](https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciRootBridgeIo.h) establish the field layout. This goes beyond a literal GUID reference while retaining a narrow scope.
+
+| Vendor file GUID prefix | Selected static role | Compared block bytes per image |
+|---|---|---:|
+|8F4B8F82|LocateHandleBuffer by RootBridgeIo protocol; ConnectController loop; FreePool|123|
+|A062CF1F|LocateProtocol prefix|118|
+|A062CF1F|LocateHandleBuffer prefix|49|
+|A062CF1F|HandleProtocol and returned-interface Configuration query prefix|58|
+
+Each paired block retains identical bytes except for RIP-displacement fields independently bound to the same BootServices-pointer slot or RootBridgeIo GUID: four fields in the first block, two in each other block. All other bytes, constants and branch/call encodings remain compared. This is a bounded comparison of selected consumers; it does not identify the actual protocol provider or establish execution, unchanged whole-module behavior, a BAR/FLR fix or extra usable memory. Changes outside the blocks remain unresolved.
+
+All four PE ExceptionDirectory entries are empty. Local instruction neighborhoods were decoded with pinned Capstone5.0.6; they are not claimed to be declared function extents or proven reachable paths. A linear decode with no skipped bytes does not prove reachable-code coverage or runtime success. **No hardware or firmware action followed.** [Structured roles, comparison limits and primary-source hashes](../data/discovery-and-firmware.json) retain these distinctions.

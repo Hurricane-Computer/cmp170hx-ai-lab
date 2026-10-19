@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Qualify bounded root-bridge consumer calls
+
+- Trace four selected call blocks to ordinary handle lookup, controller connection and Configuration query consumers through typed UEFI tables.
+- Compare both capsule versions with only independently bound RIP reference fields excluded; preserve unresolved changes elsewhere. No runtime, BAR/FLR or extra-memory claim. [Scope and limits](docs/discovery-and-firmware.md#bounded-root-bridge-consumer-calls).
+
 ## 2026-10-19 — Separate capsule rebasing from remaining code differences
 
 - Classify the 101 previously different generic UEFI bodies: 70 fully explained by declared base fixups/selected headers, eight further code-equal pairs with other differences, and 23 retaining code differences.

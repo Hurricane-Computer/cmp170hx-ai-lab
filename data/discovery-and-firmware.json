@@ -404,6 +404,93 @@
         "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format",
         "https://github.com/tianocore/edk2/blob/master/MdePkg/Include/IndustryStandard/PeImage.h"
       ]
+    },
+    "root_bridge_reference_call_followup": {
+      "stage": 123,
+      "evidence_level": "static analysis of four retained original executable bodies; no firmware execution",
+      "evidence_utc": "2026-10-19T00:03:55.430485+00:00",
+      "versions": [
+        "1801",
+        "1901"
+      ],
+      "selection": "Only the two previously changed root-bridge-I/O-reference candidates, paired across the two capsules.",
+      "table_typing": "Entry-point SystemTable argument -> BootServices at offset0x60 -> retained pointer slot -> selected call. Field offsets derived from primary UEFI64 declarations; not from a table offset alone.",
+      "selected_roles": [
+        {
+          "vendor_file_GUID": "8F4B8F82-9B91-4028-86E6-F4DB7D4C1DFF",
+          "role": "LocateHandleBuffer(ByProtocol,RootBridgeIo), ConnectController for returned handles, FreePool"
+        },
+        {
+          "vendor_file_GUID": "A062CF1F-8473-4AA3-8793-600BC4FFE9A8",
+          "role": "LocateProtocol/LocateHandleBuffer/HandleProtocol consumers; selected returned interface is used for Configuration query"
+        }
+      ],
+      "block_comparisons": [
+        {
+          "vendor_file_GUID_prefix": "8F4B8F82",
+          "selected_block": "enumerate-root-handles-and-connect-controller",
+          "bytes_1801_1901": [
+            123,
+            123
+          ],
+          "independently_bound_RIP_fields_each_image": 4,
+          "all_other_block_bytes_identical": true
+        },
+        {
+          "vendor_file_GUID_prefix": "A062CF1F",
+          "selected_block": "locate-root-protocol-prefix",
+          "bytes_1801_1901": [
+            118,
+            118
+          ],
+          "independently_bound_RIP_fields_each_image": 2,
+          "all_other_block_bytes_identical": true
+        },
+        {
+          "vendor_file_GUID_prefix": "A062CF1F",
+          "selected_block": "enumerate-root-handles-prefix",
+          "bytes_1801_1901": [
+            49,
+            49
+          ],
+          "independently_bound_RIP_fields_each_image": 2,
+          "all_other_block_bytes_identical": true
+        },
+        {
+          "vendor_file_GUID_prefix": "A062CF1F",
+          "selected_block": "handle-protocol-and-configuration-read-prefix",
+          "bytes_1801_1901": [
+            58,
+            58
+          ],
+          "independently_bound_RIP_fields_each_image": 2,
+          "all_other_block_bytes_identical": true
+        }
+      ],
+      "comparison_method": "Compare exact bounded instruction bytes while excluding only RIP displacement fields independently bound to the same BootServices-pointer slot or RootBridgeIo GUID in both images. Preserve every other byte, constant and branch/call encoding.",
+      "function_boundary_limit": "All four PE ExceptionDirectory entries are empty. Linear section decoding supplies local instruction neighborhoods, not declared function extents or proven reachability. No skipped bytes in these four section decodes; this does not establish exhaustive reachable code.",
+      "whole_module_semantic_equivalence_established": false,
+      "actual_protocol_provider_or_runtime_execution_established": false,
+      "remaining_code_differences_elsewhere_resolved": false,
+      "verified_BAR_FLR_fix": false,
+      "additional_usable_GiB_demonstrated": 0,
+      "hardware_or_firmware_actions": false,
+      "decoder": {
+        "name": "Capstone",
+        "version": "5.0.6",
+        "scope": "pinned task-local decoder; vendor firmware is input data only"
+      },
+      "primary_declarations": [
+        {
+          "url": "https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Uefi/UefiSpec.h",
+          "sha256": "b9ae7c3067e372690edef10299288007773496b810982bc5fcf81873dd651325"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tianocore/edk2/master/MdePkg/Include/Protocol/PciRootBridgeIo.h",
+          "sha256": "5deec67221cba1aa13d4cccf8666783ad2f57dfe58f26b36a2f4f5610bac7864"
+        }
+      ],
+      "source_identity_limit": "Primary master declarations are observed content-hashed references, not an exact vendor-source identity or immutable upstream commit pin."
     }
   },
   "hardware_experiments_this_stage": 0,
