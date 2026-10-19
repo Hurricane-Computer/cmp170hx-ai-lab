@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-20 — Original 80-GB measurement and refresh-stability lead
+
+- Bind the original paper's claimed full-range 80-GB hash/readback and reported stress errors before/after a refresh change. Retain author units, the approximate 32% throughput cost and the missing checker/register/run contracts.
+- Keep this positive report separate from independent reproduction, the 77.5/72-GiB lineage and this lab's deterministic alias results. No new hardware trial or additional usable GiB. [Source assessment](docs/capacity-evidence.md#published-80-gb-readback-and-refresh-stability-report), [selected data](data/published-capacity-measurement.json).
+
 ## 2026-10-19 — Sparse physical address separation under the quiet profile
 
 - Hold six/nine actual owned windows simultaneously and pass 132 complete comparisons after isolated rewrites, including 39 GiB on CMP40 and 63 GiB on CMP64, at 100 W. Preserve checked native ownership and cleanup.

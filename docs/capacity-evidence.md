@@ -7,6 +7,7 @@
 | Record | What it contributes | What remains unproved |
 |---|---|---|
 | External 77.5/72-GiB report | Reported positive counterevidence worth pursuing | Exact test implementation and independent reproduction |
+| Published 10-to-80-GB measurement report | Author claims a full-range hash/readback and zero stress-test errors after a refresh change | Exact checker, refresh field/values, run artifacts and independent reproduction; GB remains the author's unit |
 | Archived 75–76-GiB `hbm45.cu` report | Full-word pattern and correct global fill/check ordering | Reliability of its unchecked result-copy channel in historical runs |
 | Our 20 September 47-GiB experiment | An upper region read correctly while corrupting lower data | Availability under a different mapping or physical absence of more memory |
 | Recovered owner 70-/78-GiB window tests | Clean small upper windows; larger selected writes expose lower corruption | Whole-allocation independence, original run date and current physical-card identity |
@@ -18,6 +19,16 @@ The starting variant matters: this source explicitly concerns **original 10GB / 
 The archived `hbm45.cu`, SHA256 `b0dece433f94394c5a730637dc9ffe09e95e1c3970f5faf4adc809b598c8cb33`, fills and checks every 64-bit word. All fills precede verification. A sparse-tag objection therefore does **not** apply to that implementation. Its separate problem is line70: the host error count starts at zero, and the subsequent device-to-host copy's status is ignored. A failed copy that leaves the destination unchanged can look clean. Earlier synchronization does not certify a later copy. We have not established that this happened in a historical run. The attributed Gist API returned HTTP404 during this audit, so the preserved source was used.
 
 Our earlier coherent-geometry run allocated 47 GiB, leaving 39–41 GiB untouched. The 41–47-GiB view read its own data correctly, while 1–7 GiB had 805,306,368 wrong 64-bit words. Selected low words contained the corresponding upper pattern at word288, byte offset0x900. This proves an alias in that experiment. It does not prove every possible configuration lacks 80 GiB. No GPU run was repeated for this audit.
+
+## Published 80-GB readback and refresh-stability report
+
+Section 6.3 of [Jon Pry's original paper](https://doi.org/10.5281/zenodo.20916112), published 26 June 2026, describes a native 10-GB CMP170HX expanded to 80 GB. The author reports writing a distinct hash pattern throughout that range and reading it back intact, interpreting this as non-aliased backing. This is an attributed full-range data claim, stronger than a displayed-size screenshot. **This lab has not reproduced it.** The paper's GB units are retained without silently converting them to GiB.
+
+The same measurement section reports 2,796 errors in one 80-GB `gpu-burn` run and a clean 40-GB result on that card. It then reports zero errors at 80 GB after more frequent DRAM refresh, with throughput of 64.6 rather than 94.6 TFLOPS, approximately a 32% cost. The proposed physical binning explanation is the author's hypothesis. These observations do not establish full-performance operation or long-term stability.
+
+The examined section does not bind the exact checker implementation, checked result-transfer statuses, original readback artifacts, stress duration/footprint, or the refresh register's address, mask and before/after values. Its relation to the separate 77.5/72-GiB documentation is not established; do not count it as an independent replication. The refresh result also does not automatically explain this lab's earlier deterministic upper-to-lower corruption.
+
+The next useful source is the actual checker/readback artifact or the precise ordinary refresh-field change and invocation contract for this run. No register write or old expanded-profile replay follows from this report. **Additional usable capacity demonstrated on this lab's cards remains zero.** [Selected claims, source hash and limits](../data/published-capacity-measurement.json). This review covers the capacity measurements, not the paper's protection-bypass implementation.
 
 ## Original 40-to-48 announcement: a positive workload lead
 

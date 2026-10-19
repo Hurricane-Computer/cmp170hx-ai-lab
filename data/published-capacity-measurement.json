@@ -1,0 +1,54 @@
+{
+  "review_date": "2026-10-20",
+  "evidence_class": "attributed original published measurement report",
+  "source": {
+    "title": "A Canary in the Crypto Mine: Defeating Stack Protection in a GPU Secure Coprocessor",
+    "author": "Jon Pry",
+    "doi": "10.5281/zenodo.20916112",
+    "url": "https://doi.org/10.5281/zenodo.20916112",
+    "publication_date": "2026-06-26",
+    "section": "6.3 Memory capacity and the stability problem",
+    "pdf_bytes": 687749,
+    "pdf_sha256": "16cb3551d5c9620ed698fb3f94a74704f398f5b40f1f37d27d6e4c0e61ef392c",
+    "measurement_section_visually_checked": true,
+    "protection_bypass_implementation_reviewed": false
+  },
+  "author_report": {
+    "native_capacity": 10,
+    "expanded_capacity": 80,
+    "capacity_unit": "GB as authored; no independent GiB conversion",
+    "full_range_distinct_pattern_and_intact_readback_claimed": true,
+    "non_aliasing_interpretation": "author's interpretation of the reported full-range readback",
+    "same_card_40GB_stress_clean_claimed": true,
+    "80GB_stress_errors_in_one_run": 2796,
+    "80GB_stress_errors_after_refresh_change": 0,
+    "change_description": "More frequent DRAM refresh by decreasing an interval field in one framebuffer configuration register",
+    "reported_throughput_TFLOPS_before": 94.6,
+    "reported_throughput_TFLOPS_after": 64.6,
+    "reported_approximate_throughput_cost_percent": 32,
+    "physical_binning_explanation": "author hypothesis"
+  },
+  "not_bound_by_examined_measurement_section": [
+    "Actual PCI device and original ROM identity",
+    "Exact checker source and immutable revision",
+    "Checked allocation, launch, synchronization and result-transfer statuses",
+    "Original complete readback and independently available digest records",
+    "Simultaneous lower and upper allocations with complete lower rechecks after upper writes",
+    "Exact refresh register, mask and before/after values",
+    "Normal invocation timing and connection to the lab's original firmware inputs",
+    "Stress duration and allocated footprint",
+    "A separate 48-GB intermediate-capacity run"
+  ],
+  "qualification": {
+    "own_hardware_reproduction": false,
+    "independence_from_77_5_72_GiB_report_established": false,
+    "count_as_independent_replication": false,
+    "historical_false_pass_proved": false,
+    "positive_report_rejected": false,
+    "refresh_explains_lab_deterministic_alias_established": false,
+    "new_testable_hardware_change_bound": false,
+    "additional_usable_GiB_demonstrated_in_lab": 0,
+    "hardware_operations_in_this_review": 0
+  },
+  "next_useful_evidence": "The actual checker/readback artifact or the exact ordinary refresh-field change and invocation contract for this positive run; no guessed register or unchanged expanded-profile replay."
+}
