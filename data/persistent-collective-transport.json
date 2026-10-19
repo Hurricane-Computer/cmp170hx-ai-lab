@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "classification": "observed",
+  "observed_utc": "2026-10-19T15:52:16.648489+00:00",
+  "scope": "Mixed CMP40/CMP64 passthrough guest, separate experimental synchronous application transport.",
+  "reported_GiB": {
+    "CMP40": 40,
+    "CMP64": 64
+  },
+  "BAR1_MiB": {
+    "CMP40": 64,
+    "CMP64": 64
+  },
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "native_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "TP_model_run": false,
+  "persistent_backend": {
+    "per_open_direction_context": true,
+    "root_only": true,
+    "ABI_bytes": 128,
+    "local_done_on_payload": 0,
+    "one_time_local_qualification_bytes": 65536,
+    "held_export_and_window_per_request": true,
+    "maximum_export_span_bytes": 1048576,
+    "fresh_GPU_completion_and_FIFO_retirement_required": true,
+    "uncertain_work_retains_backing_and_blocks_requests": true,
+    "qualification": {
+      "tensors": 20,
+      "payload_bytes": 4729860,
+      "native_requests": 24,
+      "context_generations": 2,
+      "native_completions": 26,
+      "all_source_destination_hashes_match": true,
+      "all_lifecycle_checks_pass": true
+    },
+    "qualification_uses_per_context": [
+      12,
+      12
+    ],
+    "model": {
+      "name": "pp2-ce-persistent",
+      "median_sequential_decode_tps_estimate": 18.17638349665934,
+      "median_sequential_ttft_s": 0.1527796459995443,
+      "parallel_total_tps": 38.924192928452015,
+      "measured_requests": 7,
+      "excluded_pilot_max_tokens": 16,
+      "sequential": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_sha256": "fa660b0517bcf87552d8133db1bd69602512e9aa9d42a185b028802aca0a236b",
+          "wall_s": 11.589662092999788,
+          "ttft_s": 0.1602300320082577,
+          "stream_decode_tps_estimate": 18.111136134794283,
+          "finish_reason": "stop",
+          "output_tokens": 208,
+          "prompt_tokens": 38
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_sha256": "5b6ecf1ff7b288f86d4f7bc930f044fd30d7b709b06ee491f05b12a8897d8f52",
+          "wall_s": 7.9399066449987,
+          "ttft_s": 0.15200586899300106,
+          "stream_decode_tps_estimate": 18.361815861930204,
+          "finish_reason": "stop",
+          "output_tokens": 144,
+          "prompt_tokens": 55
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_sha256": "f01f4830305ff5568c6263db99b56f92c66553742d8fe936c13a22898df52293",
+          "wall_s": 21.22407801898953,
+          "ttft_s": 0.1527796459995443,
+          "stream_decode_tps_estimate": 18.17638349665934,
+          "finish_reason": "length",
+          "output_tokens": 384,
+          "prompt_tokens": 71
+        }
+      ],
+      "parallel": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_sha256": "fa660b0517bcf87552d8133db1bd69602512e9aa9d42a185b028802aca0a236b",
+          "wall_s": 14.485410597000737,
+          "ttft_s": 0.19330177899973933,
+          "stream_decode_tps_estimate": 14.483516927836586,
+          "finish_reason": "stop",
+          "output_tokens": 208,
+          "prompt_tokens": 38
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_sha256": "5b6ecf1ff7b288f86d4f7bc930f044fd30d7b709b06ee491f05b12a8897d8f52",
+          "wall_s": 10.13219501299318,
+          "ttft_s": 0.19316883900319226,
+          "stream_decode_tps_estimate": 14.38772747919962,
+          "finish_reason": "stop",
+          "output_tokens": 144,
+          "prompt_tokens": 55
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_sha256": "f01f4830305ff5568c6263db99b56f92c66553742d8fe936c13a22898df52293",
+          "wall_s": 24.249612421001075,
+          "ttft_s": 0.2452797910082154,
+          "stream_decode_tps_estimate": 15.955452955249019,
+          "finish_reason": "length",
+          "output_tokens": 384,
+          "prompt_tokens": 71
+        },
+        {
+          "case": "text_repeat",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_sha256": "fa660b0517bcf87552d8133db1bd69602512e9aa9d42a185b028802aca0a236b",
+          "wall_s": 14.419083435001085,
+          "ttft_s": 0.10057300400512759,
+          "stream_decode_tps_estimate": 14.456811062685494,
+          "finish_reason": "stop",
+          "output_tokens": 208,
+          "prompt_tokens": 38
+        }
+      ],
+      "parallel_wall_s": 24.252269064003485,
+      "activation_tensors": 2682,
+      "activation_payload_bytes": 42803200,
+      "native_requests": 2682,
+      "native_contexts": 1,
+      "context_uses": 2682,
+      "one_time_context_creations": 1,
+      "all_activation_hashes_match": true,
+      "CPU_payload_fallback": false,
+      "full_CPU_validation_readbacks_included": true,
+      "matching_answer_hashes_to_SHM": 6,
+      "answer_hash_comparisons": 7
+    },
+    "comparison_references": [
+      {
+        "name": "pp2-ce-payload-only",
+        "median_sequential_decode_tps_estimate": 10.572665314418895,
+        "median_sequential_ttft_s": 0.22928283699729946,
+        "parallel_total_tps": 20.76179002257866,
+        "comparison": "Earlier per-chunk setup with explicit payload-only mode; same measured request hashes."
+      },
+      {
+        "name": "pp2-shm-matched",
+        "median_sequential_decode_tps_estimate": 20.0995463852316,
+        "median_sequential_ttft_s": 0.13525497099908534,
+        "parallel_total_tps": 45.70332349660037,
+        "comparison": "Earlier matched SHM reference; no unchanged rerun for this package."
+      }
+    ],
+    "model_native_chunk_median_wall_s": 0.0017914479976752773,
+    "after_qualification_and_model": {
+      "native_sessions_created": 3,
+      "native_session_destroy_ok": 3,
+      "native_channels_created": 3,
+      "native_channel_destroy_calls": 3,
+      "contexts_live": 0,
+      "module_reference_count": 0
+    }
+  },
+  "small_collectives": {
+    "collective_contracts": 20,
+    "all_reduce_sum": 10,
+    "all_gather": 10,
+    "rank_GPU_result_verdicts": 40,
+    "negative_result_checker_verdicts": 2,
+    "maximum_input_bytes_per_rank": 2097284,
+    "directed_input_transfers": 40,
+    "total_peer_payload_bytes": 4317000,
+    "native_requests": 44,
+    "native_contexts": 2,
+    "uses_per_context": 22,
+    "full_GPU_expected_equal": true,
+    "all_input_hashes_match": true,
+    "all_rank_output_hashes_match": true,
+    "source_and_scratch_guards_unchanged": true,
+    "median_native_chunk_wall_s": 0.0019008695016964339,
+    "no_CPU_payload_fallback": true,
+    "cases": [
+      {
+        "sequence": 1,
+        "operation": "all-reduce-sum",
+        "dtype": "int32",
+        "input_shape": [
+          1
+        ],
+        "dim": null,
+        "input_bytes": 4,
+        "output_shape": [
+          1
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": true,
+        "rank0_output_sha256": "3ef3bd3d6658c0dfdfdd7aa65e3d92bf1da9a04678a4ed2a5d84ed824ec91775",
+        "rank1_output_sha256": "3ef3bd3d6658c0dfdfdd7aa65e3d92bf1da9a04678a4ed2a5d84ed824ec91775",
+        "rank0_wall_s": 0.27671053900849074,
+        "rank1_wall_s": 0.27705593800055794
+      },
+      {
+        "sequence": 2,
+        "operation": "all-reduce-sum",
+        "dtype": "int32",
+        "input_shape": [
+          524321
+        ],
+        "dim": null,
+        "input_bytes": 2097284,
+        "output_shape": [
+          524321
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "f142a03c9116c961dc2b6926e3658772450ce103de8722da7976517f6d96aa25",
+        "rank1_output_sha256": "f142a03c9116c961dc2b6926e3658772450ce103de8722da7976517f6d96aa25",
+        "rank0_wall_s": 0.02839822499663569,
+        "rank1_wall_s": 0.027838651003548875
+      },
+      {
+        "sequence": 3,
+        "operation": "all-gather",
+        "dtype": "int32",
+        "input_shape": [
+          17,
+          31
+        ],
+        "dim": 0,
+        "input_bytes": 2108,
+        "output_shape": [
+          34,
+          31
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "70a9ef8d723382532b82442c2d320b64435ae1bc90b808cec09e33ff3a0e69d4",
+        "rank1_output_sha256": "70a9ef8d723382532b82442c2d320b64435ae1bc90b808cec09e33ff3a0e69d4",
+        "rank0_wall_s": 0.010676553996745497,
+        "rank1_wall_s": 0.010055635997559875
+      },
+      {
+        "sequence": 4,
+        "operation": "all-gather",
+        "dtype": "int32",
+        "input_shape": [
+          17,
+          31
+        ],
+        "dim": 1,
+        "input_bytes": 2108,
+        "output_shape": [
+          17,
+          62
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "e6baa16d21e326fa2f2c6fb3c5d9b9f6c7c5fbdb99d7855fb88d621bd0255441",
+        "rank1_output_sha256": "e6baa16d21e326fa2f2c6fb3c5d9b9f6c7c5fbdb99d7855fb88d621bd0255441",
+        "rank0_wall_s": 0.006076673002098687,
+        "rank1_wall_s": 0.0060815710021415725
+      },
+      {
+        "sequence": 5,
+        "operation": "all-reduce-sum",
+        "dtype": "float32",
+        "input_shape": [
+          4099
+        ],
+        "dim": null,
+        "input_bytes": 16396,
+        "output_shape": [
+          4099
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "77d6314208c34d1f11bb1c1c159d73dc06aba531c525d4d2a642ea00a0779f16",
+        "rank1_output_sha256": "77d6314208c34d1f11bb1c1c159d73dc06aba531c525d4d2a642ea00a0779f16",
+        "rank0_wall_s": 0.0066991240018978715,
+        "rank1_wall_s": 0.006767783997929655
+      },
+      {
+        "sequence": 6,
+        "operation": "all-gather",
+        "dtype": "float32",
+        "input_shape": [
+          1
+        ],
+        "dim": 0,
+        "input_bytes": 4,
+        "output_shape": [
+          2
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "764b57de3c268d87de2372fb516b13a5ae33c45a8e9bf3529b43ecd3d02669b8",
+        "rank1_output_sha256": "764b57de3c268d87de2372fb516b13a5ae33c45a8e9bf3529b43ecd3d02669b8",
+        "rank0_wall_s": 0.005984578994684853,
+        "rank1_wall_s": 0.006050833995686844
+      },
+      {
+        "sequence": 7,
+        "operation": "all-reduce-sum",
+        "dtype": "bfloat16",
+        "input_shape": [
+          31,
+          257
+        ],
+        "dim": null,
+        "input_bytes": 15934,
+        "output_shape": [
+          31,
+          257
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "1059c40bfde7577dbe35ead489c87a68c11a6352eec1b4b25cb58d472f12d0f7",
+        "rank1_output_sha256": "1059c40bfde7577dbe35ead489c87a68c11a6352eec1b4b25cb58d472f12d0f7",
+        "rank0_wall_s": 0.005806152999866754,
+        "rank1_wall_s": 0.005746981987613253
+      },
+      {
+        "sequence": 8,
+        "operation": "all-gather",
+        "dtype": "bfloat16",
+        "input_shape": [
+          31,
+          257
+        ],
+        "dim": 1,
+        "input_bytes": 15934,
+        "output_shape": [
+          31,
+          514
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "394d1ba55c59667cbff4a93c12629d2f77c0dc0f5a634c55232fb75493353000",
+        "rank1_output_sha256": "394d1ba55c59667cbff4a93c12629d2f77c0dc0f5a634c55232fb75493353000",
+        "rank0_wall_s": 0.005952198000159115,
+        "rank1_wall_s": 0.006164898004499264
+      },
+      {
+        "sequence": 9,
+        "operation": "all-reduce-sum",
+        "dtype": "float32",
+        "input_shape": [
+          257
+        ],
+        "dim": null,
+        "input_bytes": 1028,
+        "output_shape": [
+          257
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "2ee81db862ec2c97cc1e6c1ef296dc063d62cde3c94cf992de8a91d3cf7e3cf9",
+        "rank1_output_sha256": "2ee81db862ec2c97cc1e6c1ef296dc063d62cde3c94cf992de8a91d3cf7e3cf9",
+        "rank0_wall_s": 0.0060797780024586245,
+        "rank1_wall_s": 0.006077323007048108
+      },
+      {
+        "sequence": 10,
+        "operation": "all-gather",
+        "dtype": "bfloat16",
+        "input_shape": [
+          260
+        ],
+        "dim": 0,
+        "input_bytes": 520,
+        "output_shape": [
+          520
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "7a2aef48aef2926482fd5fb9cf3191f0b954a135328b14285ad9e747137c9b90",
+        "rank1_output_sha256": "7a2aef48aef2926482fd5fb9cf3191f0b954a135328b14285ad9e747137c9b90",
+        "rank0_wall_s": 0.005579405988100916,
+        "rank1_wall_s": 0.005523972009541467
+      },
+      {
+        "sequence": 11,
+        "operation": "all-reduce-sum",
+        "dtype": "bfloat16",
+        "input_shape": [
+          263
+        ],
+        "dim": null,
+        "input_bytes": 526,
+        "output_shape": [
+          263
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "30aabf44757cdedcc80e1db0171e2ae2fe61344a0b37b110b84dba70d15f9dd1",
+        "rank1_output_sha256": "30aabf44757cdedcc80e1db0171e2ae2fe61344a0b37b110b84dba70d15f9dd1",
+        "rank0_wall_s": 0.005660919996444136,
+        "rank1_wall_s": 0.005635872992570512
+      },
+      {
+        "sequence": 12,
+        "operation": "all-gather",
+        "dtype": "float32",
+        "input_shape": [
+          266
+        ],
+        "dim": 0,
+        "input_bytes": 1064,
+        "output_shape": [
+          532
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "4af55e9b26bb8b4433d41bab97bd2b85f7acfe2d464e499a8d576ecee1e558dc",
+        "rank1_output_sha256": "4af55e9b26bb8b4433d41bab97bd2b85f7acfe2d464e499a8d576ecee1e558dc",
+        "rank0_wall_s": 0.005551133988774382,
+        "rank1_wall_s": 0.005537757999263704
+      },
+      {
+        "sequence": 13,
+        "operation": "all-reduce-sum",
+        "dtype": "bfloat16",
+        "input_shape": [
+          269
+        ],
+        "dim": null,
+        "input_bytes": 538,
+        "output_shape": [
+          269
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "c227e7fea92434633ef67ba75260aec0b5da07c021b8b2b4cceb00ba6a7c8638",
+        "rank1_output_sha256": "c227e7fea92434633ef67ba75260aec0b5da07c021b8b2b4cceb00ba6a7c8638",
+        "rank0_wall_s": 0.0054598100105067715,
+        "rank1_wall_s": 0.005429154000012204
+      },
+      {
+        "sequence": 14,
+        "operation": "all-gather",
+        "dtype": "bfloat16",
+        "input_shape": [
+          272
+        ],
+        "dim": 0,
+        "input_bytes": 544,
+        "output_shape": [
+          544
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "070ee4d725ae8c81d2cbcddb318cc90ee18cb8efb5a5c1d2bd9f316312e8cbf9",
+        "rank1_output_sha256": "070ee4d725ae8c81d2cbcddb318cc90ee18cb8efb5a5c1d2bd9f316312e8cbf9",
+        "rank0_wall_s": 0.0055241720110643655,
+        "rank1_wall_s": 0.005509044000064023
+      },
+      {
+        "sequence": 15,
+        "operation": "all-reduce-sum",
+        "dtype": "float32",
+        "input_shape": [
+          275
+        ],
+        "dim": null,
+        "input_bytes": 1100,
+        "output_shape": [
+          275
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "1de6f0dd4497dc70d1a8302879776e01d490f04b65a58a8cbe5e000b75d6fd28",
+        "rank1_output_sha256": "1de6f0dd4497dc70d1a8302879776e01d490f04b65a58a8cbe5e000b75d6fd28",
+        "rank0_wall_s": 0.0054894170025363564,
+        "rank1_wall_s": 0.005451284014270641
+      },
+      {
+        "sequence": 16,
+        "operation": "all-gather",
+        "dtype": "bfloat16",
+        "input_shape": [
+          278
+        ],
+        "dim": 0,
+        "input_bytes": 556,
+        "output_shape": [
+          556
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "baa04c56100322e8b13fbd5b1203e5ac87d47084b1523dbed721e44040bbeeff",
+        "rank1_output_sha256": "baa04c56100322e8b13fbd5b1203e5ac87d47084b1523dbed721e44040bbeeff",
+        "rank0_wall_s": 0.0055119890021160245,
+        "rank1_wall_s": 0.005493114003911614
+      },
+      {
+        "sequence": 17,
+        "operation": "all-reduce-sum",
+        "dtype": "bfloat16",
+        "input_shape": [
+          281
+        ],
+        "dim": null,
+        "input_bytes": 562,
+        "output_shape": [
+          281
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "a3703af7e432a72d99130b99ffaf690f959a5926f2d24b847fb51b251453ecd7",
+        "rank1_output_sha256": "a3703af7e432a72d99130b99ffaf690f959a5926f2d24b847fb51b251453ecd7",
+        "rank0_wall_s": 0.00552797999989707,
+        "rank1_wall_s": 0.005496971993125044
+      },
+      {
+        "sequence": 18,
+        "operation": "all-gather",
+        "dtype": "float32",
+        "input_shape": [
+          284
+        ],
+        "dim": 0,
+        "input_bytes": 1136,
+        "output_shape": [
+          568
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "236d394b41d87b59e1812918815699501a39d96d69bf33a7e8e73a609b00c517",
+        "rank1_output_sha256": "236d394b41d87b59e1812918815699501a39d96d69bf33a7e8e73a609b00c517",
+        "rank0_wall_s": 0.005995419996907003,
+        "rank1_wall_s": 0.005943181007751264
+      },
+      {
+        "sequence": 19,
+        "operation": "all-reduce-sum",
+        "dtype": "bfloat16",
+        "input_shape": [
+          287
+        ],
+        "dim": null,
+        "input_bytes": 574,
+        "output_shape": [
+          287
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "1864d39a42c97e903ebe57ff5e79fb4d7b6d37750a8d0770dcfd168aee463ca3",
+        "rank1_output_sha256": "1864d39a42c97e903ebe57ff5e79fb4d7b6d37750a8d0770dcfd168aee463ca3",
+        "rank0_wall_s": 0.005650801002047956,
+        "rank1_wall_s": 0.005716113009839319
+      },
+      {
+        "sequence": 20,
+        "operation": "all-gather",
+        "dtype": "bfloat16",
+        "input_shape": [
+          290
+        ],
+        "dim": 0,
+        "input_bytes": 580,
+        "output_shape": [
+          580
+        ],
+        "full_GPU_expected_equal": true,
+        "input_unchanged": true,
+        "guards_unchanged": true,
+        "negative_checker_detected": null,
+        "rank0_output_sha256": "7d078318b0d9b5fa18e7b1017d8a74ee74788b326414e8f1e668e54dfdef6c1b",
+        "rank1_output_sha256": "7d078318b0d9b5fa18e7b1017d8a74ee74788b326414e8f1e668e54dfdef6c1b",
+        "rank0_wall_s": 0.005444420996354893,
+        "rank1_wall_s": 0.005426969000836834
+      }
+    ],
+    "counter_delta": {
+      "session_creates": 2,
+      "session_destroy_ok": 2,
+      "channel_creates": 2,
+      "channel_destroy_calls": 2,
+      "payload_requests": 44,
+      "contexts_live": 0
+    },
+    "synchronous": true,
+    "out_of_place": true,
+    "reduction": "sum",
+    "gather_order": "rank0-then-rank1",
+    "floating_pattern": "Bounded exact eighths; exact two-rank expected sums need no tolerance.",
+    "native_transport_changed": false,
+    "model_started": false
+  },
+  "final_state": {
+    "actual_idle_both_cards": true,
+    "selected_GPU_kernel_errors": [],
+    "native_sessions_created": 5,
+    "native_session_destroy_ok": 5,
+    "native_channels_created": 5,
+    "native_channel_destroy_calls": 5,
+    "contexts_live": 0,
+    "module_reference_count": 0
+  },
+  "source_contracts": [
+    {
+      "classification": "static-contract",
+      "url": "https://docs.nvidia.com/deeplearning/nccl/archives/nccl_2297/user-guide/docs/usage/collectives.html",
+      "meaning": "Same counts/dtypes per rank; sum result on each rank; all-gather output in rank order."
+    },
+    {
+      "classification": "static-source-and-experimental-extension",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/rmapi/nv_gpu_ops.c",
+      "meaning": "Pinned native session/channel lifecycle; experimental export/window consumer remains distinct from upstream support."
+    }
+  ],
+  "limitations": [
+    "Single bounded diagnostic observations, not peak bandwidth, long stability or reboot persistence.",
+    "All full CPU validation readbacks remain in application timing. Native export imports and windows remain per-request.",
+    "Channel destroy counter counts actual native API calls; it is not a second independent hardware acknowledgement. Native session destruction and zero live references are also checked.",
+    "Collectives are synchronous explicit two-rank application operations, not an NCCL transport plugin or a TP model result.",
+    "Arbitrary numerical reductions/nonfinite inputs, more ranks, async Work/streams and unknown collective methods are unqualified.",
+    "No generic remote SM pointer, extra usable memory or additional SM claim."
+  ]
+}

@@ -93,6 +93,35 @@ def check_data():
         error(app_path, 'expected three matched application variants')
     if {r['name'] for r in app['application']['variants']} != {'pp2-ce-validated', 'pp2-shm-matched', 'pp2-ce-payload-only'}:
         error(app_path, 'unexpected explicit activation comparison variants')
+    persistent = load('persistent-collective-transport.json')
+    persistent_path = ROOT / 'data/persistent-collective-transport.json'
+    if persistent['native_CUDA_peer_capabilities'] != [False, False] or any(persistent[k] for k in ['extra_usable_GiB', 'extra_SM', 'native_NCCL_backend', 'TP_model_run']):
+        error(persistent_path, 'explicit collectives do not qualify native support, a TP model or extra capacity')
+    backend = persistent['persistent_backend']
+    run = backend['model']
+    if run['native_contexts'] != 1 or run['context_uses'] != run['native_requests'] or run['one_time_context_creations'] != 1 or not run['all_activation_hashes_match'] or run['CPU_payload_fallback']:
+        error(persistent_path, 'persistent application proof and actual context reuse disagree')
+    if len(run['sequential']) != 3 or len(run['parallel']) != 4 or run['measured_requests'] != 7:
+        error(persistent_path, 'missing persistent application requests')
+    if abs(statistics.median(r['stream_decode_tps_estimate'] for r in run['sequential']) - run['median_sequential_decode_tps_estimate']) > 1e-8 or abs(sum(r['output_tokens'] for r in run['parallel']) / run['parallel_wall_s'] - run['parallel_total_tps']) > 1e-8 or abs(statistics.median(r['ttft_s'] for r in run['sequential']) - run['median_sequential_ttft_s']) > 1e-8:
+        error(persistent_path, 'persistent speed arithmetic differs from request records')
+    shm = next(r for r in app['application']['variants'] if r['name'] == 'pp2-shm-matched')
+    if [r['request_sha256'] for r in run['sequential'] + run['parallel']] != [r['request_sha256'] for r in shm['sequential'] + shm['parallel']]:
+        error(persistent_path, 'persistent comparison inputs differ from the matched SHM reference')
+    coll = persistent['small_collectives']
+    cases = coll['cases']
+    if len(cases) != 20 or [r['sequence'] for r in cases] != list(range(1, 21)) or {r['dtype'] for r in cases} != {'int32', 'float32', 'bfloat16'}:
+        error(persistent_path, 'incomplete independent two-rank collective coverage')
+    if sum(r['operation'] == 'all-reduce-sum' for r in cases) != coll['all_reduce_sum'] or sum(r['operation'] == 'all-gather' for r in cases) != coll['all_gather'] or 2 * sum(r['input_bytes'] for r in cases) != coll['total_peer_payload_bytes']:
+        error(persistent_path, 'collective operation or payload totals disagree')
+    for row in cases:
+        if row['rank0_output_sha256'] != row['rank1_output_sha256'] or any(not row[k] for k in ['full_GPU_expected_equal', 'input_unchanged', 'guards_unchanged']):
+            error(persistent_path, 'collective result hashes or independent GPU/guard verdicts disagree')
+    if not cases[0]['negative_checker_detected'] or coll['negative_result_checker_verdicts'] != 2 or coll['native_requests'] != coll['counter_delta']['payload_requests'] or coll['model_started'] or coll['native_transport_changed']:
+        error(persistent_path, 'checker, real request counts or bounded collective scope disagree')
+    final = persistent['final_state']
+    if final['native_sessions_created'] != final['native_session_destroy_ok'] or final['native_channels_created'] != final['native_channel_destroy_calls'] or final['contexts_live'] or final['module_reference_count'] or not final['actual_idle_both_cards'] or final['selected_GPU_kernel_errors']:
+        error(persistent_path, 'native close/idle claims are inconsistent')
     model_runs = load('model-parallel-trials.json')
     model_path = ROOT / 'data/model-parallel-trials.json'
     variants = model_runs['variants']

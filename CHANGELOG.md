@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Persistent native channels and independently checked small collectives
+
+- Reuse a native CE context for 2,682 actual model tensors with full hash/lifecycle checks; reach 18.18 tok/s sequential decode versus the earlier 10.57 per-chunk mode and 20.10 SHM reference. Confirm close cleanup and actual idle.
+- Qualify 10 sum all-reduces and 10 rank-ordered all-gathers on both GPUs over the unchanged direct transport. Keep synchronous scope, numerical-pattern limits, native-capability and untested TP-model boundaries explicit. [Methods](docs/cuda-application-transport.md#persistent-native-contexts-and-small-tp-collectives), [selected data](data/persistent-collective-transport.json).
+
 ## 2026-10-19 — Real CUDA/PyTorch buffers and direct model activation transport
 
 - Pass real CUDA exports and cross-process PyTorch pool/view copies in both directions, with independent GPU data/guard checks and full hashes.

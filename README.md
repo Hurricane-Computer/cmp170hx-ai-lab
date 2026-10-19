@@ -6,7 +6,7 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 ## Direct model activation result — 19 October 2026
 
-**Real CUDA/PyTorch buffers and actual R3 V3 BF16 pipeline activations now pass direct CE copies between the mixed CMP40/CMP64 pair.** Full model-tensor hashes match, with 64 MiB BAR1 per card and no BIOS change. The isolated adapter is compared with native SHM; ordinary CUDA peer capability still reports false. This is experimental application transport, with validation/setup overhead and no generic remote-pointer or persistence claim. See the [measured speed, method and limits](docs/cuda-application-transport.md), [selected data](data/cuda-application-transport.json), [original CE proof](docs/window-ce-proof.md), and earlier [native TP/PP matrix](docs/model-parallel.md).
+**Real CUDA/PyTorch buffers and actual R3 V3 BF16 pipeline activations now pass direct CE copies between the mixed CMP40/CMP64 pair.** Full model-tensor hashes match, with 64 MiB BAR1 per card and no BIOS change. A persistent native channel now reaches 18.18 tok/s versus the earlier 20.10 tok/s SHM reference; small two-rank sum/all-gather operations also pass independent full GPU checks. An actual TP model remains separate work. The isolated adapter is compared with native SHM; ordinary CUDA peer capability still reports false. This is experimental application transport, with validation/setup overhead and no generic remote-pointer or persistence claim. See the [measured speed, method and limits](docs/cuda-application-transport.md), [selected data](data/cuda-application-transport.json), [original CE proof](docs/window-ce-proof.md), and earlier [native TP/PP matrix](docs/model-parallel.md).
 
 ## CMP40 memory overclock: 1215 → 1350 MHz
 
