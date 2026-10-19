@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-10-19",
+  "evidence_level": "observed",
+  "scope": "Separate diagnostic core, unchanged qualified paired CE transport and full independent GPU checks; one TP2 diagnostic pilot.",
+  "ordinary_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "implementation": {
+    "diagnostic_only": true,
+    "original_existing_source_texts_restored_after_diagnostic_erasure": 6,
+    "formal_runtime_equivalence_claim": false,
+    "consumer_ABI_module_and_data_path_unchanged": true,
+    "harness_only_four_IPC_path_literals_changed": true,
+    "actual_cache_controls_per_epoch": 4,
+    "cache_policy_status_retirement_lifetime_unchanged": true,
+    "all_full_CPU_hashes_and_guards_preserved": true,
+    "existing_consumer_import_CRCs_equal": true,
+    "timer": "Existing osGetPerformanceCounter -> os_get_monotonic_time_ns_hr -> ktime_get_raw_ts64",
+    "clock": "CLOCK_MONOTONIC_RAW",
+    "timer_used_for_completion": false,
+    "fixed_GPU_slots": 8,
+    "phases_per_slot": 16,
+    "read_only_snapshots_mode": "0400",
+    "snapshot_only_quiescent": true,
+    "bounded_getter_buffer_bytes": 1024,
+    "new_RM_or_GPU_locks": false
+  },
+  "checks": {
+    "compiled_known_scope_cases": 6,
+    "known_aggregate_error_cases": 7,
+    "damaged_finished_aggregate_cases_detected": 7,
+    "damaged_finished_transport_trace_cases_detected": 6,
+    "fakeclock_and_CPU_mutation_not_GPU_faults": true
+  },
+  "qualification": {
+    "full_independent_GPU_comparisons": 64,
+    "source_and_guard_verdicts": 70,
+    "intentional_result_errors_detected": 4,
+    "correct_nonroot_None_cases": 6,
+    "raw_directed_inputs": 20,
+    "raw_payload_bytes": 10955592,
+    "metadata_page_comparisons": 16,
+    "metadata_GPU_unchanged_checks": 16,
+    "expected_precopy_alias_rejections": 1,
+    "metadata_peer_copies": 0,
+    "requests": 68,
+    "actual_completions": 74,
+    "epochs": 34,
+    "actual_cache_controls": 136,
+    "actual_public_cache_controls": 0
+  },
+  "model": {
+    "name": "R3 V3 BF16",
+    "TP": 2,
+    "PP": 1,
+    "pilot_output_cap": 8,
+    "actual_output_tokens": 4,
+    "normal_stop": true,
+    "measured_speed_requests": 0,
+    "collective_pairs": 1301,
+    "sums": 1290,
+    "all_gathers": 11,
+    "directed_inputs": 2602,
+    "payload_bytes": 473600000,
+    "requests": 2862,
+    "actual_completions": 2864,
+    "contexts": 2,
+    "uses_per_context": [
+      1431,
+      1431
+    ],
+    "actual_cache_controls": 5724,
+    "all_full_input_hashes_match": true,
+    "shared_result_hash_pairs": 1301,
+    "all_shared_result_hashes_match": true,
+    "maximum_input_bytes": 1986560,
+    "root_gather_or_int64_in_model_trace": false,
+    "small_native_TP_control_broadcast": false,
+    "normal_setup_control_output_SHM_can_remain": true,
+    "activation_metadata_CPU_fallback": false,
+    "formal_quality_or_logit_equivalence": false
+  },
+  "inner_cache": {
+    "actual_cache_controls": 5724,
+    "rows": [
+      {
+        "native_GPU_slot": 0,
+        "calls": 2862,
+        "phase_count": {
+          "cacheop": 2862,
+          "sys_child": 2862,
+          "l2_child": 2862,
+          "cacheop_exclusive_rest": 2862,
+          "physical_sys": 2862,
+          "physical_l2": 2862,
+          "gsp_sys": 2862,
+          "gsp_l2": 2862,
+          "video": 2862,
+          "video_virtual_noop": 0,
+          "video_evict": 2862,
+          "sys_virtual_noop": 0,
+          "sys_single_kernel": 2862,
+          "local_sys": 0,
+          "local_l2": 0,
+          "invalid_accounting": 0
+        },
+        "phase_total_ns": {
+          "cacheop": 652891979,
+          "sys_child": 262903161,
+          "l2_child": 388529791,
+          "cacheop_exclusive_rest": 1459027,
+          "physical_sys": 262202401,
+          "physical_l2": 387990679,
+          "gsp_sys": 261216461,
+          "gsp_l2": 387428381,
+          "video": 0,
+          "video_virtual_noop": 0,
+          "video_evict": 0,
+          "sys_virtual_noop": 0,
+          "sys_single_kernel": 0,
+          "local_sys": 0,
+          "local_l2": 0,
+          "invalid_accounting": 0
+        },
+        "phase_mean_us": {
+          "cacheop": 228.12438120195668,
+          "sys_child": 91.85994444444444,
+          "l2_child": 135.75464395527604,
+          "cacheop_exclusive_rest": 0.5097928022361985,
+          "physical_sys": 91.61509468902865,
+          "physical_l2": 135.5662749825297,
+          "gsp_sys": 91.27060132774284,
+          "gsp_l2": 135.36980468204052,
+          "video": 0.0,
+          "video_virtual_noop": 0.0,
+          "video_evict": 0.0,
+          "sys_virtual_noop": 0.0,
+          "sys_single_kernel": 0.0,
+          "local_sys": 0.0,
+          "local_l2": 0.0,
+          "invalid_accounting": 0.0
+        }
+      },
+      {
+        "native_GPU_slot": 1,
+        "calls": 2862,
+        "phase_count": {
+          "cacheop": 2862,
+          "sys_child": 2862,
+          "l2_child": 2862,
+          "cacheop_exclusive_rest": 2862,
+          "physical_sys": 2862,
+          "physical_l2": 2862,
+          "gsp_sys": 2862,
+          "gsp_l2": 2862,
+          "video": 2862,
+          "video_virtual_noop": 0,
+          "video_evict": 2862,
+          "sys_virtual_noop": 0,
+          "sys_single_kernel": 2862,
+          "local_sys": 0,
+          "local_l2": 0,
+          "invalid_accounting": 0
+        },
+        "phase_total_ns": {
+          "cacheop": 704029070,
+          "sys_child": 270384353,
+          "l2_child": 432363742,
+          "cacheop_exclusive_rest": 1280975,
+          "physical_sys": 269820725,
+          "physical_l2": 431875724,
+          "gsp_sys": 269036665,
+          "gsp_l2": 431331754,
+          "video": 0,
+          "video_virtual_noop": 0,
+          "video_evict": 0,
+          "sys_virtual_noop": 0,
+          "sys_single_kernel": 0,
+          "local_sys": 0,
+          "local_l2": 0,
+          "invalid_accounting": 0
+        },
+        "phase_mean_us": {
+          "cacheop": 245.99198812019566,
+          "sys_child": 94.4739178895877,
+          "l2_child": 151.07048986722572,
+          "cacheop_exclusive_rest": 0.4475803633822502,
+          "physical_sys": 94.27698287910552,
+          "physical_l2": 150.89997344514325,
+          "gsp_sys": 94.00302760307478,
+          "gsp_l2": 150.70990705800142,
+          "video": 0.0,
+          "video_virtual_noop": 0.0,
+          "video_evict": 0.0,
+          "sys_virtual_noop": 0.0,
+          "sys_single_kernel": 0.0,
+          "local_sys": 0.0,
+          "local_l2": 0.0,
+          "invalid_accounting": 0.0
+        }
+      }
+    ],
+    "GSP_wrapper_share_of_only_CacheOp_root": 0.9941722563697957,
+    "zero_virtual_noop_hits": true,
+    "zero_local_control_route_hits": true,
+    "zero_inner_returned_status_errors": true,
+    "zero_accounting_errors": true,
+    "disjoint_children": [
+      "sys_child",
+      "l2_child",
+      "cacheop_exclusive_rest"
+    ],
+    "nesting": "gsp_sys <= physical_sys <= sys_child; gsp_l2 <= physical_l2 <= l2_child. Never add nested intervals.",
+    "original_ignored_SYS_return_policy_unchanged": true,
+    "scope": "Host monotonic intervals across startup/profile/pilot mixed sizes, not decode-only. GSP control wrapper includes serialization/cache lookup/possible RPC send-wait/firmware/scheduler costs; no separate RPC-issue/cache-hit or firmware execution proof.",
+    "actual_RPC_issue_cache_hit_and_firmware_subcosts_separately_measured": false
+  },
+  "closure": {
+    "successful_sessions": 10,
+    "channel_destructor_API_calls": 10,
+    "payload_requests": 2930,
+    "actual_completions": 2940,
+    "local_qualifications_included": 10,
+    "epochs": 1465,
+    "actual_cache_controls": 5860,
+    "live_contexts": 0,
+    "module_references": 0,
+    "actual_GPUs_idle": true,
+    "selected_current_kernel_errors": 0,
+    "software_counters_not_second_hardware_ack": true
+  },
+  "comparison": {
+    "new_inference_speed_claim": false,
+    "new_SHM_baseline": false,
+    "historical_SHM_called_current_identical": false
+  },
+  "administrative_findings": [
+    "Unused initial diagnostic getter exceeded stack warning threshold; fixed before first load. v2 has no new source warning; six inherited warnings remain in byte-identical unchanged files.",
+    "Auto-loaded idle display module insertion conflict recorded and corrected without a second core transition.",
+    "Old IPC directory stopped first launcher before child/native payload; four path literals isolated without replaying data."
+  ],
+  "sources": [
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_sys/arch/maxwell/kern_mem_sys_gm200.c"
+    },
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/mem_sys/kern_mem_sys.c"
+    },
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bus/kern_bus.c"
+    },
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/rmapi/rpc_common.c"
+    },
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/vgpu/rpc.c"
+    },
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/arch/nvalloc/unix/src/os.c"
+    },
+    {
+      "evidence_level": "static-analysis",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia/os-interface.c"
+    }
+  ],
+  "next_candidate": {
+    "implemented": false,
+    "qualified": false,
+    "speed_gain_established": false,
+    "description": "Separate actual GSP control cache-hit/serialization/RPC-send/real-wait/restore costs before a bounded optimization; preserve all four barriers and all original status/data/lifetime instructions."
+  }
+}

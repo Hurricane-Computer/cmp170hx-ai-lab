@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Actual inner cache route and bounded cost attribution
+
+- Establish actual VIDEO/EVICT, SYS/L2 physical and GSP-control wrapper routes on both GPUs with zero observed inner failures/no-op branches. Keep the qualified transport and all data/barrier/lifetime checks; independent qualification and one actual1,301-pair TP pilot pass.
+- Separate disjoint CacheOp costs from nested control intervals, with no inference-speed or firmware-time claim. [Method](docs/cuda-application-transport.md#actual-inner-cache-route-and-disjoint-costs), [data](data/inner-cache-profile.json).
+
 ## 2026-10-19 — Kernel-enforced cache epoch and actual TP diagnostic
 
 - Move four checked cache controls into the held native pair; preserve 14 native data/lifetime helpers and all full hash/guard checks. Pass independent GPU qualification and the actual 1,301-pair TP pilot on a separate core.

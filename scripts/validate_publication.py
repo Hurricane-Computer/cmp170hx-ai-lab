@@ -590,6 +590,26 @@ def check_native_cache_epoch():
         error(path, 'unimplemented inner-cache diagnosis presented as completed')
 
 
+def check_inner_cache_profile():
+    d=load('inner-cache-profile.json');path=ROOT/'data/inner-cache-profile.json'
+    if d['ordinary_CUDA_peer_capabilities'] != [False,False] or any(d[k] for k in ['native_NCCL_backend','extra_usable_GiB','extra_SM']):
+        error(path,'inner-cache diagnostics overstate peer support or capacity')
+    i=d['implementation'];p=d['model'];a=d['inner_cache']
+    if not all(i[k] for k in ['diagnostic_only','consumer_ABI_module_and_data_path_unchanged','cache_policy_status_retirement_lifetime_unchanged','all_full_CPU_hashes_and_guards_preserved','existing_consumer_import_CRCs_equal']) or i['timer_used_for_completion'] or i['new_RM_or_GPU_locks']:
+        error(path,'diagnostic/data/status/lifetime boundary changed')
+    if (p['collective_pairs'],p['requests'],p['actual_completions'],p['actual_cache_controls'],p['actual_output_tokens'],p['measured_speed_requests']) != (1301,2862,2864,5724,4,0) or not p['all_full_input_hashes_match'] or not p['all_shared_result_hashes_match']:
+        error(path,'actual diagnostic model proof inconsistent')
+    total=0
+    for row in a['rows']:
+        c=row['phase_count'];n=row['phase_total_ns'];base=row['calls'];total+=base
+        if base != 2862 or any(c[k]!=base for k in ['cacheop','sys_child','l2_child','cacheop_exclusive_rest','physical_sys','physical_l2','gsp_sys','gsp_l2','video','video_evict','sys_single_kernel']) or any(c[k] for k in ['video_virtual_noop','sys_virtual_noop','local_sys','local_l2','invalid_accounting']):
+            error(path,'actual cache route/counts misrepresented')
+        if n['cacheop']!=n['sys_child']+n['l2_child']+n['cacheop_exclusive_rest'] or not n['gsp_sys']<=n['physical_sys']<=n['sys_child'] or not n['gsp_l2']<=n['physical_l2']<=n['l2_child']:
+            error(path,'disjoint sum or nested cache accounting inconsistent')
+    if total!=5724 or a['actual_RPC_issue_cache_hit_and_firmware_subcosts_separately_measured'] or any(d['comparison'].values()) or any(d['next_candidate'][k] for k in ['implemented','qualified','speed_gain_established']):
+        error(path,'unmeasured RPC/firmware/speed or future candidate overstated')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -619,6 +639,7 @@ def main():
         check_native_cost_profile()
         check_cache_epoch_transport()
         check_native_cache_epoch()
+        check_inner_cache_profile()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:
