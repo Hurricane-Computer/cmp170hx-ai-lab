@@ -4,11 +4,9 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 [Deutsch](README.de.md) · [Current findings](docs/findings.md) · [Experiments](docs/experiments.md) · [Open questions](docs/roadmap.md) · [Sources](docs/sources.md)
 
-**Model follow-up:** [Real R3 V3 BF16 inference on both CMPs](docs/model-parallel.md) works with tensor and pipeline parallelism. Native CUDA/NCCL still chooses shared host memory, so these five short speed runs are not a direct P2P-on/off benchmark.
+## Direct model activation result — 19 October 2026
 
-## New P2P data result — 19 October 2026
-
-**Actual 1 MiB Copy Engine reads passed in both directions between CMP40 and CMP64, with 64 MiB BAR1 on each card.** Fresh GPU completion and full data comparisons passed; no BIOS change was needed. This is a bounded allocation-specific window experiment. CUDA/NCCL application P2P, SM remote-pointer access, performance, stability and reboot persistence remain unqualified. See the [method and limits](docs/window-ce-proof.md), [structured results](data/window-ce-trials.json) and [test sources](prototypes/cmp-window/ce132/README.md).
+**Real CUDA/PyTorch buffers and actual R3 V3 BF16 pipeline activations now pass direct CE copies between the mixed CMP40/CMP64 pair.** Full model-tensor hashes match, with 64 MiB BAR1 per card and no BIOS change. The isolated adapter is compared with native SHM; ordinary CUDA peer capability still reports false. This is experimental application transport, with validation/setup overhead and no generic remote-pointer or persistence claim. See the [measured speed, method and limits](docs/cuda-application-transport.md), [selected data](data/cuda-application-transport.json), [original CE proof](docs/window-ce-proof.md), and earlier [native TP/PP matrix](docs/model-parallel.md).
 
 ## CMP40 memory overclock: 1215 → 1350 MHz
 

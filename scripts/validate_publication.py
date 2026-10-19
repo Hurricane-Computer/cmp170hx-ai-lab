@@ -65,6 +65,34 @@ def check_text(path, text):
 
 
 def check_data():
+    app = load('cuda-application-transport.json')
+    app_path = ROOT / 'data/cuda-application-transport.json'
+    if app['native_CUDA_peer_capabilities'] != [False, False] or app['extra_usable_GiB'] or app['extra_SM']:
+        error(app_path, 'explicit CE transport does not establish native peer capability or extra capacity')
+    cuda = app['CUDA_buffers']
+    if len(cuda['cases']) != 6 or sum(r['bytes'] for r in cuda['cases']) != cuda['payload_bytes']:
+        error(app_path, 'expected six bounded CUDA data cases with consistent payload bytes')
+    for row in cuda['cases']:
+        if row['CPU_wrong_bytes'] or row['GPU_wrong_words'] or row['source_GPU_wrong_words'] or not row['source_unchanged'] or not row['peer_completed'] or row['cleanup_status'] or row['retained'] or row['expected_sha256'] != row['destination_sha256']:
+            error(app_path, 'CUDA data, completion or cleanup verdict disagrees')
+    if len(cuda['negative_GPU_controls']) != 2 or any(r['wrong_words'] != 1 or r['first_wrong_word'] != 17 for r in cuda['negative_GPU_controls']):
+        error(app_path, 'both GPU verifiers must detect the deliberately changed word')
+    pool = app['PyTorch_processes']
+    if len(pool['cases']) != 4 or pool['process_exitcodes'] != [0, 0] or sum(r['bytes'] for r in pool['cases']) != pool['payload_bytes'] or any(not r['GPU_expected_equal'] or not r['guards_unchanged'] for r in pool['cases']):
+        error(app_path, 'cross-process pool/view proof is incomplete')
+    request_sets = []
+    for row in app['application']['variants']:
+        if row['status'] != 'completed' or len(row['sequential']) != 3 or len(row['parallel']) != 4:
+            error(app_path, 'missing measured application requests')
+        request_sets.append(tuple(r['request_sha256'] for r in row['sequential'] + row['parallel']))
+        if abs(statistics.median(r['stream_decode_tps_estimate'] for r in row['sequential']) - row['median_sequential_decode_tps_estimate']) > 1e-8 or abs(sum(r['output_tokens'] for r in row['parallel']) / row['parallel_wall_s'] - row['parallel_four_response_tps']) > 1e-8:
+            error(app_path, 'application speed summary is inconsistent')
+        if row['CE'] and (not row['CE']['all_source_destination_hashes_match'] or row['native_CUDA_peer_support'] or row['CPU_payload_fallback']):
+            error(app_path, 'direct activation proof and effective route disagree')
+    if len(request_sets) != 3 or len(set(request_sets)) != 1:
+        error(app_path, 'expected three matched application variants')
+    if {r['name'] for r in app['application']['variants']} != {'pp2-ce-validated', 'pp2-shm-matched', 'pp2-ce-payload-only'}:
+        error(app_path, 'unexpected explicit activation comparison variants')
     model_runs = load('model-parallel-trials.json')
     model_path = ROOT / 'data/model-parallel-trials.json'
     variants = model_runs['variants']

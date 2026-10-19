@@ -1,8 +1,6 @@
 # CMP 170HX AI Research Lab
 
-**Neuer P2P-Datenbefund, 19. Oktober 2026:** Beide CMPs haben jeweils 1 MiB direkt aus dem Speicher der anderen Karte gelesen. GPU-Abschlussmeldungen und vollständige Datenvergleiche bestanden, bei unverändert 64 MiB BAR1 pro Karte und ohne BIOS-Änderung. Das belegt den kleinen Kopierweg über tatsächlich zugeordnete Speicherfenster. CUDA/NCCL für Anwendungen, Fernzugriff aus SMs, Leistung, Dauerstabilität und Neustartfestigkeit bleiben offen. [Methode, Messungen und Grenzen](docs/window-ce-proof.md).
-
-**Modelltest:** [R3 V3 BF16 auf beiden CMPs](docs/model-parallel.md) funktioniert mit Tensor- und Pipeline-Aufteilung. CUDA/NCCL nutzt dabei weiterhin den Arbeitsspeicher; ein echter P2P-Leistungsvergleich mit einem Modell steht noch aus.
+**Direkte Modellübertragung, 19. Oktober 2026:** Echte CUDA-/PyTorch-Puffer und die Pipeline-Tensoren von R3 V3 BF16 lassen sich zwischen der 40er und der 64er direkt kopieren. Sämtliche übertragenen Modelltensoren bestehen den vollständigen Prüfsummenvergleich. Beide Karten behalten 64 MiB BAR1; keine BIOS-Änderung nötig. Der eigene Adapter wurde gegen die bisherige Übertragung über den Arbeitsspeicher gemessen. Normales CUDA/NCCL meldet weiterhin keine Peer-Unterstützung. Prüfaufwand, experimenteller Umfang und offene Grenzen bleiben ausdrücklich sichtbar. [Messwerte und Methode](docs/cuda-application-transport.md).
 
 Unser öffentliches Forschungstagebuch zu Speicher, Recheneinheiten, Firmware und KI-Einsatz der CMP 170HX. Die Arbeit wird mit KI-Unterstützung durchgeführt; entscheidend sind nachvollziehbare Belege.
 

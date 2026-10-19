@@ -1,5 +1,7 @@
 # Small BAR1 windows: actual CE peer reads in both directions
 
+**Later application result:** Real CUDA/PyTorch buffers and actual PP2 model activations now use the explicit window path. See the [application proof, speed comparison and remaining native-CUDA limits](cuda-application-transport.md). The original kernel-owned experiment below keeps its own scope.
+
 **Observed on 19 October 2026 at 11:57 UTC:** CMP64 read a checked 1 MiB allocation owned by CMP40, and CMP40 read a checked 1 MiB allocation owned by CMP64. Each GPU Copy Engine (CE) completed a real command through a native, allocation-specific BAR1 window. Every destination word matched. Both cards still had **64 MiB BAR1**; no motherboard BIOS change was needed.
 
 This is a successful bounded device-to-device data path. It does **not** establish ordinary CUDA peer enablement, application/NCCL use, remote SM pointer access, performance, repeated stability or reboot persistence. It adds no HBM capacity or SMs. [Structured observations](../data/window-ce-trials.json) and [test sources](../prototypes/cmp-window/ce132/README.md) keep those distinctions explicit.

@@ -1,5 +1,7 @@
 # Real-model parallelism: working inference, native P2P still unavailable
 
+**Later application result:** The [owned CUDA-buffer adapter and actual PP2 model follow-up](cuda-application-transport.md) now demonstrate direct CE activation transfers and a matched speed comparison. The five native CUDA/NCCL runs below retain their original SHM-only scope.
+
 Observed on 19 October 2026: the existing **R3 V3 BF16 checkpoint (51.75 GiB of files)** generated responses on the mixed CMP40/CMP64 pair with both tensor parallelism (TP2) and pipeline parallelism (PP2). Each was tried with native automatic P2P selection permitted and with P2P explicitly disabled. CMP64 alone used the same checkpoint as a baseline. All 35 measured responses were nonempty; selected native GPU/kernel error checks were clean.
 
 **None of these model runs used direct GPU peer memory.** Fresh Torch/CUDA capability queries were false in both directions. The final NCCL channel logs identify shared host memory for every two-GPU run. The earlier [successful 1 MiB native-window CE experiment](window-ce-proof.md) remains a real direct copy result, but its private kernel-owned allocation/lease hook is not called by CUDA/NCCL for model buffers.

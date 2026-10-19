@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Real CUDA/PyTorch buffers and direct model activation transport
+
+- Pass real CUDA exports and cross-process PyTorch pool/view copies in both directions, with independent GPU data/guard checks and full hashes.
+- Run actual PP2 model activations over bounded native CE windows, compare the diagnostic and explicit payload-only modes with a matched SHM baseline, and preserve overhead, native-capability and lifecycle limits. [Methods and measured results](docs/cuda-application-transport.md).
+
 ## 2026-10-19 — Reject replacement transport when requiring application P2P
 
 - With native P2P allowed through SYS and SHM disabled, NCCL2.29.7 selects NET/Socket in both directions. Reject that route before any payload collective or new model run; keep the native-window CE proof separate.

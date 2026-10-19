@@ -58,3 +58,5 @@ The cache-command extract now also records a small data-bearing live-CUDA follow
 [addressing-vs-size.json](addressing-vs-size.json) distinguishes original register-address arithmetic from the separately traced Nouveau non-GSP/GSP size and allocation inputs. Static sources only; no new GPU observation.
 
 [controller-amounts.json](controller-amounts.json) links a native GA100-selected amount consumer to36 read-only active-FBPA observations. Configured sums are separate from physical backing.
+
+[cuda-application-transport.json](cuda-application-transport.json) separates real CUDA-buffer checks, cross-process PyTorch pool/view checks, and actual PP2 activation transport with diagnostic/payload-only/SHM speed measurements. Native CUDA capability remains false; no additional memory claim.
