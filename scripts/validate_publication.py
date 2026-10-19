@@ -201,6 +201,43 @@ def check_data():
     final_poll = poll['final_state']
     if final_poll['native_sessions_created'] != final_poll['native_session_destroy_ok'] or final_poll['native_channels_created'] != final_poll['native_channel_destroy_calls'] or final_poll['contexts_live'] or final_poll['module_reference_count'] or not final_poll['actual_idle_both_cards'] or final_poll['selected_GPU_kernel_errors']:
         error(poll_path, 'bounded-poll close/idle claims disagree')
+    profile = load('transport-cost-profile.json')
+    profile_path = ROOT / 'data/transport-cost-profile.json'
+    if profile['native_changes'] or profile['native_NCCL_backend'] or profile['native_CUDA_peer_capabilities'] != [False, False] or profile['extra_usable_GiB'] or profile['extra_SM']:
+        error(profile_path, 'host profiling does not change native capability or hardware')
+    if profile['source_pins']['unchanged_consumer_sha256'] != poll['source_pins']['consumer_module_sha256'] or profile['source_pins']['unchanged_core_sha256'] != poll['source_pins']['unchanged_core_sha256']:
+        error(profile_path, 'unchanged native backend claim differs from preserved data')
+    offline = profile['offline_verifier']
+    if not offline['passed'] or not offline['local_only'] or offline['GPU_access'] or offline['negative_corrupt_trees_detected'] != 3:
+        error(profile_path, 'offline timing-tree verifier qualification is incomplete')
+    pilot = profile['pilot']
+    if pilot['TP'] != 2 or pilot['PP'] != 1 or pilot['output_token_cap'] != 8 or not 0 < pilot['actual_output_tokens'] <= 8 or pilot['measured_speed_benchmark_requests'] or pilot['formal_quality_equivalence']:
+        error(profile_path, 'diagnostic pilot scope became a speed/quality claim')
+    proof = profile['model_proof']
+    phases = profile['profile_verdict']
+    if not proof['passed'] or proof['CPU_activation_payload_fallback'] or any(not proof[k] for k in ['full_sender_receiver_hashes_match', 'all_shared_result_hashes_match', 'all_real_completions_and_lifecycle_checks_pass']):
+        error(profile_path, 'actual diagnostic model data proof is incomplete')
+    if sum(proof['operations'].values()) != proof['collective_pairs'] or proof['shared_result_hash_pairs'] != proof['collective_pairs'] or proof['directed_input_tensors'] != 2 * proof['collective_pairs'] or phases['profile_roots'] != proof['rank_operation_verdicts'] or phases['profile_roots'] != 2 * proof['collective_pairs']:
+        error(profile_path, 'profile roots and full model data operations disagree')
+    if phases['maximum_nodes_per_root'] > phases['configured_maximum_nodes_per_root'] or phases['full_hash_calls_per_rank_operation'] != 8 or any(not phases[k] for k in ['passed', 'all_roots_match_actual_data_events', 'all_intervals_nested_and_nonoverlapping', 'all_exclusive_sums_equal_local_roots', 'native_calls_match_real_requests']):
+        error(profile_path, 'bounded profile coverage or exclusive-span verdict is incomplete')
+    for group in profile['small_sum_groups']:
+        total = group['inclusive_total_ns']
+        if sum(p['exclusive_total_ns'] for p in group['exclusive_phases']) != total or group['full_hash_calls'] != 8 * group['root_count']:
+            error(profile_path, 'exclusive phase sum or preserved full hash count disagrees')
+        if any(abs(p['share'] - p['exclusive_total_ns'] / total) > 1e-12 for p in group['exclusive_phases']):
+            error(profile_path, 'phase share differs from actual aggregate exclusive data')
+        receives = [p for p in profile['IPC_receive_paths'] if p['rank'] == group['rank']]
+        recv_phase = next(p for p in group['exclusive_phases'] if p['phase'] == 'ipc.recv')
+        if sum(p['calls'] for p in receives) != 7 * group['root_count'] or sum(p['exclusive_total_ns'] for p in receives) != recv_phase['exclusive_total_ns']:
+            error(profile_path, 'receive-path decomposition differs from local phase totals')
+    if not profile['instrumentation_cost']['no_inference_speed_comparison'] or not profile['instrumentation_cost']['final_row_per_process_excluded'] or profile['clock']['nanosecond_accuracy_claimed']:
+        error(profile_path, 'instrumentation/clock precision limits must remain explicit')
+    final_profile = profile['final_state']
+    if final_profile['cumulative_consumer_sessions_created'] != final_profile['cumulative_consumer_session_destroy_ok'] or final_profile['cumulative_consumer_channel_creates'] != final_profile['cumulative_consumer_channel_destroy_calls'] or final_profile['contexts_live'] or final_profile['module_reference_count'] or not final_profile['actual_idle_both_cards'] or final_profile['selected_GPU_kernel_errors']:
+        error(profile_path, 'profile native-close/idle claims disagree')
+    if profile['next_hypothesis']['implemented'] or profile['next_hypothesis']['measured_speed_gain']:
+        error(profile_path, 'unimplemented descriptor batching must remain a hypothesis')
     model_runs = load('model-parallel-trials.json')
     model_path = ROOT / 'data/model-parallel-trials.json'
     variants = model_runs['variants']

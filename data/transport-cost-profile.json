@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "evidence_level": "observed",
+  "evidence_utc": "2026-10-19T17:07:06.820040+00:00",
+  "scope": "Bounded local exclusive host phase profile on the unchanged qualified direct transport; one actual TP2 model pilot, no speed benchmark",
+  "native_changes": false,
+  "native_NCCL_backend": false,
+  "native_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "source_pins": {
+    "unchanged_core_sha256": "6652c11777b2d82a774d9815cde301acbc46c9f2d0f54fde040020d40f180ade",
+    "unchanged_consumer_sha256": "ec8d6e7355f5cb1a3de1a73ea21f3768b09ddf3d8b3902f8b4bf598b1f0d925a",
+    "instrumented_source_sha256": {
+      "cmp_cuda_transport.py": "1bea3c3e027a28cfe2c21d6961c6d53b9f428131a82ba8b0b1b0700c8eb743f3",
+      "cmp_small_collectives.py": "a7321e6755c027ad25fd4c086eef588ae02af3096af0cc9f3a38edb7eb30c273",
+      "cmp_tp_adapter.py": "6150a897026e6d749b6d021201b8db0c9f592c8c48da689460218a2fbc9abc1c",
+      "phase_profile.py": "4fb135f48178c97eda4aaedb9ddea63b0e6bc2536275e7ad1c8bce9cfa18b6c8",
+      "phase_audit.py": "fa964639a8cfe9d687bde203d835fad9cad8c7972bb51d2d26ab4dd4b3486c5e"
+    }
+  },
+  "static_analysis": {
+    "evidence_level": "static-analysis",
+    "original_data_AST_restored_after_erasing_timing": true,
+    "files_checked": 3,
+    "CPU_byte_temporary_inlined_for_comparison": true,
+    "formal_runtime_equivalence_claimed": false
+  },
+  "offline_verifier": {
+    "passed": true,
+    "local_only": true,
+    "GPU_access": false,
+    "positive_nested_spans": 5,
+    "negative_corrupt_trees_detected": 3,
+    "return_value_and_predicate_preserved": true
+  },
+  "tensor_qualification": {
+    "passed": true,
+    "directed_tensors": 20,
+    "payload_bytes": 4729860,
+    "native_requests": 24,
+    "real_completions": 26,
+    "independent_GPU_data_verdicts": 40,
+    "outside_view_guard_verdicts": 40,
+    "native_contexts": 2,
+    "uses_per_context": [
+      12,
+      12
+    ],
+    "full_sender_receiver_hashes_match": true,
+    "phase_profile": {
+      "passed": true,
+      "profile_roots": 40,
+      "span_nodes": 648,
+      "maximum_nodes_per_root": 23,
+      "all_roots_match_actual_data_events": true,
+      "all_intervals_nested_and_nonoverlapping": true,
+      "all_exclusive_sums_equal_local_roots": true,
+      "full_hash_call_counts_correct": true
+    },
+    "same_bounded_offset_random_fixtures_as": "completion-poll-transport.json",
+    "new_instrumented_data_proof": true
+  },
+  "pilot": {
+    "TP": 2,
+    "PP": 1,
+    "dtype": "bfloat16",
+    "output_token_cap": 8,
+    "actual_output_tokens": 4,
+    "normal_stop": true,
+    "measured_speed_benchmark_requests": 0,
+    "batch_token_budget": 128,
+    "request_sha256": "a4025973b25e6435d75bf35b6e8f23a0ef15e4f07118c78cf3eed802635230ec",
+    "output_sha256": "a934c244755c66aebb0d6f9f5687038ffae8f00b00b28b4e17521016393f38b9",
+    "formal_quality_equivalence": false,
+    "startup_profile_included": true
+  },
+  "model_proof": {
+    "passed": true,
+    "collective_pairs": 1301,
+    "rank_operation_verdicts": 2602,
+    "operations": {
+      "all-reduce-sum": 1290,
+      "all-gather": 11
+    },
+    "full_sender_receiver_hashes_match": true,
+    "shared_result_hash_pairs": 1301,
+    "all_shared_result_hashes_match": true,
+    "directed_input_tensors": 2602,
+    "peer_payload_bytes": 473600000,
+    "native_requests": 2862,
+    "native_completions": 2864,
+    "native_contexts": 2,
+    "all_real_completions_and_lifecycle_checks_pass": true,
+    "maximum_input_bytes_per_rank": 1986560,
+    "CPU_activation_payload_fallback": false
+  },
+  "profile_verdict": {
+    "passed": true,
+    "profile_roots": 2602,
+    "span_nodes": 160542,
+    "maximum_nodes_per_root": 68,
+    "all_roots_match_actual_data_events": true,
+    "all_intervals_nested_and_nonoverlapping": true,
+    "all_exclusive_sums_equal_local_roots": true,
+    "native_calls_match_real_requests": true,
+    "configured_maximum_nodes_per_root": 1024,
+    "configured_maximum_roots_per_process": 20000,
+    "full_hash_calls_per_rank_operation": 8,
+    "one_extra_record_per_completed_outer_operation": true
+  },
+  "small_sum_groups": [
+    {
+      "rank": 0,
+      "operation": "all-reduce-sum",
+      "input_bytes": 10240,
+      "root_count": 645,
+      "inclusive_total_ns": 3102108722,
+      "median_root_ns": 4673691,
+      "exclusive_totals_equal_root": true,
+      "native_calls": 645,
+      "full_hash_calls": 5160,
+      "exclusive_phases": [
+        {
+          "phase": "ipc.recv",
+          "exclusive_total_ns": 1334362526,
+          "share": 0.4301469244249138,
+          "median_exclusive_ns": 1997002
+        },
+        {
+          "phase": "native.ioctl",
+          "exclusive_total_ns": 600300833,
+          "share": 0.19351379554903944,
+          "median_exclusive_ns": 900025
+        },
+        {
+          "phase": "other_host_bookkeeping",
+          "exclusive_total_ns": 556309503,
+          "share": 0.17933269039046917,
+          "median_exclusive_ns": 811646
+        },
+        {
+          "phase": "hash.readback_bytes",
+          "exclusive_total_ns": 240956956,
+          "share": 0.07767521308687388,
+          "median_exclusive_ns": 381739
+        },
+        {
+          "phase": "ipc.send",
+          "exclusive_total_ns": 91547281,
+          "share": 0.029511306406107322,
+          "median_exclusive_ns": 139192
+        },
+        {
+          "phase": "native.export_range",
+          "exclusive_total_ns": 76104075,
+          "share": 0.024533013449939297,
+          "median_exclusive_ns": 105849
+        },
+        {
+          "phase": "validation.scratch_guards",
+          "exclusive_total_ns": 69720712,
+          "share": 0.022475263844089086,
+          "median_exclusive_ns": 96892
+        },
+        {
+          "phase": "cuda.sync",
+          "exclusive_total_ns": 44489957,
+          "share": 0.014341843238594266,
+          "median_exclusive_ns": 65113
+        },
+        {
+          "phase": "hash.cpu_sha256",
+          "exclusive_total_ns": 43171497,
+          "share": 0.013916822674147396,
+          "median_exclusive_ns": 64111
+        },
+        {
+          "phase": "cuda.device_identity",
+          "exclusive_total_ns": 15109086,
+          "share": 0.004870585577109892,
+          "median_exclusive_ns": 22742
+        },
+        {
+          "phase": "cuda.add_host",
+          "exclusive_total_ns": 14800865,
+          "share": 0.004771227035027175,
+          "median_exclusive_ns": 21120
+        },
+        {
+          "phase": "scratch.allocate_fill_host",
+          "exclusive_total_ns": 14325902,
+          "share": 0.004618117314329256,
+          "median_exclusive_ns": 20469
+        },
+        {
+          "phase": "tp.contiguous_host",
+          "exclusive_total_ns": 909529,
+          "share": 0.00029319700936000917,
+          "median_exclusive_ns": 1303
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "operation": "all-reduce-sum",
+      "input_bytes": 10240,
+      "root_count": 645,
+      "inclusive_total_ns": 3097597672,
+      "median_root_ns": 4655065,
+      "exclusive_totals_equal_root": true,
+      "native_calls": 645,
+      "full_hash_calls": 5160,
+      "exclusive_phases": [
+        {
+          "phase": "ipc.recv",
+          "exclusive_total_ns": 1296836403,
+          "share": 0.41865876085924436,
+          "median_exclusive_ns": 1914626
+        },
+        {
+          "phase": "native.ioctl",
+          "exclusive_total_ns": 627890488,
+          "share": 0.2027024018243774,
+          "median_exclusive_ns": 944157
+        },
+        {
+          "phase": "other_host_bookkeeping",
+          "exclusive_total_ns": 547307553,
+          "share": 0.17668774674879728,
+          "median_exclusive_ns": 828676
+        },
+        {
+          "phase": "hash.readback_bytes",
+          "exclusive_total_ns": 253821602,
+          "share": 0.08194143619565582,
+          "median_exclusive_ns": 400482
+        },
+        {
+          "phase": "ipc.send",
+          "exclusive_total_ns": 90851794,
+          "share": 0.02932975925867754,
+          "median_exclusive_ns": 138280
+        },
+        {
+          "phase": "native.export_range",
+          "exclusive_total_ns": 77471773,
+          "share": 0.025010276092433736,
+          "median_exclusive_ns": 101051
+        },
+        {
+          "phase": "validation.scratch_guards",
+          "exclusive_total_ns": 71433265,
+          "share": 0.02306085959635884,
+          "median_exclusive_ns": 106160
+        },
+        {
+          "phase": "hash.cpu_sha256",
+          "exclusive_total_ns": 43526254,
+          "share": 0.01405161631978396,
+          "median_exclusive_ns": 66056
+        },
+        {
+          "phase": "cuda.sync",
+          "exclusive_total_ns": 43212768,
+          "share": 0.013950413376989393,
+          "median_exclusive_ns": 63690
+        },
+        {
+          "phase": "cuda.device_identity",
+          "exclusive_total_ns": 15063193,
+          "share": 0.004862862965116536,
+          "median_exclusive_ns": 21531
+        },
+        {
+          "phase": "cuda.add_host",
+          "exclusive_total_ns": 15044217,
+          "share": 0.004856736927454664,
+          "median_exclusive_ns": 22302
+        },
+        {
+          "phase": "scratch.allocate_fill_host",
+          "exclusive_total_ns": 14233898,
+          "share": 0.00459514097930275,
+          "median_exclusive_ns": 20368
+        },
+        {
+          "phase": "tp.contiguous_host",
+          "exclusive_total_ns": 904464,
+          "share": 0.0002919888558077403,
+          "median_exclusive_ns": 1273
+        }
+      ]
+    }
+  ],
+  "IPC_receive_paths": [
+    {
+      "rank": 0,
+      "calls": 645,
+      "exclusive_total_ns": 86308614,
+      "median_call_ns": 83046,
+      "role": "collective-contract"
+    },
+    {
+      "rank": 0,
+      "calls": 1935,
+      "exclusive_total_ns": 237873827,
+      "median_call_ns": 135986,
+      "role": "tensor-receive metadata"
+    },
+    {
+      "rank": 0,
+      "calls": 1935,
+      "exclusive_total_ns": 1010180085,
+      "median_call_ns": 162365,
+      "role": "tensor-send acknowledgements"
+    },
+    {
+      "rank": 1,
+      "calls": 645,
+      "exclusive_total_ns": 32821507,
+      "median_call_ns": 20950,
+      "role": "collective-contract"
+    },
+    {
+      "rank": 1,
+      "calls": 1935,
+      "exclusive_total_ns": 278922506,
+      "median_call_ns": 137660,
+      "role": "tensor-receive metadata"
+    },
+    {
+      "rank": 1,
+      "calls": 1935,
+      "exclusive_total_ns": 985092390,
+      "median_call_ns": 163427,
+      "role": "tensor-send acknowledgements"
+    }
+  ],
+  "instrumentation_cost": {
+    "outside_current_root": true,
+    "prior_emission_lower_bounds": [
+      {
+        "profile_roots": 1301,
+        "covered_prior_emits": 1300,
+        "prior_emits_total_ns": 112893992
+      },
+      {
+        "profile_roots": 1301,
+        "covered_prior_emits": 1300,
+        "prior_emits_total_ns": 117154164
+      }
+    ],
+    "final_row_per_process_excluded": true,
+    "timer_context_and_cross_rank_perturbation_remain": true,
+    "no_inference_speed_comparison": true
+  },
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "resolution": 1e-09,
+    "monotonic": true,
+    "adjustable": false,
+    "reference": "local monotonic intervals only",
+    "nanosecond_accuracy_claimed": false
+  },
+  "final_state": {
+    "additional_sessions_created_this_package": 4,
+    "additional_sessions_destroyed_this_package": 4,
+    "cumulative_consumer_sessions_created": 8,
+    "cumulative_consumer_session_destroy_ok": 8,
+    "cumulative_consumer_channel_creates": 8,
+    "cumulative_consumer_channel_destroy_calls": 8,
+    "channel_destroy_count_is_API_calls": true,
+    "contexts_live": 0,
+    "module_reference_count": 0,
+    "actual_idle_both_cards": true,
+    "selected_GPU_kernel_errors": false,
+    "error_query_priority": "notice-or-more-severe; selected current-window Xid/RM/BUG/Oops patterns",
+    "ordinary_framework_shutdown_warnings_recorded": true
+  },
+  "corrected_local_issue": "A missing counter-constant import in the local proof reader was fixed against existing captured evidence. No data/model replay; the model started only after qualification acceptance.",
+  "limits": [
+    "Host wall spans include scheduling, Python overhead and implicit GPU waits; they are not thread CPU time or isolated device-kernel timers.",
+    "Exclusive totals add only inside each local root; rank timelines overlap and are not added as global elapsed time. Phase shares use aggregate exclusive totals, not ratios of medians.",
+    "IPC receive time includes the opposite rank native work and validation. Its share is not an independently removable cost or proof of a socket bottleneck.",
+    "Profile emission is outside the current root; prior cumulative serialization/write lower bounds exclude final rows. Timer/context and cross-rank effects remain, so no speed comparison is made.",
+    "Eight full hashes per rank-operation, all source/scratch guards, real retirement, native errors and held backing remain. No GPU-digest or cached-registration substitution.",
+    "One max8-token pilot stopped normally after four tokens. Counts include startup/profile work. No native CUDA/NCCL support, extra memory/SM, generic remote pointers, long-term or reboot stability claim."
+  ],
+  "next_hypothesis": {
+    "evidence_level": "hypothesis",
+    "implemented": false,
+    "measured_speed_gain": false,
+    "proposal": "Batch the two-direction collective metadata exchange under one coordinator with serialized unchanged native requests, actual bounded held exports and complete source/destination/result verification. Independently qualify caller/context, descriptor/window/lifetime and data contracts before any model comparison."
+  },
+  "primary_sources": [
+    "https://docs.python.org/3.12/library/time.html#time.monotonic_ns",
+    "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/kernel-open/nvidia-uvm/uvm_ampere_ce.c",
+    "https://github.com/vllm-project/vllm/blob/v0.29.0/vllm/distributed/parallel_state.py"
+  ]
+}

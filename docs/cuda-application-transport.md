@@ -86,6 +86,27 @@ Read-only analysis of exact verified trace hashes finds native request medians 0
 
 All four new sessions are successfully destroyed, four channel-destructor API calls recorded, zero contexts/module references remain and both GPUs actually settle idle. Selected current-window notice-or-more-severe Xid/RM/BUG/Oops queries are clean; ordinary model shutdown warnings stay separate. A broader inherited log query exceeded 30 seconds and was narrowed without replaying data work. A misc-device name collision was caught before the initial build was loaded, and a local proof-reader schema error was corrected against existing evidence. No GPU result is counted from either failed administrative step.
 
+## Host phase profile: coordination and native calls dominate small sums
+
+The next package adds bounded monotonic host spans to the exact qualified Python path and leaves the native consumer/core unchanged. Erasing the timing wrappers and inlining the single CPU-byte temporary restores the three original data ASTs; this is a static comparison, not formal runtime equivalence. Independent timing-tree checks require valid nesting, nonoverlapping siblings, exact local exclusive sums and a one-to-one match with actual data operations. Three deliberately corrupted timing trees are rejected offline. One extra profile row is emitted after an outer operation, outside its measured root; no per-span file writes. [Selected phase data](../data/transport-cost-profile.json).
+
+First, the instrumented route passes **20 actual random tensor transfers / 4,729,860 bytes**, 40 full independent GPU comparisons, 40 guard checks and all real native retirement/lifetime checks. Its 40 profile roots contain 648 nodes, at most 23 per root. Then **one actual TP2/PP1 pilot, capped at eight output tokens and stopping normally after four**, passes the full model audit. No sequential/concurrent speed matrix is run. Startup/profile/pilot contain 1,301 collective pairs (1,290 sums, 11 all-gathers), 2,602 directed input tensors / 473,600,000 payload bytes, 2,862 native requests and 2,864 real completions. All full input and shared-result hash pairs match. The 2,602 profile roots contain 160,542 nodes, at most 68; each rank-operation still executes eight full hashes.
+
+For the **10,240-byte sum input**, there are 645 calls on each rank. Each percentage below is that phase's aggregate exclusive local wall time divided by the same rank's aggregate root wall time. It is not a ratio of medians.
+
+|Rank|Median root ms|Receive/wait|Native ioctl|Other host bookkeeping|Full-byte readback|CPU SHA256|
+|---|---:|---:|---:|---:|---:|---:|
+|0|4.674|43.01%|19.35%|17.93%|7.77%|1.39%|
+|1|4.655|41.87%|20.27%|17.67%|8.19%|1.41%|
+
+IPC sends add about 2.93–2.95%, export calls 2.45–2.50%, scratch guards 2.25–2.31% and explicit CUDA synchronization 1.40–1.43%. Each rank makes **seven receive calls per small sum**; most receive time lies in sender acknowledgement paths. That includes waiting for the other rank's real native copy and verification. The receive share is not a removable-overhead budget or proof that the socket alone is the bottleneck. Rank timelines overlap, native ioctl includes driver work, and readback includes implicit synchronization. These are host wall intervals, not GPU kernel timers.
+
+Instrumentation perturbs the run. Prior cumulative profile serialization/write lower bounds are about 113 and 117 ms over 1,300 rows per process, outside current roots and excluding the final row; timer/context setup and cross-rank effects remain. [Python's monotonic clock contract](https://docs.python.org/3.12/library/time.html#time.monotonic_ns) supports differences within a local timeline; timestamp units/resolution do not establish accuracy. Exact finished trace hashes are rechecked without payload replay. **No new inference-speed result is claimed**; the earlier bounded-poll speed rows remain separate.
+
+Both GPUs actually settle idle. Four additional native sessions close successfully; cumulative consumer counters show eight successful session closes and eight channel-destroy API calls, zero contexts/module references. Selected current-window notice-or-more-severe GPU/kernel patterns are clean; framework/NCCL shutdown warnings remain separate. A local counter-import error is corrected against existing evidence without repeating GPU work.
+
+The concrete next hypothesis is **batched two-direction collective metadata under a single coordinator**, retaining serialized unchanged native copies, actual bounded exports and every source/destination/result check. The caller/context and multi-FD/lifetime contracts need independent qualification. No batching, registration caching, GPU digest replacement or associated speed gain is implemented here.
+
 ## Limits and remaining work
 
 Both cards return idle in the final read-only snapshots and selected GPU/kernel error checks remain clean. After all 14 initial measured requests completed, the initial harness's immediate post-shutdown idle assertion saw 564 MiB on CMP64 with zero clients and stopped. A later snapshot confirmed zero use on both; the original error remains recorded and no measurement was replayed. The payload-only harness waits up to 45 seconds for teardown accounting to settle. vLLM shutdown also prints IPC semaphore/shared-memory cleanup warnings; those are separate from native CE backing, whose per-request retained/cleanup statuses remain zero. The temporary core and separate consumer are left available; known working boot/recovery files are preserved.

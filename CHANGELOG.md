@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Preserved-data host phase profile and a concrete coordination candidate
+
+- Verify bounded nested/exclusive timing spans against independent tensor data and one actual max8-token TP pilot (four output tokens): 1,301 full collective-pair proofs and 2,602 matched profile roots, unchanged native backend.
+- Attribute small-sum local wall time without summing overlapping ranks: receive/wait about 42%, native ioctl about 20%, CPU SHA about 1.4%. Preserve instrumentation limits and all validation; propose separately qualified metadata batching without a new speed claim. [Method](docs/cuda-application-transport.md#host-phase-profile-coordination-and-native-calls-dominate-small-sums), [selected data](data/transport-cost-profile.json).
+
 ## 2026-10-19 — Bounded real-completion polling with full TP data checks
 
 - Qualify the separate wait-policy change in both directions, then complete the actual TP2 input/result audit with 37,182 real GPU completions; 92.29% are observed before sleep. Preserve all backing/error/guard/hash checks and unchanged recovery artifacts.
