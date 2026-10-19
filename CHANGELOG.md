@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Kernel-enforced cache epoch and actual TP diagnostic
+
+- Move four checked cache controls into the held native pair; preserve 14 native data/lifetime helpers and all full hash/guard checks. Pass independent GPU qualification and the actual 1,301-pair TP pilot on a separate core.
+- Attribute bounded native phases without a new speed claim or stale-core SHM comparison. Preserve concrete mixed-stack recovery and scope inherited inner cache-status/dispatch uncertainty precisely. [Method](docs/cuda-application-transport.md#kernel-enforced-paired-cache-epoch-and-native-cost-attribution), [selected data](data/native-cache-epoch.json).
+
 ## 2026-10-19 — Checked cache epoch, negligible speed change
 
 - Qualify standard held-allocation page queries and four real checked cache controls around paired CE copies; preserve full GPU/hash/guard/lifetime evidence, 16 metadata comparisons and the complete 18,331-pair TP proof.

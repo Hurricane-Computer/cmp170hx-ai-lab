@@ -546,6 +546,50 @@ def check_cache_epoch_transport():
         error(path, 'future native cache epoch represented as completed')
 
 
+def check_native_cache_epoch():
+    d = load('native-cache-epoch.json')
+    path = ROOT / 'data/native-cache-epoch.json'
+    if d['native_CUDA_peer_capabilities'] != [False, False] or any(d[k] for k in ['native_NCCL_backend', 'extra_usable_GiB', 'extra_SM']):
+        error(path, 'native epoch does not establish ordinary peer capability or extra capacity')
+    i = d['implementation']
+    if not i['core_changed'] or not i['kernel_cache_enforcement'] or i['native_ABI_bytes'] != 320 or (i['actual_checked_cache_controls_per_pair'], i['application_cache_controls_per_pair'], i['exact_original_native_helpers_after_namespace_mapping']) != (4, 0, 14):
+        error(path, 'new core, ABI or real kernel cache boundary misrepresented')
+    if not i['full_CPU_source_incoming_result_hashes_guards_and_CUDA_ordering_preserved'] or i['registration_cache'] or i['GPU_digest_substitution'] or not i['explicit_epoch_complete_only_after_four_successful_statuses_real_retirements_and_safe_cleanup']:
+        error(path, 'native epoch data/status/lifetime verification changed')
+    q = d['qualification']
+    if (q['full_independent_GPU_comparisons'], q['source_and_guard_verdicts'], q['intentional_result_errors_detected'], q['non_root_None_contracts'], q['native_requests'], q['actual_completions']) != (64, 70, 4, 6, 68, 74) or q['actual_successful_native_cache_controls'] != 4 * q['native_pair_batches'] or q['actual_public_cache_controls'] or q['verifier_checks_replay_payload']:
+        error(path, 'native epoch independent data/cache/verifier scope disagrees')
+    p = d['model_proof']
+    if p['collective_pairs'] != sum(p['operations'].values()) or p['shared_result_hash_pairs'] != p['collective_pairs'] or p['directed_input_tensors'] != 2 * p['collective_pairs']:
+        error(path, 'diagnostic model operation/input/result counts disagree')
+    if (p['collective_pairs'], p['native_requests'], p['actual_completions'], p['uses_per_context'], p['actual_successful_native_cache_controls']) != (1301, 2862, 2864, [1431, 1431], 5724) or p['actual_successful_native_cache_controls'] != 4 * p['native_pair_batches'] or p['actual_public_cache_controls'] or p['activation_CPU_payload_fallback']:
+        error(path, 'actual native model cache/data/completion proof disagrees')
+    if not p['all_full_source_incoming_hashes_match'] or not p['all_shared_result_hashes_match'] or not 0 < d['pilot']['actual_output_tokens'] <= d['model_settings']['pilot_output_token_cap'] == 8 or d['model_settings']['measured_speed_requests']:
+        error(path, 'pilot data/cap/actual/speed scope disagrees')
+    profile = d['native_cost'];phases = profile['phases']
+    if len(phases) != 5 or not profile['disjoint_five_host_intervals'] or profile['timer_used_as_completion'] or profile['inner_SYS_membar_physical_RM_GSP_L2_subcosts_separated'] or profile['actual_inner_branch_hits_measured'] or profile['phase_errors']:
+        error(path, 'bounded native cost or unknown inner dispatch scope overstated')
+    for row in phases:
+        if row['calls'] != p['native_pair_batches'] or row['total_ns'] < 0 or abs(row['mean_ns'] - row['total_ns'] / row['calls']) > 1e-8 or abs(row['mean_us'] - row['mean_ns'] / 1000) > 1e-8:
+            error(path, 'native phase actual counts, sums or units disagree')
+    cache = sum(r['total_ns'] for r in phases[:4]);body = phases[4]['total_ns']
+    if abs(profile['four_cache_call_mean_us'] - cache / p['native_pair_batches'] / 1000) > 1e-8 or abs(profile['serial_pair_body_mean_us'] - body / p['native_pair_batches'] / 1000) > 1e-8 or abs(profile['cache_share_of_only_five_measured_phases'] - cache / (cache + body)) > 1e-12:
+        error(path, 'five disjoint phase summary disagrees')
+    if any(d['comparison'].values()):
+        error(path, 'diagnostic-only core change overstates throughput or matched SHM')
+    close = d['cleanup']
+    if (close['successful_native_sessions'], close['payload_requests'], close['actual_completions'], close['successful_native_epochs'], close['successful_native_cache_controls']) != (10, 2930, 2940, 1465, 5860) or close['phase_calls'] != [1465] * 5 or any(close['phase_errors']) or close['live_contexts'] or close['module_references'] or not close['actual_GPUs_idle']:
+        error(path, 'native epoch actual close/profile/cache counters disagree')
+    if close['old_consumers_currently_loaded'] or not close['old_module_files_preserved'] or not close['historic_counters_reset_on_unload']:
+        error(path, 'old loaded state confused with preserved recovery files')
+    source = d['source_analysis']
+    if source['evidence_level'] != 'static-analysis' or source['inner_status_policy_changed'] or source['actual_GSP_route_established']:
+        error(path, 'unknown inner cache behavior presented as measured or changed')
+    nxt = d['next_candidate']
+    if nxt['implemented'] or nxt['qualified'] or nxt['speed_gain_established']:
+        error(path, 'unimplemented inner-cache diagnosis presented as completed')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -574,6 +618,7 @@ def main():
         check_native_log_transport()
         check_native_cost_profile()
         check_cache_epoch_transport()
+        check_native_cache_epoch()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:
