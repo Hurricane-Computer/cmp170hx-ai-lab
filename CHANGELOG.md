@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Checked cache epoch, negligible speed change
+
+- Qualify standard held-allocation page queries and four real checked cache controls around paired CE copies; preserve full GPU/hash/guard/lifetime evidence, 16 metadata comparisons and the complete 18,331-pair TP proof.
+- Record the narrow negative speed result: 1.78586 versus 1.77720 tok/s, with SHM 17.11424. Locate public cache-call cost without claiming separated cache/dispatch costs or a 73% inference saving. State that the application currently enforces cache barriers; a kernel-enforced alternative is unimplemented. [Method](docs/cuda-application-transport.md#four-checked-cache-controls-real-epoch-proof-negligible-speed-change), [selected data](data/cache-epoch-transport.json).
+
 ## 2026-10-19 — Native cost attribution before cache changes
 
 - Preserve every native data/cache/lifetime operation and qualify bounded disjoint timing with independent GPU and full 1,301-pair TP pilot proof; no repeated speed matrix.

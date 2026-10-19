@@ -495,6 +495,57 @@ def check_native_cost_profile():
         error(path, 'native diagnostic cleanup/counters disagree')
 
 
+def check_cache_epoch_transport():
+    d = load('cache-epoch-transport.json')
+    path = ROOT / 'data/cache-epoch-transport.json'
+    if d['native_CUDA_peer_capabilities'] != [False, False] or any(d[k] for k in ['native_NCCL_backend', 'extra_usable_GiB', 'extra_SM', 'native_core_changed']):
+        error(path, 'paired explicit epoch does not establish stock peer support or extra capacity')
+    i = d['implementation']
+    if (i['native_ABI_bytes'], i['actual_serial_directions'], i['held_actual_buffers'], i['standard_page_queries_per_pair'], i['actual_cache_controls_per_window']) != (288, 2, 4, 6, 4):
+        error(path, 'paired epoch native/query/cache scope disagrees')
+    if i['native_ABI_independently_enforces_cache_controls'] or not i['copies_retired_only_means_CE_retirement'] or not i['full_CPU_input_incoming_result_hashes_and_guards'] or i['registration_cache'] or i['GPU_digest_substitution'] or i['raw_mapping_used_in_payload']:
+        error(path, 'application cache boundary or full verification scope overstated')
+    if not i['actual_physical_byte_alias_check'] or not i['destination_page_invariance_checked'] or not i['all_tensor_FDs_and_native_backings_retained_until_mutual_verdict'] or not i['unknown_native_or_peer_work_parks_with_backing']:
+        error(path, 'actual identity/page/alias/backing contracts missing')
+    if i['tensor_userspace_FD_references_up_to'] != i['original_export_objects_up_to'] + i['received_FD_copies_up_to'] or i['additional_temporary_cache_control_and_GPU_FDs'] != 4:
+        error(path, 'tensor FD bounds omit received references or cache client FDs')
+    m = d['metadata_qualification']
+    if (m['positive_batches'], m['expected_pre_copy_alias_rejections'], m['actual_standard_raw_page_array_comparisons'], m['full_independent_GPU_unchanged_comparisons']) != (3, 1, 16, 16) or m['payload_copies'] or m['peer_done'] != [0, 0]:
+        error(path, 'metadata-only checks misrepresented as payload proof')
+    q = d['qualification']
+    if (q['full_independent_GPU_comparisons'], q['source_and_guard_verdicts'], q['intentional_result_errors_detected'], q['non_root_None_contracts'], q['native_requests'], q['real_completions'], q['successful_context_closes']) != (64, 70, 4, 6, 68, 74, 6):
+        error(path, 'independent cache-epoch GPU/guard/close counts disagree')
+    if q['native_pair_batches'] * 2 != q['native_requests'] or q['actual_successful_cache_controls'] != 4 * q['native_pair_batches'] or q['fresh_GPU_source_and_destination_rewrite_events'] != 20 or q['L2_dirty_line_state_independently_measured']:
+        error(path, 'real cache counts or freshness evidence overstated')
+    p = d['model_proof']
+    if p['collective_pairs'] != sum(p['operations'].values()) or p['shared_result_hash_pairs'] != p['collective_pairs'] or p['directed_input_tensors'] != 2 * p['collective_pairs']:
+        error(path, 'model input/result pair counts disagree')
+    if (p['collective_pairs'], p['native_requests'], p['real_completions'], p['uses_per_context']) != (18331, 37180, 37182, [18590, 18590]) or p['native_pair_batches'] * 2 != p['native_requests'] or p['actual_successful_cache_controls'] != 4 * p['native_pair_batches']:
+        error(path, 'actual model pair/cache/completion counts disagree')
+    if not p['all_full_source_incoming_hashes_match'] or not p['all_shared_result_hashes_match'] or p['activation_CPU_payload_fallback']:
+        error(path, 'model full input/result evidence or actual route disagrees')
+    pilot = d['pilot']
+    if not 0 < pilot['actual_output_tokens'] <= pilot['output_token_cap'] == 8 or not pilot['complete_audit_before_measurement']:
+        error(path, 'pilot cap/actual/audit scope disagrees')
+    compare = d['comparison']
+    previous = next(x for x in compare['earlier_variants'] if x['name'] == 'tp2-ce-quiet-b128-o32')
+    ratio = compare['new_variant']['median_sequential_decode_tps_estimate'] / previous['median_sequential_decode_tps_estimate']
+    if abs(ratio - compare['decode_ratio_to_previous_quiet']) > 1e-10 or compare['material_gain_established'] or compare['repeated_statistical_speed_study'] or compare['unchanged_SHM_or_previous_batched_replayed'] or not compare['actual_request_hashes_identical']:
+        error(path, 'narrow negative comparison overstated or mismatched')
+    cost = d['cost_observation']
+    share = cost['aggregate_cache_control_s'] / (cost['aggregate_cache_control_s'] + cost['aggregate_pair_ioctl_s'])
+    if (cost['windows'], cost['native_window_bytes_per_direction'], cost['public_cache_controls']) != (12900, 10240, 51600) or abs(share - cost['cache_share_of_measured_control_plus_ioctl']) > 1e-12 or cost['syscall_lock_membar_and_L2_subcosts_separated'] or cost['payload_replayed'] or not cost['duplicated_native_chunk_wall_is_shared_pair_time']:
+        error(path, 'bounded serial host-phase timing overstated or miscounted')
+    close = d['cleanup']
+    if (close['successful_native_session_closes'], close['payload_requests'], close['real_completions']) != (10, 37248, 37258) or close['real_completions'] != close['payload_requests'] + close['initial_local_qualifications'] or close['live_contexts'] or close['module_references'] or not close['actual_GPUs_idle']:
+        error(path, 'actual epoch cleanup/completion accounting disagrees')
+    if close['standard_page_queries'] != 3 * close['payload_requests'] + m['actual_standard_raw_page_array_comparisons']:
+        error(path, 'actual standard page queries do not match payload and metadata')
+    nxt = d['next_candidate']
+    if nxt['evidence_level'] != 'hypothesis' or nxt['implemented'] or nxt['qualified'] or nxt['speed_gain_established']:
+        error(path, 'future native cache epoch represented as completed')
+
+
 def main():
     files = []
     for path in sorted(ROOT.rglob('*')):
@@ -522,6 +573,7 @@ def main():
         check_batched_transport()
         check_native_log_transport()
         check_native_cost_profile()
+        check_cache_epoch_transport()
     except (ValueError, KeyError, TypeError) as exc:
         ERRORS.append('data contract: ' + str(exc))
     if ERRORS:

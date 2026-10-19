@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-10-19",
+  "evidence_level": "observed",
+  "scope": "Explicit synchronous paired CE application transport with standard owning-GPU page queries and four application-enforced real cache controls per window.",
+  "native_CUDA_peer_capabilities": [
+    false,
+    false
+  ],
+  "native_NCCL_backend": false,
+  "extra_usable_GiB": 0,
+  "extra_SM": 0,
+  "native_core_changed": false,
+  "implementation": {
+    "native_ABI_bytes": 288,
+    "actual_serial_directions": 2,
+    "held_actual_buffers": 4,
+    "standard_page_queries_per_pair": 6,
+    "destination_page_invariance_checked": true,
+    "actual_physical_byte_alias_check": true,
+    "old_raw_mapping_unchanged": true,
+    "raw_mapping_used_in_payload": false,
+    "original_helpers_restored_after_namespace_mapping": 11,
+    "stock_local_page_API": "nvUvmInterfaceGetExternalAllocPhysAddrs, UvmGpuMappingTypeDefault on owning GPU",
+    "actual_cache_controls_per_window": 4,
+    "cache_control": "NV2080_CTRL_CMD_FB_FLUSH_GPU_CACHE",
+    "command_hex": "0x2080130e",
+    "flags_hex": "0x38",
+    "cache_scope": "VIDEO memory, full writeback and invalidate; not a range flush",
+    "sequence": [
+      "pre owner0",
+      "pre owner1",
+      "serial real CE direction0 and direction1",
+      "post owner0",
+      "post owner1",
+      "CUDA synchronization and full data verdicts"
+    ],
+    "status_and_order_enforced_by": "Pinned synchronous application coordinator",
+    "native_ABI_independently_enforces_cache_controls": false,
+    "copies_retired_only_means_CE_retirement": true,
+    "producer_quiescence_and_CPU_initiated_CUDA_consumer_ordering": true,
+    "all_tensor_FDs_and_native_backings_retained_until_mutual_verdict": true,
+    "unknown_native_or_peer_work_parks_with_backing": true,
+    "full_CPU_input_incoming_result_hashes_and_guards": true,
+    "registration_cache": false,
+    "GPU_digest_substitution": false,
+    "input_limit_bytes_per_rank": 3145728,
+    "export_limit_bytes": 1048576,
+    "maximum_windows_per_buffer": 4,
+    "original_export_objects_up_to": 16,
+    "received_FD_copies_up_to": 8,
+    "tensor_userspace_FD_references_up_to": 24,
+    "additional_temporary_cache_control_and_GPU_FDs": 4,
+    "additional_native_held_references": true
+  },
+  "CPU_controls": {
+    "actual_overlap_helper_cases": 8,
+    "failed_cache_status_propagated": true,
+    "mocked_cache_failure_is_not_GPU_fault": true
+  },
+  "metadata_qualification": {
+    "positive_batches": 3,
+    "expected_pre_copy_alias_rejections": 1,
+    "actual_standard_raw_page_array_comparisons": 16,
+    "full_independent_GPU_unchanged_comparisons": 16,
+    "payload_copies": 0,
+    "peer_done": [
+      0,
+      0
+    ],
+    "actual_initial_local_qualifications": 2
+  },
+  "qualification": {
+    "full_independent_GPU_comparisons": 64,
+    "source_and_guard_verdicts": 70,
+    "intentional_result_errors_detected": 4,
+    "non_root_None_contracts": 6,
+    "raw_directed_inputs": 20,
+    "raw_payload_bytes": 10955592,
+    "native_requests": 68,
+    "real_completions": 74,
+    "native_pair_batches": 34,
+    "actual_successful_cache_controls": 136,
+    "successful_context_closes": 6,
+    "fresh_GPU_source_and_destination_rewrite_events": 20,
+    "L2_dirty_line_state_independently_measured": false,
+    "GPU_rewrite_after_source_hash_before_epoch_with_no_CPU_payload_read": true,
+    "five_damaged_completed_trace_cases_rejected": true,
+    "no_payload_replay_for_verifier_checks": true
+  },
+  "model_settings": {
+    "model": "R3 V3 BF16",
+    "TP": 2,
+    "PP": 1,
+    "max_batched_tokens": 128,
+    "max_output_tokens": 32,
+    "max_seqs": 4,
+    "context_tokens": 8192,
+    "KV_GiB_per_GPU": 2,
+    "CPU_threads": 4,
+    "eager": true,
+    "flash_attention": true,
+    "thinking": false,
+    "drafting": false,
+    "prefix_cache": false
+  },
+  "pilot": {
+    "output_token_cap": 8,
+    "actual_output_tokens": 4,
+    "normal_stop": true,
+    "complete_audit_before_measurement": true
+  },
+  "model_proof": {
+    "collective_pairs": 18331,
+    "operations": {
+      "all-reduce-sum": 18189,
+      "all-gather": 142
+    },
+    "directed_input_tensors": 36662,
+    "payload_bytes": 2125583360,
+    "shared_result_hash_pairs": 18331,
+    "all_shared_result_hashes_match": true,
+    "all_full_source_incoming_hashes_match": true,
+    "native_requests": 37180,
+    "real_completions": 37182,
+    "native_contexts": 2,
+    "uses_per_context": [
+      18590,
+      18590
+    ],
+    "native_pair_batches": 18590,
+    "actual_successful_cache_controls": 74360,
+    "maximum_input_bytes_per_rank": 1986560,
+    "root_gather_in_actual_model": 0,
+    "small_native_control_broadcasts": 0,
+    "activation_CPU_payload_fallback": false,
+    "normal_setup_control_output_SHM_channels_can_remain": true
+  },
+  "comparison": {
+    "new_variant": {
+      "name": "tp2-ce-epoch-b128-o32",
+      "median_sequential_decode_tps_estimate": 1.7858555729163048,
+      "median_sequential_ttft_s": 1.3719968069926836,
+      "parallel_total_tps": 5.340283438093688
+    },
+    "earlier_variants": [
+      {
+        "name": "tp2-shm-b128-o32",
+        "median_sequential_decode_tps_estimate": 17.114239226277334,
+        "median_sequential_ttft_s": 0.1087294210010441,
+        "parallel_total_tps": 54.95450945137648
+      },
+      {
+        "name": "tp2-ce-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.118229321257287,
+        "median_sequential_ttft_s": 1.5777916809893213,
+        "parallel_total_tps": 3.576760855911706
+      },
+      {
+        "name": "tp2-ce-earlypoll-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.5550903184269083,
+        "median_sequential_ttft_s": 1.6182827230077237,
+        "parallel_total_tps": 4.580496679512375
+      },
+      {
+        "name": "tp2-ce-batch-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.7587483587681212,
+        "median_sequential_ttft_s": 1.3775554340099916,
+        "parallel_total_tps": 5.245638688160166
+      },
+      {
+        "name": "tp2-ce-quiet-b128-o32",
+        "median_sequential_decode_tps_estimate": 1.7771997138991233,
+        "median_sequential_ttft_s": 1.3491391010029474,
+        "parallel_total_tps": 5.300083679726883
+      }
+    ],
+    "measured_sequential_requests": 3,
+    "measured_concurrent_requests": 4,
+    "decode_ratio_to_previous_quiet": 1.0048705043949118,
+    "actual_request_hashes_identical": true,
+    "answer_hash_matches": {
+      "tp2-shm-b128-o32": 7,
+      "tp2-ce-b128-o32": 6,
+      "tp2-ce-earlypoll-b128-o32": 7,
+      "tp2-ce-batch-b128-o32": 7,
+      "tp2-ce-quiet-b128-o32": 7
+    },
+    "actual_commands_equal_ignoring_only_port": true,
+    "current_runtime_sources_config_core_boot_clocks_match": true,
+    "unchanged_SHM_or_previous_batched_replayed": false,
+    "material_gain_established": false,
+    "repeated_statistical_speed_study": false,
+    "formal_quality_or_logit_equivalence": false
+  },
+  "cost_observation": {
+    "evidence_level": "observed",
+    "native_window_bytes_per_direction": 10240,
+    "windows": 12900,
+    "public_cache_controls": 51600,
+    "median_sum_of_four_actual_controls_s": 0.0010304554962203838,
+    "median_single_pair_ioctl_s": 0.00036616899888031185,
+    "aggregate_cache_control_s": 13.538553279911866,
+    "aggregate_pair_ioctl_s": 4.955079404229764,
+    "cache_share_of_measured_control_plus_ioctl": 0.7320656526027596,
+    "scope": "Four real public controls plus one pair ioctl, serial only within coordinator/window. Excludes hashes/IPC/serialization/CUDA math. No global rank sum or independent per-source timing.",
+    "syscall_lock_membar_and_L2_subcosts_separated": false,
+    "duplicated_native_chunk_wall_is_shared_pair_time": true,
+    "completed_trace_hashes_rechecked": true,
+    "payload_replayed": false
+  },
+  "cleanup": {
+    "successful_native_session_closes": 10,
+    "channel_destructor_API_calls": 10,
+    "payload_requests": 37248,
+    "real_completions": 37258,
+    "initial_local_qualifications": 10,
+    "standard_page_queries": 111760,
+    "raw_page_comparisons": 16,
+    "expected_alias_rejections": 1,
+    "live_contexts": 0,
+    "module_references": 0,
+    "actual_GPUs_idle": true,
+    "previous_consumers_core_and_boot_modules_preserved": true,
+    "destructor_and_cache_success_API_counters_are_not_additional_hardware_acks": true,
+    "model_explicit_Python_channel_close_records_before_shutdown": 0,
+    "actual_later_process_FD_release_and_native_session_cleanup_checked": true
+  },
+  "source_analysis": {
+    "evidence_level": "static-analysis",
+    "pinned_NVIDIA_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "standard_owner_mapping_has_no_old_raw_helper_cache_eviction": true,
+    "public_flags_dispatch_to_same_full_VIDEO_EVICT_policy": true,
+    "same_policy_does_not_mean_same_dispatch_cost": true,
+    "native_module_sha256": "134484e1e12cb200fa6de39bac9986afa052ba5135740d8401f2a66fe7dca26b",
+    "native_source_sha256": "0b730933e4741ab634ca6892e3e019557a2abcc984964d4069373ec64310076b",
+    "ABI_sha256": "8e6d485398987856fd927c2361c00d99ab3d02f9b9d97a2f3cbdb6a883109c3a"
+  },
+  "corrections": [
+    "First unloaded candidate received sequence recheck under the actual mutex before v2 load; no earlier candidate payload run.",
+    "Saved model metadata retains an inherited unchanged141 descriptive label. Actual new ABI/module/source/paired-cache trace establishes the executed path; raw evidence was not rewritten."
+  ],
+  "next_candidate": {
+    "evidence_level": "hypothesis",
+    "implemented": false,
+    "qualified": false,
+    "speed_gain_established": false,
+    "scope": "Pin exact cache dispatch; consider a separate kernel-enforced four-barrier epoch with bounded cache-call attribution and an original-core recovery path. Retain all four actual cache operations and all validation."
+  }
+}
