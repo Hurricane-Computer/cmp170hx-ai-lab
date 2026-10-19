@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Actual direct TP2 model and short matched SHM comparison
+
+- Qualify root/axis/int64/finite-floating extensions, then verify every actual TP model input transfer and shared result across18,331 collective pairs. Preserve the exact TP2/PP1 source/operation scope.
+- Complete14 short measured responses: direct fully checked TP at1.12tok/s versus matching SHM at17.11; keep max32/budget128 separate from historical runs. Record real cleanup/idle, read-only journal timeout repair and the untested completion-wait optimization hypothesis. [Methods and limits](docs/cuda-application-transport.md#actual-tp2-model-correct-direct-data-high-diagnostic-overhead), [selected data](data/tp-application-transport.json).
+
 ## 2026-10-19 — Persistent native channels and independently checked small collectives
 
 - Reuse a native CE context for 2,682 actual model tensors with full hash/lifecycle checks; reach 18.18 tok/s sequential decode versus the earlier 10.57 per-chunk mode and 20.10 SHM reference. Confirm close cleanup and actual idle.

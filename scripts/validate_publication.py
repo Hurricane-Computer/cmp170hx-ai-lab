@@ -122,6 +122,43 @@ def check_data():
     final = persistent['final_state']
     if final['native_sessions_created'] != final['native_session_destroy_ok'] or final['native_channels_created'] != final['native_channel_destroy_calls'] or final['contexts_live'] or final['module_reference_count'] or not final['actual_idle_both_cards'] or final['selected_GPU_kernel_errors']:
         error(persistent_path, 'native close/idle claims are inconsistent')
+    tp = load('tp-application-transport.json')
+    tp_path = ROOT / 'data/tp-application-transport.json'
+    if not tp['actual_direct_TP_model'] or tp['native_NCCL_backend'] or tp['native_CUDA_peer_capabilities'] != [False, False] or tp['extra_usable_GiB'] or tp['extra_SM']:
+        error(tp_path, 'actual experimental TP data does not establish native support or extra capacity')
+    if {k: tp['settings'][k] for k in ['TP', 'PP', 'max_num_batched_tokens', 'max_output_tokens']} != {'TP': 2, 'PP': 1, 'max_num_batched_tokens': 128, 'max_output_tokens': 32}:
+        error(tp_path, 'short TP comparison configuration is inconsistent')
+    proof = tp['model_proof']
+    if sum(proof['operations'].values()) != proof['collective_pairs'] or 2 * proof['collective_pairs'] != proof['directed_input_tensors'] or proof['shared_result_hash_pairs'] != proof['collective_pairs'] or sum(tp['model_context_uses']) != proof['native_requests'] or proof['native_completions'] != proof['native_requests'] + proof['native_contexts']:
+        error(tp_path, 'actual TP collective, transfer or native-completion totals disagree')
+    if any(not proof[k] for k in ['passed', 'full_sender_receiver_hashes_match', 'all_shared_result_hashes_match', 'all_real_completions_and_lifecycle_checks_pass']) or proof['CPU_activation_payload_fallback'] or proof['root_gather_contracts'] or tp['actual_model_uses_root_gather']:
+        error(tp_path, 'actual TP proof and precisely exercised operations disagree')
+    extension = tp['prerequisite_extension']
+    if len(extension['cases']) != 12 or sum(c['full_GPU_expected_result_verdicts'] for c in extension['cases']) != 18:
+        error(tp_path, 'missing independent extended GPU qualification')
+    for case in extension['cases']:
+        if not case['inputs_and_guards_unchanged']:
+            error(tp_path, 'extended input or guard verdict failed')
+        if case['operation'] == 'gather-root':
+            root = case['root']
+            if case[f'rank{root}_result_is_none'] or not case[f'rank{root}_output_sha256'] or not case[f'rank{1-root}_result_is_none'] or case[f'rank{1-root}_output_sha256'] is not None:
+                error(tp_path, 'root gather returned data/None to the wrong rank')
+        elif case['rank0_output_sha256'] != case['rank1_output_sha256']:
+            error(tp_path, 'shared extended-result hashes disagree')
+    if proof['maximum_input_bytes_per_rank'] > extension['maximum_input_bytes_per_rank'] or not extension['cases'][0]['negative_result_checker_detected_on_both']:
+        error(tp_path, 'actual TP range or result-checker scope exceeds qualification')
+    tp_sets = []
+    for run in tp['variants']:
+        if len(run['sequential']) != 3 or len(run['parallel']) != 4 or any(not 0 < row['output_tokens'] <= 32 for row in run['sequential'] + run['parallel']):
+            error(tp_path, 'missing or out-of-scope short TP requests')
+        tp_sets.append([r['request_sha256'] for r in run['sequential'] + run['parallel']])
+        if abs(statistics.median(r['stream_decode_tps_estimate'] for r in run['sequential']) - run['median_sequential_decode_tps_estimate']) > 1e-8 or abs(sum(r['output_tokens'] for r in run['parallel']) / run['parallel_wall_s'] - run['parallel_total_tps']) > 1e-8:
+            error(tp_path, 'short TP speed arithmetic differs from request records')
+    if len(tp_sets) != 2 or tp_sets[0] != tp_sets[1] or {r['route'] for r in tp['variants']} != {'explicit_application_CE_TP', 'native_NCCL_SHM'}:
+        error(tp_path, 'matching short TP comparison inputs/routes disagree')
+    final_tp = tp['final_state']
+    if final_tp['native_sessions_created'] != final_tp['native_session_destroy_ok'] or final_tp['native_channels_created'] != final_tp['native_channel_destroy_calls'] or final_tp['contexts_live'] or final_tp['module_reference_count'] or not final_tp['actual_idle_both_cards'] or final_tp['selected_GPU_kernel_errors']:
+        error(tp_path, 'actual TP native cleanup and idle claims disagree')
     model_runs = load('model-parallel-trials.json')
     model_path = ROOT / 'data/model-parallel-trials.json'
     variants = model_runs['variants']
