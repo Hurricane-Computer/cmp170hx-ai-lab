@@ -4,6 +4,8 @@ An evidence-led notebook for CMP 170HX memory, topology, firmware and practical 
 
 [Deutsch](README.de.md) · [Current findings](docs/findings.md) · [Experiments](docs/experiments.md) · [Open questions](docs/roadmap.md) · [Sources](docs/sources.md)
 
+**Model follow-up:** [Real R3 V3 BF16 inference on both CMPs](docs/model-parallel.md) works with tensor and pipeline parallelism. Native CUDA/NCCL still chooses shared host memory, so these five short speed runs are not a direct P2P-on/off benchmark.
+
 ## New P2P data result — 19 October 2026
 
 **Actual 1 MiB Copy Engine reads passed in both directions between CMP40 and CMP64, with 64 MiB BAR1 on each card.** Fresh GPU completion and full data comparisons passed; no BIOS change was needed. This is a bounded allocation-specific window experiment. CUDA/NCCL application P2P, SM remote-pointer access, performance, stability and reboot persistence remain unqualified. See the [method and limits](docs/window-ce-proof.md), [structured results](data/window-ce-trials.json) and [test sources](prototypes/cmp-window/ce132/README.md).

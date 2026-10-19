@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "stage": 133,
+  "evidence_level": "observed",
+  "started_utc": "2026-10-19T13:23:39.574565+00:00",
+  "collected_utc": "2026-10-19T13:34:43.289544+00:00",
+  "model": {
+    "name": "R3 V3",
+    "format": "BF16",
+    "checkpoint_files_GiB": 51.75,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "config_sha256": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+    "reported_card_GiB": {
+      "CMP40": 40,
+      "CMP64": 64
+    }
+  },
+  "runtime": {
+    "vllm": "0.29.0",
+    "torch": "2.13.0+cu130",
+    "CUDA_runtime": "13.0",
+    "transformers": "5.17.0",
+    "driver": "615.71.09"
+  },
+  "settings": {
+    "model_context": 8192,
+    "max_num_seqs": 4,
+    "max_batched_tokens": 2048,
+    "KV_cache_bytes_per_GPU": 2147483648,
+    "cpu_threads": 4,
+    "enforce_eager": true,
+    "flash_attention": true,
+    "language_model_only": true,
+    "prefix_cache": false,
+    "speculative_decoding": false,
+    "thinking": false,
+    "temperature": 0,
+    "seed": 42,
+    "max_output_tokens": 384,
+    "custom_all_reduce": false,
+    "optional_flashinfer_sampler": false
+  },
+  "method": "Three fixed historical synthetic text/code/logic cases sequentially, then four concurrent requests (fourth repeats text); warmup excluded. SSE arrival timestamps, not CUDA events.",
+  "source_sha256": "e7248bea63e9bfddc051dece1e37a247b201bdb44fd9fbfcb8460e8460780b41",
+  "historical_benchmark_sha256": "44cd3c0996866103f540675957a837b82077e3bd10860758eecf40fd002e9a62",
+  "native_directed_CUDA_peer_access": [
+    {
+      "accessor": "CMP64",
+      "owner": "CMP40",
+      "supported": false
+    },
+    {
+      "accessor": "CMP40",
+      "owner": "CMP64",
+      "supported": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "tp2-auto",
+      "tensor_parallel": 2,
+      "pipeline_parallel": 1,
+      "GPUs": [
+        "CMP64",
+        "CMP40"
+      ],
+      "P2P_policy": "allowed_native_auto_selection",
+      "actual_P2P": false,
+      "actual_transport": "NCCL_SHM",
+      "model_status": "completed",
+      "load_s": 50.04026744799921,
+      "median_sequential_decode_tps_estimate": 16.878828984831042,
+      "median_sequential_ttft_s": 0.19265768300101627,
+      "parallel_four_total_response_tps": 40.866427799258666,
+      "parallel_wall_s": 23.099645622001844,
+      "sequential": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "input_tokens": 38,
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.25283655399107374,
+          "wall_s": 12.516720510990126,
+          "stream_decode_tps_estimate": 16.878828984831042
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "input_tokens": 55,
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.14531375400838442,
+          "wall_s": 8.750507032003952,
+          "stream_decode_tps_estimate": 16.617871950147457
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "input_tokens": 71,
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.19265768300101627,
+          "wall_s": 22.676577456004452,
+          "stream_decode_tps_estimate": 17.034396309306803
+        }
+      ],
+      "parallel": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.10128283999802079,
+          "wall_s": 12.845285108996904
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.3443913540104404,
+          "wall_s": 9.021316345999367
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.34429169801296666,
+          "wall_s": 23.096915472007822
+        },
+        {
+          "case": "text_repeat",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.34487466399150435,
+          "wall_s": 12.962854577999678
+        }
+      ],
+      "GPU_observations": [
+        {
+          "GPU": "CMP64",
+          "peak_used_MiB": 28746,
+          "max_gpu_temperature_C": 49,
+          "memory_clocks_MHz": [
+            1728
+          ]
+        },
+        {
+          "GPU": "CMP40",
+          "peak_used_MiB": 28746,
+          "max_gpu_temperature_C": 58,
+          "memory_clocks_MHz": [
+            1215
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tp2-no-p2p",
+      "tensor_parallel": 2,
+      "pipeline_parallel": 1,
+      "GPUs": [
+        "CMP64",
+        "CMP40"
+      ],
+      "P2P_policy": "disabled",
+      "actual_P2P": false,
+      "actual_transport": "NCCL_SHM",
+      "model_status": "completed",
+      "load_s": 48.01100298999518,
+      "median_sequential_decode_tps_estimate": 17.458596309209273,
+      "median_sequential_ttft_s": 0.1450910020066658,
+      "parallel_four_total_response_tps": 41.45048954664224,
+      "parallel_wall_s": 22.629407041007653,
+      "sequential": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "input_tokens": 38,
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.1450910020066658,
+          "wall_s": 12.068899746009265,
+          "stream_decode_tps_estimate": 17.360224777516347
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "input_tokens": 55,
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.14456919000076596,
+          "wall_s": 8.33537659898866,
+          "stream_decode_tps_estimate": 17.458596309209273
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "input_tokens": 71,
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.17553233400394674,
+          "wall_s": 22.113110735997907,
+          "stream_decode_tps_estimate": 17.458627063650205
+        }
+      ],
+      "parallel": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 202,
+          "finish_reason": "stop",
+          "ttft_s": 0.33592289600346703,
+          "wall_s": 12.231530582997948
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.335735492000822,
+          "wall_s": 8.776161957997829
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.3355287540034624,
+          "wall_s": 22.627596411999548
+        },
+        {
+          "case": "text_repeat",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.09759234999364708,
+          "wall_s": 12.472331280005164
+        }
+      ],
+      "GPU_observations": [
+        {
+          "GPU": "CMP64",
+          "peak_used_MiB": 28746,
+          "max_gpu_temperature_C": 54,
+          "memory_clocks_MHz": [
+            1728
+          ]
+        },
+        {
+          "GPU": "CMP40",
+          "peak_used_MiB": 28746,
+          "max_gpu_temperature_C": 61,
+          "memory_clocks_MHz": [
+            1215
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pp2-auto",
+      "tensor_parallel": 1,
+      "pipeline_parallel": 2,
+      "GPUs": [
+        "CMP64",
+        "CMP40"
+      ],
+      "P2P_policy": "allowed_native_auto_selection",
+      "actual_P2P": false,
+      "actual_transport": "NCCL_SHM",
+      "model_status": "completed",
+      "load_s": 106.02130217499507,
+      "median_sequential_decode_tps_estimate": 20.150014354691038,
+      "median_sequential_ttft_s": 0.14254960500693414,
+      "parallel_four_total_response_tps": 45.93584054631672,
+      "parallel_wall_s": 20.550402230001055,
+      "sequential": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "input_tokens": 38,
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.14254960500693414,
+          "wall_s": 10.416876309012878,
+          "stream_decode_tps_estimate": 20.147305605854545
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "input_tokens": 55,
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.1395578219962772,
+          "wall_s": 7.236299424999743,
+          "stream_decode_tps_estimate": 20.1500925353517
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "input_tokens": 71,
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.14476963601191528,
+          "wall_s": 19.152200264012208,
+          "stream_decode_tps_estimate": 20.150014354691038
+        }
+      ],
+      "parallel": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.2062282539991429,
+          "wall_s": 11.851317282998934
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.16837984399171546,
+          "wall_s": 8.224090874995454
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.16835166100645438,
+          "wall_s": 20.5483791410079
+        },
+        {
+          "case": "text_repeat",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.09640003398817498,
+          "wall_s": 11.769437229988398
+        }
+      ],
+      "GPU_observations": [
+        {
+          "GPU": "CMP64",
+          "peak_used_MiB": 28860,
+          "max_gpu_temperature_C": 60,
+          "memory_clocks_MHz": [
+            1728
+          ]
+        },
+        {
+          "GPU": "CMP40",
+          "peak_used_MiB": 31328,
+          "max_gpu_temperature_C": 69,
+          "memory_clocks_MHz": [
+            1215
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pp2-no-p2p",
+      "tensor_parallel": 1,
+      "pipeline_parallel": 2,
+      "GPUs": [
+        "CMP64",
+        "CMP40"
+      ],
+      "P2P_policy": "disabled",
+      "actual_P2P": false,
+      "actual_transport": "NCCL_SHM",
+      "model_status": "completed",
+      "load_s": 46.010446964006405,
+      "median_sequential_decode_tps_estimate": 20.191157891586318,
+      "median_sequential_ttft_s": 0.13779359799809754,
+      "parallel_four_total_response_tps": 46.68334262557698,
+      "parallel_wall_s": 20.221345493002445,
+      "sequential": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "input_tokens": 38,
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.1401161909889197,
+          "wall_s": 10.392898999998579,
+          "stream_decode_tps_estimate": 20.18964059378086
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "input_tokens": 55,
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.13565816800110042,
+          "wall_s": 7.214011612988543,
+          "stream_decode_tps_estimate": 20.20243847829694
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "input_tokens": 71,
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.13779359799809754,
+          "wall_s": 19.10649277099583,
+          "stream_decode_tps_estimate": 20.191157891586318
+        }
+      ],
+      "parallel": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.09567596000852063,
+          "wall_s": 11.462989171006484
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.2087089639971964,
+          "wall_s": 8.231283693006844
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.16617516199767124,
+          "wall_s": 20.219738847008557
+        },
+        {
+          "case": "text_repeat",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.16654988800291903,
+          "wall_s": 11.514491893001832
+        }
+      ],
+      "GPU_observations": [
+        {
+          "GPU": "CMP64",
+          "peak_used_MiB": 28858,
+          "max_gpu_temperature_C": 60,
+          "memory_clocks_MHz": [
+            1728
+          ]
+        },
+        {
+          "GPU": "CMP40",
+          "peak_used_MiB": 31326,
+          "max_gpu_temperature_C": 68,
+          "memory_clocks_MHz": [
+            1215
+          ]
+        }
+      ]
+    },
+    {
+      "name": "single64",
+      "tensor_parallel": 1,
+      "pipeline_parallel": 1,
+      "GPUs": [
+        "CMP64"
+      ],
+      "P2P_policy": "disabled",
+      "actual_P2P": false,
+      "actual_transport": "single_gpu",
+      "model_status": "completed",
+      "load_s": 52.011751508995076,
+      "median_sequential_decode_tps_estimate": 19.522758829438512,
+      "median_sequential_ttft_s": 0.1333873409894295,
+      "parallel_four_total_response_tps": 46.04040206444809,
+      "parallel_wall_s": 20.503730585987796,
+      "sequential": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "input_tokens": 38,
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.13533662199915852,
+          "wall_s": 10.762530503998278,
+          "stream_decode_tps_estimate": 19.47833099672973
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "input_tokens": 55,
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.1316232190001756,
+          "wall_s": 7.3822507329896325,
+          "stream_decode_tps_estimate": 19.722430882581392
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "input_tokens": 71,
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.1333873409894295,
+          "wall_s": 19.751516281990916,
+          "stream_decode_tps_estimate": 19.522758829438512
+        }
+      ],
+      "parallel": [
+        {
+          "case": "text",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.09147786498942878,
+          "wall_s": 11.430890427989652
+        },
+        {
+          "case": "coding",
+          "request_sha256": "a58b5ae39701bb4667eb54810590e7fbcda4bd4c1470cf850f2c5f9c04b3d7a7",
+          "output_tokens": 144,
+          "finish_reason": "stop",
+          "ttft_s": 0.24802962499961723,
+          "wall_s": 8.021718628995586
+        },
+        {
+          "case": "logic",
+          "request_sha256": "42435d2def25cfdb4d0817ffeca0531181a237ef99dae1b46730bbc8a9e491a5",
+          "output_tokens": 384,
+          "finish_reason": "length",
+          "ttft_s": 0.24837942399608437,
+          "wall_s": 20.501977645995794
+        },
+        {
+          "case": "text_repeat",
+          "request_sha256": "dbc56625f887bcaafd51132e544931769e948435d1a7233d14e57d3486efdd01",
+          "output_tokens": 208,
+          "finish_reason": "stop",
+          "ttft_s": 0.24853726199944504,
+          "wall_s": 11.538330159004545
+        }
+      ],
+      "GPU_observations": [
+        {
+          "GPU": "CMP64",
+          "peak_used_MiB": 54306,
+          "max_gpu_temperature_C": 64,
+          "memory_clocks_MHz": [
+            1728
+          ]
+        },
+        {
+          "GPU": "CMP40",
+          "peak_used_MiB": 0,
+          "max_gpu_temperature_C": 56,
+          "memory_clocks_MHz": [
+            1215
+          ]
+        }
+      ]
+    }
+  ],
+  "responses_generated": 35,
+  "all_responses_nonempty": true,
+  "native_selected_errors_absent": true,
+  "native_window_CE_hook_used_by_models": false,
+  "actual_P2P_model_speed_measured": false,
+  "backend_outputs_numerically_equivalent": null,
+  "formal_quality_score": null,
+  "long_term_stability_proven": false,
+  "changes": {
+    "new_driver_or_firmware": false,
+    "host_IOMMU_or_ACS": false,
+    "clocks": false,
+    "restarts_or_resets": 0,
+    "existing_boot_baselines_preserved": true
+  },
+  "interpretation": "Models worked on both cards through NCCL shared host memory. Auto and disabled settings do not constitute a P2P-on/off comparison because both used SHM.",
+  "corrections": [
+    "Initial optional sampler warmup required absent nvcc. Use source-supported VLLM_USE_FLASHINFER_SAMPLER=0, matching the historical benchmark configuration.",
+    "The nested retry output path exceeded the Unix socket107-byte limit. A short task temp path fixed startup; no GPU/driver change.",
+    "Read transport logs after server shutdown as well; buffered channel messages may be absent from an earlier live snapshot."
+  ]
+}

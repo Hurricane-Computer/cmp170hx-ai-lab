@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Real-model TP/PP speed matrix and application P2P boundary
+
+- Complete five same-checkpoint BF16 runs: TP2 and PP2 with native-auto/disabled P2P policy, plus CMP64 alone;35 measured responses. Record TTFT, sequential decode estimates and four-request aggregate speed.
+- All two-GPU channels use SHM. Preserve the distinction from the direct CE-window proof, setup corrections and unimplemented application buffer integration. [Methods and results](docs/model-parallel.md).
+
 ## 2026-10-19 — Actual peer reads through small owned BAR1 windows
 
 - Acquire/map/release native 1 MiB windows on both CMP variants, then pass one actual CE peer read per direction with fresh GPU completion, full nonuniform data checks and local CE controls. Both BAR1 apertures remain64MiB; no BIOS/IOMMU/ACS change or reboot.

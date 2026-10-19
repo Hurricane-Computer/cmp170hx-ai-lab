@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_benchmark_fixtures",
+  "cases": [
+    {
+      "name": "text",
+      "prompt": "Erklaere auf Deutsch in etwa 120 Woertern den Unterschied zwischen Backup und Hochverfuegbarkeit."
+    },
+    {
+      "name": "coding",
+      "prompt": "Schreibe eine Python-Funktion unique_in_order(values), die Duplikate entfernt und die Reihenfolge erhaelt. Die Werte sind hashbar. Liefere nur Code mit vier assert-Tests."
+    },
+    {
+      "name": "logic",
+      "prompt": "Drei Kisten sind mit Aepfel, Birnen und Gemischt beschriftet. Alle Beschriftungen sind falsch. Du ziehst einen Apfel aus der Kiste mit der Beschriftung Gemischt. Ordne alle drei Kisten korrekt zu und begruende jeden Schritt."
+    }
+  ]
+}

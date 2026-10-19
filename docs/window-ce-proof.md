@@ -49,6 +49,8 @@ The successful pair has different reported memory sizes: 40 and 64 GiB, both GA1
 
 The printed polling elapsed times have millisecond granularity and are not latency/bandwidth measurements. An insertion return code is also not the data verdict: the kernel consumer deliberately remains loaded when it must retain live backing after a timeout.
 
+**Application follow-up:** The subsequent [same-model TP/PP tests](model-parallel.md) generated real responses, but every native two-GPU data channel used SHM. They do not yet consume this explicit CE-window route.
+
 ## Remaining implementation work
 
 Application-facing external PTE construction and normal UVM teardown/lifetime integration still need implementation and review. The tested caller avoids those unfinished paths by owning every relevant object through CE retirement. It is an experiment, not a general replacement driver.

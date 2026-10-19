@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-19T11:57:35.288513+00:00",
+  "updated_utc": "2026-10-19T13:34:43.289544+00:00",
   "records": [
     {
       "id": "stage3",
@@ -495,6 +495,14 @@
       "result": "Two native 1-MiB owned windows and two directed CE peer reads; fresh completion and full distinct-data checks passed.",
       "limit": "Bounded kernel-owned explicit CE route; no application CUDA P2P, SM read, reboot, performance or extra-capacity qualification.",
       "interpretation": "docs/window-ce-proof.md"
+    },
+    {
+      "id": "stage133",
+      "date": "2026-10-19",
+      "evidence_level": "observed",
+      "result": "Five same-BF16-checkpoint model runs generated35 responses: TP2/PP2 native-auto and P2P-disabled, plus CMP64 alone. Effective two-GPU transport is SHM.",
+      "limit": "No direct application P2P performance, formal quality, long stability or additional capacity result.",
+      "interpretation": "docs/model-parallel.md"
     }
   ],
   "campaign_result": {

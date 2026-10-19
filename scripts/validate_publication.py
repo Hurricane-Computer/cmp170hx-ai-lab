@@ -3,6 +3,7 @@ import ipaddress
 import json
 from pathlib import Path
 import re
+import statistics
 import sys
 from urllib.parse import unquote
 
@@ -64,6 +65,29 @@ def check_text(path, text):
 
 
 def check_data():
+    model_runs = load('model-parallel-trials.json')
+    model_path = ROOT / 'data/model-parallel-trials.json'
+    variants = model_runs['variants']
+    if {r['name'] for r in variants} != {'tp2-auto', 'tp2-no-p2p', 'pp2-auto', 'pp2-no-p2p', 'single64'} or len(variants) != 5:
+        error(model_path, 'expected five distinct model variants')
+    if model_runs['actual_P2P_model_speed_measured'] or model_runs['native_window_CE_hook_used_by_models']:
+        error(model_path, 'SHM runs do not demonstrate the direct CE-window application route')
+    request_sets = []
+    count = 0
+    for row in variants:
+        if row['model_status'] != 'completed' or row['actual_P2P'] or row['actual_transport'] != ('single_gpu' if row['name'] == 'single64' else 'NCCL_SHM'):
+            error(model_path, 'model success and effective transport disagree')
+        if len(row['sequential']) != 3 or len(row['parallel']) != 4:
+            error(model_path, 'missing measured requests')
+        request_sets.append(tuple(r['request_sha256'] for r in row['sequential']))
+        count += len(row['sequential']) + len(row['parallel'])
+        median = statistics.median(r['stream_decode_tps_estimate'] for r in row['sequential'])
+        aggregate = sum(r['output_tokens'] for r in row['parallel']) / row['parallel_wall_s']
+        if abs(median - row['median_sequential_decode_tps_estimate']) > 1e-8 or abs(aggregate - row['parallel_four_total_response_tps']) > 1e-8:
+            error(model_path, 'published speed arithmetic differs from request records')
+    if count != model_runs['responses_generated'] or len(set(request_sets)) != 1:
+        error(model_path, 'request count or identical-input comparison disagrees')
+
     windows = load('window-ce-trials.json')
     window_path = ROOT / 'data/window-ce-trials.json'
     if {(r['owner'], r['accessor']) for r in windows['directions']} != {('CMP40', 'CMP64'), ('CMP64', 'CMP40')}:

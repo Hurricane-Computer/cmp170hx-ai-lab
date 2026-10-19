@@ -2,6 +2,8 @@
 
 These files are explicit technical projections of the research records, not copies of raw logs or private checkpoints.
 
+- [model-parallel-trials.json](model-parallel-trials.json): five real-model TP/PP/single speed runs with effective SHM transport, actual request sizes, configuration and P2P limits; [synthetic fixtures](model-parallel-fixtures.json).
+
 - [window-ce-trials.json](window-ce-trials.json): native small-window resources and two actual directed CE peer reads, separate GPU completion/full data checks, platform facts and the limits of application P2P, stability and persistence.
 
 - [native-pa-placement.json](native-pa-placement.json): exact normal fixed/range placements, checked CPU access and cleanup, and separate upper-constructor refusals; no upper-memory data verdict or physical ceiling.
