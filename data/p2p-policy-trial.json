@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "stage": 134,
+  "evidence_level": "observed",
+  "started_utc": "2026-10-19T13:47:17.210137+00:00",
+  "collected_utc": "2026-10-19T13:47:21.225664+00:00",
+  "purpose": "Require native direct P2P before any new model/payload run; distinguish policy from the selected channel.",
+  "runtime": {
+    "torch": "2.13.0+cu130",
+    "cuda": "13.0",
+    "nccl": [
+      2,
+      29,
+      7
+    ]
+  },
+  "native_nccl_version_code": 22907,
+  "requested_settings": {
+    "NCCL_P2P_DISABLE": "0",
+    "NCCL_P2P_LEVEL": "SYS",
+    "NCCL_SHM_DISABLE": "1",
+    "NCCL_P2P_DIRECT_DISABLE": "0",
+    "NCCL_RUNTIME_CONNECT": "0",
+    "NCCL_BUFFSIZE": "1048576",
+    "NCCL_MAX_NCHANNELS": "1",
+    "NCCL_MIN_NCHANNELS": "1",
+    "NCCL_IB_DISABLE": "1",
+    "NCCL_NET_PLUGIN": "none"
+  },
+  "native_directed_CUDA_peer_access": [
+    {
+      "accessor": "CMP64",
+      "owner": "CMP40",
+      "supported": false
+    },
+    {
+      "accessor": "CMP40",
+      "owner": "CMP64",
+      "supported": false
+    }
+  ],
+  "selected_channels": [
+    {
+      "channel": "00/0",
+      "source": "CMP40",
+      "destination": "CMP64",
+      "role": "receive",
+      "selected_transport": "NET/Socket/0"
+    },
+    {
+      "channel": "00/0",
+      "source": "CMP64",
+      "destination": "CMP40",
+      "role": "send",
+      "selected_transport": "NET/Socket/0"
+    },
+    {
+      "channel": "00/0",
+      "source": "CMP64",
+      "destination": "CMP40",
+      "role": "receive",
+      "selected_transport": "NET/Socket/0"
+    },
+    {
+      "channel": "00/0",
+      "source": "CMP40",
+      "destination": "CMP64",
+      "role": "send",
+      "selected_transport": "NET/Socket/0"
+    }
+  ],
+  "verdict": "rejected-no-direct-P2P-route",
+  "actual_P2P": false,
+  "payload_collectives": 0,
+  "model_started": false,
+  "socket_payload_transfer_tested": false,
+  "communicator_destroy_statuses": [
+    0,
+    0
+  ],
+  "final_GPU_clients": 0,
+  "final_GPU_used_MiB": 0,
+  "selected_native_errors_absent": true,
+  "driver_changes": 0,
+  "boot_changes": 0,
+  "BIOS_changes": 0,
+  "IOMMU_ACS_changes": 0,
+  "executed_probe_sha256": "d13fa1faebd594e54997926effdf5c81cc78c1f1bde60468d49d2f98afd32a1d",
+  "source_qualification": {
+    "evidence_level": "static-analysis",
+    "version": "2.29.7",
+    "tag": "v2.29.7-1",
+    "commit": "b91894bd5b190c874d98a017f93f5daa515b65d0",
+    "sources": [
+      {
+        "path": "src/transport/p2p.cc",
+        "url": "https://raw.githubusercontent.com/NVIDIA/nccl/b91894bd5b190c874d98a017f93f5daa515b65d0/src/transport/p2p.cc",
+        "sha256": "e7e4fbec91d9cb2fd4a27c45436bd42ac4d74af7dd34f67b8fefeaacecc49be5"
+      },
+      {
+        "path": "src/graph/paths.cc",
+        "url": "https://raw.githubusercontent.com/NVIDIA/nccl/b91894bd5b190c874d98a017f93f5daa515b65d0/src/graph/paths.cc",
+        "sha256": "9df41642fc36cc35d4673d175286a24273a55e2b9f65eb23933ebaa93142c4eb"
+      },
+      {
+        "path": "src/transport.cc",
+        "url": "https://raw.githubusercontent.com/NVIDIA/nccl/b91894bd5b190c874d98a017f93f5daa515b65d0/src/transport.cc",
+        "sha256": "d9d835e46930750c142a90eb47b46d2ec070c2f01248fe5a620444d281c4e39e"
+      },
+      {
+        "path": "src/init.cc",
+        "url": "https://raw.githubusercontent.com/NVIDIA/nccl/b91894bd5b190c874d98a017f93f5daa515b65d0/src/init.cc",
+        "sha256": "51bbf01e6bccc4f4f3fd37f3670a40abb2d2b3bb3a33a9c0c0f84bec7a027057"
+      }
+    ],
+    "findings": [
+      "P2P_LEVEL controls a topology-distance cutoff; the native CUDA peer check still applies.",
+      "SHM_DISABLE removes SHM but the ordinary selection loop still permits NET.",
+      "P2P_USE_CUDA_MEMCPY does not bypass p2pCanConnect and its CUDA capability test.",
+      "IGNORE_DISABLED_P2P=1 suppresses diagnostics; value 2 skips NVML validation for synthetic hardware unit tests and does not remove the separate CUDA check."
+    ]
+  },
+  "limits": [
+    "Communicator route selection only; no data collective or new model run.",
+    "No direct application P2P performance, stability, boot persistence or capacity claim.",
+    "The earlier bounded native-window CE data proof remains separate from native CUDA/NCCL buffer integration."
+  ],
+  "next_mechanism": "A real application-buffer adapter with owned exports, stream/completion ordering and release, or a genuine general native peer mapping. Neither was implemented or tested in this experiment."
+}

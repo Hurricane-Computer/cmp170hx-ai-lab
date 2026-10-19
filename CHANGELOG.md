@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 — Reject replacement transport when requiring application P2P
+
+- With native P2P allowed through SYS and SHM disabled, NCCL2.29.7 selects NET/Socket in both directions. Reject that route before any payload collective or new model run; keep the native-window CE proof separate.
+- Pin the matching upstream capability/selection contracts, including why memcpy and ignore-disabled options do not construct a peer mapping. [Settings, observation and limits](docs/model-parallel.md#can-the-application-be-forced-onto-p2p).
+
 ## 2026-10-19 — Real-model TP/PP speed matrix and application P2P boundary
 
 - Complete five same-checkpoint BF16 runs: TP2 and PP2 with native-auto/disabled P2P policy, plus CMP64 alone;35 measured responses. Record TTFT, sequential decode estimates and four-request aggregate speed.

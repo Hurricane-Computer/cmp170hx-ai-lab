@@ -503,6 +503,14 @@
       "result": "Five same-BF16-checkpoint model runs generated35 responses: TP2/PP2 native-auto and P2P-disabled, plus CMP64 alone. Effective two-GPU transport is SHM.",
       "limit": "No direct application P2P performance, formal quality, long stability or additional capacity result.",
       "interpretation": "docs/model-parallel.md"
+    },
+    {
+      "id": "stage134",
+      "date": "2026-10-19",
+      "evidence_level": "observed",
+      "result": "Maximum native P2P distance with SHM disabled selects NET/Socket in both directions; a require-direct guard rejects it before payload/model work.",
+      "limit": "No payload collective, new model benchmark, capability bypass or application P2P result; matching upstream contracts inspected separately.",
+      "interpretation": "docs/model-parallel.md"
     }
   ],
   "campaign_result": {
